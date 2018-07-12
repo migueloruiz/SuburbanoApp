@@ -1,0 +1,137 @@
+[
+    {
+        "title": "Talleres Sabatinos",
+        "descripcion": "Talleres sabatinos de&nbsp;rob&oacute;tica, tejido, migaj&oacute;n, ajedrez, etc.",
+        "startDate": "2018-07-01",
+        "endDate": "2018-07-31",
+        "schedule": "11:00 - 17:00",
+        "category": "tallere",
+        "loaction": "Lobby de la Estación Buenavista"
+    },
+    {
+        "title": "Área lúdica de juegos",
+        "descripcion": "Ven y disfruta con tu familia todos los viernes del mes en nuestra &aacute;rea de juegos:\r\n*Zona de videojuegos\r\n*&Aacute;rea&nbsp; de juegos de mesa\r\n*Juegos paraarmar&nbsp;",
+        "startDate": "2018-07-01",
+        "endDate": "2018-07-31",
+        "schedule": "14:00 - 20:00",
+        "category": "especiale",
+        "loaction": "Lobby de la Estación Buenavista"
+    },
+    {
+        "title": "Área lúdica de juegos",
+        "descripcion": "Ven y disfruta con tu familia todos los s&aacute;bados y domingos del mes en nuestra &aacute;rea de juegos:\r\n*Zona de videojuegos\r\n*&Aacute;rea&nbsp; de juegos de mesa\r\n*Juegos para armar&nbsp;",
+        "startDate": "2018-07-01",
+        "endDate": "2018-07-31",
+        "schedule": "11:00 - 17:00",
+        "category": "especiale",
+        "loaction": "Lobby de la Estación Buenavista"
+    },
+    {
+        "title": "Feria de de Novedades y Detalles ",
+        "descripcion": "Venta de regalos, ropa, calzado, bisuter&iacute;a, discos, dulces y mucho m&aacute;s...",
+        "startDate": "2018-07-10",
+        "endDate": "2018-07-20",
+        "schedule": "10:00 - 22:00",
+        "category": "feria",
+        "loaction": "Hall de la Estación Buenavista "
+    },
+    {
+        "title": "Orquesta sinfónica ",
+        "descripcion": "La orquesta sinf&oacute;nica de la d<span class=\"st\">elegaci&oacute;n Cuauht&eacute;moc.",
+        "startDate": "2018-07-11",
+        "endDate": "2018-07-11",
+        "schedule": "18:00 - 19:00",
+        "category": "especiale",
+        "loaction": "Lobby de la Estación Buenavista"
+    },
+    {
+        "title": "Z Prodrucciones",
+        "descripcion": "TARDE ROMANTICA con la ROCKHOLA (temas viejitas pero bonitas) y al tenor FAUSTO VILLAGR&Aacute;N (cantando su mas reciente cd)",
+        "startDate": "2018-07-12",
+        "endDate": "2018-07-12",
+        "schedule": "17:00 - 20:00",
+        "category": "concierto",
+        "loaction": "Lobby de la Estación Buenavista"
+    },
+    {
+        "title": "Anime",
+        "descripcion": "Cumbia para bailar con Changor&aacute;mico. Grupo Telonero: Las guapachosas.",
+        "startDate": "2018-07-13",
+        "endDate": "2018-07-13",
+        "schedule": "13:00 - 16:30",
+        "category": "concierto",
+        "loaction": "Lobby de la Estación Buenavista"
+    },
+    {
+        "title": "Z Prodrucciones",
+        "descripcion": "TARDE DE BLUES con: GIA SOUND&nbsp; and FRIENDS.",
+        "startDate": "2018-07-13",
+        "endDate": "2018-07-13",
+        "schedule": "17:00 - 20:00",
+        "category": "concierto",
+        "loaction": "Lobby de la Estación Buenavista"
+    },
+    {
+        "title": "Z Prodrucciones",
+        "descripcion": "ROCK X M&Eacute;XICO: ERRE O, TRIOLE (argentina), COCTEL INTERGALACTICO y m&aacute;s...",
+        "startDate": "2018-07-19",
+        "endDate": "2018-07-19",
+        "schedule": "17:00 - 20:00",
+        "category": "concierto",
+        "loaction": "Lobby de la Estación Buenavista"
+    },
+    {
+        "title": "Anime",
+        "descripcion": "Selectivos grupos coreogr&aacute;ficos Convenci&oacute;n de c&oacute;mics.",
+        "startDate": "2018-07-20",
+        "endDate": "2018-07-20",
+        "schedule": "13:00 - 16:30",
+        "category": "concierto",
+        "loaction": "Hall de la Estación Buenavista "
+    },
+    {
+        "title": "Z Prodrucciones",
+        "descripcion": "TARDE de &Oacute;PERA con el ENSAMBLE VOCAL INCANTO (&oacute;pera cl&aacute;sica, &oacute;pera rock, balada pop, napolitana y m&aacute;s...",
+        "startDate": "2018-07-20",
+        "endDate": "2018-07-20",
+        "schedule": "17:00 - 20:00",
+        "category": "concierto",
+        "loaction": "Lobby de la Estación Buenavista"
+    },
+    {
+        "title": "Feria de Artesanos",
+        "descripcion": "Venta de regalos, ropa, calzado, bisuter&iacute;a, discos, dulces y mucho m&aacute;s...",
+        "startDate": "2018-07-22",
+        "endDate": "2018-08-02",
+        "schedule": "10:00 - 22:00",
+        "category": "feria",
+        "loaction": "Hall de la Estación Buenavista "
+    },
+    {
+        "title": "Z Prodrucciones",
+        "descripcion": "TARDE de OLDIES con el grupo OLDIES ROCK MUSIC (M&uacute;sica de 60s 70s 80s y mas...)",
+        "startDate": "2018-07-26",
+        "endDate": "2018-07-26",
+        "schedule": "08:00 - 08:00",
+        "category": "concierto",
+        "loaction": "Lobby de la Estación Buenavista"
+    },
+    {
+        "title": "Anime",
+        "descripcion": "Selectivos grupos coreogr&aacute;ficos Convenci&oacute;n de c&oacute;mics.",
+        "startDate": "2018-07-27",
+        "endDate": "2018-07-27",
+        "schedule": "13:00 - 16:30",
+        "category": "concierto",
+        "loaction": "Lobby de la Estación Buenavista"
+    },
+    {
+        "title": "Z Prodrucciones",
+        "descripcion": "TRIO LOS ROM&Aacute;NTICOS DE TLALNE (Boleros rom&aacute;nticos) y LA RONDALLA NOCTURNAL (Temas cl&aacute;sicos para recordar)",
+        "startDate": "2018-07-27",
+        "endDate": "2018-07-27",
+        "schedule": "17:00 - 20:00",
+        "category": "concierto",
+        "loaction": "Lobby de la Estación Buenavista"
+    }
+]

@@ -32,8 +32,6 @@
 		8621A2E520F6FE0A00A2D8B1 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680A20F0532A00A6B17A /* AppIcon.xcassets */; };
 		8621A2E620F6FE0A00A2D8B1 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680420F01F7D00A6B17A /* mapStyle.json */; };
 		8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A2ED20F7026400A2D8B1 /* AppConstants.swift */; };
-		8621A30220F7084D00A2D8B1 /* SwiftyUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8621A30020F7084B00A2D8B1 /* SwiftyUserDefaults.framework */; };
-		8621A30320F7084D00A2D8B1 /* SwiftyUserDefaults.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8621A30020F7084B00A2D8B1 /* SwiftyUserDefaults.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8621A30520F708D400A2D8B1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 868D008C20F00FFF00C9D8B1 /* Info.plist */; };
 		8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30620F70C2E00A2D8B1 /* BaseService.swift */; };
 		8621A30C20F70DDB00A2D8B1 /* ActivitysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30B20F70DDB00A2D8B1 /* ActivitysService.swift */; };
@@ -50,7 +48,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8621A30320F7084D00A2D8B1 /* SwiftyUserDefaults.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,9 +57,7 @@
 /* Begin PBXFileReference section */
 		8621A2C920F6FC2700A2D8B1 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		8621A2EB20F6FE0A00A2D8B1 /* suburbano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suburbano.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8621A2EC20F6FE0B00A2D8B1 /* suburbano copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "suburbano copy-Info.plist"; path = "/Users/miguelruiz/Desktop/suburbapp/suburbano/suburbano copy-Info.plist"; sourceTree = "<absolute>"; };
 		8621A2ED20F7026400A2D8B1 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		8621A30020F7084B00A2D8B1 /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUserDefaults.framework; path = Carthage/Build/iOS/SwiftyUserDefaults.framework; sourceTree = "<group>"; };
 		8621A30620F70C2E00A2D8B1 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		8621A30B20F70DDB00A2D8B1 /* ActivitysService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitysService.swift; sourceTree = "<group>"; };
 		8621A30D20F70DF900A2D8B1 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -105,7 +100,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8621A2DF20F6FE0A00A2D8B1 /* Mapbox.framework in Frameworks */,
-				8621A30220F7084D00A2D8B1 /* SwiftyUserDefaults.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +158,6 @@
 				868D009F20F00FFF00C9D8B1 /* suburbanoUITests */,
 				868D007E20F00FFE00C9D8B1 /* Products */,
 				868D00AF20F014F900C9D8B1 /* Frameworks */,
-				8621A2EC20F6FE0B00A2D8B1 /* suburbano copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,7 +205,6 @@
 		868D00AF20F014F900C9D8B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8621A30020F7084B00A2D8B1 /* SwiftyUserDefaults.framework */,
 				868D00B020F014F900C9D8B1 /* Mapbox.framework */,
 			);
 			name = Frameworks;
@@ -543,6 +535,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Mapbox.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyUserDefaults.framework",
 			);
 			outputPaths = (
 			);

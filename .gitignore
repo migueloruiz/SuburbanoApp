@@ -8,6 +8,8 @@
 # Carthage/Checkouts
 
 Carthage/Build
+suburbano/Carthage/Build
+suburbano/Carthage/Checkouts
 
 ### macOS ###
 # General

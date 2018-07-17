@@ -18,16 +18,21 @@
 // 	"Lugar": "Lobby de la Estaci\u00f3n Buenavista"
 // }
 
+const Entities = require('html-entities').AllHtmlEntities;
+const entities = new Entities();
+
 function sanitize(text) {
+    text = entities.decode(text)
     let cleaners = [
-        /<(\/)?\w{0,20}>/g,
-        " presenta:"
+        " presenta:",
+        /\s+?class="[\w\s]+"[\s+]?/g,
+        /<(\/)?\w{0,20}>/g
     ]
     return cleaners.reduce((result, cleaner) => {
         return result.replace(cleaner, "")
-    }, text);
+        
+    }, text)
 }
-
 
 var categoria = {
     "0": "concierto",
@@ -43,7 +48,8 @@ request('https://app.fsuburbanos.com/suburbano/mobileMethods/Eventos.php?usr=sub
   console.log('error:', error)
   console.log('statusCode:', response && response.statusCode)
   JSON.parse(body).forEach(element => {
-    events.push({
+    let data = {
+        id: sanitize(element.IdEvento),
         title: sanitize(element.Titulo),
         descripcion: sanitize(element.Descripcion),
         startDate: element.Fecha,
@@ -51,7 +57,8 @@ request('https://app.fsuburbanos.com/suburbano/mobileMethods/Eventos.php?usr=sub
         schedule: `${element.hora}:${element.minutos} - ${element.hora2}:${element.minutos2}`,
         category: categoria[element.categoria],
         loaction: element.Lugar
-    })
+    }
+    events.push(data)
   })
   console.log(JSON.stringify(events))
 })

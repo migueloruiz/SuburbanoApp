@@ -34,10 +34,18 @@
 		8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A2ED20F7026400A2D8B1 /* AppConstants.swift */; };
 		8621A30520F708D400A2D8B1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 868D008C20F00FFF00C9D8B1 /* Info.plist */; };
 		8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30620F70C2E00A2D8B1 /* BaseService.swift */; };
-		8621A30C20F70DDB00A2D8B1 /* ActivitysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30B20F70DDB00A2D8B1 /* ActivitysService.swift */; };
+		8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30B20F70DDB00A2D8B1 /* ActivitiesWebService.swift */; };
 		8621A30E20F70DF900A2D8B1 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30D20F70DF900A2D8B1 /* Activity.swift */; };
 		8621A31020F7107000A2D8B1 /* DecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30F20F7107000A2D8B1 /* DecodingError.swift */; };
 		862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517CB20F84D2F002F2048 /* RealmHandler.swift */; };
+		862517CF20FD6E94002F2048 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517CE20FD6E94002F2048 /* UseCase.swift */; };
+		862517D120FD6ED0002F2048 /* UseCaseLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D020FD6ED0002F2048 /* UseCaseLocator.swift */; };
+		862517D420FD7071002F2048 /* ActivitiesUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D320FD7071002F2048 /* ActivitiesUseCaseImpl.swift */; };
+		862517D820FD70D9002F2048 /* ActivitiesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D720FD70D9002F2048 /* ActivitiesUseCase.swift */; };
+		862517DA20FD7851002F2048 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D920FD7851002F2048 /* ErrorResponse.swift */; };
+		862517E220FD7A32002F2048 /* RepositoryRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E120FD7A32002F2048 /* RepositoryRealm.swift */; };
+		862517E420FD7FB6002F2048 /* ActivitiesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E320FD7FB6002F2048 /* ActivitiesRepository.swift */; };
+		862517E720FD8001002F2048 /* RealmActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E620FD8001002F2048 /* RealmActivity.swift */; };
 		868D009620F00FFF00C9D8B1 /* suburbanoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D009520F00FFF00C9D8B1 /* suburbanoTests.swift */; };
 		868D00A120F00FFF00C9D8B1 /* suburbanoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D00A020F00FFF00C9D8B1 /* suburbanoUITests.swift */; };
 /* End PBXBuildFile section */
@@ -60,10 +68,18 @@
 		8621A2EB20F6FE0A00A2D8B1 /* suburbano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suburbano.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8621A2ED20F7026400A2D8B1 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		8621A30620F70C2E00A2D8B1 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
-		8621A30B20F70DDB00A2D8B1 /* ActivitysService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitysService.swift; sourceTree = "<group>"; };
+		8621A30B20F70DDB00A2D8B1 /* ActivitiesWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesWebService.swift; sourceTree = "<group>"; };
 		8621A30D20F70DF900A2D8B1 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		8621A30F20F7107000A2D8B1 /* DecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingError.swift; sourceTree = "<group>"; };
 		862517CB20F84D2F002F2048 /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
+		862517CE20FD6E94002F2048 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		862517D020FD6ED0002F2048 /* UseCaseLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseLocator.swift; sourceTree = "<group>"; };
+		862517D320FD7071002F2048 /* ActivitiesUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesUseCaseImpl.swift; sourceTree = "<group>"; };
+		862517D720FD70D9002F2048 /* ActivitiesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesUseCase.swift; sourceTree = "<group>"; };
+		862517D920FD7851002F2048 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		862517E120FD7A32002F2048 /* RepositoryRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRealm.swift; sourceTree = "<group>"; };
+		862517E320FD7FB6002F2048 /* ActivitiesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesRepository.swift; sourceTree = "<group>"; };
+		862517E620FD8001002F2048 /* RealmActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmActivity.swift; sourceTree = "<group>"; };
 		86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceSynchronizerAppDelegate.swift; sourceTree = "<group>"; };
 		86695E1E20F6D50600F74150 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		86695E2020F6E65900F74150 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
@@ -138,6 +154,7 @@
 				8621A30620F70C2E00A2D8B1 /* BaseService.swift */,
 				86695E1E20F6D50600F74150 /* Endpoints.swift */,
 				8621A30F20F7107000A2D8B1 /* DecodingError.swift */,
+				862517D920FD7851002F2048 /* ErrorResponse.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -145,25 +162,68 @@
 		862517C920F849CF002F2048 /* Data Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				862517CA20F84A27002F2048 /* Realm */,
+				862517CA20F84A27002F2048 /* RepositoryRealm */,
 				8621A2C820F6FBDB00A2D8B1 /* UserDefaults */,
 			);
 			path = "Data Persistence";
 			sourceTree = "<group>";
 		};
-		862517CA20F84A27002F2048 /* Realm */ = {
+		862517CA20F84A27002F2048 /* RepositoryRealm */ = {
 			isa = PBXGroup;
 			children = (
+				862517E120FD7A32002F2048 /* RepositoryRealm.swift */,
 				862517CB20F84D2F002F2048 /* RealmHandler.swift */,
 			);
-			path = Realm;
+			path = RepositoryRealm;
+			sourceTree = "<group>";
+		};
+		862517CD20FD6D62002F2048 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				862517D020FD6ED0002F2048 /* UseCaseLocator.swift */,
+				862517CE20FD6E94002F2048 /* UseCase.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		862517D520FD709A002F2048 /* Abstractions */ = {
+			isa = PBXGroup;
+			children = (
+				862517D720FD70D9002F2048 /* ActivitiesUseCase.swift */,
+			);
+			path = Abstractions;
+			sourceTree = "<group>";
+		};
+		862517D620FD70B3002F2048 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				862517D320FD7071002F2048 /* ActivitiesUseCaseImpl.swift */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		862517DB20FD7965002F2048 /* Reposotory */ = {
+			isa = PBXGroup;
+			children = (
+				862517E320FD7FB6002F2048 /* ActivitiesRepository.swift */,
+			);
+			path = Reposotory;
+			sourceTree = "<group>";
+		};
+		862517E520FD7FE6002F2048 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				8621A30D20F70DF900A2D8B1 /* Activity.swift */,
+				862517E620FD8001002F2048 /* RealmActivity.swift */,
+			);
+			path = Activity;
 			sourceTree = "<group>";
 		};
 		86695E1D20F6D3F900F74150 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				8621A30A20F70D8C00A2D8B1 /* Base */,
-				8621A30B20F70DDB00A2D8B1 /* ActivitysService.swift */,
+				8621A30B20F70DDB00A2D8B1 /* ActivitiesWebService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -195,8 +255,8 @@
 			children = (
 				86C0681220F4140E00A6B17A /* AppDelegates */,
 				86C0681620F4154F00A6B17A /* Common */,
-				86C0681E20F4168C00A6B17A /* Cordinatos */,
 				86C0681420F4150C00A6B17A /* Core */,
+				86C0681E20F4168C00A6B17A /* Cordinatos */,
 				86C0681520F4152300A6B17A /* Presenters */,
 				86C0680F20F413D000A6B17A /* Views */,
 			);
@@ -261,6 +321,9 @@
 		86C0680D20F413A000A6B17A /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				862517D620FD70B3002F2048 /* Implementations */,
+				862517D520FD709A002F2048 /* Abstractions */,
+				862517CD20FD6D62002F2048 /* Base */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -305,7 +368,7 @@
 		86C0681320F4147800A6B17A /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				8621A30D20F70DF900A2D8B1 /* Activity.swift */,
+				862517E520FD7FE6002F2048 /* Activity */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -314,9 +377,10 @@
 			isa = PBXGroup;
 			children = (
 				862517C920F849CF002F2048 /* Data Persistence */,
+				862517DB20FD7965002F2048 /* Reposotory */,
+				86C0680D20F413A000A6B17A /* UseCases */,
 				86695E1D20F6D3F900F74150 /* Networking */,
 				86C0681320F4147800A6B17A /* Entities */,
-				86C0680D20F413A000A6B17A /* UseCases */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -334,7 +398,6 @@
 			children = (
 				868D00B220F0167400C9D8B1 /* Assets */,
 				86C0681820F4158000A6B17A /* Constatns */,
-				86C0681920F4158C00A6B17A /* Protocols */,
 				86C0681C20F415FC00A6B17A /* Type Extensions */,
 				86C0681B20F415B500A6B17A /* Utils */,
 			);
@@ -348,13 +411,6 @@
 				8621A2ED20F7026400A2D8B1 /* AppConstants.swift */,
 			);
 			path = Constatns;
-			sourceTree = "<group>";
-		};
-		86C0681920F4158C00A6B17A /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		86C0681B20F415B500A6B17A /* Utils */ = {
@@ -571,29 +627,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				862517D120FD6ED0002F2048 /* UseCaseLocator.swift in Sources */,
 				8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */,
 				8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */,
+				862517D820FD70D9002F2048 /* ActivitiesUseCase.swift in Sources */,
 				8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */,
 				8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
-				8621A30C20F70DDB00A2D8B1 /* ActivitysService.swift in Sources */,
+				8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */,
 				8621A2D020F6FE0A00A2D8B1 /* StationsMapViewController.swift in Sources */,
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,
 				8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */,
+				862517CF20FD6E94002F2048 /* UseCase.swift in Sources */,
 				8621A2D320F6FE0A00A2D8B1 /* WebResources.swift in Sources */,
 				8621A2D420F6FE0A00A2D8B1 /* RequestFactory.swift in Sources */,
 				8621A2D520F6FE0A00A2D8B1 /* MapViewFactory.swift in Sources */,
 				8621A2D620F6FE0A00A2D8B1 /* UIColor.swift in Sources */,
 				8621A2D720F6FE0A00A2D8B1 /* StationsMapPresenter.swift in Sources */,
+				862517E220FD7A32002F2048 /* RepositoryRealm.swift in Sources */,
 				8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */,
 				8621A2D820F6FE0A00A2D8B1 /* Utils.swift in Sources */,
+				862517D420FD7071002F2048 /* ActivitiesUseCaseImpl.swift in Sources */,
+				862517E420FD7FB6002F2048 /* ActivitiesRepository.swift in Sources */,
 				8621A2D920F6FE0A00A2D8B1 /* Endpoints.swift in Sources */,
 				8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */,
 				8621A30E20F70DF900A2D8B1 /* Activity.swift in Sources */,
 				8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */,
 				8621A2DD20F6FE0A00A2D8B1 /* DefaultsKeys.swift in Sources */,
+				862517E720FD8001002F2048 /* RealmActivity.swift in Sources */,
 				8621A31020F7107000A2D8B1 /* DecodingError.swift in Sources */,
+				862517DA20FD7851002F2048 /* ErrorResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

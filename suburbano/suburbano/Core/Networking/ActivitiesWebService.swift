@@ -1,5 +1,5 @@
 //
-//  ActivitysService.swift
+//  ActivitiesWebService.swoft
 //  suburbano
 //
 //  Created by Miguel Ruiz on 11/07/18.
@@ -8,8 +8,12 @@
 
 import Foundation
 
-class SymbolsWebService: BaseService<Activity> {
-    func getEvents(completion: @escaping (ServiceResponse<Activity>) -> Void) {
+protocol ActivitiesWebService {
+     func getActivities(completion: @escaping (ServiceResponse<Activity>) -> Void)
+}
+
+class ActivitiesWebServiceImpl: BaseService<Activity>, ActivitiesWebService {
+    func getActivities(completion: @escaping (ServiceResponse<Activity>) -> Void) {
         let request = RequestFactory.make(.get, endoint: Endpoints.GeneralResource(resource: WebResources.Events))
         make(request: request!, completion: completion)
     }

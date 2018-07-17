@@ -11,7 +11,7 @@ import UIKit
 final class ResourceSynchronizerAppDelegate: NSObject, UIApplicationDelegate {
     
     static let shared = ResourceSynchronizerAppDelegate()
-    let service = SymbolsWebService()
+    let service = ActivitiesUseCaseImpl(activitiesWebService: ActivitiesWebServiceImpl(), activitiesRepository: ActivitiesRepository())
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         syncResourse()
@@ -20,18 +20,6 @@ final class ResourceSynchronizerAppDelegate: NSObject, UIApplicationDelegate {
 
 extension ResourceSynchronizerAppDelegate {
     func syncResourse() {
-        service.getEvents { response in
-            switch response {
-            case .success(let data, let headers):
-                print(headers)
-                for symbol in data {
-                    print(symbol)
-                }
-            case .failure(let error):
-                print(error)
-            case .notConnectedToInternet:
-                print("notConnectedToInternet")
-            }
-        }
+        service.load()
     }
 }

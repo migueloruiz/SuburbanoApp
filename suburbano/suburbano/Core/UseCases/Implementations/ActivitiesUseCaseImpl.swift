@@ -24,11 +24,8 @@ class ActivitiesUseCaseImpl: ActivitiesUseCase {
             guard let strongSelf = self else { return }
             switch response {
             case .success(let activities, _):
+                strongSelf.activitiesRepository.deleteAll()
                 strongSelf.activitiesRepository.add(objects: activities)
-                
-                strongSelf.get().forEach({ activity in
-                    print(activity)
-                })
             case .failure(let error):
                 print(error)
                 return

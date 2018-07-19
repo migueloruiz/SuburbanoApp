@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol LoadActivities {
+protocol LoadActivitiesUseCase {
     func load()
 }
 
-protocol GetActivities {
+protocol GetActivitiesUseCase {
     func get() -> [Activity]
 }
 
-protocol ActivitiesUseCase: LoadActivities, GetActivities {}
+protocol ActivitiesUseCase: LoadActivitiesUseCase, GetActivitiesUseCase {}

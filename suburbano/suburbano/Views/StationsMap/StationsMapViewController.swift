@@ -24,6 +24,7 @@ protocol StationsMapViewControllerDelegate: class {
 }
 
 class StationsMapViewController: UIViewController {
+    
     lazy var mapView: MGLMapView = MapViewFactory.create(frame: view.frame, initilConfiguration: mapConfiguration)
     let mapBounds: MGLCoordinateBounds
     let mapConfiguration: MapInitialConfiguration

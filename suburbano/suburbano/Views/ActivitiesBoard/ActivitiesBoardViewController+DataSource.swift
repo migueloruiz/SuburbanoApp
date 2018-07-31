@@ -12,6 +12,7 @@ extension ActivitiesBoardViewController: UITableViewDataSource, UITableViewDeleg
     func configureTable() {
         activitiesTable.dataSource = self
         activitiesTable.delegate = self
+        activitiesTable.separatorStyle = .none
         activitiesTable.rowHeight = UITableViewAutomaticDimension
         activitiesTable.register(AcvtivityCell.self, forCellReuseIdentifier: AcvtivityCell.reuseIdentifier)
         activitiesTable.reloadData()
@@ -25,17 +26,16 @@ extension ActivitiesBoardViewController: UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AcvtivityCell.reuseIdentifier) as? AcvtivityCell else { return UITableViewCell() }
-        cell.configure(with: presenter.activity(at: indexPath))
+        cell.configure(with: presenter.activity(at: indexPath), delegate: self)
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
+}
 
+extension ActivitiesBoardViewController: AcvtivityCellDelegate {
+    func sheduleActivity(withId id: String) {
+        guard let activity = presenter.getActivity(withId: id) else { return }
+        delegate?.presentScheduleView(activity: activity)
+    }
+    
+    func shareActivity(withId id: String) {}
 }

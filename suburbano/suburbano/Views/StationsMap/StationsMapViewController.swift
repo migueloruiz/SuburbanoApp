@@ -32,7 +32,7 @@ class StationsMapViewController: UIViewController {
     weak var delegate: StationsMapViewControllerDelegate?
     
     struct Constants {
-        static let railRoadColor: UIColor = .drakGray
+        static let railRoadColor: UIColor = Theme.Pallete.softGray
         static let railRoadWith: CGFloat = 8
     }
     

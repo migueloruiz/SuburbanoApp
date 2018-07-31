@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import EventKitUI
 
 class ActivitiesBoardViewController: UIViewController {
     
     let presenter: ActivitiesBoardPresenter
+    weak var delegate: PresentScheduleViewDelegate?
     
-    init(activitiesBoardPresenter: ActivitiesBoardPresenter) {
+    init(activitiesBoardPresenter: ActivitiesBoardPresenter, delegate: PresentScheduleViewDelegate) {
         presenter = activitiesBoardPresenter
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,11 +44,8 @@ class ActivitiesBoardViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubViews([slectionView, activitiesTable])
         
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(ActivitiesBoardViewController.remove))
         slectionView.addGestureRecognizer(tap)
-        
-        
         slectionView.anchor(top: view.topAnchor,
                             left: view.leftAnchor,
                             bottom: activitiesTable.topAnchor,
@@ -58,15 +58,23 @@ class ActivitiesBoardViewController: UIViewController {
     }
     
     @objc func remove() {
-        
-//        let cell = activitiesTable.cellForRow(at: IndexPath(row: 1, section: 1))
         presenter.remove(index: 1)
         presenter.remove(index: 3)
         activitiesTable.beginUpdates()
         activitiesTable.deleteRows(at: [IndexPath(row: 1, section: 0)], with: .middle)
         activitiesTable.deleteRows(at: [IndexPath(row: 3, section: 0)], with: .fade)
         activitiesTable.endUpdates()
-        
-//        activitiesTable.insertRows(at: [IndexPath(row: 3, section: 1)], with: .middle)
+    }
+}
+
+extension ActivitiesBoardViewController: EKEventEditViewDelegate {
+    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+        switch action {
+        case .saved:
+            print("Saved")
+        default:
+            print("Deleted")
+        }
+        controller.dismiss(animated: true)
     }
 }

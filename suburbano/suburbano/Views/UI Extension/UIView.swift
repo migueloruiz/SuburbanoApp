@@ -10,6 +10,23 @@ import UIKit
 
 extension UIView {
     
+    // MARK: Drop Shadow
+    
+    func dropShadow(color: UIColor, opacity: Float = 0.7, offSet: CGSize = .zero, radius: CGFloat = 3) {
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = offSet
+        layer.shadowRadius = radius
+    }
+    
+    func roundCorners(withRadius radius: CGFloat = 8)  {
+        layer.cornerRadius = radius
+//        clipsToBounds = true
+    }
+    
+    
+    // MARK: Anchor Methos
+    
     func addSubViews(_ views: [UIView]) {
         views.forEach { addSubview($0)}
     }
@@ -61,6 +78,17 @@ extension UIView {
         anchors.forEach({$0.isActive = true})
         
         return anchors
+    }
+    
+    func center(x: NSLayoutXAxisAnchor?, y: NSLayoutYAxisAnchor?) {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let xAnchor = x {
+            centerXAnchor.constraint(equalTo: xAnchor, constant: 0).isActive = true
+        }
+        
+        if let yAnchor = y {
+            centerYAnchor.constraint(equalTo: yAnchor, constant: 0).isActive = true
+        }
     }
     
     func anchorCenterXToSuperview(constant: CGFloat = 0) {

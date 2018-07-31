@@ -9,11 +9,11 @@
 import Foundation
 
 enum Category: String {
-    case concierto = "concierto"
-    case tallere =  "tallere"
-    case feria = "feria"
-    case exposicione = "exposicione"
-    case especial = "especial"
+    case concert = "concert"
+    case workshop =  "workshop"
+    case fair = "fair"
+    case exhibition = "exhibition"
+    case special = "special"
     case none = ""
     
     static func getCategory(fromCategory category: String) -> Category {
@@ -25,22 +25,28 @@ protocol ActivityEntity {
     var id: String { get }
     var title: String { get }
     var descripcion: String { get }
-    var startDate: String { get }
-    var endDate: String? { get }
-    var schedule: String { get }
     var category: String { get }
     var loaction: String { get }
+    var displayDate: String { get }
+    var startHour: String { get }
+    var duration: Int { get }
+    var starDate: Int { get }
+    var endDate: Int { get }
+    var repeatEvent: String? { get }
 }
 
 struct Activity: ActivityEntity, Codable {
     let id: String
     let title: String
     let descripcion: String
-    let startDate: String
-    let endDate: String?
-    let schedule: String
     let category: String
     let loaction: String
+    let displayDate: String
+    let startHour: String
+    let duration: Int
+    let starDate: Int
+    let endDate: Int
+    let repeatEvent: String?
     
     var categoryType: Category {
         return Category.getCategory(fromCategory: category)
@@ -50,22 +56,28 @@ struct Activity: ActivityEntity, Codable {
         case id = "id"
         case title = "title"
         case descripcion = "descripcion"
-        case startDate = "startDate"
-        case endDate = "endDate"
-        case schedule = "schedule"
         case category = "category"
         case loaction = "loaction"
+        case displayDate = "displayDate"
+        case startHour = "startHour"
+        case duration = "duration"
+        case starDate = "starDate"
+        case endDate = "endDate"
+        case repeatEvent = "repeatEvent"
     }
     
-    init(id: String, title: String, descripcion: String, startDate: String, endDate: String?, schedule: String, category: String, loaction: String) {
+    init(id: String, title: String, descripcion: String, category: String, loaction: String, displayDate: String, startHour: String, duration: Int, starDate: Int, endDate: Int, repeatEvent: String?) {
         self.id = id
         self.title = title
         self.descripcion = descripcion
-        self.startDate = startDate
-        self.endDate = endDate
-        self.schedule = schedule
         self.category = category
         self.loaction = loaction
+        self.displayDate = displayDate
+        self.startHour = startHour
+        self.duration = duration
+        self.starDate = starDate
+        self.endDate = endDate
+        self.repeatEvent = repeatEvent
     }
     
     init(from decoder: Decoder) throws {
@@ -74,11 +86,14 @@ struct Activity: ActivityEntity, Codable {
             id = try values.decode(String.self, forKey: .id)
             title = try values.decode(String.self, forKey: .title)
             descripcion = try values.decode(String.self, forKey: .descripcion)
-            startDate = try values.decode(String.self, forKey: .startDate)
-            endDate = try values.decodeIfPresent(String.self, forKey: .endDate)
-            schedule = try values.decode(String.self, forKey: .schedule)
             category = try values.decode(String.self, forKey: .category)
             loaction = try values.decode(String.self, forKey: .loaction)
+            displayDate = try values.decode(String.self, forKey: .displayDate)
+            startHour = try values.decode(String.self, forKey: .startHour)
+            duration = try values.decode(Int.self, forKey: .duration)
+            starDate = try values.decode(Int.self, forKey: .starDate)
+            endDate = try values.decode(Int.self, forKey: .endDate)
+            repeatEvent = try values.decodeIfPresent(String.self, forKey: .repeatEvent)
         } catch let jsonError {
             throw jsonError
         }

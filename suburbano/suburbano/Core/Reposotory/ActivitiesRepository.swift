@@ -48,13 +48,16 @@ class ActivitiesRepository: RepositoryRealm {
     
     func map(object: RealmActivity) -> Activity {
         return Activity(id: object.id,
-                 title: object.title,
-                 descripcion: object.descripcion,
-                 startDate: object.startDate,
-                 endDate: object.endDate,
-                 schedule: object.schedule,
-                 category: object.category,
-                 loaction: object.loaction)
+                        title: object.title,
+                        descripcion: object.descripcion,
+                        category: object.category,
+                        loaction: object.loaction,
+                        displayDate: object.displayDate,
+                        startHour: object.startHour,
+                        duration: object.duration,
+                        starDate: object.starDate,
+                        endDate: object.endDate,
+                        repeatEvent: object.repeatEvent)
     }
     
     func map(object: Activity) -> RealmActivity {
@@ -62,11 +65,14 @@ class ActivitiesRepository: RepositoryRealm {
         realmActivity.id = object.id
         realmActivity.title = object.title
         realmActivity.descripcion = object.descripcion
-        realmActivity.startDate = object.startDate
-        realmActivity.endDate = object.endDate
-        realmActivity.schedule = object.schedule
         realmActivity.category = object.category
         realmActivity.loaction = object.loaction
+        realmActivity.displayDate = object.displayDate
+        realmActivity.startHour = object.startHour
+        realmActivity.duration = object.duration
+        realmActivity.starDate = object.starDate
+        realmActivity.endDate = object.endDate
+        realmActivity.repeatEvent = object.repeatEvent
         return realmActivity
     }
 }

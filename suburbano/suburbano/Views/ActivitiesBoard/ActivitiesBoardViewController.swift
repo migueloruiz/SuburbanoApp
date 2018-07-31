@@ -31,9 +31,22 @@ class ActivitiesBoardViewController: UIViewController {
     
     lazy var slectionView: UIView = {
         let sv = UIView()
-        sv.backgroundColor = .cyan
+        sv.backgroundColor = Theme.Pallete.softRed
         return sv
     }()
+    
+    lazy var titleLable: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = Theme.Pallete.softRed
+        label.text = "EVENTOS"
+        let font2 = Font(size: Theme.FontSize.h1)
+        label.font = font2.defaultFont
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
+    }()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     override func viewDidLoad() {
         configureUI()
@@ -49,12 +62,14 @@ class ActivitiesBoardViewController: UIViewController {
         slectionView.anchor(top: view.topAnchor,
                             left: view.leftAnchor,
                             bottom: activitiesTable.topAnchor,
-                            right: view.rightAnchor,
-                            heightConstant: 100)
+                            right: view.rightAnchor)
         activitiesTable.anchor(top: slectionView.bottomAnchor,
                                left: view.leftAnchor,
                                bottom: view.bottomAnchor,
                                right: view.rightAnchor)
+        
+        slectionView.addSubview(titleLable)
+        titleLable.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: slectionView.leftAnchor, bottom: slectionView.bottomAnchor, right: slectionView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
     }
     
     @objc func remove() {

@@ -49,17 +49,61 @@ class SchedulCoordinator: Coordinator {
         event.title = activity.title
         event.location = activity.loaction
         event.calendar = eventStore.calendars(for: .event).first
-        let recurrence = EKRecurrenceRule(recurrenceWith: .weekly, interval: 1, daysOfTheWeek: nil, daysOfTheMonth: [7, 14, 21, 18], monthsOfTheYear: nil, weeksOfTheYear: nil, daysOfTheYear: nil, setPositions: nil, end: nil)
-        //            EKRecurrenceRule(recurrenceWith: .weekly, interval: 1, daysOfTheWeek: [EKRecurrenceDayOfWeek(.saturday)], daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil, daysOfTheYear: nil, setPositions: nil, end: nil)
         
-        event.addRecurrenceRule(recurrence)
+        let startDate = Date(timeIntervalSince1970: TimeInterval(activity.starDate))
+        event.startDate = startDate
+        event.endDate = Date(timeIntervalSince1970: TimeInterval(activity.starDate + (activity.duration/2)))
         event.addAlarm(EKAlarm(relativeOffset: -86400))
+        
+        if let repeatEvent = activity.repeatEvent {
+            let recurrenceDays = getRecurrenceDays(from: repeatEvent)
+            print(recurrenceDays)
+            let endDate = EKRecurrenceEnd(end: Date(timeIntervalSince1970: TimeInterval(activity.endDate)))
+            let recurrence = EKRecurrenceRule(recurrenceWith: .weekly, interval: 1, daysOfTheWeek: recurrenceDays, daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil, daysOfTheYear: nil, setPositions: nil, end: endDate)
+            event.addRecurrenceRule(recurrence)
+        }
         
         eventViewController?.eventStore = eventStore
         eventViewController?.event = event
         eventViewController?.editViewDelegate = previousController
         if let eventController = eventViewController {
             previousController?.present(eventController, animated: true, completion: nil)
+        }
+    }
+    
+    func getRecurrenceDays(from repeatEvent: String) -> [EKRecurrenceDayOfWeek] {
+        guard repeatEvent != "All" else {
+            return [
+                EKRecurrenceDayOfWeek(.monday),
+                EKRecurrenceDayOfWeek(.thursday),
+                EKRecurrenceDayOfWeek(.wednesday),
+                EKRecurrenceDayOfWeek(.tuesday),
+                EKRecurrenceDayOfWeek(.friday),
+                EKRecurrenceDayOfWeek(.saturday),
+                EKRecurrenceDayOfWeek(.sunday),
+            ]
+        }
+        let repeatDays = repeatEvent.components(separatedBy: ",")
+        var recurrenceDays: [EKRecurrenceDayOfWeek] = []
+        
+        for day in repeatDays {
+            guard let weekDay = weakDay(from: day) else { continue }
+            recurrenceDays.append(EKRecurrenceDayOfWeek(weekDay))
+        }
+        
+        return recurrenceDays
+    }
+    
+    func weakDay(from day: String) -> EKWeekday? {
+        switch day {
+        case "Monday": return .monday
+        case "Tuesday": return .tuesday
+        case "Wednesday": return .wednesday
+        case "Thursday": return .thursday
+        case "Friday": return .friday
+        case "Saturday": return .saturday
+        case "Sunday": return .sunday
+        default: return nil
         }
     }
 }

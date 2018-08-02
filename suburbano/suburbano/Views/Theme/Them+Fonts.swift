@@ -43,4 +43,31 @@ struct Font {
         default: return size.rawValue + extraLargeFactor
         }
     }
+    
+    static func getScaledFont(forFont name: String, textStyle: UIFontTextStyle) -> UIFont {
+        
+        /// Uncomment the code below to check all the available fonts and have them printed in the console to double check the font name with existing fonts 😉
+        
+        /*for family: String in UIFont.familyNames
+         {
+         print("\(family)")
+         for names: String in UIFont.fontNames(forFamilyName: family)
+         {
+         print("== \(names)")
+         }
+         }*/
+        
+        
+        let userFont =  UIFontDescriptor.preferredFontDescriptor(withTextStyle: textStyle)
+        let pointSize = userFont.pointSize
+        guard let customFont = UIFont(name: name, size: 12) else {
+            fatalError("""
+                Failed to load the "\(name)" font.
+                Make sure the font file is included in the project and the font name is spelled correctly.
+                """
+            )
+        }
+        
+        return UIFontMetrics.default.scaledFont(for: customFont, maximumPointSize: 16)
+    }
 }

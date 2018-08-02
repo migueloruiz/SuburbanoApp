@@ -26,7 +26,6 @@ class AcvtivityCell: UITableViewCell, ReusableIdentifier {
     
     weak var delegate: AcvtivityCellDelegate?
     
-    private let contanerView = UIView()
     private let titleLabel = UILabel()
     private let descripcionLabel = UILabel()
     private let dateLabel = UILabel()
@@ -60,72 +59,79 @@ class AcvtivityCell: UITableViewCell, ReusableIdentifier {
     
     private func configureUI() {
         selectionStyle = .none
+        backgroundColor = .white
+        accessibilityTraits = UIAccessibilityTraitNotEnabled
         
-        backgroundColor = .clear
+        let contanerView = UIStackView.with(axis: .vertical, distribution: .fill, spacing: Theme.Offset.normal)
+        contanerView.backgroundColor = .red
+        contanerView.layoutMargins = UIEdgeInsets.with(vertical: Theme.Offset.normal, horizoltal: Theme.Offset.large)
+        contanerView.isLayoutMarginsRelativeArrangement = true
         
-        contanerView.backgroundColor = .white
+        let shadowView = UIView()
+        shadowView.roundCorners()
+        shadowView.backgroundColor = .white
+        shadowView.dropShadow(color: .black, offSet: CGSize(width: 2, height: 2))
         
-        addSubViews([contanerView])
-        contanerView.roundCorners()
-        contanerView.dropShadow(color: .black, offSet: CGSize(width: 2, height: 2))
-        contanerView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
-        
-        calendarImage.image = #imageLiteral(resourceName: "calendar")
-        clockImage.image = #imageLiteral(resourceName: "clock")
-        contanerView.addSubViews([titleLabel, descripcionLabel, dateLabel, scheduleLabel, calendarImage, clockImage, bottomLineImage, lineSeparator, scheduleButton, shareButton])
-        
-        titleLabel.anchor(top: contanerView.topAnchor, left:  contanerView.leftAnchor, right: contanerView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
+        addSubViews([shadowView, bottomLineImage])
+        shadowView.fillSuperview(verticalOffset: Theme.Offset.normal, horizontalOffset: Theme.Offset.normal)
+        shadowView.addSubview(contanerView)
+        contanerView.fillSuperview()
+        bottomLineImage.anchor(left: shadowView.leftAnchor, bottom: shadowView.bottomAnchor, right: shadowView.rightAnchor)
+        bottomLineImage.image = #imageLiteral(resourceName: "BottomLineCard").resizableImage(withCapInsets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8), resizingMode: .stretch)
+            .withRenderingMode(.alwaysTemplate)
         
         let font = Font()
         titleLabel.font = font.defaultFont
         titleLabel.textColor = Theme.Pallete.darkGray
         titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .left
         
+        calendarImage.image = #imageLiteral(resourceName: "calendar")
+        calendarImage.anchor(widthConstant: 15, heightConstant: 15)
         let font3 = Font(size: Theme.FontSize.p, name: .openSansCondensed, style: .bold)
-        calendarImage.anchor(left: titleLabel.leftAnchor, widthConstant: 15, heightConstant: 15)
-        dateLabel.center(x: nil, y: calendarImage.centerYAnchor)
-        dateLabel.anchor(top: titleLabel.bottomAnchor, left: calendarImage.rightAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.small)
         dateLabel.numberOfLines = 0
         dateLabel.font = font3.defaultFont
         dateLabel.textColor = Theme.Pallete.darkGray
-        
-        clockImage.center(x: nil, y: calendarImage.centerYAnchor)
-        clockImage.anchor(left: dateLabel.rightAnchor, leftConstant: Theme.Offset.normal, widthConstant: 15, heightConstant: 15)
-        scheduleLabel.center(x: nil, y: calendarImage.centerYAnchor)
-        scheduleLabel.anchor(left: clockImage.rightAnchor, leftConstant: Theme.Offset.small)
+        clockImage.image = #imageLiteral(resourceName: "clock")
+        clockImage.anchor(widthConstant: 15, heightConstant: 15)
         scheduleLabel.numberOfLines = 0
         scheduleLabel.font = font3.defaultFont
         scheduleLabel.textColor = Theme.Pallete.darkGray
         
-        descripcionLabel.anchor(top: dateLabel.bottomAnchor, left: titleLabel.leftAnchor, right: titleLabel.rightAnchor, topConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.large)
+        let dateStack = UIStackView.with(distribution: .fill, alignment: .center, spacing: Theme.Offset.small)
+        dateStack.addArranged(subViews: [calendarImage, dateLabel, clockImage, scheduleLabel])
+        
         descripcionLabel.numberOfLines = 0
         let font2 = Font(size: Theme.FontSize.p)
-        descripcionLabel.font = font2.defaultFont
+        descripcionLabel.font = Font.getScaledFont(forFont: Theme.FontName.montserrat.rawValue, textStyle: .body)
+        descripcionLabel.minimumScaleFactor = 10
         descripcionLabel.textColor = Theme.Pallete.softGray
+        descripcionLabel.adjustsFontSizeToFitWidth = true
+        descripcionLabel.adjustsFontForContentSizeCategory = true
         
         scheduleButton.setTitle("Angendar", for: .normal)
         scheduleButton.setTitle("Angendar", for: .focused)
         scheduleButton.setTitleColor(Theme.Pallete.darkGray, for: .normal)
         scheduleButton.titleLabel?.textColor = Theme.Pallete.softGray
         scheduleButton.titleLabel?.font = font2.defaultFont
-        scheduleButton.anchor(top: descripcionLabel.bottomAnchor, left: contanerView.leftAnchor, bottom: contanerView.bottomAnchor, right: lineSeparator.leftAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.normal)
         scheduleButton.addTarget(self, action: #selector(AcvtivityCell.sheduleActivity), for: .touchUpInside)
         
         lineSeparator.backgroundColor = Theme.Pallete.softGray.withAlphaComponent(0.5)
-        lineSeparator.center(x: contanerView.centerXAnchor, y: nil)
         lineSeparator.roundCorners(withRadius: 1)
-        lineSeparator.anchor(top: scheduleButton.topAnchor, bottom: scheduleButton.bottomAnchor, widthConstant: 0.7)
+        lineSeparator.anchor(widthConstant: 1)
         
         shareButton.setTitle("Compartir", for: .normal)
         shareButton.setTitle("Compartir", for: .focused)
         shareButton.setTitleColor(Theme.Pallete.darkGray, for: .normal)
         shareButton.titleLabel?.textColor = Theme.Pallete.softGray
         shareButton.titleLabel?.font = font2.defaultFont
-        shareButton.anchor(top: descripcionLabel.bottomAnchor, left: lineSeparator.rightAnchor, bottom: contanerView.bottomAnchor, right: titleLabel.rightAnchor, topConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.normal)
         
-        bottomLineImage.anchor(left: contanerView.leftAnchor, bottom: contanerView.bottomAnchor, right: contanerView.rightAnchor)
-        bottomLineImage.image = #imageLiteral(resourceName: "BottomLineCard").resizableImage(withCapInsets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8), resizingMode: .stretch)
-            .withRenderingMode(.alwaysTemplate)
+        let buttonsStack = UIStackView.with()
+        buttonsStack.addArranged(subViews: [scheduleButton, lineSeparator, shareButton])
+        
+        contanerView.addArranged(subViews: [titleLabel, dateStack, descripcionLabel, buttonsStack])
+        
+        accessibilityElements = [titleLabel, dateLabel, scheduleLabel, descripcionLabel, scheduleButton, shareButton]
     }
     
     @objc func sheduleActivity() {

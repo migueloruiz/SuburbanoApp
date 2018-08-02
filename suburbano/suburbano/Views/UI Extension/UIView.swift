@@ -31,13 +31,13 @@ extension UIView {
         views.forEach { addSubview($0)}
     }
     
-    func fillSuperview() {
+    func fillSuperview(verticalOffset: CGFloat = 0, horizontalOffset: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         guard  let superview = superview else { return }
-        leftAnchor.constraint(equalTo: superview.leftAnchor).isActive = true
-        rightAnchor.constraint(equalTo: superview.rightAnchor).isActive = true
-        topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
-        bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
+        leftAnchor.constraint(equalTo: superview.leftAnchor, constant: horizontalOffset).isActive = true
+        rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -horizontalOffset).isActive = true
+        topAnchor.constraint(equalTo: superview.topAnchor, constant: verticalOffset).isActive = true
+        bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -verticalOffset).isActive = true
     }
     
     func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, topConstant: CGFloat = 0, leftConstant: CGFloat = 0, bottomConstant: CGFloat = 0, rightConstant: CGFloat = 0, widthConstant: CGFloat = 0, heightConstant: CGFloat = 0) {

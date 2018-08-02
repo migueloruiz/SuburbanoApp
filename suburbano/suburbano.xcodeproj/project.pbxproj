@@ -12,6 +12,8 @@
 		8611AF8021017D3F0002663B /* Them+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7F21017D3F0002663B /* Them+Fonts.swift */; };
 		8611AF83210186100002663B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8611AF82210186100002663B /* Montserrat-Medium.ttf */; };
 		861FC57F210FF7BD0024783A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC57E210FF7BD0024783A /* Date.swift */; };
+		861FC581211010480024783A /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC580211010480024783A /* UIEdgeInsets.swift */; };
+		861FC583211015460024783A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC582211015460024783A /* UIStackView.swift */; };
 		8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4A20F43FE300D1CF7D /* UITabBar.swift */; };
 		8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */; };
 		8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4E20F450B700D1CF7D /* AppResources.swift */; };
@@ -115,6 +117,8 @@
 		8611AF7F21017D3F0002663B /* Them+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Them+Fonts.swift"; sourceTree = "<group>"; };
 		8611AF82210186100002663B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "suburbano/Assets/Fonts/Montserrat-Medium.ttf"; sourceTree = SOURCE_ROOT; };
 		861FC57E210FF7BD0024783A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		861FC580211010480024783A /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
+		861FC582211015460024783A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		8621A2C920F6FC2700A2D8B1 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		8621A2EB20F6FE0A00A2D8B1 /* suburbano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suburbano.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8621A2ED20F7026400A2D8B1 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -575,9 +579,11 @@
 		86C0681D20F4162F00A6B17A /* UI Extension */ = {
 			isa = PBXGroup;
 			children = (
+				861FC580211010480024783A /* UIEdgeInsets.swift */,
 				86F14E4A20F43FE300D1CF7D /* UITabBar.swift */,
 				86F14E5320F45D3600D1CF7D /* UIColor.swift */,
 				8641325120FFF6ED0031F4F4 /* UIView.swift */,
+				861FC582211015460024783A /* UIStackView.swift */,
 			);
 			path = "UI Extension";
 			sourceTree = "<group>";
@@ -846,6 +852,7 @@
 				8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */,
 				8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */,
 				862517D820FD70D9002F2048 /* ActivitiesUseCase.swift in Sources */,
+				861FC581211010480024783A /* UIEdgeInsets.swift in Sources */,
 				8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */,
 				86B1F4932109516600BFD6A9 /* SchedulCoordinator.swift in Sources */,
 				8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */,
@@ -862,6 +869,7 @@
 				8641325A21000DA70031F4F4 /* ActivitiesBoardPresenter.swift in Sources */,
 				864132582100017A0031F4F4 /* ReusableIdentifier.swift in Sources */,
 				8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */,
+				861FC583211015460024783A /* UIStackView.swift in Sources */,
 				8621A2D320F6FE0A00A2D8B1 /* WebResources.swift in Sources */,
 				8621A2D420F6FE0A00A2D8B1 /* RequestFactory.swift in Sources */,
 				8621A2D520F6FE0A00A2D8B1 /* MapViewFactory.swift in Sources */,

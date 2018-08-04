@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIView {
-    
     // MARK: Drop Shadow
     
     func dropShadow(color: UIColor, opacity: Float = 0.7, offSet: CGSize = .zero, radius: CGFloat = 3) {
@@ -21,14 +20,12 @@ extension UIView {
     
     func roundCorners(withRadius radius: CGFloat = 8)  {
         layer.cornerRadius = radius
-//        clipsToBounds = true
     }
-    
     
     // MARK: Anchor Methos
     
     func addSubViews(_ views: [UIView]) {
-        views.forEach { addSubview($0)}
+        views.forEach { addSubview($0) }
     }
     
     func fillSuperview(verticalOffset: CGFloat = 0, horizontalOffset: CGFloat = 0) {
@@ -42,7 +39,6 @@ extension UIView {
     
     func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, topConstant: CGFloat = 0, leftConstant: CGFloat = 0, bottomConstant: CGFloat = 0, rightConstant: CGFloat = 0, widthConstant: CGFloat = 0, heightConstant: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
-        
         _ = anchorWithReturnAnchors(top, left: left, bottom: bottom, right: right, topConstant: topConstant, leftConstant: leftConstant, bottomConstant: bottomConstant, rightConstant: rightConstant, widthConstant: widthConstant, heightConstant: heightConstant)
     }
     
@@ -50,45 +46,20 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         
         var anchors = [NSLayoutConstraint]()
-        
-        if let top = top {
-            anchors.append(topAnchor.constraint(equalTo: top, constant: topConstant))
-        }
-        
-        if let left = left {
-            anchors.append(leftAnchor.constraint(equalTo: left, constant: leftConstant))
-        }
-        
-        if let bottom = bottom {
-            anchors.append(bottomAnchor.constraint(equalTo: bottom, constant: -bottomConstant))
-        }
-        
-        if let right = right {
-            anchors.append(rightAnchor.constraint(equalTo: right, constant: -rightConstant))
-        }
-        
-        if widthConstant > 0 {
-            anchors.append(widthAnchor.constraint(equalToConstant: widthConstant))
-        }
-        
-        if heightConstant > 0 {
-            anchors.append(heightAnchor.constraint(equalToConstant: heightConstant))
-        }
-        
-        anchors.forEach({$0.isActive = true})
-        
+        if let top = top { anchors.append(topAnchor.constraint(equalTo: top, constant: topConstant)) }
+        if let left = left { anchors.append(leftAnchor.constraint(equalTo: left, constant: leftConstant)) }
+        if let bottom = bottom { anchors.append(bottomAnchor.constraint(equalTo: bottom, constant: -bottomConstant)) }
+        if let right = right { anchors.append(rightAnchor.constraint(equalTo: right, constant: -rightConstant)) }
+        if widthConstant > 0 { anchors.append(widthAnchor.constraint(equalToConstant: widthConstant)) }
+        if heightConstant > 0 { anchors.append(heightAnchor.constraint(equalToConstant: heightConstant)) }
+        anchors.forEach{ $0.isActive = true }
         return anchors
     }
     
     func center(x: NSLayoutXAxisAnchor?, y: NSLayoutYAxisAnchor?) {
         translatesAutoresizingMaskIntoConstraints = false
-        if let xAnchor = x {
-            centerXAnchor.constraint(equalTo: xAnchor, constant: 0).isActive = true
-        }
-        
-        if let yAnchor = y {
-            centerYAnchor.constraint(equalTo: yAnchor, constant: 0).isActive = true
-        }
+        if let xAnchor = x { centerXAnchor.constraint(equalTo: xAnchor, constant: 0).isActive = true }
+        if let yAnchor = y { centerYAnchor.constraint(equalTo: yAnchor, constant: 0).isActive = true }
     }
     
     func anchorCenterXToSuperview(constant: CGFloat = 0) {

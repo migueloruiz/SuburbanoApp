@@ -9,11 +9,8 @@
 import UIKit
 
 struct AppImages {
-    struct Activity {
-        static let concert = #imageLiteral(resourceName: "concert")
-        static let workshop = #imageLiteral(resourceName: "workshop")
-        static let fair = #imageLiteral(resourceName: "fair")
-        static let exhibition = #imageLiteral(resourceName: "exhibition")
-        static let special = #imageLiteral(resourceName: "special")
+    struct Strech {
+        static let cardBase = #imageLiteral(resourceName: "BottomLineCard").resizableImage(withCapInsets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8), resizingMode: .stretch)
+            .withRenderingMode(.alwaysTemplate)
     }
 }

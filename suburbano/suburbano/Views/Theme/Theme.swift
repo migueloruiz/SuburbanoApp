@@ -44,8 +44,6 @@ struct Theme {
     }
     
     struct FontFactor {
-        static let small: CGFloat = -2
         static let large: CGFloat = 2
-        static let extraLarge: CGFloat = 4
     }
 }

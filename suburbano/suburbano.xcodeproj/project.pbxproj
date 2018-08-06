@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8611AF74210175090002663B /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF73210175090002663B /* AppImages.swift */; };
 		8611AF7B21017AAD0002663B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7A21017AAD0002663B /* Theme.swift */; };
-		8611AF8021017D3F0002663B /* Them+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7F21017D3F0002663B /* Them+Fonts.swift */; };
+		8611AF8021017D3F0002663B /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7F21017D3F0002663B /* FontStyle.swift */; };
 		8611AF83210186100002663B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8611AF82210186100002663B /* Montserrat-Medium.ttf */; };
 		861FC57F210FF7BD0024783A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC57E210FF7BD0024783A /* Date.swift */; };
 		861FC581211010480024783A /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC580211010480024783A /* UIEdgeInsets.swift */; };
@@ -65,6 +65,8 @@
 		864A38BB2102A08A006AD3A0 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864A389321029336006AD3A0 /* EventKitUI.framework */; };
 		864A38C22102A343006AD3A0 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868D00B020F014F900C9D8B1 /* Mapbox.framework */; };
 		864A38C52102B86D006AD3A0 /* Frameworks.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 864A389D2102A061006AD3A0 /* Frameworks.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D121163E170053DFB1 /* UIFactory.swift */; };
+		864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D32116422A0053DFB1 /* UIThemes.swift */; };
 		867468E221018BAD00E4809D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867468E121018BAD00E4809D /* String.swift */; };
 		867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */; };
 		868D009620F00FFF00C9D8B1 /* suburbanoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D009520F00FFF00C9D8B1 /* suburbanoTests.swift */; };
@@ -114,7 +116,7 @@
 /* Begin PBXFileReference section */
 		8611AF73210175090002663B /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
 		8611AF7A21017AAD0002663B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		8611AF7F21017D3F0002663B /* Them+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Them+Fonts.swift"; sourceTree = "<group>"; };
+		8611AF7F21017D3F0002663B /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		8611AF82210186100002663B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "suburbano/Assets/Fonts/Montserrat-Medium.ttf"; sourceTree = SOURCE_ROOT; };
 		861FC57E210FF7BD0024783A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		861FC580211010480024783A /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
@@ -152,6 +154,8 @@
 		864A38AE2102A062006AD3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		864A38BE2102A2A4006AD3A0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		864A38BF2102A2A4006AD3A0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		864FE4D121163E170053DFB1 /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
+		864FE4D32116422A0053DFB1 /* UIThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIThemes.swift; sourceTree = "<group>"; };
 		86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceSynchronizerAppDelegate.swift; sourceTree = "<group>"; };
 		86695E1E20F6D50600F74150 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		86695E2020F6E65900F74150 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
@@ -244,8 +248,10 @@
 			isa = PBXGroup;
 			children = (
 				8611AF73210175090002663B /* AppImages.swift */,
+				8611AF7F21017D3F0002663B /* FontStyle.swift */,
 				8611AF7A21017AAD0002663B /* Theme.swift */,
-				8611AF7F21017D3F0002663B /* Them+Fonts.swift */,
+				864FE4D121163E170053DFB1 /* UIFactory.swift */,
+				864FE4D32116422A0053DFB1 /* UIThemes.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -865,8 +871,9 @@
 				8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */,
 				861FC57F210FF7BD0024783A /* Date.swift in Sources */,
 				862517CF20FD6E94002F2048 /* UseCase.swift in Sources */,
-				8611AF8021017D3F0002663B /* Them+Fonts.swift in Sources */,
+				8611AF8021017D3F0002663B /* FontStyle.swift in Sources */,
 				8641325A21000DA70031F4F4 /* ActivitiesBoardPresenter.swift in Sources */,
+				864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */,
 				864132582100017A0031F4F4 /* ReusableIdentifier.swift in Sources */,
 				8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */,
 				861FC583211015460024783A /* UIStackView.swift in Sources */,
@@ -884,6 +891,7 @@
 				8621A2D920F6FE0A00A2D8B1 /* Endpoints.swift in Sources */,
 				8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				8611AF7B21017AAD0002663B /* Theme.swift in Sources */,
+				864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */,
 				8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */,
 				8621A30E20F70DF900A2D8B1 /* Activity.swift in Sources */,
 				8641325C210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift in Sources */,

@@ -20,30 +20,14 @@ class ActivitiesBoardViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    lazy var activitiesTable: UITableView = {
-        let table = UITableView(frame: .zero)
-        return table
-    }()
-    
+    lazy var activitiesTable: UITableView = UITableView(frame: .zero)
+    lazy var titleLable: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.NavTitle, title: "EVENTOS")
     lazy var slectionView: UIView = {
         let sv = UIView()
         sv.backgroundColor = Theme.Pallete.softRed
         return sv
-    }()
-    
-    lazy var titleLable: UILabel = {
-        let label = UILabel()
-        label.backgroundColor = Theme.Pallete.softRed
-        label.text = "EVENTOS"
-        let font2 = Font(size: Theme.FontSize.h1)
-        label.font = font2.defaultFont
-        label.textColor = .white
-        label.textAlignment = .center
-        return label
     }()
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -69,7 +53,7 @@ class ActivitiesBoardViewController: UIViewController {
                                right: view.rightAnchor)
         
         slectionView.addSubview(titleLable)
-        titleLable.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: slectionView.leftAnchor, bottom: slectionView.bottomAnchor, right: slectionView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
+        titleLable.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: slectionView.leftAnchor, bottom: slectionView.bottomAnchor, right: slectionView.rightAnchor, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
     }
     
     @objc func remove() {

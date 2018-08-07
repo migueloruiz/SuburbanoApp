@@ -60,6 +60,7 @@ function containsDay(text) {
         "sabatinos": 6,
         "domingo": 0
     }
+    text = text.toLowerCase()
     let results = []
     for (var key in days) {
         if (text.includes(key)) {
@@ -78,12 +79,13 @@ function getDuration(data) {
     end.hours(data.hora2)
     end.minutes(data.minutos2)
 
-    return end.diff(start, 'minutes')
+    return end.diff(start, 'seconds')
 }
 
 request('https://app.fsuburbanos.com/suburbano/mobileMethods/Eventos.php?usr=subur', function (error, response, body) {
   console.log('error:', error)
   console.log('statusCode:', response && response.statusCode)
+//   console.log(JSON.parse(body))
   JSON.parse(body).forEach(element => {
     let data = {
         id: sanitize(element.IdEvento),
@@ -93,17 +95,28 @@ request('https://app.fsuburbanos.com/suburbano/mobileMethods/Eventos.php?usr=sub
         loaction: element.Lugar
     }
 
+    if (element.Titulo == "Talleres Sabatinos") {
+        element.hora = '11'
+        element.minutos = '00'
+        element.hora2 = '17'
+        element.minutos2 = '00'
+    }
+
     let startDate = moment(element.Fecha).locale('es')
     let endDate = moment(element.Fecha2).locale('es')
     
     startDate.hours(element.hora)
     startDate.minutes(element.minutos)
-    endDate.hours(data.hora2)
-    endDate.minutes(data.minutos2)
+    endDate.hours(element.hora2)
+    endDate.minutes(element.minutos2)
 
     data.displayDate = ""
-    data.startHour = `${element.hora}:${element.minutos} - ${element.hora2}:${element.minutos2}`
-    data.duration = endDate.diff(startDate, 'minutes')
+    if (`${element.hora}:${element.minutos}` != `${element.hora2}:${element.minutos2}`) {
+        data.startHour = `${element.hora}:${element.minutos} - ${element.hora2}:${element.minutos2}`
+    } else {
+        data.startHour = `${element.hora}:${element.minutos}`
+    }
+    data.duration = getDuration(element)
     data.starDate = startDate.unix()
     data.endDate = endDate.unix()
 
@@ -142,7 +155,9 @@ request('https://app.fsuburbanos.com/suburbano/mobileMethods/Eventos.php?usr=sub
     }
 
     if (data.displayDate == "") {
-        if (startDate.format('MM') == startDate.format('MM')) {
+        if (endDate.diff(startDate, 'days') <= 1) {
+            data.displayDate = `${endDate.date()} de ${endDate.format('MMM')}`
+        } else if (startDate.format('MM') == startDate.format('MM')) {
             data.displayDate = `Del ${startDate.date()} al ${endDate.date()} de ${endDate.format('MMM')}`
         } else {
             data.displayDate = `Del ${startDate.date()} de ${startDate.format('MMM')}  al ${endDate.date()} de ${endDate.format('MMM')}`

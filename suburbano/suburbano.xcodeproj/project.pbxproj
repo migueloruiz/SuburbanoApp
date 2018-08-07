@@ -597,7 +597,9 @@
 		86C0681E20F4168C00A6B17A /* Cordinatos */ = {
 			isa = PBXGroup;
 			children = (
-				86C0682620F4224C00A6B17A /* Application Coordinator */,
+				86B1F4922109516600BFD6A9 /* SchedulCoordinator.swift */,
+				86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */,
+				86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */,
 				86C0682520F4223E00A6B17A /* Base */,
 			);
 			path = Cordinatos;
@@ -609,16 +611,6 @@
 				86C0682720F4227900A6B17A /* Coordinator.swift */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		86C0682620F4224C00A6B17A /* Application Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */,
-				86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */,
-				86B1F4922109516600BFD6A9 /* SchedulCoordinator.swift */,
-			);
-			path = "Application Coordinator";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

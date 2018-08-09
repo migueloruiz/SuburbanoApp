@@ -6,7 +6,6 @@
 //  Copyright © 2018 chimichanga studio. All rights reserved.
 //
 
-import UIKit
 import EventKitUI
 
 extension ActivitiesBoardViewController: EKEventEditViewDelegate {
@@ -15,7 +14,7 @@ extension ActivitiesBoardViewController: EKEventEditViewDelegate {
         case .saved:
             print("Saved")
         default:
-            print("Deleted")
+            print("Cancel")
         }
         controller.dismiss(animated: true)
     }

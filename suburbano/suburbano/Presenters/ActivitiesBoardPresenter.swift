@@ -55,7 +55,6 @@ class ActivitiesBoardPresenter {
         
         if let repeatEvent = activity.repeatEvent {
             let recurrenceDays = getRecurrenceDays(from: repeatEvent)
-            print(recurrenceDays)
             let endDate = EKRecurrenceEnd(end: Date(timeIntervalSince1970: TimeInterval(activity.endDate)))
             let recurrence = EKRecurrenceRule(recurrenceWith: .weekly, interval: 1, daysOfTheWeek: recurrenceDays, daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil, daysOfTheYear: nil, setPositions: nil, end: endDate)
             event.addRecurrenceRule(recurrence)

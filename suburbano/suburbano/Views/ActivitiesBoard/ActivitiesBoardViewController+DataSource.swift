@@ -18,7 +18,9 @@ extension ActivitiesBoardViewController: UITableViewDataSource, UITableViewDeleg
         activitiesTable.reloadData()
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int { return 1 }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.activitiesCount
@@ -29,12 +31,25 @@ extension ActivitiesBoardViewController: UITableViewDataSource, UITableViewDeleg
         cell.configure(with: presenter.activity(at: indexPath), delegate: self)
         return cell
     }
+    
+    func showEmptyMessage(enable: Bool) {
+        guard enable == emptyMessage.isHidden else { return }
+        emptyMessage.isHidden = !enable
+        
+        if enable {
+            view.bringSubview(toFront: emptyMessage)
+        } else {
+            view.sendSubview(toBack: emptyMessage)
+        }
+    }
 }
 
 extension ActivitiesBoardViewController: AcvtivityCellDelegate {
     func sheduleActivity(withId id: String) {
-        guard let activity = presenter.getActivity(withId: id) else { return }
-        delegate?.presentScheduleView(activity: activity)
+        presentScheduleView(withActivityid: id)
+//        guard let activity = presenter.getActivity(withId: id) else { return }
+//        presentScheduleView(withActivity: activity)
+////        delegate?.presentScheduleView(activity: activity)
     }
     
     func shareActivity(withId id: String) {}

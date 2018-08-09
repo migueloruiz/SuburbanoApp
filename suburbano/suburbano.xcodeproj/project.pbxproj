@@ -51,13 +51,13 @@
 		862517E220FD7A32002F2048 /* RepositoryRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E120FD7A32002F2048 /* RepositoryRealm.swift */; };
 		862517E420FD7FB6002F2048 /* ActivitiesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E320FD7FB6002F2048 /* ActivitiesRepository.swift */; };
 		862517E720FD8001002F2048 /* RealmActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E620FD8001002F2048 /* RealmActivity.swift */; };
+		863EF66B211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863EF66A211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift */; };
 		8641325020FFF4E10031F4F4 /* ActivitiesBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641324F20FFF4E10031F4F4 /* ActivitiesBoardViewController.swift */; };
 		8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641325120FFF6ED0031F4F4 /* UIView.swift */; };
 		8641325520FFFFD00031F4F4 /* AcvtivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641325420FFFFD00031F4F4 /* AcvtivityCell.swift */; };
 		864132582100017A0031F4F4 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864132572100017A0031F4F4 /* ReusableIdentifier.swift */; };
 		8641325A21000DA70031F4F4 /* ActivitiesBoardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641325921000DA70031F4F4 /* ActivitiesBoardPresenter.swift */; };
 		8641325C210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641325B210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift */; };
-		864A3891210289E6006AD3A0 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A3890210289E6006AD3A0 /* Alerts.swift */; };
 		864A38A62102A062006AD3A0 /* Frameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864A389D2102A061006AD3A0 /* Frameworks.framework */; };
 		864A38AD2102A062006AD3A0 /* FrameworksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A38AC2102A062006AD3A0 /* FrameworksTests.swift */; };
 		864A38AF2102A062006AD3A0 /* Frameworks.h in Headers */ = {isa = PBXBuildFile; fileRef = 864A389F2102A062006AD3A0 /* Frameworks.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -72,7 +72,6 @@
 		868D009620F00FFF00C9D8B1 /* suburbanoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D009520F00FFF00C9D8B1 /* suburbanoTests.swift */; };
 		868D00A120F00FFF00C9D8B1 /* suburbanoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D00A020F00FFF00C9D8B1 /* suburbanoUITests.swift */; };
 		86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */; };
-		86B1F4932109516600BFD6A9 /* SchedulCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F4922109516600BFD6A9 /* SchedulCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,13 +136,13 @@
 		862517E120FD7A32002F2048 /* RepositoryRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRealm.swift; sourceTree = "<group>"; };
 		862517E320FD7FB6002F2048 /* ActivitiesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesRepository.swift; sourceTree = "<group>"; };
 		862517E620FD8001002F2048 /* RealmActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmActivity.swift; sourceTree = "<group>"; };
+		863EF66A211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivitiesBoardViewController+EventSchedule.swift"; sourceTree = "<group>"; };
 		8641324F20FFF4E10031F4F4 /* ActivitiesBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesBoardViewController.swift; sourceTree = "<group>"; };
 		8641325120FFF6ED0031F4F4 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8641325420FFFFD00031F4F4 /* AcvtivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcvtivityCell.swift; sourceTree = "<group>"; };
 		864132572100017A0031F4F4 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
 		8641325921000DA70031F4F4 /* ActivitiesBoardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesBoardPresenter.swift; sourceTree = "<group>"; };
 		8641325B210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivitiesBoardViewController+DataSource.swift"; sourceTree = "<group>"; };
-		864A3890210289E6006AD3A0 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		864A389221029335006AD3A0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		864A389321029336006AD3A0 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		864A389D2102A061006AD3A0 /* Frameworks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Frameworks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,7 +173,6 @@
 		868D00A220F00FFF00C9D8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		868D00B020F014F900C9D8B1 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Carthage/Build/iOS/Mapbox.framework; sourceTree = "<group>"; };
 		86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
-		86B1F4922109516600BFD6A9 /* SchedulCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulCoordinator.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -356,7 +354,6 @@
 		864A388F210289CB006AD3A0 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
-				864A3890210289E6006AD3A0 /* Alerts.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -517,6 +514,7 @@
 				8641324F20FFF4E10031F4F4 /* ActivitiesBoardViewController.swift */,
 				8641325B210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift */,
 				8641325420FFFFD00031F4F4 /* AcvtivityCell.swift */,
+				863EF66A211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift */,
 			);
 			path = ActivitiesBoard;
 			sourceTree = "<group>";
@@ -597,7 +595,6 @@
 		86C0681E20F4168C00A6B17A /* Cordinatos */ = {
 			isa = PBXGroup;
 			children = (
-				86B1F4922109516600BFD6A9 /* SchedulCoordinator.swift */,
 				86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */,
 				86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */,
 				86C0682520F4223E00A6B17A /* Base */,
@@ -852,7 +849,6 @@
 				862517D820FD70D9002F2048 /* ActivitiesUseCase.swift in Sources */,
 				861FC581211010480024783A /* UIEdgeInsets.swift in Sources */,
 				8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */,
-				86B1F4932109516600BFD6A9 /* SchedulCoordinator.swift in Sources */,
 				8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
 				8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */,
@@ -884,6 +880,7 @@
 				8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				8611AF7B21017AAD0002663B /* Theme.swift in Sources */,
 				864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */,
+				863EF66B211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift in Sources */,
 				8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */,
 				8621A30E20F70DF900A2D8B1 /* Activity.swift in Sources */,
 				8641325C210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift in Sources */,
@@ -891,7 +888,6 @@
 				8621A2DD20F6FE0A00A2D8B1 /* DefaultsKeys.swift in Sources */,
 				862517E720FD8001002F2048 /* RealmActivity.swift in Sources */,
 				8621A31020F7107000A2D8B1 /* DecodingError.swift in Sources */,
-				864A3891210289E6006AD3A0 /* Alerts.swift in Sources */,
 				862517DA20FD7851002F2048 /* ErrorResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

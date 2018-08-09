@@ -33,7 +33,8 @@ class ActivitiesUseCaseImpl: ActivitiesUseCase {
         }
     }
     
-    func get() -> [Activity] {
-        return activitiesRepository.get() ?? []
+    func get(byDate date: Int) -> [Activity] {
+        let predicate = NSPredicate(format: "endDate > %d", argumentArray: [date])
+        return activitiesRepository.get(predicateFormat: predicate) ?? []
     }
 }

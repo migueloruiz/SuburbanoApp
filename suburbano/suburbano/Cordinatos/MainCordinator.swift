@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol PresentScheduleViewDelegate: class {
-    func presentScheduleView(activity: Activity)
-}
-
 class MainCordinator: Coordinator {
     let window: UIWindow
     let rootViewController: UITabBarController
@@ -26,7 +22,7 @@ class MainCordinator: Coordinator {
         stationsMapViewController.delegate = self
         stationsMapViewController.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "TrainIcon").withRenderingMode(.alwaysOriginal), selectedImage: #imageLiteral(resourceName: "SelectedTrainIcon").withRenderingMode(.alwaysOriginal))
         
-        let activitiesBoardViewController = ActivitiesBoardViewController(activitiesBoardPresenter: ActivitiesBoardPresenter(), delegate: self)
+        let activitiesBoardViewController = ActivitiesBoardViewController(activitiesBoardPresenter: ActivitiesBoardPresenter())
         activitiesBoardViewController.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "NewspaperIcon").withRenderingMode(.alwaysOriginal), selectedImage: #imageLiteral(resourceName: "SlectedNewspaperIcon").withRenderingMode(.alwaysOriginal))
         
         rootViewController.viewControllers = [stationsMapViewController, activitiesBoardViewController]
@@ -41,13 +37,5 @@ class MainCordinator: Coordinator {
 extension MainCordinator: StationsMapViewControllerDelegate {
     func didStationSelected(station: StationMarker) {
         print(station)
-    }
-}
-
-extension MainCordinator: PresentScheduleViewDelegate {
-    func presentScheduleView(activity: Activity) {
-        guard let activitiesBoardViewController = rootViewController.viewControllers?.first(where: { $0 is ActivitiesBoardViewController }) as? ActivitiesBoardViewController else { return }
-        let cordinator = SchedulCoordinator(activity: activity, previusController: activitiesBoardViewController)
-        cordinator.start()
     }
 }

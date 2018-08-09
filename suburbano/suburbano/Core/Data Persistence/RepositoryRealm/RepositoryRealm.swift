@@ -15,7 +15,7 @@ protocol RepositoryRealm {
     var realmHandler: RealmHandler { get }
     
     func get(forKey key: String) -> Element?
-    func get() -> [Element]?
+    func get(predicateFormat: NSPredicate?) -> [Element]?
     func add(object: Element, update: Bool)
     func add(objects: [Element], update: Bool)
     func delete(object: Element)

@@ -19,8 +19,8 @@ class ActivitiesRepository: RepositoryRealm {
         return map(object: realmActivity)
     }
     
-    func get() -> [Activity]? {
-        guard let realmActivities = realmHandler.get(type: RealmActivity.self, predicateFormat: "", "") else { return nil }
+    func get(predicateFormat: NSPredicate? = nil) -> [Activity]? {
+        guard let realmActivities = realmHandler.get(type: RealmActivity.self, predicateFormat: predicateFormat) else { return nil }
         return realmActivities.map { map(object: $0)}
     }
     

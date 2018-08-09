@@ -50,11 +50,11 @@ class RealmHandler: NSObject {
         return realm.object(ofType: type, forPrimaryKey: key)
     }
 
-    func get<Element>(type: Element.Type, predicateFormat: String = "", _ args: Any...) -> [Element]? where Element : RealmSwift.Object {
+    func get<Element>(type: Element.Type, predicateFormat: NSPredicate? = nil) -> [Element]? where Element : RealmSwift.Object {
         guard let realm = realmInstance else { return nil }
         var result = realm.objects(type)
-        if predicateFormat.count > 0 {
-            result = result.filter(predicateFormat, args)
+        if let predicate = predicateFormat {
+            result = result.filter(predicate)
         }
         return Array(result)
     }

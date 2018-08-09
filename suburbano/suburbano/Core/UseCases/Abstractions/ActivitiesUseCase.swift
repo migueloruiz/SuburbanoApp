@@ -13,7 +13,7 @@ protocol LoadActivitiesUseCase {
 }
 
 protocol GetActivitiesUseCase {
-    func get() -> [Activity]
+    func get(byDate: Int) -> [Activity]
 }
 
 protocol ActivitiesUseCase: LoadActivitiesUseCase, GetActivitiesUseCase {}

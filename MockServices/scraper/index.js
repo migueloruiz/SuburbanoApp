@@ -102,13 +102,12 @@ request('https://app.fsuburbanos.com/suburbano/mobileMethods/Eventos.php?usr=sub
         element.minutos2 = '00'
     }
 
-    let startDate = moment(element.Fecha).locale('es')
-    let endDate = moment(element.Fecha2).locale('es')
-    
-    startDate.hours(element.hora)
-    startDate.minutes(element.minutos)
-    endDate.hours(element.hora2)
-    endDate.minutes(element.minutos2)
+    if (element.categoria == "2") {
+        element.hora = '09'
+        element.minutos = '00'
+        element.hora2 = '21'
+        element.minutos2 = '00'
+    }
 
     data.displayDate = ""
     if (`${element.hora}:${element.minutos}` != `${element.hora2}:${element.minutos2}`) {
@@ -116,21 +115,16 @@ request('https://app.fsuburbanos.com/suburbano/mobileMethods/Eventos.php?usr=sub
     } else {
         data.startHour = `${element.hora}:${element.minutos}`
     }
-    data.duration = getDuration(element)
-    data.starDate = startDate.unix()
-    data.endDate = endDate.unix()
-
-    if (startDate.isSame(element.Fecha2)) {
-        data.displayDate = endDate.format('D [de] MMM')
-    }
 
     let daysContanis = containsDay(data.title + " " + data.descripcion)
+    var firstDay = null
     if (daysContanis.length > 0) {
         data.displayDate = ""
         let now = moment()
         let nowEs = moment().locale('es')
         data.repeatEvent = []
         for (let index = 0; index < daysContanis.length; index++) {
+            if (firstDay == null) { firstDay = daysContanis[index] }
             nowEs.day(daysContanis[index])
             now.day(daysContanis[index])
             data.repeatEvent.push(now.format('dddd'))
@@ -154,15 +148,34 @@ request('https://app.fsuburbanos.com/suburbano/mobileMethods/Eventos.php?usr=sub
         data.displayDate = data.displayDate + ` de ${nowEs.format('MMM')}`
     }
 
+    var startDate = moment(element.Fecha).locale('es')
+    var endDate = moment(element.Fecha2).locale('es')
+
+    if (firstDay != null) {
+        while (startDate.day() != firstDay) {
+            startDate.add(1, 'days')
+        }
+    }
+
+    startDate.hours(element.hora)
+    startDate.minutes(element.minutos)
+    endDate.hours(element.hora2)
+    endDate.minutes(element.minutos2)
+
+    data.duration = getDuration(element)
+    data.starDate = startDate.unix()
+    data.endDate = endDate.unix()
+
     if (data.displayDate == "") {
         if (endDate.diff(startDate, 'days') <= 1) {
             data.displayDate = `${endDate.date()} de ${endDate.format('MMM')}`
-        } else if (startDate.format('MM') == startDate.format('MM')) {
+        } else if (startDate.format('MM') == endDate.format('MM')) {
             data.displayDate = `Del ${startDate.date()} al ${endDate.date()} de ${endDate.format('MMM')}`
+            data.repeatEvent = "All"
         } else {
             data.displayDate = `Del ${startDate.date()} de ${startDate.format('MMM')}  al ${endDate.date()} de ${endDate.format('MMM')}`
+            data.repeatEvent = "All"
         }
-        data.repeatEvent = "All"
     }
 
     events.push(data)

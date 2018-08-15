@@ -8,16 +8,9 @@
 
 import UIKit
 
-class ActivitiesBoardViewController: UIViewController {
+class ActivitiesBoardViewController: NavigationalViewController {
     
     let presenter: ActivitiesBoardPresenter
-    
-    init(activitiesBoardPresenter: ActivitiesBoardPresenter) {
-        presenter = activitiesBoardPresenter
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     lazy var activitiesTable: UITableView = UITableView(frame: .zero)
     lazy var titleLable: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.NavTitle, title: "EVENTOS")
@@ -29,6 +22,14 @@ class ActivitiesBoardViewController: UIViewController {
     }()
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    override var navgationIcon: UIImage { return #imageLiteral(resourceName: "NewspaperIcon") }
+    
+    init(activitiesBoardPresenter: ActivitiesBoardPresenter) {
+        presenter = activitiesBoardPresenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override func viewDidLoad() {
         configureUI()

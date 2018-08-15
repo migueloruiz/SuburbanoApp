@@ -69,6 +69,10 @@
 		864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D32116422A0053DFB1 /* UIThemes.swift */; };
 		867468E221018BAD00E4809D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867468E121018BAD00E4809D /* String.swift */; };
 		867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */; };
+		868128462122748900A7A011 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128452122748900A7A011 /* MainNavigationViewController.swift */; };
+		868128482123AAF200A7A011 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128472123AAF200A7A011 /* MenuItemView.swift */; };
+		868128512123BAFA00A7A011 /* MoreBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128502123BAFA00A7A011 /* MoreBoardViewController.swift */; };
+		868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */; };
 		868D009620F00FFF00C9D8B1 /* suburbanoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D009520F00FFF00C9D8B1 /* suburbanoTests.swift */; };
 		868D00A120F00FFF00C9D8B1 /* suburbanoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D00A020F00FFF00C9D8B1 /* suburbanoUITests.swift */; };
 		86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */; };
@@ -161,6 +165,10 @@
 		86695E2220F6E67C00F74150 /* WebResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebResources.swift; sourceTree = "<group>"; };
 		867468E121018BAD00E4809D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSansCondensed-Bold.ttf"; path = "Open_Sans_Condensed/OpenSansCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		868128452122748900A7A011 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
+		868128472123AAF200A7A011 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		868128502123BAFA00A7A011 /* MoreBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBoardViewController.swift; sourceTree = "<group>"; };
+		868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutAnchor.swift; sourceTree = "<group>"; };
 		868D008020F00FFE00C9D8B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		868D008220F00FFE00C9D8B1 /* StationsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsMapViewController.swift; sourceTree = "<group>"; };
 		868D008A20F00FFF00C9D8B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -351,13 +359,6 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		864A388F210289CB006AD3A0 /* Alerts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Alerts;
-			sourceTree = "<group>";
-		};
 		864A389E2102A061006AD3A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +384,34 @@
 				8621A30B20F70DDB00A2D8B1 /* ActivitiesWebService.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		868128432122743900A7A011 /* Fetures */ = {
+			isa = PBXGroup;
+			children = (
+				8681284F2123BACC00A7A011 /* MoreBoard */,
+				868128442122746500A7A011 /* MainNavigation */,
+				8641325320FFFF860031F4F4 /* StationsMap */,
+				86C0681020F413D800A6B17A /* ActivitiesBoard */,
+			);
+			path = Fetures;
+			sourceTree = "<group>";
+		};
+		868128442122746500A7A011 /* MainNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				868128452122748900A7A011 /* MainNavigationViewController.swift */,
+				868128472123AAF200A7A011 /* MenuItemView.swift */,
+			);
+			path = MainNavigation;
+			sourceTree = "<group>";
+		};
+		8681284F2123BACC00A7A011 /* MoreBoard */ = {
+			isa = PBXGroup;
+			children = (
+				868128502123BAFA00A7A011 /* MoreBoardViewController.swift */,
+			);
+			path = MoreBoard;
 			sourceTree = "<group>";
 		};
 		868D007420F00FFE00C9D8B1 = {
@@ -498,12 +527,10 @@
 		86C0680F20F413D000A6B17A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				864A388F210289CB006AD3A0 /* Alerts */,
 				8611AF7E21017D2A0002663B /* Theme */,
 				86413256210000220031F4F4 /* Protocols */,
 				86C0681D20F4162F00A6B17A /* UI Extension */,
-				8641325320FFFF860031F4F4 /* StationsMap */,
-				86C0681020F413D800A6B17A /* ActivitiesBoard */,
+				868128432122743900A7A011 /* Fetures */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -513,8 +540,8 @@
 			children = (
 				8641324F20FFF4E10031F4F4 /* ActivitiesBoardViewController.swift */,
 				8641325B210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift */,
-				8641325420FFFFD00031F4F4 /* AcvtivityCell.swift */,
 				863EF66A211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift */,
+				8641325420FFFFD00031F4F4 /* AcvtivityCell.swift */,
 			);
 			path = ActivitiesBoard;
 			sourceTree = "<group>";
@@ -588,6 +615,7 @@
 				86F14E5320F45D3600D1CF7D /* UIColor.swift */,
 				8641325120FFF6ED0031F4F4 /* UIView.swift */,
 				861FC582211015460024783A /* UIStackView.swift */,
+				868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */,
 			);
 			path = "UI Extension";
 			sourceTree = "<group>";
@@ -848,6 +876,7 @@
 				8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */,
 				862517D820FD70D9002F2048 /* ActivitiesUseCase.swift in Sources */,
 				861FC581211010480024783A /* UIEdgeInsets.swift in Sources */,
+				868128462122748900A7A011 /* MainNavigationViewController.swift in Sources */,
 				8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */,
 				8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
@@ -860,15 +889,18 @@
 				861FC57F210FF7BD0024783A /* Date.swift in Sources */,
 				862517CF20FD6E94002F2048 /* UseCase.swift in Sources */,
 				8611AF8021017D3F0002663B /* FontStyle.swift in Sources */,
+				868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */,
 				8641325A21000DA70031F4F4 /* ActivitiesBoardPresenter.swift in Sources */,
 				864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */,
 				864132582100017A0031F4F4 /* ReusableIdentifier.swift in Sources */,
 				8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */,
+				868128482123AAF200A7A011 /* MenuItemView.swift in Sources */,
 				861FC583211015460024783A /* UIStackView.swift in Sources */,
 				8621A2D320F6FE0A00A2D8B1 /* WebResources.swift in Sources */,
 				8621A2D420F6FE0A00A2D8B1 /* RequestFactory.swift in Sources */,
 				8621A2D520F6FE0A00A2D8B1 /* MapViewFactory.swift in Sources */,
 				8621A2D620F6FE0A00A2D8B1 /* UIColor.swift in Sources */,
+				868128512123BAFA00A7A011 /* MoreBoardViewController.swift in Sources */,
 				8621A2D720F6FE0A00A2D8B1 /* StationsMapPresenter.swift in Sources */,
 				862517E220FD7A32002F2048 /* RepositoryRealm.swift in Sources */,
 				8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */,

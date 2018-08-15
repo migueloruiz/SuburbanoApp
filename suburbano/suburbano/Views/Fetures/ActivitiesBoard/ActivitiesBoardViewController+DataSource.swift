@@ -47,9 +47,6 @@ extension ActivitiesBoardViewController: UITableViewDataSource, UITableViewDeleg
 extension ActivitiesBoardViewController: AcvtivityCellDelegate {
     func sheduleActivity(withId id: String) {
         presentScheduleView(withActivityid: id)
-//        guard let activity = presenter.getActivity(withId: id) else { return }
-//        presentScheduleView(withActivity: activity)
-////        delegate?.presentScheduleView(activity: activity)
     }
     
     func shareActivity(withId id: String) {}

@@ -8,27 +8,21 @@
 
 import UIKit
 
-class MainCordinator: Coordinator {
+class MainCordinator: NSObject, Coordinator {
     let window: UIWindow
-    let rootViewController: UITabBarController
+    let rootViewController = MainNavigationViewController()
     
     init(window: UIWindow) {
         self.window = window
-        rootViewController = UITabBarController()
     }
     
     func start() {
         let stationsMapViewController = StationsMapViewController(presenter: StationsMapPresenter(), mapConfiguration: StationsMap())
         stationsMapViewController.delegate = self
-        stationsMapViewController.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "TrainIcon").withRenderingMode(.alwaysOriginal), selectedImage: #imageLiteral(resourceName: "SelectedTrainIcon").withRenderingMode(.alwaysOriginal))
-        
         let activitiesBoardViewController = ActivitiesBoardViewController(activitiesBoardPresenter: ActivitiesBoardPresenter())
-        activitiesBoardViewController.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "NewspaperIcon").withRenderingMode(.alwaysOriginal), selectedImage: #imageLiteral(resourceName: "SlectedNewspaperIcon").withRenderingMode(.alwaysOriginal))
+        let moreBoardViewController = MoreBoardViewController()
         
-        rootViewController.viewControllers = [stationsMapViewController, activitiesBoardViewController]
-        rootViewController.tabBar.removeTitles()
-        rootViewController.selectedIndex = 1
-        
+        rootViewController.setNavigation(viewControllers: [activitiesBoardViewController, stationsMapViewController, moreBoardViewController], startIndex: 1)
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }

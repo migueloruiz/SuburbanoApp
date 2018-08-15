@@ -23,13 +23,15 @@ protocol StationsMapViewControllerDelegate: class {
     func didStationSelected(station: StationMarker)
 }
 
-class StationsMapViewController: UIViewController {
+class StationsMapViewController: NavigationalViewController {
     
     lazy var mapView: MGLMapView = MapViewFactory.create(frame: view.frame, initilConfiguration: mapConfiguration)
     let mapBounds: MGLCoordinateBounds
     let mapConfiguration: MapInitialConfiguration
     let presenter: StationsMapPresenterProtocol
     weak var delegate: StationsMapViewControllerDelegate?
+    
+    override var navgationIcon: UIImage { return #imageLiteral(resourceName: "TrainIcon") }
     
     struct Constants {
         static let railRoadColor: UIColor = Theme.Pallete.softGray

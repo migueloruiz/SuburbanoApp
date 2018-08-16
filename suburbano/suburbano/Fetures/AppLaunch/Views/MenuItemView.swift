@@ -16,13 +16,10 @@ class MenuItemView: UICollectionViewCell, ReusableIdentifier {
     
     private lazy var iconView = UIImageView()
     
+    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureLayout()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
         configureLayout()
     }
     

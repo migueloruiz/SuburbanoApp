@@ -24,12 +24,12 @@ class ActivitiesBoardViewController: NavigationalViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     override var navgationIcon: UIImage { return #imageLiteral(resourceName: "NewspaperIcon") }
     
+    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
     init(activitiesBoardPresenter: ActivitiesBoardPresenter) {
         presenter = activitiesBoardPresenter
         super.init(nibName: nil, bundle: nil)
     }
-    
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override func viewDidLoad() {
         configureLayout()

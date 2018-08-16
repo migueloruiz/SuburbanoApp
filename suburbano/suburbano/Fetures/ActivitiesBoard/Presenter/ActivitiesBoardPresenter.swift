@@ -23,6 +23,7 @@ class ActivitiesBoardPresenter {
     }
     
     func loadData(complition: @escaping () -> Void ) {
+        guard activities.isEmpty else { return }
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let strongSelf = self else { return }
             let date = Int(Date().timeIntervalSince1970)

@@ -92,13 +92,6 @@ class MainNavigationViewController: UIViewController {
     }
 }
 
-extension MainNavigationViewController: UIPageViewControllerDelegate {
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        <#code#>
-    }
-}
-
-
 extension MainNavigationViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     fileprivate func configureMenu() {
         menuCollectionView.dataSource = self

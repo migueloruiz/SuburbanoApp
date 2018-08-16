@@ -30,7 +30,6 @@
 		8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */; };
 		8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682120F41FF400A6B17A /* ApplicationCoordinatorAppDelegate.swift */; };
 		8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008020F00FFE00C9D8B1 /* AppDelegate.swift */; };
-		8621A2DD20F6FE0A00A2D8B1 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A2C920F6FC2700A2D8B1 /* DefaultsKeys.swift */; };
 		8621A2E120F6FE0A00A2D8B1 /* train-rail.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680220F0175800A6B17A /* train-rail.geojson */; };
 		8621A2E220F6FE0A00A2D8B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 868D008920F00FFF00C9D8B1 /* LaunchScreen.storyboard */; };
 		8621A2E320F6FE0A00A2D8B1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680620F0496300A6B17A /* Colors.xcassets */; };
@@ -43,7 +42,6 @@
 		8621A30E20F70DF900A2D8B1 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30D20F70DF900A2D8B1 /* Activity.swift */; };
 		8621A31020F7107000A2D8B1 /* DecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30F20F7107000A2D8B1 /* DecodingError.swift */; };
 		862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517CB20F84D2F002F2048 /* RealmHandler.swift */; };
-		862517CF20FD6E94002F2048 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517CE20FD6E94002F2048 /* UseCase.swift */; };
 		862517D120FD6ED0002F2048 /* UseCaseLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D020FD6ED0002F2048 /* UseCaseLocator.swift */; };
 		862517D420FD7071002F2048 /* ActivitiesUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D320FD7071002F2048 /* ActivitiesUseCaseImpl.swift */; };
 		862517D820FD70D9002F2048 /* ActivitiesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D720FD70D9002F2048 /* ActivitiesUseCase.swift */; };
@@ -124,7 +122,6 @@
 		861FC57E210FF7BD0024783A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		861FC580211010480024783A /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		861FC582211015460024783A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
-		8621A2C920F6FC2700A2D8B1 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		8621A2EB20F6FE0A00A2D8B1 /* suburbano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suburbano.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8621A2ED20F7026400A2D8B1 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		8621A30620F70C2E00A2D8B1 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
@@ -132,7 +129,6 @@
 		8621A30D20F70DF900A2D8B1 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		8621A30F20F7107000A2D8B1 /* DecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingError.swift; sourceTree = "<group>"; };
 		862517CB20F84D2F002F2048 /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
-		862517CE20FD6E94002F2048 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		862517D020FD6ED0002F2048 /* UseCaseLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseLocator.swift; sourceTree = "<group>"; };
 		862517D320FD7071002F2048 /* ActivitiesUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesUseCaseImpl.swift; sourceTree = "<group>"; };
 		862517D720FD70D9002F2048 /* ActivitiesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesUseCase.swift; sourceTree = "<group>"; };
@@ -262,32 +258,10 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
-		8621A2C820F6FBDB00A2D8B1 /* UserDefaults */ = {
-			isa = PBXGroup;
-			children = (
-				8621A2C920F6FC2700A2D8B1 /* DefaultsKeys.swift */,
-			);
-			path = UserDefaults;
-			sourceTree = "<group>";
-		};
-		8621A30A20F70D8C00A2D8B1 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				86695E2020F6E65900F74150 /* RequestFactory.swift */,
-				86695E2220F6E67C00F74150 /* WebResources.swift */,
-				8621A30620F70C2E00A2D8B1 /* BaseService.swift */,
-				86695E1E20F6D50600F74150 /* Endpoints.swift */,
-				8621A30F20F7107000A2D8B1 /* DecodingError.swift */,
-				862517D920FD7851002F2048 /* ErrorResponse.swift */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
 		862517C920F849CF002F2048 /* Data Persistence */ = {
 			isa = PBXGroup;
 			children = (
 				862517CA20F84A27002F2048 /* RepositoryRealm */,
-				8621A2C820F6FBDB00A2D8B1 /* UserDefaults */,
 			);
 			path = "Data Persistence";
 			sourceTree = "<group>";
@@ -295,18 +269,10 @@
 		862517CA20F84A27002F2048 /* RepositoryRealm */ = {
 			isa = PBXGroup;
 			children = (
-				862517E120FD7A32002F2048 /* RepositoryRealm.swift */,
 				862517CB20F84D2F002F2048 /* RealmHandler.swift */,
+				862517E120FD7A32002F2048 /* RepositoryRealm.swift */,
 			);
 			path = RepositoryRealm;
-			sourceTree = "<group>";
-		};
-		862517CD20FD6D62002F2048 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				862517CE20FD6E94002F2048 /* UseCase.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		862517D520FD709A002F2048 /* Abstractions */ = {
@@ -325,28 +291,12 @@
 			path = Implementations;
 			sourceTree = "<group>";
 		};
-		862517DB20FD7965002F2048 /* Reposotory */ = {
-			isa = PBXGroup;
-			children = (
-				862517E320FD7FB6002F2048 /* ActivitiesRepository.swift */,
-			);
-			path = Reposotory;
-			sourceTree = "<group>";
-		};
-		862517E520FD7FE6002F2048 /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-				8621A30D20F70DF900A2D8B1 /* Activity.swift */,
-				862517E620FD8001002F2048 /* RealmActivity.swift */,
-			);
-			path = Activity;
-			sourceTree = "<group>";
-		};
 		8641325320FFFF860031F4F4 /* StationsMap */ = {
 			isa = PBXGroup;
 			children = (
-				86F14E5120F4550200D1CF7D /* MapViewFactory.swift */,
-				868D008220F00FFE00C9D8B1 /* StationsMapViewController.swift */,
+				869E2CC12124FA0800B2FA9F /* Presnter */,
+				869E2CBF2124F9DD00B2FA9F /* Factory */,
+				869E2CC02124F9ED00B2FA9F /* Views */,
 			);
 			path = StationsMap;
 			sourceTree = "<group>";
@@ -380,8 +330,12 @@
 		86695E1D20F6D3F900F74150 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				8621A30A20F70D8C00A2D8B1 /* Base */,
-				8621A30B20F70DDB00A2D8B1 /* ActivitiesWebService.swift */,
+				8621A30620F70C2E00A2D8B1 /* BaseService.swift */,
+				8621A30F20F7107000A2D8B1 /* DecodingError.swift */,
+				86695E1E20F6D50600F74150 /* Endpoints.swift */,
+				862517D920FD7851002F2048 /* ErrorResponse.swift */,
+				86695E2020F6E65900F74150 /* RequestFactory.swift */,
+				86695E2220F6E67C00F74150 /* WebResources.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -389,27 +343,27 @@
 		868128432122743900A7A011 /* Fetures */ = {
 			isa = PBXGroup;
 			children = (
+				86C0681E20F4168C00A6B17A /* AppLaunch */,
 				8681284F2123BACC00A7A011 /* MoreBoard */,
-				868128442122746500A7A011 /* MainNavigation */,
 				8641325320FFFF860031F4F4 /* StationsMap */,
 				86C0681020F413D800A6B17A /* ActivitiesBoard */,
 			);
 			path = Fetures;
 			sourceTree = "<group>";
 		};
-		868128442122746500A7A011 /* MainNavigation */ = {
+		868128442122746500A7A011 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				868128452122748900A7A011 /* MainNavigationViewController.swift */,
 				868128472123AAF200A7A011 /* MenuItemView.swift */,
 			);
-			path = MainNavigation;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8681284F2123BACC00A7A011 /* MoreBoard */ = {
 			isa = PBXGroup;
 			children = (
-				868128502123BAFA00A7A011 /* MoreBoardViewController.swift */,
+				869E2CBB2124F95200B2FA9F /* Views */,
 			);
 			path = MoreBoard;
 			sourceTree = "<group>";
@@ -443,12 +397,10 @@
 		868D007F20F00FFE00C9D8B1 /* suburbano */ = {
 			isa = PBXGroup;
 			children = (
-				868D00B220F0167400C9D8B1 /* Assets */,
 				86C0681220F4140E00A6B17A /* AppDelegates */,
+				868D00B220F0167400C9D8B1 /* Assets */,
 				86C0681420F4150C00A6B17A /* Core */,
-				86C0681E20F4168C00A6B17A /* Cordinatos */,
-				86C0681520F4152300A6B17A /* Presenters */,
-				86C0680F20F413D000A6B17A /* Views */,
+				868128432122743900A7A011 /* Fetures */,
 			);
 			path = suburbano;
 			sourceTree = "<group>";
@@ -486,12 +438,12 @@
 		868D00B220F0167400C9D8B1 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				86C0680A20F0532A00A6B17A /* AppIcon.xcassets */,
+				86F14E4820F43F6D00D1CF7D /* Assets.xcassets */,
+				86C0680620F0496300A6B17A /* Colors.xcassets */,
 				8611AF7521017A2D0002663B /* Fonts */,
 				868D008920F00FFF00C9D8B1 /* LaunchScreen.storyboard */,
 				868D00B320F0167C00C9D8B1 /* maps */,
-				86C0680620F0496300A6B17A /* Colors.xcassets */,
-				86F14E4820F43F6D00D1CF7D /* Assets.xcassets */,
-				86C0680A20F0532A00A6B17A /* AppIcon.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -513,35 +465,109 @@
 			path = geoJSON;
 			sourceTree = "<group>";
 		};
+		869E2CBB2124F95200B2FA9F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				868128502123BAFA00A7A011 /* MoreBoardViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		869E2CBC2124F99C00B2FA9F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8641325420FFFFD00031F4F4 /* AcvtivityCell.swift */,
+				8641324F20FFF4E10031F4F4 /* ActivitiesBoardViewController.swift */,
+				8641325B210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift */,
+				863EF66A211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		869E2CBD2124F9B000B2FA9F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				8621A30D20F70DF900A2D8B1 /* Activity.swift */,
+				862517E620FD8001002F2048 /* RealmActivity.swift */,
+				862517E320FD7FB6002F2048 /* ActivitiesRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		869E2CBE2124F9BE00B2FA9F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8641325921000DA70031F4F4 /* ActivitiesBoardPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		869E2CBF2124F9DD00B2FA9F /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				86F14E5120F4550200D1CF7D /* MapViewFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		869E2CC02124F9ED00B2FA9F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				868D008220F00FFE00C9D8B1 /* StationsMapViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		869E2CC12124FA0800B2FA9F /* Presnter */ = {
+			isa = PBXGroup;
+			children = (
+				86F14E5620F4662800D1CF7D /* StationsMapPresenter.swift */,
+			);
+			path = Presnter;
+			sourceTree = "<group>";
+		};
+		869E2CC22124FA3D00B2FA9F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8621A30B20F70DDB00A2D8B1 /* ActivitiesWebService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		869E2CC32124FA7600B2FA9F /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				869E2CC22124FA3D00B2FA9F /* Networking */,
+				869E2CBD2124F9B000B2FA9F /* Repository */,
+				862517D620FD70B3002F2048 /* Implementations */,
+				862517D520FD709A002F2048 /* Abstractions */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		869E2CC42124FADA00B2FA9F /* Type Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				861FC57E210FF7BD0024783A /* Date.swift */,
+				867468E121018BAD00E4809D /* String.swift */,
+			);
+			path = "Type Extentions";
+			sourceTree = "<group>";
+		};
 		86C0680D20F413A000A6B17A /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
 				862517D020FD6ED0002F2048 /* UseCaseLocator.swift */,
-				862517D620FD70B3002F2048 /* Implementations */,
-				862517D520FD709A002F2048 /* Abstractions */,
-				862517CD20FD6D62002F2048 /* Base */,
 			);
 			path = UseCases;
-			sourceTree = "<group>";
-		};
-		86C0680F20F413D000A6B17A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8611AF7E21017D2A0002663B /* Theme */,
-				86413256210000220031F4F4 /* Protocols */,
-				86C0681D20F4162F00A6B17A /* UI Extension */,
-				868128432122743900A7A011 /* Fetures */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		86C0681020F413D800A6B17A /* ActivitiesBoard */ = {
 			isa = PBXGroup;
 			children = (
-				8641324F20FFF4E10031F4F4 /* ActivitiesBoardViewController.swift */,
-				8641325B210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift */,
-				863EF66A211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift */,
-				8641325420FFFFD00031F4F4 /* AcvtivityCell.swift */,
+				869E2CC32124FA7600B2FA9F /* UseCase */,
+				869E2CBE2124F9BE00B2FA9F /* Presenter */,
+				869E2CBC2124F99C00B2FA9F /* Views */,
 			);
 			path = ActivitiesBoard;
 			sourceTree = "<group>";
@@ -550,49 +576,34 @@
 			isa = PBXGroup;
 			children = (
 				868D008020F00FFE00C9D8B1 /* AppDelegate.swift */,
-				86C0681F20F4176D00A6B17A /* PluggableApplicationDelegate.swift */,
 				86C0682120F41FF400A6B17A /* ApplicationCoordinatorAppDelegate.swift */,
+				86C0681F20F4176D00A6B17A /* PluggableApplicationDelegate.swift */,
 				86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */,
 			);
 			path = AppDelegates;
-			sourceTree = "<group>";
-		};
-		86C0681320F4147800A6B17A /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				862517E520FD7FE6002F2048 /* Activity */,
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		86C0681420F4150C00A6B17A /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				86C0681820F4158000A6B17A /* Constatns */,
-				86C0681B20F415B500A6B17A /* Utils */,
 				862517C920F849CF002F2048 /* Data Persistence */,
-				862517DB20FD7965002F2048 /* Reposotory */,
-				86C0680D20F413A000A6B17A /* UseCases */,
 				86695E1D20F6D3F900F74150 /* Networking */,
-				86C0681320F4147800A6B17A /* Entities */,
+				86413256210000220031F4F4 /* Protocols */,
+				8611AF7E21017D2A0002663B /* Theme */,
+				869E2CC42124FADA00B2FA9F /* Type Extentions */,
+				86C0681D20F4162F00A6B17A /* UI Extension */,
+				86C0680D20F413A000A6B17A /* UseCases */,
+				86C0681B20F415B500A6B17A /* Utils */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		86C0681520F4152300A6B17A /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				86F14E5620F4662800D1CF7D /* StationsMapPresenter.swift */,
-				8641325921000DA70031F4F4 /* ActivitiesBoardPresenter.swift */,
-			);
-			path = Presenters;
 			sourceTree = "<group>";
 		};
 		86C0681820F4158000A6B17A /* Constatns */ = {
 			isa = PBXGroup;
 			children = (
-				86F14E4E20F450B700D1CF7D /* AppResources.swift */,
 				8621A2ED20F7026400A2D8B1 /* AppConstants.swift */,
+				86F14E4E20F450B700D1CF7D /* AppResources.swift */,
 			);
 			path = Constatns;
 			sourceTree = "<group>";
@@ -601,8 +612,6 @@
 			isa = PBXGroup;
 			children = (
 				86F14E4C20F4500E00D1CF7D /* Utils.swift */,
-				867468E121018BAD00E4809D /* String.swift */,
-				861FC57E210FF7BD0024783A /* Date.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -610,32 +619,25 @@
 		86C0681D20F4162F00A6B17A /* UI Extension */ = {
 			isa = PBXGroup;
 			children = (
-				861FC580211010480024783A /* UIEdgeInsets.swift */,
-				86F14E4A20F43FE300D1CF7D /* UITabBar.swift */,
-				86F14E5320F45D3600D1CF7D /* UIColor.swift */,
-				8641325120FFF6ED0031F4F4 /* UIView.swift */,
-				861FC582211015460024783A /* UIStackView.swift */,
 				868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */,
+				86F14E5320F45D3600D1CF7D /* UIColor.swift */,
+				861FC580211010480024783A /* UIEdgeInsets.swift */,
+				861FC582211015460024783A /* UIStackView.swift */,
+				86F14E4A20F43FE300D1CF7D /* UITabBar.swift */,
+				8641325120FFF6ED0031F4F4 /* UIView.swift */,
 			);
 			path = "UI Extension";
 			sourceTree = "<group>";
 		};
-		86C0681E20F4168C00A6B17A /* Cordinatos */ = {
+		86C0681E20F4168C00A6B17A /* AppLaunch */ = {
 			isa = PBXGroup;
 			children = (
-				86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */,
 				86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */,
-				86C0682520F4223E00A6B17A /* Base */,
-			);
-			path = Cordinatos;
-			sourceTree = "<group>";
-		};
-		86C0682520F4223E00A6B17A /* Base */ = {
-			isa = PBXGroup;
-			children = (
 				86C0682720F4227900A6B17A /* Coordinator.swift */,
+				86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */,
+				868128442122746500A7A011 /* Views */,
 			);
-			path = Base;
+			path = AppLaunch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -887,7 +889,6 @@
 				8641325520FFFFD00031F4F4 /* AcvtivityCell.swift in Sources */,
 				8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */,
 				861FC57F210FF7BD0024783A /* Date.swift in Sources */,
-				862517CF20FD6E94002F2048 /* UseCase.swift in Sources */,
 				8611AF8021017D3F0002663B /* FontStyle.swift in Sources */,
 				868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */,
 				8641325A21000DA70031F4F4 /* ActivitiesBoardPresenter.swift in Sources */,
@@ -917,7 +918,6 @@
 				8621A30E20F70DF900A2D8B1 /* Activity.swift in Sources */,
 				8641325C210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift in Sources */,
 				8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */,
-				8621A2DD20F6FE0A00A2D8B1 /* DefaultsKeys.swift in Sources */,
 				862517E720FD8001002F2048 /* RealmActivity.swift in Sources */,
 				8621A31020F7107000A2D8B1 /* DecodingError.swift in Sources */,
 				862517DA20FD7851002F2048 /* ErrorResponse.swift in Sources */,

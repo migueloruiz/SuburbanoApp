@@ -73,6 +73,10 @@
 		868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */; };
 		868D009620F00FFF00C9D8B1 /* suburbanoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D009520F00FFF00C9D8B1 /* suburbanoTests.swift */; };
 		868D00A120F00FFF00C9D8B1 /* suburbanoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D00A020F00FFF00C9D8B1 /* suburbanoUITests.swift */; };
+		869E2CC721250C9300B2FA9F /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CC621250C9300B2FA9F /* PopUpViewController.swift */; };
+		869E2CC9212524DB00B2FA9F /* PopUpTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CC8212524DB00B2FA9F /* PopUpTransition.swift */; };
+		869E2CCB2125347500B2FA9F /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 869E2CCA2125347500B2FA9F /* Montserrat-Bold.ttf */; };
+		869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCC2125380600B2FA9F /* UIButton.swift */; };
 		86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +180,10 @@
 		868D00A020F00FFF00C9D8B1 /* suburbanoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = suburbanoUITests.swift; sourceTree = "<group>"; };
 		868D00A220F00FFF00C9D8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		868D00B020F014F900C9D8B1 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Carthage/Build/iOS/Mapbox.framework; sourceTree = "<group>"; };
+		869E2CC621250C9300B2FA9F /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		869E2CC8212524DB00B2FA9F /* PopUpTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpTransition.swift; sourceTree = "<group>"; };
+		869E2CCA2125347500B2FA9F /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "Montserrat/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		869E2CCC2125380600B2FA9F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
@@ -240,6 +248,7 @@
 		8611AF7521017A2D0002663B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				869E2CCA2125347500B2FA9F /* Montserrat-Bold.ttf */,
 				867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */,
 				8611AF82210186100002663B /* Montserrat-Medium.ttf */,
 			);
@@ -343,6 +352,7 @@
 		868128432122743900A7A011 /* Fetures */ = {
 			isa = PBXGroup;
 			children = (
+				869E2CC521250C7100B2FA9F /* Alerts */,
 				86C0681E20F4168C00A6B17A /* AppLaunch */,
 				8681284F2123BACC00A7A011 /* MoreBoard */,
 				8641325320FFFF860031F4F4 /* StationsMap */,
@@ -554,6 +564,15 @@
 			path = "Type Extentions";
 			sourceTree = "<group>";
 		};
+		869E2CC521250C7100B2FA9F /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				869E2CC621250C9300B2FA9F /* PopUpViewController.swift */,
+				869E2CC8212524DB00B2FA9F /* PopUpTransition.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
 		86C0680D20F413A000A6B17A /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +644,7 @@
 				861FC582211015460024783A /* UIStackView.swift */,
 				86F14E4A20F43FE300D1CF7D /* UITabBar.swift */,
 				8641325120FFF6ED0031F4F4 /* UIView.swift */,
+				869E2CCC2125380600B2FA9F /* UIButton.swift */,
 			);
 			path = "UI Extension";
 			sourceTree = "<group>";
@@ -811,6 +831,7 @@
 				8621A2E320F6FE0A00A2D8B1 /* Colors.xcassets in Resources */,
 				8621A2E420F6FE0A00A2D8B1 /* Assets.xcassets in Resources */,
 				8621A2E520F6FE0A00A2D8B1 /* AppIcon.xcassets in Resources */,
+				869E2CCB2125347500B2FA9F /* Montserrat-Bold.ttf in Resources */,
 				867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */,
 				8621A2E620F6FE0A00A2D8B1 /* mapStyle.json in Resources */,
 				8611AF83210186100002663B /* Montserrat-Medium.ttf in Resources */,
@@ -890,12 +911,14 @@
 				8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */,
 				861FC57F210FF7BD0024783A /* Date.swift in Sources */,
 				8611AF8021017D3F0002663B /* FontStyle.swift in Sources */,
+				869E2CC9212524DB00B2FA9F /* PopUpTransition.swift in Sources */,
 				868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */,
 				8641325A21000DA70031F4F4 /* ActivitiesBoardPresenter.swift in Sources */,
 				864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */,
 				864132582100017A0031F4F4 /* ReusableIdentifier.swift in Sources */,
 				8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */,
 				868128482123AAF200A7A011 /* MenuItemView.swift in Sources */,
+				869E2CC721250C9300B2FA9F /* PopUpViewController.swift in Sources */,
 				861FC583211015460024783A /* UIStackView.swift in Sources */,
 				8621A2D320F6FE0A00A2D8B1 /* WebResources.swift in Sources */,
 				8621A2D420F6FE0A00A2D8B1 /* RequestFactory.swift in Sources */,
@@ -912,6 +935,7 @@
 				8621A2D920F6FE0A00A2D8B1 /* Endpoints.swift in Sources */,
 				8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				8611AF7B21017AAD0002663B /* Theme.swift in Sources */,
+				869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */,
 				864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */,
 				863EF66B211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift in Sources */,
 				8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */,

@@ -13,6 +13,7 @@ struct Theme {
         static let darkGray: UIColor = UIColor(named: "darkGray") ?? .red
         static let softGray: UIColor = UIColor(named: "softGray") ?? .red
         static let softRed: UIColor = UIColor(named: "softRed") ?? .blue
+        static let darkBackground: UIColor = UIColor.black.withAlphaComponent(0.6)
         
         static let concert: UIColor = UIColor(named: "concertColor") ?? .purple
         static let workshop: UIColor = UIColor(named: "workshopColor") ?? .purple
@@ -22,6 +23,7 @@ struct Theme {
     }
     
     struct Offset {
+        static let extralarge: CGFloat = 40
         static let large: CGFloat = 20
         static let normal: CGFloat = 10
         static let small: CGFloat = 5
@@ -39,6 +41,8 @@ struct Theme {
     
     enum FontSize: CGFloat {
         case h1 = 24
+        case h2 = 20
+        case h3 = 18
         case general = 14
         case p = 12
     }

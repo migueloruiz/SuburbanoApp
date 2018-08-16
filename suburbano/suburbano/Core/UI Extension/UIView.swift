@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     // MARK: Drop Shadow
     
-    func dropShadow(color: UIColor, opacity: Float = 0.7, offSet: CGSize = .zero, radius: CGFloat = 3) {
+    func dropShadow(color: UIColor = .black, opacity: Float = 0.7, offSet: CGSize = CGSize(width: 2, height: 2), radius: CGFloat = 3) {
         layer.shadowColor = color.cgColor
         layer.shadowOpacity = opacity
         layer.shadowOffset = offSet

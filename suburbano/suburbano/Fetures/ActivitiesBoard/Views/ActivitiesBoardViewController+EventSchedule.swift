@@ -19,9 +19,8 @@ extension ActivitiesBoardViewController: EKEventEditViewDelegate {
         controller.dismiss(animated: true)
     }
     
-    func presentScheduleView(withActivityid id: String) {
-        let eventStore = EKEventStore()
-        guard let event = presenter.getEvent(withActiviryId: id, eventStore: eventStore) else { return }
+    func presentScheduleView(withActivityid id: String, eventStore: EKEventStore) {
+        guard let event = presenter.getEvent(withActiviryId: id) else { return }
         let eventViewController = EKEventEditViewController()
         eventViewController.eventStore = eventStore
         eventViewController.event = event

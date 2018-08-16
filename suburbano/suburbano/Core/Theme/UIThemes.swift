@@ -28,12 +28,14 @@ protocol ButtonStyle {
     var textColor: UIColor { get }
     var backgroundColor: UIColor { get }
     var font: FontStyle { get }
+    var rounded: Bool { get }
 }
 
 struct ButtonTheme: ButtonStyle {
     let textColor: UIColor
     let backgroundColor: UIColor
     let font: FontStyle
+    let rounded: Bool
 }
 
 struct UIThemes {
@@ -63,6 +65,18 @@ struct UIThemes {
                                                  textColor: Theme.Pallete.softGray,
                                                  backgroundColor: .white,
                                                  font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
+        
+        // MARK: - Popup Label Themes
+        static let PopupTitle = LabelTheme(numberOfLines: 0,
+                                                  textAlignment: .center,
+                                                  textColor: Theme.Pallete.softRed,
+                                                  backgroundColor: .white,
+                                                  font: FontStyle(size: .h3, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
+        static let PopupBody = LabelTheme(numberOfLines: 0,
+                                                 textAlignment: .center,
+                                                 textColor: Theme.Pallete.darkGray,
+                                                 backgroundColor: .white,
+                                                 font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
     }
     
     // MARK: - Button Themes
@@ -70,7 +84,14 @@ struct UIThemes {
         // MARK: - ActivityCard Button Themes
         static let ActivityCard = ButtonTheme(textColor: Theme.Pallete.darkGray,
                                               backgroundColor: .white,
-                                              font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
+                                              font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
+                                              rounded: false)
+        
+        // MARK: - Popup Button Themes
+        static let OKPopupButton = ButtonTheme(textColor: Theme.Pallete.softGray,
+                                              backgroundColor: .white,
+                                              font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
+                                              rounded: true)
         
     }
 }

@@ -29,8 +29,7 @@ class UIFactory {
     
     static func createButton(withTitle title: String, theme: ButtonStyle) -> UIButton {
         let button = UIButton()
-        button.setTitle(title, for: .normal)
-        button.setTitle(title, for: .focused)
+        button.set(title: title)
         button.backgroundColor = theme.backgroundColor
         button.titleLabel?.backgroundColor = theme.backgroundColor
         button.setTitleColor(theme.textColor, for: .normal)
@@ -38,6 +37,12 @@ class UIFactory {
         button.titleLabel?.font = theme.font.getScaledFont()
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.adjustsFontForContentSizeCategory = true
+        
+        if theme.rounded {
+            button.roundCorners()
+            button.clipsToBounds = true
+        }
+        
         return button
     }
 }

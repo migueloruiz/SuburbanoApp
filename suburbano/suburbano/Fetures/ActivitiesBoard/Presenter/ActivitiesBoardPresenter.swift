@@ -9,10 +9,16 @@
 import Foundation
 import EventKitUI
 
+enum ScheduleAccessRepsonse {
+    case authorized(eventStore: EKEventStore)
+    case denied
+}
+
 class ActivitiesBoardPresenter {
-    let activitiesUseCase: GetActivitiesUseCase?
+    private let activitiesUseCase: GetActivitiesUseCase?
     private var activities = [Activity]()
     private var activitiesModels = [AcvtivityCellViewModel]()
+    private lazy var eventStore = EKEventStore()
     
     struct Constants {
         static let dayInterval: Double = 86400
@@ -41,12 +47,28 @@ class ActivitiesBoardPresenter {
         return activitiesModels[index.row]
     }
     
-    func getEvent(withActiviryId id: String, eventStore: EKEventStore) -> EKEvent? {
+    func hasAccessToSchedule(complition: @escaping (ScheduleAccessRepsonse) -> Void) {
+        switch EKEventStore.authorizationStatus(for: .event) {
+        case .notDetermined:
+            eventStore.requestAccess(to: .event) { [weak self] (granted, error) in
+                guard let strongSelf = self else { return }
+                let response: ScheduleAccessRepsonse = granted ? .authorized(eventStore: strongSelf.eventStore) : .denied
+                complition(response)
+            }
+        case .authorized:
+            complition(.authorized(eventStore: eventStore))
+        case .restricted, .denied:
+            complition(.denied)
+        }
+    }
+    
+    func getEvent(withActiviryId id: String) -> EKEvent? {
         guard let activity = activities.first(where: { $0.id == id }) else { return nil }
         
         let event = EKEvent(eventStore: eventStore)
         event.title = activity.title
         event.location = activity.loaction
+        event.notes = activity.descripcion
         event.calendar = eventStore.calendars(for: .event).first
         
         let startDate = Date(timeIntervalSince1970: TimeInterval(activity.starDate))

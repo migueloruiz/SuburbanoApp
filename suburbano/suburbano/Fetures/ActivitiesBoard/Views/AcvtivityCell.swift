@@ -65,7 +65,7 @@ class AcvtivityCell: UITableViewCell, ReusableIdentifier {
         let shadowView = UIView()
         shadowView.roundCorners()
         shadowView.backgroundColor = .white
-        shadowView.dropShadow(color: .black, offSet: CGSize(width: 2, height: 2))
+        shadowView.dropShadow()
 
         addSubViews([shadowView, bottomLineImage])
         shadowView.fillSuperview(verticalOffset: Theme.Offset.normal, horizontalOffset: Theme.Offset.normal)

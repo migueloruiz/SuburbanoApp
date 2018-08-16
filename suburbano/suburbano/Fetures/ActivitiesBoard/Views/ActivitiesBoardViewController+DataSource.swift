@@ -46,7 +46,18 @@ extension ActivitiesBoardViewController: UITableViewDataSource, UITableViewDeleg
 
 extension ActivitiesBoardViewController: AcvtivityCellDelegate {
     func sheduleActivity(withId id: String) {
-        presentScheduleView(withActivityid: id)
+        presenter.hasAccessToSchedule { [weak self] accessRepsonse in
+            guard let strongSelf = self else { return }
+            switch accessRepsonse {
+            case .authorized(let eventStore):
+                strongSelf.presentScheduleView(withActivityid: id, eventStore: eventStore)
+            case .denied:
+                let error = ErrorResponse(code: .unknownCode, header: "Oups!", body: "No tenemos permiso para poder accesar a tu calendario. Puedes darnos acceso en la seccion de ajustes de tu telefono", tecnicalDescription: "")
+                let controller = PopUpViewController(context: .error(error: error))
+                controller.transitioningDelegate = self
+                strongSelf.present(controller, animated: true, completion: nil)
+            }
+        }
     }
     
     func shareActivity(withId id: String) {}

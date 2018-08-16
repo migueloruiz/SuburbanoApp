@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum ServiceResponse<Model> {
+enum ServiceResponse<Model> {
     case success(response: [Model], headers: [String: String])
     case failure(error: ErrorResponse)
 }

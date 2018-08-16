@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum ResponseStatusCodes: Int {
+enum ResponseStatusCodes: Int {
     case successCode = 200
     case badRequest = 400
     case internalServerError = 500
@@ -30,7 +30,7 @@ public enum ResponseStatusCodes: Int {
     }
 }
 
-public struct ErrorResponse {
+struct ErrorResponse {
     internal var code = ResponseStatusCodes.unknownCode
     internal var header = ""
     internal var body = ""

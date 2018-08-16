@@ -50,7 +50,9 @@ class MainNavigationViewController: UIViewController {
     override func viewDidLoad() {
         configureMenu()
         view.addSubViews([pageViewController.view, menuView])
+        addChildViewController(pageViewController)
         pageViewController.view.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: menuView.topAnchor, right: view.rightAnchor)
+        
         menuView.anchor(top: pageViewController.view.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         menuView.addSubViews([menuCollectionView, menuSelector])
         menuCollectionView.anchor(top: menuView.topAnchor, left: menuView.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: menuView.rightAnchor, heightConstant: Constants.menuItemHeigth)

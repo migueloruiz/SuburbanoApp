@@ -18,15 +18,15 @@ class MenuItemView: UICollectionViewCell, ReusableIdentifier {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureUI()
+        configureLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        configureUI()
+        configureLayout()
     }
     
-    private func configureUI() {
+    private func configureLayout() {
         backgroundColor = .white
         addSubview(iconView)
         iconView.anchorCenterSuperview()

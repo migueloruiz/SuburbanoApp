@@ -294,7 +294,7 @@
 		8641325320FFFF860031F4F4 /* StationsMap */ = {
 			isa = PBXGroup;
 			children = (
-				869E2CC12124FA0800B2FA9F /* Presnter */,
+				869E2CC12124FA0800B2FA9F /* Presenter */,
 				869E2CBF2124F9DD00B2FA9F /* Factory */,
 				869E2CC02124F9ED00B2FA9F /* Views */,
 			);
@@ -518,12 +518,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		869E2CC12124FA0800B2FA9F /* Presnter */ = {
+		869E2CC12124FA0800B2FA9F /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				86F14E5620F4662800D1CF7D /* StationsMapPresenter.swift */,
 			);
-			path = Presnter;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		869E2CC22124FA3D00B2FA9F /* Networking */ = {

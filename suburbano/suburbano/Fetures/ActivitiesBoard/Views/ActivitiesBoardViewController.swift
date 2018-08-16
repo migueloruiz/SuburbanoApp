@@ -32,8 +32,12 @@ class ActivitiesBoardViewController: NavigationalViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override func viewDidLoad() {
-        configureUI()
+        configureLayout()
         configureTable()
+        showEmptyMessage(enable: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         presenter.loadData { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.activitiesTable.reloadData()
@@ -41,7 +45,7 @@ class ActivitiesBoardViewController: NavigationalViewController {
         }
     }
 
-    private func configureUI() {
+    private func configureLayout() {
         view.backgroundColor = .white
         view.addSubViews([emptyMessage, slectionView, activitiesTable])
         
@@ -60,6 +64,5 @@ class ActivitiesBoardViewController: NavigationalViewController {
         
         slectionView.addSubview(titleLable)
         titleLable.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: slectionView.leftAnchor, bottom: slectionView.bottomAnchor, right: slectionView.rightAnchor, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
-        showEmptyMessage(enable: true)
     }
 }

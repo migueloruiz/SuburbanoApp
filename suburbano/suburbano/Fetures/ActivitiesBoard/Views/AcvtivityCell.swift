@@ -41,7 +41,7 @@ class AcvtivityCell: UITableViewCell, ReusableIdentifier {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureUI()
+        configureLayout()
     }
     
     func configure(with activity: AcvtivityCellViewModel, delegate: AcvtivityCellDelegate) {
@@ -54,7 +54,7 @@ class AcvtivityCell: UITableViewCell, ReusableIdentifier {
         self.delegate = delegate
     }
     
-    private func configureUI() {
+    private func configureLayout() {
         selectionStyle = .none
         backgroundColor = .white
         accessibilityTraits = UIAccessibilityTraitNotEnabled

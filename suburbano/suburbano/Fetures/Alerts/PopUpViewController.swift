@@ -20,7 +20,7 @@ class PopUpViewController: UIViewController {
     private lazy var titleLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupTitle)
     private lazy var descripcionLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupBody)
     private var imageView = UIImageView()
-    private lazy var buttonsContainer: UIStackView = UIStackView.with(axis: .vertical, spacing: Theme.Offset.normal)
+    private lazy var buttonsContainer: UIStackView = UIStackView.with(distribution: .fillEqually, spacing: Theme.Offset.small)
     private(set) lazy var messageContiner: UIView = {
         let vw = UIView()
         vw.backgroundColor = .white
@@ -49,12 +49,12 @@ class PopUpViewController: UIViewController {
 
         OKButton.layer.borderWidth = 2
         OKButton.layer.borderColor = Theme.Pallete.softGray.cgColor
-        OKButton.layer.cornerRadius = Theme.Offset.large
+        OKButton.layer.cornerRadius = 15
         OKButton.addTarget(self, action: #selector(PopUpViewController.close), for: UIControlEvents.touchUpInside)
         
         secondariButton.layer.borderWidth = 2
         secondariButton.layer.borderColor = Theme.Pallete.darkGray.cgColor
-        secondariButton.layer.cornerRadius = Theme.Offset.large
+        secondariButton.layer.cornerRadius = 15
         secondariButton.setTitleColor(Theme.Pallete.darkGray, for: .normal)
         secondariButton.titleLabel?.textColor = Theme.Pallete.darkGray
         secondariButton.addTarget(self, action: #selector(PopUpViewController.openSetting), for: UIControlEvents.touchUpInside)
@@ -82,8 +82,8 @@ class PopUpViewController: UIViewController {
         
         buttonsContainer.anchor(left: titleLabel.leftAnchor, bottom: messageContiner.bottomAnchor, right: titleLabel.rightAnchor, bottomConstant: Theme.Offset.large)
         buttonsContainer.addArrangedSubview(OKButton)
-        OKButton.anchor(heightConstant: Theme.Offset.extralarge)
-        secondariButton.anchor(heightConstant: Theme.Offset.extralarge)
+        OKButton.anchor(heightConstant: 30)
+        secondariButton.anchor(heightConstant: 30)
     }
     
     @objc func close() {

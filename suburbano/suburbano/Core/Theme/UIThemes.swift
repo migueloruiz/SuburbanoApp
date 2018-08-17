@@ -90,7 +90,7 @@ struct UIThemes {
         // MARK: - Popup Button Themes
         static let OKPopupButton = ButtonTheme(textColor: Theme.Pallete.softGray,
                                               backgroundColor: .white,
-                                              font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
+                                              font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
                                               rounded: true)
         
     }

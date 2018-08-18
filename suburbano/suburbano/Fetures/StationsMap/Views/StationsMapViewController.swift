@@ -13,8 +13,6 @@ struct StationsMap: MapInitialConfiguration {
     let style: AppResource = AppResources.Map.StyleFile
     let maxZoomLevel: Double = 20
     let minZoomLevel: Double = 8
-    let initialCenter: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 19.547708640456165, longitude: -99.177430873241235)
-    let initialZoom: Double = 10.5
     let mapBoundsNE: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 19.858455, longitude: -98.935441)
     let mapBoundsSW: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 19.191602, longitude: -99.421277)
 }
@@ -31,6 +29,9 @@ class StationsMapViewController: NavigationalViewController {
     let presenter: StationsMapPresenterProtocol
     weak var delegate: StationsMapViewControllerDelegate?
     
+    let initialZoom: Double = 10.5
+    let stationZoom: Double = 10
+
     override var navgationIcon: UIImage { return #imageLiteral(resourceName: "TrainIcon") }
     
     struct Constants {
@@ -62,6 +63,7 @@ class StationsMapViewController: NavigationalViewController {
             polyline.identifier = polyline.attributes["name"]
             DispatchQueue.main.async{
                 mapView.addAnnotation(polyline)
+                mapView.showAnnotations([polyline], edgePadding: UIEdgeInsets(top: 100, left: 0, bottom: 40, right: 0), animated: true)
             }
         }
     }
@@ -91,16 +93,17 @@ extension StationsMapViewController: MGLMapViewDelegate {
         return inside
     }
     
-    func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
+    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         guard let marker = annotation as? MGLPointAnnotation,
-            let title = marker.title,
-            let station = presenter.getStation(withName: title),
-            let image = UIImage(named: station.markerImage) else { return nil }
+            let title = marker.title else { return nil }
         
-        guard let annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: title) else {
-            return MGLAnnotationImage(image: image, reuseIdentifier: title)
+        if let anotation = mapView.dequeueReusableAnnotationView(withIdentifier: title) {
+            return anotation
+        } else if let station = presenter.getStation(withName: title) {
+            return StationAnnotation(station: station)
+        } else {
+            return nil
         }
-        return annotationImage
     }
     
     func mapView(_ mapView: MGLMapView, lineWidthForPolylineAnnotation annotation: MGLPolyline) -> CGFloat {
@@ -115,7 +118,13 @@ extension StationsMapViewController: MGLMapViewDelegate {
         guard let marker = annotation as? MGLPointAnnotation,
             let station = presenter.getStation(withName: marker.title ?? "") else { return }
         delegate?.didStationSelected(station: station)
-        let point = mapView.convert(annotation.coordinate, toPointTo: view)
-        print("didSelect market: \(point)")
+//        let point = mapView.convert(annotation.coordinate, toPointTo: view)
+//        print("didSelect market: \(point)")
+        let newCamera = mapView.camera
+        newCamera.centerCoordinate = annotation.coordinate
+        mapView.setCamera(newCamera, withDuration: 0.2, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)) {
+            newCamera.altitude = 4600
+            mapView.setCamera(newCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
+        }
     }
 }

@@ -77,6 +77,13 @@ struct UIThemes {
                                                  textColor: Theme.Pallete.darkGray,
                                                  backgroundColor: .white,
                                                  font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
+        
+        // MARK: - Map Label Themes
+        static let StationMarkerTitle = LabelTheme(numberOfLines: 0,
+                                           textAlignment: .center,
+                                           textColor: Theme.Pallete.darkGray,
+                                           backgroundColor: .clear,
+                                           font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .bold))
     }
     
     // MARK: - Button Themes

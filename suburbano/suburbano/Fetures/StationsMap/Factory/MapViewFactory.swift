@@ -13,8 +13,6 @@ protocol MapInitialConfiguration {
     var style: AppResource { get }
     var maxZoomLevel: Double { get }
     var minZoomLevel: Double { get }
-    var initialCenter: CLLocationCoordinate2D { get }
-    var initialZoom: Double { get }
     var mapBoundsNE: CLLocationCoordinate2D { get }
     var mapBoundsSW: CLLocationCoordinate2D { get }
 }
@@ -25,7 +23,6 @@ class MapViewFactory {
         let map = MGLMapView(frame: frame, styleURL: styleURL)
         map.maximumZoomLevel = initilConfiguration.maxZoomLevel
         map.minimumZoomLevel = initilConfiguration.minZoomLevel
-        map.setCenter(initilConfiguration.initialCenter, zoomLevel: initilConfiguration.initialZoom, animated: false)
         map.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         map.attributionButton.isHidden = true
         return map

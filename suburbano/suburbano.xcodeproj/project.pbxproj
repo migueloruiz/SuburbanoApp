@@ -17,7 +17,7 @@
 		8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4A20F43FE300D1CF7D /* UITabBar.swift */; };
 		8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */; };
 		8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4E20F450B700D1CF7D /* AppResources.swift */; };
-		8621A2D020F6FE0A00A2D8B1 /* StationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008220F00FFE00C9D8B1 /* StationsMapViewController.swift */; };
+		8621A2D020F6FE0A00A2D8B1 /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008220F00FFE00C9D8B1 /* StationsViewController.swift */; };
 		8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682720F4227900A6B17A /* Coordinator.swift */; };
 		8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0681F20F4176D00A6B17A /* PluggableApplicationDelegate.swift */; };
 		8621A2D320F6FE0A00A2D8B1 /* WebResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86695E2220F6E67C00F74150 /* WebResources.swift */; };
@@ -65,6 +65,7 @@
 		864A38C52102B86D006AD3A0 /* Frameworks.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 864A389D2102A061006AD3A0 /* Frameworks.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D121163E170053DFB1 /* UIFactory.swift */; };
 		864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D32116422A0053DFB1 /* UIThemes.swift */; };
+		8652A3552128DA3400ED1910 /* StationsViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A3542128DA3400ED1910 /* StationsViewController+Map.swift */; };
 		867468E221018BAD00E4809D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867468E121018BAD00E4809D /* String.swift */; };
 		867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */; };
 		868128462122748900A7A011 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128452122748900A7A011 /* MainNavigationViewController.swift */; };
@@ -160,6 +161,7 @@
 		864A38BF2102A2A4006AD3A0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		864FE4D121163E170053DFB1 /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
 		864FE4D32116422A0053DFB1 /* UIThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIThemes.swift; sourceTree = "<group>"; };
+		8652A3542128DA3400ED1910 /* StationsViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationsViewController+Map.swift"; sourceTree = "<group>"; };
 		86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceSynchronizerAppDelegate.swift; sourceTree = "<group>"; };
 		86695E1E20F6D50600F74150 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		86695E2020F6E65900F74150 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
@@ -171,7 +173,7 @@
 		868128502123BAFA00A7A011 /* MoreBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBoardViewController.swift; sourceTree = "<group>"; };
 		868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutAnchor.swift; sourceTree = "<group>"; };
 		868D008020F00FFE00C9D8B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		868D008220F00FFE00C9D8B1 /* StationsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsMapViewController.swift; sourceTree = "<group>"; };
+		868D008220F00FFE00C9D8B1 /* StationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
 		868D008A20F00FFF00C9D8B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		868D008C20F00FFF00C9D8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		868D009120F00FFF00C9D8B1 /* suburbanoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = suburbanoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -306,7 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				869E2CC12124FA0800B2FA9F /* Presenter */,
-				869E2CBF2124F9DD00B2FA9F /* Factory */,
 				869E2CC02124F9ED00B2FA9F /* Views */,
 			);
 			path = StationsMap;
@@ -514,18 +515,12 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		869E2CBF2124F9DD00B2FA9F /* Factory */ = {
-			isa = PBXGroup;
-			children = (
-				86F14E5120F4550200D1CF7D /* MapViewFactory.swift */,
-			);
-			path = Factory;
-			sourceTree = "<group>";
-		};
 		869E2CC02124F9ED00B2FA9F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				868D008220F00FFE00C9D8B1 /* StationsMapViewController.swift */,
+				86F14E5120F4550200D1CF7D /* MapViewFactory.swift */,
+				868D008220F00FFE00C9D8B1 /* StationsViewController.swift */,
+				8652A3542128DA3400ED1910 /* StationsViewController+Map.swift */,
 				869E2CCE21277D1600B2FA9F /* StationAnnotation.swift */,
 			);
 			path = Views;
@@ -908,7 +903,7 @@
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
 				8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */,
 				8611AF74210175090002663B /* AppImages.swift in Sources */,
-				8621A2D020F6FE0A00A2D8B1 /* StationsMapViewController.swift in Sources */,
+				8621A2D020F6FE0A00A2D8B1 /* StationsViewController.swift in Sources */,
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,
 				8641325520FFFFD00031F4F4 /* AcvtivityCell.swift in Sources */,
 				8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */,
@@ -940,6 +935,7 @@
 				8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				8611AF7B21017AAD0002663B /* Theme.swift in Sources */,
 				869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */,
+				8652A3552128DA3400ED1910 /* StationsViewController+Map.swift in Sources */,
 				864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */,
 				863EF66B211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift in Sources */,
 				8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */,

@@ -17,6 +17,14 @@ protocol MapInitialConfiguration {
     var mapBoundsSW: CLLocationCoordinate2D { get }
 }
 
+struct StationsMap: MapInitialConfiguration {
+    let style: AppResource = AppResources.Map.StyleFile
+    let maxZoomLevel: Double = 20
+    let minZoomLevel: Double = 8
+    let mapBoundsNE: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 19.858455, longitude: -98.935441)
+    let mapBoundsSW: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 19.191602, longitude: -99.421277)
+}
+
 class MapViewFactory {
     static func create(frame: CGRect, initilConfiguration: MapInitialConfiguration) -> MGLMapView {
         let styleURL = Utils.bundleUrl(forResource: initilConfiguration.style)

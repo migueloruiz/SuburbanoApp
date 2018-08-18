@@ -24,17 +24,20 @@ struct AcvtivityCellViewModel {
 
 class AcvtivityCell: UITableViewCell, ReusableIdentifier {
     
+    struct Constants {
+        static let dateIconsSize: CGFloat = 15
+    }
+    
     weak var delegate: AcvtivityCellDelegate?
     private var id = ""
     
-    private let lineSeparator = UIView()
-    private lazy var titleLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardTitle)
-    private lazy var dateLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardDetails)
-    private lazy var scheduleLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardDetails)
-    private lazy var descripcionLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
-    private lazy var bottomLineImage: UIImageView = UIImageView(image: AppImages.Strech.cardBase)
+    fileprivate let lineSeparator = UIView()
+    fileprivate lazy var titleLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardTitle)
+    fileprivate lazy var dateLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardDetails)
+    fileprivate lazy var scheduleLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardDetails)
+    fileprivate lazy var descripcionLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
+    fileprivate lazy var bottomLineImage: UIImageView = UIImageView(image: AppImages.Strech.cardBase)
 
-    
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -62,21 +65,18 @@ class AcvtivityCell: UITableViewCell, ReusableIdentifier {
         contanerView.isLayoutMarginsRelativeArrangement = true
         contanerView.backgroundColor = .white
         
-        let shadowView = UIView()
-        shadowView.roundCorners()
-        shadowView.backgroundColor = .white
-        shadowView.dropShadow()
-
-        addSubViews([shadowView, bottomLineImage])
-        shadowView.fillSuperview(verticalOffset: Theme.Offset.normal, horizontalOffset: Theme.Offset.normal)
-        shadowView.addSubview(contanerView)
+        let cardView = UIFactory.createCardView()
+        addSubViews([cardView, bottomLineImage])
+        
+        cardView.fillSuperview(verticalOffset: Theme.Offset.normal, horizontalOffset: Theme.Offset.normal)
+        cardView.addSubview(contanerView)
         contanerView.fillSuperview()
-        bottomLineImage.anchor(left: shadowView.leftAnchor, bottom: shadowView.bottomAnchor, right: shadowView.rightAnchor)
+        bottomLineImage.anchor(left: cardView.leftAnchor, bottom: cardView.bottomAnchor, right: cardView.rightAnchor)
         
         let calendarImage = UIImageView(image: #imageLiteral(resourceName: "calendar"))
-        calendarImage.anchor(widthConstant: 15, heightConstant: 15)
+        calendarImage.anchor(widthConstant: Constants.dateIconsSize, heightConstant: Constants.dateIconsSize)
         let clockImage = UIImageView(image: #imageLiteral(resourceName: "clock"))
-        clockImage.anchor(widthConstant: 15, heightConstant: 15)
+        clockImage.anchor(widthConstant: Constants.dateIconsSize, heightConstant: Constants.dateIconsSize)
         
         let dateStack = UIStackView.with(distribution: .fill, alignment: .fill, spacing: Theme.Offset.small)
         dateStack.addArranged(subViews: [clockImage, scheduleLabel, calendarImage, dateLabel])
@@ -86,7 +86,7 @@ class AcvtivityCell: UITableViewCell, ReusableIdentifier {
         scheduleButton.addTarget(self, action: #selector(AcvtivityCell.sheduleActivity), for: .touchUpInside)
         let shareButton = UIFactory.createButton(withTitle: "Compartir", theme: UIThemes.Button.ActivityCard)
         
-        lineSeparator.backgroundColor = Theme.Pallete.softGray.withAlphaComponent(0.5)
+        lineSeparator.backgroundColor = Theme.Pallete.softGray
         lineSeparator.roundCorners(withRadius: 1)
         lineSeparator.anchor(widthConstant: 1)
         

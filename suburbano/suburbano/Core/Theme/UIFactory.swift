@@ -45,4 +45,12 @@ class UIFactory {
         
         return button
     }
+    
+    static func createCardView() -> UIView {
+        let vw = UIView()
+        vw.backgroundColor = .white
+        vw.roundCorners()
+        vw.dropShadow()
+        return vw
+    }
 }

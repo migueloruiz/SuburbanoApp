@@ -21,13 +21,7 @@ class PopUpViewController: UIViewController {
     private lazy var descripcionLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupBody)
     private var imageView = UIImageView()
     private lazy var buttonsContainer: UIStackView = UIStackView.with(distribution: .fillEqually, spacing: Theme.Offset.small)
-    private(set) lazy var messageContiner: UIView = {
-        let vw = UIView()
-        vw.backgroundColor = .white
-        vw.roundCorners()
-        vw.dropShadow()
-        return vw
-    }()
+    private(set) lazy var messageContiner: UIView = UIFactory.createCardView()
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     

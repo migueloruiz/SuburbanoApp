@@ -17,8 +17,7 @@ class MainCordinator: NSObject, Coordinator {
     }
     
     func start() {
-        let stationsMapViewController = StationsViewController(presenter: StationsMapPresenter(), mapConfiguration: StationsMap())
-        stationsMapViewController.delegate = self
+        let stationsMapViewController = StationsViewController(presenter: StationsMapPresenter(), mapConfiguration: StationsMap(), delegate: self)
         let activitiesBoardViewController = ActivitiesBoardViewController(activitiesBoardPresenter: ActivitiesBoardPresenter())
         let moreBoardViewController = MoreBoardViewController()
         

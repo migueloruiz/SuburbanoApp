@@ -25,7 +25,7 @@ struct AcvtivityCellViewModel {
 class AcvtivityCell: UITableViewCell, ReusableIdentifier {
     
     struct Constants {
-        static let dateIconsSize: CGFloat = 15
+        static let dateIconsSize: CGFloat = Theme.IconSize.extraSmall
     }
     
     weak var delegate: AcvtivityCellDelegate?
@@ -56,6 +56,7 @@ class AcvtivityCell: UITableViewCell, ReusableIdentifier {
     }
     
     private func configureLayout() {
+        // TODO: Add Configure UI
         selectionStyle = .none
         backgroundColor = .white
         accessibilityTraits = UIAccessibilityTraitNotEnabled
@@ -74,21 +75,22 @@ class AcvtivityCell: UITableViewCell, ReusableIdentifier {
         bottomLineImage.anchor(left: cardView.leftAnchor, bottom: cardView.bottomAnchor, right: cardView.rightAnchor)
         
         let calendarImage = UIImageView(image: #imageLiteral(resourceName: "calendar"))
-        calendarImage.anchor(widthConstant: Constants.dateIconsSize, heightConstant: Constants.dateIconsSize)
+        calendarImage.anchorSquare(size: Constants.dateIconsSize)
         let clockImage = UIImageView(image: #imageLiteral(resourceName: "clock"))
-        clockImage.anchor(widthConstant: Constants.dateIconsSize, heightConstant: Constants.dateIconsSize)
+        clockImage.anchorSquare(size: Constants.dateIconsSize)
         
         let dateStack = UIStackView.with(distribution: .fill, alignment: .fill, spacing: Theme.Offset.small)
         dateStack.addArranged(subViews: [clockImage, scheduleLabel, calendarImage, dateLabel])
         dateStack.backgroundColor = .white
         
-        let scheduleButton = UIFactory.createButton(withTitle: "Angendar", theme: UIThemes.Button.ActivityCard)
+        let scheduleButton = UIFactory.createButton(withTheme: UIThemes.Button.ActivityCard, title: "Angendar")
         scheduleButton.addTarget(self, action: #selector(AcvtivityCell.sheduleActivity), for: .touchUpInside)
-        let shareButton = UIFactory.createButton(withTitle: "Compartir", theme: UIThemes.Button.ActivityCard)
+        let shareButton = UIFactory.createButton(withTheme: UIThemes.Button.ActivityCard, title: "Compartir")
         
+        // TODO Separator factory
         lineSeparator.backgroundColor = Theme.Pallete.softGray
-        lineSeparator.roundCorners(withRadius: 1)
-        lineSeparator.anchor(widthConstant: 1)
+        lineSeparator.roundCorners(withRadius: Theme.Offset.separator)
+        lineSeparator.anchorSize(height: Theme.Offset.separator)
         
         let buttonsStack = UIStackView.with()
         buttonsStack.backgroundColor = .white

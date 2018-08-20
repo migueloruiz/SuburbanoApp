@@ -13,8 +13,8 @@ class ActivitiesBoardViewController: NavigationalViewController {
     let presenter: ActivitiesBoardPresenter
     
     lazy var activitiesTable: UITableView = UITableView(frame: .zero)
-    lazy var titleLable: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.NavTitle, title: "EVENTOS")
-    lazy var emptyMessage: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardTitle, title: "No hay eventos")
+    lazy var titleLable: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityBoardNavTitle, text: "EVENTOS")
+    lazy var emptyMessage: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardTitle, text: "No hay eventos")
     lazy var slectionView: UIView = {
         let sv = UIView()
         sv.backgroundColor = Theme.Pallete.softRed

@@ -33,6 +33,7 @@ class MapViewFactory {
         map.minimumZoomLevel = initilConfiguration.minZoomLevel
         map.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         map.attributionButton.isHidden = true
+        map.logoView.isHidden = true
         return map
     }
 }

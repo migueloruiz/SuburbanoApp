@@ -28,14 +28,18 @@ protocol ButtonStyle {
     var textColor: UIColor { get }
     var backgroundColor: UIColor { get }
     var font: FontStyle { get }
-    var rounded: Bool { get }
+    var rounded: RoundedStyle? { get }
 }
 
 struct ButtonTheme: ButtonStyle {
     let textColor: UIColor
     let backgroundColor: UIColor
     let font: FontStyle
-    let rounded: Bool
+    let rounded: RoundedStyle?
+}
+
+struct RoundedStyle {
+    let radius: CGFloat
 }
 
 struct UIThemes {
@@ -43,11 +47,17 @@ struct UIThemes {
     // MARK: - Label Themes
     struct Label {
         // MARK: - General Label Themes
-        static let NavTitle = LabelTheme(numberOfLines: 1,
+        static let ActivityBoardNavTitle = LabelTheme(numberOfLines: 1,
                                          textAlignment: .center,
                                          textColor: .white,
                                          backgroundColor: Theme.Pallete.softRed,
                                          font: FontStyle(size: .h1, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
+        
+        static let CardBalanceNavTitle = LabelTheme(numberOfLines: 1,
+                                                      textAlignment: .center,
+                                                      textColor: Theme.Pallete.darkGray,
+                                                      backgroundColor: .white,
+                                                      font: FontStyle(size: .h1, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
         
         // MARK: - ActivityCard Label Themes
         static let ActivityCardTitle = LabelTheme(numberOfLines: 0,
@@ -92,13 +102,17 @@ struct UIThemes {
         static let ActivityCard = ButtonTheme(textColor: Theme.Pallete.darkGray,
                                               backgroundColor: .white,
                                               font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
-                                              rounded: false)
+                                              rounded: nil)
         
         // MARK: - Popup Button Themes
-        static let OKPopupButton = ButtonTheme(textColor: Theme.Pallete.softGray,
-                                              backgroundColor: .white,
-                                              font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
-                                              rounded: true)
+        static let PrimaryButton = ButtonTheme(textColor: .white,
+                                              backgroundColor: Theme.Pallete.primaryAction,
+                                              font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
+                                              rounded: RoundedStyle(radius: Theme.Rounded.button))
         
+        static let SecondayButton = ButtonTheme(textColor: .white,
+                                                backgroundColor: Theme.Pallete.softRed,
+                                                font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
+                                                rounded: RoundedStyle(radius: Theme.Rounded.button))
     }
 }

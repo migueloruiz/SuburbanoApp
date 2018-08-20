@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     // MARK: Drop Shadow
     
-    func dropShadow(color: UIColor = .black, opacity: Float = 0.7, offSet: CGSize = CGSize(width: 2, height: 2), radius: CGFloat = 3) {
+    func addDropShadow(color: UIColor = .black, opacity: Float = 0.6, offSet: CGSize = CGSize(width: 0, height: 2), radius: CGFloat = 3) {
         layer.shadowColor = color.cgColor
         layer.shadowOpacity = opacity
         layer.shadowOffset = offSet
@@ -38,7 +38,7 @@ extension UIView {
     }
     
     @discardableResult
-    func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, topConstant: CGFloat = 0, leftConstant: CGFloat = 0, bottomConstant: CGFloat = 0, rightConstant: CGFloat = 0, widthConstant: CGFloat = 0, heightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
+    func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, topConstant: CGFloat = 0, leftConstant: CGFloat = 0, bottomConstant: CGFloat = 0, rightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
         translatesAutoresizingMaskIntoConstraints = false
         
         var anchors = [NSLayoutConstraint]()
@@ -46,10 +46,24 @@ extension UIView {
         if let left = left { anchors.append(leftAnchor.constraint(equalTo: left, constant: leftConstant, identifier: .left)) }
         if let bottom = bottom { anchors.append(bottomAnchor.constraint(equalTo: bottom, constant: -bottomConstant, identifier: .bottom)) }
         if let right = right { anchors.append(rightAnchor.constraint(equalTo: right, constant: -rightConstant, identifier: .right)) }
-        if widthConstant > 0 { anchors.append(widthAnchor.constraint(equalToConstant: widthConstant, identifier: .height)) }
-        if heightConstant > 0 { anchors.append(heightAnchor.constraint(equalToConstant: heightConstant, identifier: .width)) }
         anchors.forEach{ $0.isActive = true }
         return anchors
+    }
+    
+    @discardableResult
+    func anchorSize(width: CGFloat = 0, height: CGFloat = 0) -> [NSLayoutConstraint] {
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        var anchors = [NSLayoutConstraint]()
+        if width > 0 { anchors.append(widthAnchor.constraint(equalToConstant: width, identifier: .height)) }
+        if height > 0 { anchors.append(heightAnchor.constraint(equalToConstant: height, identifier: .width)) }
+        anchors.forEach{ $0.isActive = true }
+        return anchors
+    }
+    
+    @discardableResult
+    func anchorSquare(size: CGFloat) -> [NSLayoutConstraint] {
+        return anchorSize(width: size, height: size)
     }
     
     func center(x: NSLayoutXAxisAnchor?, y: NSLayoutYAxisAnchor?) {

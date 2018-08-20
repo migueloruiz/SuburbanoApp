@@ -15,8 +15,8 @@ class NavigationalViewController: UIViewController {
 class MainNavigationViewController: UIViewController {
     
     struct Constants {
-        static let menuItemHeigth: CGFloat = 49
-        static let menuSelectorHeigth: CGFloat = 2
+        static let menuItemHeigth: CGFloat = Theme.IconSize.large
+        static let menuSelectorHeigth: CGFloat = 2 // TODO
     }
     
     fileprivate let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -55,9 +55,11 @@ class MainNavigationViewController: UIViewController {
         
         menuView.anchor(top: pageViewController.view.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         menuView.addSubViews([menuCollectionView, menuSelector])
-        menuCollectionView.anchor(top: menuView.topAnchor, left: menuView.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: menuView.rightAnchor, heightConstant: Constants.menuItemHeigth)
+        menuCollectionView.anchor(top: menuView.topAnchor, left: menuView.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: menuView.rightAnchor)
+        menuCollectionView.anchorSize(height: Constants.menuItemHeigth)
         
-        let anchors = menuSelector.anchor(top: menuView.topAnchor, left: menuView.leftAnchor, widthConstant: menuItemSize.width, heightConstant: Constants.menuSelectorHeigth)
+        menuSelector.anchorSize(width: menuItemSize.width, height: Constants.menuSelectorHeigth)
+        let anchors = menuSelector.anchor(top: menuView.topAnchor, left: menuView.leftAnchor)
         menuSelectorSideConstraint = anchors.first(where: { $0.hasIdentifier(.left) })
     }
     

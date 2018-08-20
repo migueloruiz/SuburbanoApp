@@ -11,7 +11,7 @@ import UIKit
 class PopUpTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.7
+        return Theme.Animation.defaultInterval
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -25,10 +25,10 @@ class PopUpTransition: NSObject, UIViewControllerAnimatedTransitioning {
         let finalScale = messageContiner.transform
         transitionContext.containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
         toViewController.view.backgroundColor = .clear
-        messageContiner.transform = messageContiner.transform.translatedBy(x: 0, y: 400)
+        messageContiner.transform = messageContiner.transform.translatedBy(x: 0, y: Utils.screenHeight / 2)
         messageContiner.alpha = 0
 
-        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.3, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: Theme.Animation.springWithDamping, initialSpringVelocity: Theme.Animation.springWithDamping, options: .curveEaseInOut, animations: {
             toViewController.view.backgroundColor = Theme.Pallete.darkBackground
             messageContiner.transform = finalScale
             messageContiner.alpha = 1

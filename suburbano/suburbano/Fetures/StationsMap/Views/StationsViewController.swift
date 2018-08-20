@@ -15,18 +15,19 @@ protocol StationsMapViewControllerDelegate: class {
 
 class StationsViewController: NavigationalViewController {
     
+    struct Constants {
+        static let railRoadColor: UIColor = Theme.Pallete.softGray
+        static let railRoadWith: CGFloat = 8 // TODO
+    }
+    
     private let mapBounds: MGLCoordinateBounds
     private let mapConfiguration: MapInitialConfiguration
     private let presenter: StationsMapPresenterProtocol
-    private lazy var mapView: MGLMapView = MapViewFactory.create(frame: view.frame, initilConfiguration: mapConfiguration)
     private weak var delegate: StationsMapViewControllerDelegate?
-
     override var navgationIcon: UIImage { return #imageLiteral(resourceName: "TrainIcon") }
     
-    struct Constants {
-        static let railRoadColor: UIColor = Theme.Pallete.softGray
-        static let railRoadWith: CGFloat = 8
-    }
+    private let cardBalanceView = CardBalanceView()
+    private lazy var mapView: MGLMapView = MapViewFactory.create(frame: view.frame, initilConfiguration: mapConfiguration)
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -46,10 +47,13 @@ class StationsViewController: NavigationalViewController {
     
     private func configureUI() {
         mapView.delegate = self
+        cardBalanceView.display(elements: [])
+        cardBalanceView.delegate = self
     }
     
     private func configureLayout() {
-        view.addSubview(mapView)
+        view.addSubViews([mapView, cardBalanceView])
+        cardBalanceView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
     }
 }
 
@@ -64,7 +68,7 @@ extension StationsViewController: MGLMapViewDelegate {
             polyline.identifier = polyline.attributes["name"]
             DispatchQueue.main.async{
                 mapView.addAnnotation(polyline)
-                mapView.showAnnotations([polyline], edgePadding: UIEdgeInsets(top: 100, left: 0, bottom: 40, right: 0), animated: true)
+                mapView.showAnnotations([polyline], edgePadding: UIEdgeInsets(top: 25, left: 0, bottom: 80, right: 0), animated: true)
             }
         }
     }
@@ -99,7 +103,7 @@ extension StationsViewController: MGLMapViewDelegate {
         if let anotation = mapView.dequeueReusableAnnotationView(withIdentifier: title) {
             return anotation
         } else if let station = presenter.getStation(withName: title) {
-            return StationAnnotation(station: station)
+            return StationMapAnnotation(station: station)
         } else {
             return nil
         }
@@ -117,13 +121,38 @@ extension StationsViewController: MGLMapViewDelegate {
         guard let marker = annotation as? MGLPointAnnotation,
             let station = presenter.getStation(withName: marker.title ?? "") else { return }
         delegate?.didStationSelected(station: station)
-        //        let point = mapView.convert(annotation.coordinate, toPointTo: view)
-        //        print("didSelect market: \(point)")
         let newCamera = mapView.camera
         newCamera.centerCoordinate = annotation.coordinate
         mapView.setCamera(newCamera, withDuration: 0.2, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)) {
             newCamera.altitude = 4600
             mapView.setCamera(newCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
         }
+    }
+}
+
+extension StationsViewController: CardBalanceViewDelegate {
+    func addCard() {
+        print("addCard")
+        let controller = CardBalanceViewController()
+        controller.transitioningDelegate = self
+        present(controller, animated: true, completion: nil)
+    }
+    
+    func openCard(withId id: String) {
+        print("open card with \(id)")
+    }
+}
+
+extension StationsViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let _ = presented as? CardBalanceViewController else { return nil }
+        return CardBalanceTransitionIn()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let _ = dismissed as? CardBalanceViewController else { return nil }
+        return CardBalanceTransitionOut()
     }
 }

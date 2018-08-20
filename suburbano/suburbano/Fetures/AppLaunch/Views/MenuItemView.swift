@@ -11,7 +11,7 @@ import UIKit
 class MenuItemView: UICollectionViewCell, ReusableIdentifier {
     
     struct Constants {
-        static let size: CGFloat = 29
+        static let size: CGFloat = Theme.IconSize.small
     }
     
     private lazy var iconView = UIImageView()
@@ -27,7 +27,7 @@ class MenuItemView: UICollectionViewCell, ReusableIdentifier {
         backgroundColor = .white
         addSubview(iconView)
         iconView.anchorCenterSuperview()
-        iconView.anchor(widthConstant: Constants.size, heightConstant: Constants.size)
+        iconView.anchorSquare(size: Constants.size)
         iconView.contentMode = .scaleAspectFit
         iconView.tintColor = Theme.Pallete.softGray
     }

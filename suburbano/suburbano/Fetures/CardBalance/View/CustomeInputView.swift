@@ -15,7 +15,7 @@ class CustomeInputView: UIView {
         static let lineDesableColor = Theme.Pallete.softGray
     }
     
-    private let textInput = UITextField()
+    private let textInput = UIFactory.createTextField(withTheme: UIThemes.Field.CardNumberField)
     private let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
     private let bottomLine = UIView()
     

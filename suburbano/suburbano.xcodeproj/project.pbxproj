@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8611AF74210175090002663B /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF73210175090002663B /* AppImages.swift */; };
 		8611AF7B21017AAD0002663B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7A21017AAD0002663B /* Theme.swift */; };
 		8611AF8021017D3F0002663B /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7F21017D3F0002663B /* FontStyle.swift */; };
 		8611AF83210186100002663B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8611AF82210186100002663B /* Montserrat-Medium.ttf */; };
@@ -127,7 +126,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8611AF73210175090002663B /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
 		8611AF7A21017AAD0002663B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8611AF7F21017D3F0002663B /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		8611AF82210186100002663B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "suburbano/Assets/Fonts/Montserrat-Medium.ttf"; sourceTree = SOURCE_ROOT; };
@@ -274,7 +272,6 @@
 		8611AF7E21017D2A0002663B /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				8611AF73210175090002663B /* AppImages.swift */,
 				8611AF7F21017D3F0002663B /* FontStyle.swift */,
 				8611AF7A21017AAD0002663B /* Theme.swift */,
 				864FE4D121163E170053DFB1 /* UIFactory.swift */,
@@ -939,7 +936,6 @@
 				86CB75E6212B6BCD00DBDB98 /* CustomeInputView.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
 				8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */,
-				8611AF74210175090002663B /* AppImages.swift in Sources */,
 				86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */,
 				8621A2D020F6FE0A00A2D8B1 /* StationsViewController.swift in Sources */,
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,

@@ -19,11 +19,7 @@ class UIFactory {
         lable.adjustsFontSizeToFitWidth = true
         lable.adjustsFontForContentSizeCategory = true
         lable.minimumScaleFactor = 10
-        
-        if !text.isEmpty {
-            lable.text = text
-        }
-        
+        if !text.isEmpty { lable.text = text }
         return lable
     }
     
@@ -38,13 +34,22 @@ class UIFactory {
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.adjustsFontForContentSizeCategory = true
         
-        if let roundedTheme = theme.rounded {
-            button.roundCorners(withRadius: roundedTheme.radius)
-            button.anchorSize(height: roundedTheme.radius * 2)
-            button.clipsToBounds = true
-        }
-        
+        guard let roundedTheme = theme.rounded else { return button }
+        button.roundCorners(withRadius: roundedTheme.radius)
+        button.anchorSize(height: roundedTheme.radius * 2)
+        button.clipsToBounds = true
         return button
+    }
+    
+    static func createTextField(withTheme theme: FieldStyle) -> UITextField {
+        let field = UITextField()
+        field.textColor = theme.textColor
+        field.tintColor = theme.tintColor
+        field.backgroundColor = theme.backgroundColor
+        field.font = theme.font.getScaledFont()
+        field.keyboardType = theme.keyboardType
+        field.autocorrectionType = theme.autocorrectionType
+        return field
     }
     
     static func createCardView() -> UIView {
@@ -53,5 +58,12 @@ class UIFactory {
         vw.roundCorners()
         vw.addDropShadow()
         return vw
+    }
+    
+    static func createSquare(image: UIImage?, size: CGFloat, color: UIColor = Theme.Pallete.darkGray) -> UIImageView {
+        let view = UIImageView(image: image)
+        view.tintColor = color
+        view.anchorSquare(size: size)
+        return view
     }
 }

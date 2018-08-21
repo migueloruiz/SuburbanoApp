@@ -31,17 +31,21 @@ class AcvtivityCell: UITableViewCell, ReusableIdentifier {
     weak var delegate: AcvtivityCellDelegate?
     private var id = ""
     
-    fileprivate let lineSeparator = UIView()
-    fileprivate lazy var titleLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardTitle)
-    fileprivate lazy var dateLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardDetails)
-    fileprivate lazy var scheduleLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardDetails)
-    fileprivate lazy var descripcionLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
-    fileprivate lazy var bottomLineImage: UIImageView = UIImageView(image: AppImages.Strech.cardBase)
+    private let contanerView = UIStackView.with(axis: .vertical, distribution: .fill, spacing: Theme.Offset.normal)
+    private let lineSeparator = UIView()
+    private lazy var titleLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardTitle)
+    private lazy var dateLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardDetails)
+    private lazy var scheduleLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardDetails)
+    private lazy var descripcionLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
+    private lazy var bottomLineImage: UIImageView = UIImageView(image: #imageLiteral(resourceName: "BottomLineCard"))
+    private lazy var scheduleButton = UIFactory.createButton(withTheme: UIThemes.Button.ActivityCard)
+    private lazy var shareButton = UIFactory.createButton(withTheme: UIThemes.Button.ActivityCard)
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configureUI()
         configureLayout()
     }
     
@@ -55,17 +59,21 @@ class AcvtivityCell: UITableViewCell, ReusableIdentifier {
         self.delegate = delegate
     }
     
-    private func configureLayout() {
-        // TODO: Add Configure UI
+    private func configureUI() {
         selectionStyle = .none
         backgroundColor = .white
         accessibilityTraits = UIAccessibilityTraitNotEnabled
         
-        let contanerView = UIStackView.with(axis: .vertical, distribution: .fill, spacing: Theme.Offset.normal)
         contanerView.layoutMargins = UIEdgeInsets.with(vertical: Theme.Offset.normal, horizoltal: Theme.Offset.large)
         contanerView.isLayoutMarginsRelativeArrangement = true
         contanerView.backgroundColor = .white
         
+        scheduleButton.set(title: "Angendar")
+        scheduleButton.addTarget(self, action: #selector(AcvtivityCell.sheduleActivity), for: .touchUpInside)
+        shareButton.set(title: "Compartir")
+    }
+    
+    private func configureLayout() {
         let cardView = UIFactory.createCardView()
         addSubViews([cardView, bottomLineImage])
         
@@ -74,26 +82,19 @@ class AcvtivityCell: UITableViewCell, ReusableIdentifier {
         contanerView.fillSuperview()
         bottomLineImage.anchor(left: cardView.leftAnchor, bottom: cardView.bottomAnchor, right: cardView.rightAnchor)
         
-        let calendarImage = UIImageView(image: #imageLiteral(resourceName: "calendar"))
-        calendarImage.anchorSquare(size: Constants.dateIconsSize)
-        let clockImage = UIImageView(image: #imageLiteral(resourceName: "clock"))
-        clockImage.anchorSquare(size: Constants.dateIconsSize)
-        
+        let calendarImage = UIFactory.createSquare(image: #imageLiteral(resourceName: "calendar"), size: Constants.dateIconsSize)
+        let clockImage = UIFactory.createSquare(image: #imageLiteral(resourceName: "clock"), size: Constants.dateIconsSize)
         let dateStack = UIStackView.with(distribution: .fill, alignment: .fill, spacing: Theme.Offset.small)
         dateStack.addArranged(subViews: [clockImage, scheduleLabel, calendarImage, dateLabel])
         dateStack.backgroundColor = .white
         
-        let scheduleButton = UIFactory.createButton(withTheme: UIThemes.Button.ActivityCard, title: "Angendar")
-        scheduleButton.addTarget(self, action: #selector(AcvtivityCell.sheduleActivity), for: .touchUpInside)
-        let shareButton = UIFactory.createButton(withTheme: UIThemes.Button.ActivityCard, title: "Compartir")
-        
-        // TODO Separator factory
         lineSeparator.backgroundColor = Theme.Pallete.softGray
         lineSeparator.roundCorners(withRadius: Theme.Offset.separator)
-        lineSeparator.anchorSize(height: Theme.Offset.separator)
+        lineSeparator.anchorSize(width: Theme.Offset.separator)
         
         let buttonsStack = UIStackView.with()
         buttonsStack.backgroundColor = .white
+        buttonsStack.anchorSize(height: Theme.IconSize.small)
         buttonsStack.addArranged(subViews: [scheduleButton, lineSeparator, shareButton])
         
         contanerView.addArranged(subViews: [titleLabel, dateStack, descripcionLabel, buttonsStack])

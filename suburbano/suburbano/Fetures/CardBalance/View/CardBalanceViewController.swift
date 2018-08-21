@@ -27,12 +27,11 @@ class CardBalanceViewController: UIViewController {
     private lazy var cardNumberInput: CustomeInputView = {
         let input = CustomeInputView()
         input.title = "No. de trajeta"
-        input.placeholder = "123456789"
-        input.autocorrectionType = .no
-        input.keyboardType = .numberPad
-        input.tintColor = Theme.Pallete.softRed
+        input.placeholder = "XXXXXXXXX"
         return input
     }()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -42,8 +41,14 @@ class CardBalanceViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         configureUI()
         configureLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        _ = cardNumberInput.becomeFirstResponder()
     }
     
     private func configureUI() {

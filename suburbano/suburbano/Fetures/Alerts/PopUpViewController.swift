@@ -37,6 +37,7 @@ class PopUpViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         configureLayout()
         configureUI()
     }

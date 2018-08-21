@@ -20,6 +20,9 @@ final class ResourceSynchronizerAppDelegate: NSObject, UIApplicationDelegate {
 
 extension ResourceSynchronizerAppDelegate {
     func syncResourse() {
-        service.load()
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.service.load()
+        }
     }
 }

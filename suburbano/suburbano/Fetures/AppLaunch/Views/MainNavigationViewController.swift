@@ -48,7 +48,17 @@ class MainNavigationViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        configureUI()
+        configureLayout()
+    }
+    
+    private func configureUI() {
+        view.backgroundColor = .white
         configureMenu()
+    }
+    
+    private func configureLayout() {
         view.addSubViews([pageViewController.view, menuView])
         addChildViewController(pageViewController)
         pageViewController.view.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: menuView.topAnchor, right: view.rightAnchor)

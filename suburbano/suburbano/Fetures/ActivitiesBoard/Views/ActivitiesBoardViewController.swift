@@ -32,9 +32,9 @@ class ActivitiesBoardViewController: NavigationalViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        configureUI()
         configureLayout()
-        configureTable()
-        showEmptyMessage(enable: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,6 +43,12 @@ class ActivitiesBoardViewController: NavigationalViewController {
             strongSelf.activitiesTable.reloadData()
             strongSelf.showEmptyMessage(enable: strongSelf.presenter.activitiesAreEmpty)
         }
+    }
+    
+    private func configureUI() {
+        view.backgroundColor = .white
+        configureTable()
+        showEmptyMessage(enable: true)
     }
 
     private func configureLayout() {

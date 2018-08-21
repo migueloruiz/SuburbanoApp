@@ -13,6 +13,7 @@ class MoreBoardViewController: NavigationalViewController {
     override var navgationIcon: UIImage { return #imageLiteral(resourceName: "MoreIcon") }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = .green
     }
 }

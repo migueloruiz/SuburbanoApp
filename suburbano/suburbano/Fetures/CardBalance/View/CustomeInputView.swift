@@ -82,6 +82,14 @@ class CustomeInputView: UIView {
         bottomLine.anchorSize(height: Contants.lineHeigth)
     }
     
+    override func becomeFirstResponder() -> Bool {
+        return textInput.becomeFirstResponder()
+    }
+    
+    override func resignFirstResponder() -> Bool {
+        return textInput.resignFirstResponder()
+    }
+    
     @objc func editingDidBegin() {
         bottomLine.backgroundColor = textInput.tintColor
     }

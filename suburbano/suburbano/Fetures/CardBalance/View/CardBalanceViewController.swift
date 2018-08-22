@@ -54,12 +54,8 @@ class CardBalanceViewController: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = Theme.Pallete.darkBackground
-        
         containerView.backgroundColor = .white
         containerView.roundCorners(withRadius: Theme.Rounded.controller)
-        
-        let keyboardDisssmissGesture = UITapGestureRecognizer(target: self, action: #selector(CardBalanceViewController.dismmisKeyboard))
-        containerView.addGestureRecognizer(keyboardDisssmissGesture)
         
         titleLabel.text = "Agrega tu tarjeta"
         cardNumberDisclaimerLabel.text = "Pudes encontrar el numero al frente de tu tarjeta en la parte inferior"
@@ -85,28 +81,29 @@ class CardBalanceViewController: UIViewController {
         containerView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, bottomConstant: -Theme.Offset.large)
 
         let buttonsContainer = UIStackView.with(distribution: .fillEqually, spacing: Theme.Offset.small)
-        
+
         containerView.addSubViews([titleLabel, cardBalanceIconView, cardNumberInput, cardNumberDisclaimerLabel, excamationIcon, useDisclaimerLabel, buttonsContainer])
         
         titleLabel.anchor(top: containerView.topAnchor, topConstant: Theme.Offset.normal)
         titleLabel.anchorCenterXToSuperview()
-        
+ 
         cardBalanceIconView.anchor(top: titleLabel.bottomAnchor, topConstant: Theme.Offset.large)
-        cardBalanceIconView.anchor( left: containerView.leftAnchor, leftConstant: Theme.Offset.large)
+        cardBalanceIconView.anchorCenterXToSuperview()
         
-        cardNumberInput.anchor(left: cardBalanceIconView.rightAnchor, right: containerView.rightAnchor, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
-        cardNumberInput.center(x: nil, y: cardBalanceIconView.centerYAnchor)
+        cardNumberInput.anchor(top: cardBalanceIconView.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.large, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
         
-        cardNumberDisclaimerLabel.anchor(top: cardBalanceIconView.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
+        cardNumberDisclaimerLabel.anchor(top: cardNumberInput.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
         
         excamationIcon.anchor(left: containerView.leftAnchor, leftConstant: Theme.Offset.large)
         excamationIcon.center(x: nil, y: useDisclaimerLabel.centerYAnchor)
         excamationIcon.anchorSquare(size: Constants.excamationIconHeigth)
-    useDisclaimerLabel.topAnchor.constraintGreaterThanOrEqualToSystemSpacingBelow(cardNumberDisclaimerLabel.bottomAnchor, multiplier: Theme.Offset.small).isActive = true
+        let topConstraint = useDisclaimerLabel.topAnchor.constraintGreaterThanOrEqualToSystemSpacingBelow(cardNumberDisclaimerLabel.bottomAnchor, multiplier: 1)
+        topConstraint.isActive = true
+        topConstraint.constant = Theme.Offset.normal
         useDisclaimerLabel.anchor(left: excamationIcon.rightAnchor, right: containerView.rightAnchor, leftConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
         
         buttonsContainer.anchor(top: useDisclaimerLabel.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
-        let constraints = buttonsContainer.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, bottomConstant: Theme.Offset.small)
+        let constraints = buttonsContainer.anchor(bottom: view.bottomAnchor, bottomConstant: Theme.Offset.normal)
         bottomConstraint = constraints.first
         
         buttonsContainer.addArranged(subViews: [addButton, backButton])
@@ -119,16 +116,12 @@ class CardBalanceViewController: UIViewController {
     
     @objc func keyboardWillShow(notification: Notification) {
         guard let keyboard = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
-        bottomConstraint?.constant = -(keyboard.cgRectValue.height + Theme.Offset.small)
+        bottomConstraint?.constant = -(keyboard.cgRectValue.height + Theme.Offset.normal)
         view.layoutIfNeeded()
     }
     
     @objc func keyboardWillHide(notification: Notification) {
         bottomConstraint?.constant = -Theme.Offset.small
         view.layoutIfNeeded()
-    }
-    
-    @objc func dismmisKeyboard() {
-        view.endEditing(true)
     }
 }

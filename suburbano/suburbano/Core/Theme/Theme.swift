@@ -55,14 +55,18 @@ struct Theme {
     enum FontName: String {
         case montserrat = "Montserrat"
         case openSansCondensed = "OpenSansCondensed"
+        case icons = "IconsCataloge"
     }
     
     enum FontStyle: String {
+        case none = ""
         case medium = "Medium"
         case bold = "Bold"
     }
     
     enum FontSize: CGFloat {
+        case icon = 40
+        case smallIcon = 30
         case h1 = 20
         case h2 = 18
         case h3 = 16

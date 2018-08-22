@@ -39,6 +39,7 @@
 	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>IconsCataloge.ttf</string>
 		<string>Montserrat-Medium.ttf</string>
 		<string>Montserrat-Bold.ttf</string>
 		<string>OpenSansCondensed-Bold.ttf</string>

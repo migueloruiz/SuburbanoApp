@@ -16,7 +16,7 @@ class CardBalanceViewController: UIViewController {
     
     private(set) lazy var containerView = UIView()
     private lazy var titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardBalanceNavTitle)
-    private lazy var cardBalanceIconView = CardBalanceIconView(delegate: self)
+    private lazy var cardBalanceIconView = IconPickerView()
     private let cardNumberDisclaimerLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
     private let excamationIcon = UIImageView()
     private let useDisclaimerLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
@@ -24,8 +24,9 @@ class CardBalanceViewController: UIViewController {
     private let backButton = UIFactory.createButton(withTheme: UIThemes.Button.SecondayButton)
     private var bottomConstraint: NSLayoutConstraint?
     
-    private lazy var cardNumberInput: CustomeInputView = {
-        let input = CustomeInputView()
+    
+    private lazy var cardNumberInput: CustomeTextField = {
+        let input = CustomeTextField()
         input.title = "No. de trajeta"
         input.placeholder = "XXXXXXXXX"
         return input
@@ -46,8 +47,8 @@ class CardBalanceViewController: UIViewController {
         configureLayout()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         _ = cardNumberInput.becomeFirstResponder()
     }
     
@@ -104,7 +105,7 @@ class CardBalanceViewController: UIViewController {
     useDisclaimerLabel.topAnchor.constraintGreaterThanOrEqualToSystemSpacingBelow(cardNumberDisclaimerLabel.bottomAnchor, multiplier: Theme.Offset.small).isActive = true
         useDisclaimerLabel.anchor(left: excamationIcon.rightAnchor, right: containerView.rightAnchor, leftConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
         
-        buttonsContainer.anchor(top: useDisclaimerLabel.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.large, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
+        buttonsContainer.anchor(top: useDisclaimerLabel.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
         let constraints = buttonsContainer.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, bottomConstant: Theme.Offset.small)
         bottomConstraint = constraints.first
         
@@ -119,7 +120,6 @@ class CardBalanceViewController: UIViewController {
     @objc func keyboardWillShow(notification: Notification) {
         guard let keyboard = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
         bottomConstraint?.constant = -(keyboard.cgRectValue.height + Theme.Offset.small)
-        print(keyboard.cgRectValue.height)
         view.layoutIfNeeded()
     }
     
@@ -132,12 +132,3 @@ class CardBalanceViewController: UIViewController {
         view.endEditing(true)
     }
 }
-
-extension CardBalanceViewController: CardBalanceIconViewDelegate {
-    func didTapCardBalanceIcon() {
-        print("didTapCardBalanceIcon")
-    }
-}
-
-
-

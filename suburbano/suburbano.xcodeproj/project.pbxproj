@@ -62,6 +62,7 @@
 		864A38BB2102A08A006AD3A0 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864A389321029336006AD3A0 /* EventKitUI.framework */; };
 		864A38C22102A343006AD3A0 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868D00B020F014F900C9D8B1 /* Mapbox.framework */; };
 		864A38C52102B86D006AD3A0 /* Frameworks.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 864A389D2102A061006AD3A0 /* Frameworks.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		864C6FDD212CE7DE0072C26B /* IconsCataloge.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 864C6FDC212CE7DE0072C26B /* IconsCataloge.ttf */; };
 		864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D121163E170053DFB1 /* UIFactory.swift */; };
 		864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D32116422A0053DFB1 /* UIThemes.swift */; };
 		8652A35B2129074700ED1910 /* CardBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A35A2129074700ED1910 /* CardBalanceView.swift */; };
@@ -82,9 +83,10 @@
 		869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCC2125380600B2FA9F /* UIButton.swift */; };
 		869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */; };
 		86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */; };
-		86CB75E4212B607200DBDB98 /* CardBalanceIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* CardBalanceIconView.swift */; };
-		86CB75E6212B6BCD00DBDB98 /* CustomeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeInputView.swift */; };
+		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
+		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
+		86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75EB212B9F8800DBDB98 /* IconInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +165,7 @@
 		864A38AE2102A062006AD3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		864A38BE2102A2A4006AD3A0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		864A38BF2102A2A4006AD3A0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		864C6FDC212CE7DE0072C26B /* IconsCataloge.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IconsCataloge.ttf; sourceTree = "<group>"; };
 		864FE4D121163E170053DFB1 /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
 		864FE4D32116422A0053DFB1 /* UIThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIThemes.swift; sourceTree = "<group>"; };
 		8652A35A2129074700ED1910 /* CardBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceView.swift; sourceTree = "<group>"; };
@@ -204,9 +207,10 @@
 		86C0682120F41FF400A6B17A /* ApplicationCoordinatorAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorAppDelegate.swift; sourceTree = "<group>"; };
 		86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		86C0682720F4227900A6B17A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		86CB75E3212B607200DBDB98 /* CardBalanceIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceIconView.swift; sourceTree = "<group>"; };
-		86CB75E5212B6BCD00DBDB98 /* CustomeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeInputView.swift; sourceTree = "<group>"; };
+		86CB75E3212B607200DBDB98 /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
+		86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeTextField.swift; sourceTree = "<group>"; };
 		86CB75E7212B834200DBDB98 /* Utils+Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utils+Screen.swift"; sourceTree = "<group>"; };
+		86CB75EB212B9F8800DBDB98 /* IconInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInputView.swift; sourceTree = "<group>"; };
 		86F14E4820F43F6D00D1CF7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86F14E4A20F43FE300D1CF7D /* UITabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBar.swift; sourceTree = "<group>"; };
 		86F14E4C20F4500E00D1CF7D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 		8611AF7521017A2D0002663B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				864C6FDC212CE7DE0072C26B /* IconsCataloge.ttf */,
 				869E2CCA2125347500B2FA9F /* Montserrat-Bold.ttf */,
 				867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */,
 				8611AF82210186100002663B /* Montserrat-Medium.ttf */,
@@ -348,6 +353,14 @@
 			path = FrameworksTests;
 			sourceTree = "<group>";
 		};
+		864C6FDB212CE2DC0072C26B /* IconInputView */ = {
+			isa = PBXGroup;
+			children = (
+				86CB75EB212B9F8800DBDB98 /* IconInputView.swift */,
+			);
+			path = IconInputView;
+			sourceTree = "<group>";
+		};
 		8652A35E212A3FED00ED1910 /* CardBalance */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,10 +372,11 @@
 		8652A35F212A405600ED1910 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				864C6FDB212CE2DC0072C26B /* IconInputView */,
 				8652A360212A407600ED1910 /* CardBalanceViewController.swift */,
 				8652A362212B2D3500ED1910 /* CardBalanceTransition.swift */,
-				86CB75E3212B607200DBDB98 /* CardBalanceIconView.swift */,
-				86CB75E5212B6BCD00DBDB98 /* CustomeInputView.swift */,
+				86CB75E3212B607200DBDB98 /* IconPickerView.swift */,
+				86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -862,6 +876,7 @@
 				8621A2E520F6FE0A00A2D8B1 /* AppIcon.xcassets in Resources */,
 				869E2CCB2125347500B2FA9F /* Montserrat-Bold.ttf in Resources */,
 				867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */,
+				864C6FDD212CE7DE0072C26B /* IconsCataloge.ttf in Resources */,
 				8621A2E620F6FE0A00A2D8B1 /* mapStyle.json in Resources */,
 				8611AF83210186100002663B /* Montserrat-Medium.ttf in Resources */,
 			);
@@ -933,13 +948,13 @@
 				8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */,
 				8652A361212A407600ED1910 /* CardBalanceViewController.swift in Sources */,
 				8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */,
-				86CB75E6212B6BCD00DBDB98 /* CustomeInputView.swift in Sources */,
+				86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
 				8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */,
 				86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */,
 				8621A2D020F6FE0A00A2D8B1 /* StationsViewController.swift in Sources */,
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,
-				86CB75E4212B607200DBDB98 /* CardBalanceIconView.swift in Sources */,
+				86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */,
 				8641325520FFFFD00031F4F4 /* AcvtivityCell.swift in Sources */,
 				8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */,
 				861FC57F210FF7BD0024783A /* Date.swift in Sources */,
@@ -951,6 +966,7 @@
 				864132582100017A0031F4F4 /* ReusableIdentifier.swift in Sources */,
 				8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */,
 				869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */,
+				86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */,
 				868128482123AAF200A7A011 /* MenuItemView.swift in Sources */,
 				869E2CC721250C9300B2FA9F /* PopUpViewController.swift in Sources */,
 				861FC583211015460024783A /* UIStackView.swift in Sources */,

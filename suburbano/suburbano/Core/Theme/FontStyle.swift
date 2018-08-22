@@ -22,7 +22,7 @@ struct FontStyle {
     }
     
     func getScaledFont() -> UIFont {
-        let fontName = "\(name.rawValue)-\(style.rawValue)"
+        let fontName = style != .none ? "\(name.rawValue)-\(style.rawValue)" : name.rawValue
         let font = UIFont(name: fontName, size: size.rawValue) ?? UIFont.systemFont(ofSize: size.rawValue)
         return UIFontMetrics.default.scaledFont(for: font, maximumPointSize: size.rawValue + largeFactor)
     }

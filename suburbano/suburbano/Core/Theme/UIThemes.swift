@@ -70,6 +70,14 @@ struct UIThemes {
                                              font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
                                              autocorrectionType: .no,
                                              keyboardType: .numberPad)
+        
+        // MARK: - Icon Picker Label Themes
+        static let IconPickerField = FieldTheme(textColor: .white,
+                                                  tintColor: .clear,
+                                                  backgroundColor: .clear,
+                                                  font: FontStyle(size: .smallIcon, largeFactor: Theme.FontFactor.large, name: .icons, style: .none),
+                                                  autocorrectionType: .no,
+                                                  keyboardType: .numberPad)
     }
     
     // MARK: - Label Themes
@@ -122,6 +130,13 @@ struct UIThemes {
                                            textColor: Theme.Pallete.darkGray,
                                            backgroundColor: .clear,
                                            font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .bold))
+        
+        // MARK: - Icon Picker Label Themes
+        static let IconPicker = LabelTheme(numberOfLines: 0,
+                                           textAlignment: .center,
+                                           textColor: Theme.Pallete.softGray,
+                                           backgroundColor: .white,
+                                           font: FontStyle(size: .icon, largeFactor: Theme.FontFactor.large, name: .icons, style: .none))
     }
     
     // MARK: - Button Themes

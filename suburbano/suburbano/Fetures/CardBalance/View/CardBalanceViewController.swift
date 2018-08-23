@@ -77,6 +77,8 @@ class CardBalanceViewController: UIViewController {
     }
     
     private func configureLayout() {
+        let verticalOffset = Utils.isSmallPhone ? Theme.Offset.normal : Theme.Offset.extralarge
+        let disclaimerOffset = Utils.isSmallPhone ? Theme.Offset.normal : Theme.Offset.extralarge
         view.addSubViews([containerView])
         containerView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, bottomConstant: -Theme.Offset.large)
 
@@ -87,7 +89,7 @@ class CardBalanceViewController: UIViewController {
         titleLabel.anchor(top: containerView.topAnchor, topConstant: Theme.Offset.normal)
         titleLabel.anchorCenterXToSuperview()
  
-        cardBalanceIconView.anchor(top: titleLabel.bottomAnchor, topConstant: Theme.Offset.large)
+        cardBalanceIconView.anchor(top: titleLabel.bottomAnchor, topConstant: verticalOffset)
         cardBalanceIconView.anchorCenterXToSuperview()
         
         cardNumberInput.anchor(top: cardBalanceIconView.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.large, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
@@ -102,7 +104,7 @@ class CardBalanceViewController: UIViewController {
         topConstraint.constant = Theme.Offset.normal
         useDisclaimerLabel.anchor(left: excamationIcon.rightAnchor, right: containerView.rightAnchor, leftConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
         
-        buttonsContainer.anchor(top: useDisclaimerLabel.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
+        buttonsContainer.anchor(top: useDisclaimerLabel.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: disclaimerOffset, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
         let constraints = buttonsContainer.anchor(bottom: view.bottomAnchor, bottomConstant: Theme.Offset.normal)
         bottomConstraint = constraints.first
         

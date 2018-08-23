@@ -18,4 +18,7 @@ extension Utils {
         return UIScreen.main.bounds.width
     }
     
+    static var isSmallPhone: Bool {
+        return 568.0 >= UIScreen.main.bounds.height
+    }
 }

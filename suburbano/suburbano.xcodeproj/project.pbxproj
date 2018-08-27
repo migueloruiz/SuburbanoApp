@@ -48,6 +48,15 @@
 		862517E220FD7A32002F2048 /* RepositoryRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E120FD7A32002F2048 /* RepositoryRealm.swift */; };
 		862517E420FD7FB6002F2048 /* ActivitiesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E320FD7FB6002F2048 /* ActivitiesRepository.swift */; };
 		862517E720FD8001002F2048 /* RealmActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E620FD8001002F2048 /* RealmActivity.swift */; };
+		86385C7521335D91002EA9DF /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7421335D91002EA9DF /* ColorCell.swift */; };
+		86385C7721335ED3002EA9DF /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7621335ED3002EA9DF /* IconCell.swift */; };
+		86385C7A213362DC002EA9DF /* CardBalancePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C79213362DC002EA9DF /* CardBalancePresenter.swift */; };
+		86385C7D21336C2E002EA9DF /* CardBalanceCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7C21336C2E002EA9DF /* CardBalanceCordinator.swift */; };
+		86385C8421337437002EA9DF /* CardBalanceWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8321337437002EA9DF /* CardBalanceWebService.swift */; };
+		86385C862133747E002EA9DF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C852133747E002EA9DF /* Card.swift */; };
+		86385C8821337558002EA9DF /* RealmCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8721337558002EA9DF /* RealmCard.swift */; };
+		86385C8A21338392002EA9DF /* CardBalanceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8921338392002EA9DF /* CardBalanceUseCase.swift */; };
+		86385C8C2133840E002EA9DF /* CardBalanceUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8B2133840E002EA9DF /* CardBalanceUseCaseImpl.swift */; };
 		863EF66B211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863EF66A211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift */; };
 		8641325020FFF4E10031F4F4 /* ActivitiesBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641324F20FFF4E10031F4F4 /* ActivitiesBoardViewController.swift */; };
 		8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641325120FFF6ED0031F4F4 /* UIView.swift */; };
@@ -148,6 +157,15 @@
 		862517E120FD7A32002F2048 /* RepositoryRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRealm.swift; sourceTree = "<group>"; };
 		862517E320FD7FB6002F2048 /* ActivitiesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesRepository.swift; sourceTree = "<group>"; };
 		862517E620FD8001002F2048 /* RealmActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmActivity.swift; sourceTree = "<group>"; };
+		86385C7421335D91002EA9DF /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		86385C7621335ED3002EA9DF /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
+		86385C79213362DC002EA9DF /* CardBalancePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalancePresenter.swift; sourceTree = "<group>"; };
+		86385C7C21336C2E002EA9DF /* CardBalanceCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceCordinator.swift; sourceTree = "<group>"; };
+		86385C8321337437002EA9DF /* CardBalanceWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceWebService.swift; sourceTree = "<group>"; };
+		86385C852133747E002EA9DF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		86385C8721337558002EA9DF /* RealmCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCard.swift; sourceTree = "<group>"; };
+		86385C8921338392002EA9DF /* CardBalanceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceUseCase.swift; sourceTree = "<group>"; };
+		86385C8B2133840E002EA9DF /* CardBalanceUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceUseCaseImpl.swift; sourceTree = "<group>"; };
 		863EF66A211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivitiesBoardViewController+EventSchedule.swift"; sourceTree = "<group>"; };
 		8641324F20FFF4E10031F4F4 /* ActivitiesBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesBoardViewController.swift; sourceTree = "<group>"; };
 		8641325120FFF6ED0031F4F4 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -302,20 +320,65 @@
 			path = RepositoryRealm;
 			sourceTree = "<group>";
 		};
-		862517D520FD709A002F2048 /* Abstractions */ = {
+		862517D620FD70B3002F2048 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
 				862517D720FD70D9002F2048 /* ActivitiesUseCase.swift */,
-			);
-			path = Abstractions;
-			sourceTree = "<group>";
-		};
-		862517D620FD70B3002F2048 /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
 				862517D320FD7071002F2048 /* ActivitiesUseCaseImpl.swift */,
 			);
-			path = Implementations;
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		86385C78213362CB002EA9DF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				86385C79213362DC002EA9DF /* CardBalancePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		86385C7B21336C09002EA9DF /* Cordinator */ = {
+			isa = PBXGroup;
+			children = (
+				86385C7C21336C2E002EA9DF /* CardBalanceCordinator.swift */,
+			);
+			path = Cordinator;
+			sourceTree = "<group>";
+		};
+		86385C7E21337367002EA9DF /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				86385C82213373AF002EA9DF /* Repository */,
+				86385C81213373A6002EA9DF /* UseCase */,
+				86385C7F2133737A002EA9DF /* Networking */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		86385C7F2133737A002EA9DF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				86385C8321337437002EA9DF /* CardBalanceWebService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		86385C81213373A6002EA9DF /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				86385C8921338392002EA9DF /* CardBalanceUseCase.swift */,
+				86385C8B2133840E002EA9DF /* CardBalanceUseCaseImpl.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		86385C82213373AF002EA9DF /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				86385C852133747E002EA9DF /* Card.swift */,
+				86385C8721337558002EA9DF /* RealmCard.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		8641325320FFFF860031F4F4 /* StationsMap */ = {
@@ -357,6 +420,8 @@
 			isa = PBXGroup;
 			children = (
 				86CB75EB212B9F8800DBDB98 /* IconInputView.swift */,
+				86385C7421335D91002EA9DF /* ColorCell.swift */,
+				86385C7621335ED3002EA9DF /* IconCell.swift */,
 			);
 			path = IconInputView;
 			sourceTree = "<group>";
@@ -364,6 +429,9 @@
 		8652A35E212A3FED00ED1910 /* CardBalance */ = {
 			isa = PBXGroup;
 			children = (
+				86385C7E21337367002EA9DF /* Business Logic */,
+				86385C7B21336C09002EA9DF /* Cordinator */,
+				86385C78213362CB002EA9DF /* Presenter */,
 				8652A35F212A405600ED1910 /* View */,
 			);
 			path = CardBalance;
@@ -586,15 +654,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		869E2CC32124FA7600B2FA9F /* UseCase */ = {
+		869E2CC32124FA7600B2FA9F /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
 				869E2CC22124FA3D00B2FA9F /* Networking */,
 				869E2CBD2124F9B000B2FA9F /* Repository */,
-				862517D620FD70B3002F2048 /* Implementations */,
-				862517D520FD709A002F2048 /* Abstractions */,
+				862517D620FD70B3002F2048 /* UseCase */,
 			);
-			path = UseCase;
+			path = BusinessLogic;
 			sourceTree = "<group>";
 		};
 		869E2CC42124FADA00B2FA9F /* Type Extentions */ = {
@@ -626,7 +693,7 @@
 		86C0681020F413D800A6B17A /* ActivitiesBoard */ = {
 			isa = PBXGroup;
 			children = (
-				869E2CC32124FA7600B2FA9F /* UseCase */,
+				869E2CC32124FA7600B2FA9F /* BusinessLogic */,
 				869E2CBE2124F9BE00B2FA9F /* Presenter */,
 				869E2CBC2124F99C00B2FA9F /* Views */,
 			);
@@ -941,11 +1008,13 @@
 				867468E221018BAD00E4809D /* String.swift in Sources */,
 				8652A35B2129074700ED1910 /* CardBalanceView.swift in Sources */,
 				8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */,
+				86385C8421337437002EA9DF /* CardBalanceWebService.swift in Sources */,
 				8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */,
 				862517D820FD70D9002F2048 /* ActivitiesUseCase.swift in Sources */,
 				861FC581211010480024783A /* UIEdgeInsets.swift in Sources */,
 				868128462122748900A7A011 /* MainNavigationViewController.swift in Sources */,
 				8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */,
+				86385C862133747E002EA9DF /* Card.swift in Sources */,
 				8652A361212A407600ED1910 /* CardBalanceViewController.swift in Sources */,
 				8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */,
 				86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */,
@@ -959,12 +1028,16 @@
 				8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */,
 				861FC57F210FF7BD0024783A /* Date.swift in Sources */,
 				8611AF8021017D3F0002663B /* FontStyle.swift in Sources */,
+				86385C8821337558002EA9DF /* RealmCard.swift in Sources */,
+				86385C8A21338392002EA9DF /* CardBalanceUseCase.swift in Sources */,
 				869E2CC9212524DB00B2FA9F /* PopUpTransition.swift in Sources */,
 				868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */,
+				86385C7A213362DC002EA9DF /* CardBalancePresenter.swift in Sources */,
 				8641325A21000DA70031F4F4 /* ActivitiesBoardPresenter.swift in Sources */,
 				864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */,
 				864132582100017A0031F4F4 /* ReusableIdentifier.swift in Sources */,
 				8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */,
+				86385C7721335ED3002EA9DF /* IconCell.swift in Sources */,
 				869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */,
 				86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */,
 				868128482123AAF200A7A011 /* MenuItemView.swift in Sources */,
@@ -987,15 +1060,18 @@
 				8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				8611AF7B21017AAD0002663B /* Theme.swift in Sources */,
 				8652A363212B2D3500ED1910 /* CardBalanceTransition.swift in Sources */,
+				86385C7D21336C2E002EA9DF /* CardBalanceCordinator.swift in Sources */,
 				869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */,
 				864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */,
 				863EF66B211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift in Sources */,
 				8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */,
 				8621A30E20F70DF900A2D8B1 /* Activity.swift in Sources */,
 				8641325C210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift in Sources */,
+				86385C7521335D91002EA9DF /* ColorCell.swift in Sources */,
 				8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */,
 				862517E720FD8001002F2048 /* RealmActivity.swift in Sources */,
 				8621A31020F7107000A2D8B1 /* DecodingError.swift in Sources */,
+				86385C8C2133840E002EA9DF /* CardBalanceUseCaseImpl.swift in Sources */,
 				862517DA20FD7851002F2048 /* ErrorResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

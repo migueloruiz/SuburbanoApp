@@ -14,6 +14,7 @@ class CardBalanceViewController: UIViewController {
         static let excamationIconHeigth: CGFloat = Theme.IconSize.small
     }
     
+    private let presenter: CardBalancePresenter
     private(set) lazy var containerView = UIView()
     private lazy var titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardBalanceNavTitle)
     private lazy var cardBalanceIconView = IconPickerView()
@@ -23,7 +24,6 @@ class CardBalanceViewController: UIViewController {
     private let addButton = UIFactory.createButton(withTheme: UIThemes.Button.PrimaryButton)
     private let backButton = UIFactory.createButton(withTheme: UIThemes.Button.SecondayButton)
     private var bottomConstraint: NSLayoutConstraint?
-    
     
     private lazy var cardNumberInput: CustomeTextField = {
         let input = CustomeTextField()
@@ -36,7 +36,8 @@ class CardBalanceViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    init() {
+    init(presenter: CardBalancePresenter) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         modalPresentationStyle = .overFullScreen
     }
@@ -49,7 +50,7 @@ class CardBalanceViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        _ = cardNumberInput.becomeFirstResponder()
+        _ = cardBalanceIconView.becomeFirstResponder()
     }
     
     private func configureUI() {
@@ -70,7 +71,7 @@ class CardBalanceViewController: UIViewController {
         backButton.set(title: "Cancelar")
         backButton.addTarget(self, action: #selector(CardBalanceViewController.close), for: .touchUpInside)
         addButton.set(title: "Agregar")
-        addButton.addTarget(self, action: #selector(CardBalanceViewController.close), for: .touchUpInside)
+        addButton.addTarget(self, action: #selector(CardBalanceViewController.validateInformation), for: .touchUpInside)
         
         NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
@@ -116,6 +117,10 @@ class CardBalanceViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc func validateInformation() {
+        presenter.addCard(withIcon: cardBalanceIconView.icon, number: cardNumberInput.text)
+    }
+    
     @objc func keyboardWillShow(notification: Notification) {
         guard let keyboard = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
         bottomConstraint?.constant = -(keyboard.cgRectValue.height + Theme.Offset.normal)
@@ -125,5 +130,18 @@ class CardBalanceViewController: UIViewController {
     @objc func keyboardWillHide(notification: Notification) {
         bottomConstraint?.constant = -Theme.Offset.small
         view.layoutIfNeeded()
+    }
+}
+
+extension CardBalanceViewController: CardBalanceViewDelegate {
+    func setInvalid(form: CardBalanceForm) {
+        switch form {
+        case .icon:
+            _ = cardBalanceIconView.becomeFirstResponder()
+            cardBalanceIconView.shake()
+        case .number:
+            _ = cardNumberInput.becomeFirstResponder()
+            cardNumberInput.shake()
+        }
     }
 }

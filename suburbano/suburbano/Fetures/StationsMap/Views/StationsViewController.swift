@@ -10,7 +10,8 @@ import UIKit
 import Mapbox
 
 protocol StationsMapViewControllerDelegate: class {
-    func didStationSelected(station: StationMarker)
+    func stationSelected(station: StationMarker)
+    func showCardBalance(id: String?)
 }
 
 class StationsViewController: NavigationalViewController {
@@ -26,12 +27,12 @@ class StationsViewController: NavigationalViewController {
     private weak var delegate: StationsMapViewControllerDelegate?
     override var navgationIcon: UIImage { return #imageLiteral(resourceName: "TrainIcon") }
     
-    private let cardBalanceView = CardBalanceView()
+    private lazy var cardBalanceView = CardBalancePicker(delegate: self)
     private lazy var mapView: MGLMapView = MapViewFactory.create(frame: view.frame, initilConfiguration: mapConfiguration)
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    init(presenter: StationsMapPresenterProtocol, mapConfiguration: MapInitialConfiguration, delegate: StationsMapViewControllerDelegate? = nil) {
+    init(presenter: StationsMapPresenterProtocol, mapConfiguration: MapInitialConfiguration, delegate: StationsMapViewControllerDelegate) {
         self.presenter = presenter
         self.mapConfiguration = mapConfiguration
         self.mapBounds = MGLCoordinateBounds(sw: mapConfiguration.mapBoundsSW, ne: mapConfiguration.mapBoundsNE)
@@ -48,7 +49,6 @@ class StationsViewController: NavigationalViewController {
     private func configureUI() {
         mapView.delegate = self
         cardBalanceView.display(elements: [])
-        cardBalanceView.delegate = self
     }
     
     private func configureLayout() {
@@ -120,27 +120,20 @@ extension StationsViewController: MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
         guard let marker = annotation as? MGLPointAnnotation,
             let station = presenter.getStation(withName: marker.title ?? "") else { return }
-        delegate?.didStationSelected(station: station)
+        delegate?.stationSelected(station: station)
         let newCamera = mapView.camera
         newCamera.centerCoordinate = annotation.coordinate
         mapView.setCamera(newCamera, withDuration: 0.2, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)) {
-            newCamera.altitude = 4600
+            newCamera.altitude = 4600 // TODO
             mapView.setCamera(newCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
         }
     }
 }
 
-extension StationsViewController: CardBalanceViewDelegate {
-    func addCard() {
-        print("addCard")
-        let controller = CardBalanceViewController()
-        controller.transitioningDelegate = self
-        present(controller, animated: true, completion: nil)
-    }
+extension StationsViewController: CardBalancePickerDelegate {
+    func addCard() { delegate?.showCardBalance(id: nil) }
     
-    func openCard(withId id: String) {
-        print("open card with \(id)")
-    }
+    func openCard(withId id: String) { delegate?.showCardBalance(id: id) }
 }
 
 extension StationsViewController: UIViewControllerTransitioningDelegate {

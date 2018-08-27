@@ -12,7 +12,7 @@ import Foundation
 
 enum Host: String {
     case main = "MainHost"
-    case fsuburbanos = "FsuburbanosHost"
+    case fsuburbanos = "FsuburbanoHost"
     
     func getURL() -> URL? {
         guard let envVariables = Bundle.main.infoDictionary,
@@ -25,6 +25,7 @@ enum Host: String {
 protocol Endpoint {
     var host: Host { get }
     var path: String { get }
+    var params: [String:String] { get }
 }
 
 struct Endpoints {
@@ -37,6 +38,22 @@ struct Endpoints {
         
         var path: String {
             return String(format: pathTemplate, resource.fileName, resource.extention)
+        }
+        
+        var params: [String:String] { return [:] }
+    }
+    
+    struct CardBalance: Endpoint {
+        let host: Host = .fsuburbanos
+        let cardId: String
+        
+        init(cardId: String) { self.cardId = cardId }
+        
+        var path: String { return "/suburbano/mobileMethods/Saldo.php" }
+        
+        var params: [String:String] {
+            return [ "usr":"subu",
+                     "tarjeta": cardId ]
         }
     }
 }

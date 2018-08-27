@@ -28,7 +28,13 @@ class MainCordinator: NSObject, Coordinator {
 }
 
 extension MainCordinator: StationsMapViewControllerDelegate {
-    func didStationSelected(station: StationMarker) {
+    func stationSelected(station: StationMarker) {
         print(station)
+    }
+    
+    func showCardBalance(id: String?) {
+        guard let stationsViewController = rootViewController.selectedViewController() as? StationsViewController else { return }
+        let cardBalanceCordinator = CardBalanceCordinator(rootViewController: stationsViewController)
+        cardBalanceCordinator.start()
     }
 }

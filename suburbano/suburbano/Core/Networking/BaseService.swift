@@ -9,7 +9,7 @@
 import Foundation
 
 enum ServiceResponse<Model> {
-    case success(response: [Model], headers: [String: String])
+    case success(response: Model, headers: [String: String])
     case failure(error: ErrorResponse)
 }
 
@@ -17,7 +17,7 @@ enum ServiceResponse<Model> {
 
 open class BaseService<Model: Codable> {
     
-    func make(request: URLRequest, completion: @escaping (ServiceResponse<Model>) -> Void) {
+    func make(request: URLRequest, parsingData: Any? = nil, completion: @escaping (ServiceResponse<Model>) -> Void) {
         DispatchQueue.global(qos: .background).async {
             let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
             let task = session.dataTask(with: request) { [weak self] (body, response, error) in
@@ -26,9 +26,9 @@ open class BaseService<Model: Codable> {
                     strongSelf.handle(error: error, completion: completion)
                     return
                 }
-//                print(body!)
-//                print(urlResponse)
-                strongSelf.processResponse(json: body, urlResponse: urlResponse, completion: completion)
+                print(body!)
+                print(urlResponse)
+                strongSelf.processResponse(json: body, urlResponse: urlResponse, parsingData: parsingData, completion: completion)
             }
             task.resume()
         }
@@ -36,6 +36,7 @@ open class BaseService<Model: Codable> {
     
     private func processResponse(json: Data?,
                                  urlResponse: HTTPURLResponse,
+                                 parsingData: Any?,
                                  completion: @escaping (ServiceResponse<Model>) -> Void) {
         
         guard let jsonResponse = json else {
@@ -46,7 +47,7 @@ open class BaseService<Model: Codable> {
         switch urlResponse.statusCode {
         case ResponseStatusCodes.successCode.rawValue:
             do {
-                let responseModel = try parse(json: jsonResponse)
+                let responseModel = try parse(json: jsonResponse, parsingData: parsingData)
                 let headers = urlResponse.allHeaderFields as? [String: String] ?? [:]
                 success(result: responseModel, headers: headers, completion: completion)
             } catch(let error) {
@@ -56,14 +57,13 @@ open class BaseService<Model: Codable> {
              ResponseStatusCodes.internalServerError.rawValue,
              NSURLErrorNotConnectedToInternet:
             handleFailure(code: urlResponse.statusCode, completion: completion)
-            
         default:
             handleFailure(code: urlResponse.statusCode, completion: completion)
         }
     }
     
-    open func parse(json: Data) throws -> [Model] {
-        return try JSONDecoder().decode([Model].self, from: json)
+    open func parse(json: Data, parsingData: Any?) throws -> Model {
+        return try JSONDecoder().decode(Model.self, from: json)
     }
     
     private func handle(error: Error?, completion: @escaping (ServiceResponse<Model>) -> Void) {
@@ -87,10 +87,12 @@ open class BaseService<Model: Codable> {
     }
     
     private func failure(error: ErrorResponse, completion: @escaping (ServiceResponse<Model>) -> Void) {
+        print(error.code)
+        print(error.tecnicalDescription)
         completion(.failure(error: error))
     }
     
-    private func success(result: [Model],
+    private func success(result: Model,
                          headers: [String: String],
                          completion: @escaping (ServiceResponse<Model>) -> Void) {
         completion(ServiceResponse<Model>.success(response: result, headers: headers))

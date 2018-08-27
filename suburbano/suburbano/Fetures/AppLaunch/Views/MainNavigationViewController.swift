@@ -87,6 +87,10 @@ class MainNavigationViewController: UIViewController {
         }
     }
     
+    func selectedViewController() -> UIViewController {
+        return viewControllers[pageIndex]
+    }
+    
     fileprivate func setView(at index: Int) {
         let direction: UIPageViewControllerNavigationDirection = index > pageIndex ? .forward : .reverse
         pageIndex = index

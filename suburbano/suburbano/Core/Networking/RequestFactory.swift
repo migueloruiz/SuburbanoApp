@@ -16,16 +16,25 @@ enum HTTPMethod: String {
     case delate = "DELATE"
 }
 
+enum RequestFactoryError: Error {
+    case makeFailure
+}
+
 class RequestFactory {
     struct Constants {
         static let defaultTimeout: Double = 30
     }
     
-    static func make(_ method: HTTPMethod, host: Host = .main, endoint: Endpoint, timeout: Double = Constants.defaultTimeout) -> URLRequest? {
-        guard let baseURL = host.getURL(),
-            var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false) else { return nil }
+    static func make(_ method: HTTPMethod, endoint: Endpoint, timeout: Double = Constants.defaultTimeout) throws -> URLRequest {
+        guard let baseURL = endoint.host.getURL(),
+            var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false) else {
+                throw RequestFactoryError.makeFailure
+        }
         
         components.path = endoint.path
+        components.queryItems = endoint.params.map { param, value in
+            return URLQueryItem(name: param, value: value)
+        }
         var request = URLRequest(url: components.url ?? baseURL)
         request.httpMethod = method.rawValue
         request.timeoutInterval = timeout

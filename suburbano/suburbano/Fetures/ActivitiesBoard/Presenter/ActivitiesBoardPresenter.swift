@@ -25,6 +25,7 @@ class ActivitiesBoardPresenter {
     }
     
     init() {
+        // TODO decople UseCase
         activitiesUseCase = UseCaseLocator.getUseCase(ofType: GetActivitiesUseCase.self)
     }
     

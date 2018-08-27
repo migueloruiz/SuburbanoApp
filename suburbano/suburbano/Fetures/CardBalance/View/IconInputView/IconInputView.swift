@@ -16,11 +16,9 @@ class IconInputView: UIInputView {
     
     struct Constants {
         static let iconsCollectionTag = 10
+        static let defaultIcon = "\u{e91b}"
     }
     
-    weak var delegate: IconInputViewDelegate?
-    private var selectedColor: UIColor?
-    private var selectedIcon: String?
     private let colors = [Theme.Pallete.concert, Theme.Pallete.workshop, Theme.Pallete.fair, Theme.Pallete.exhibition, Theme.Pallete.special, Theme.Pallete.softRed]
     private let icons = [
         ["\u{e901}","\u{e902}","\u{e904}","\u{e905}","\u{e906}","\u{e900}","\u{e903}","\u{e907}","\u{e908}","\u{e909}"],
@@ -30,6 +28,11 @@ class IconInputView: UIInputView {
         ["\u{e9db}","\u{e9dc}","\u{e9dd}","\u{e9df}","\u{e9e1}","\u{e9e3}","\u{e9e5}","\u{e9e7}","\u{e9e9}","\u{e9eb}"],
         ["\u{e9ed}","\u{e9ef}","\u{e9f1}","\u{e9f3}","\u{e9f5}","\u{e9f7}","\u{e9f9}","\u{e9fb}","\u{e9fd}","\u{e9ff}"]
     ]
+    
+    weak var delegate: IconInputViewDelegate?
+    private var selectedColor: UIColor?
+    private var selectedIcon: String?
+    private let pageControl = UIPageControl()
     private let colorsCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -49,12 +52,10 @@ class IconInputView: UIInputView {
         let collection = UICollectionView(frame: .zero, collectionViewLayout:  layout)
         collection.backgroundColor = .white
         collection.showsHorizontalScrollIndicator = false
-        collection.roundCorners()
         collection.isPagingEnabled = true
+        collection.roundCorners()
         return collection
     }()
-    
-    private let pageControl = UIPageControl()
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -155,86 +156,12 @@ extension IconInputView: UICollectionViewDataSource, UICollectionViewDelegate, U
             selectedColor = colors[indexPath.row]
         }
         
-        delegate?.update(icon: CardBalanceIcon.custome(iconCode: selectedIcon ?? "\u{e91b}", color: selectedColor ?? Theme.Pallete.softGray))
+        let icon = CardBalanceIcon.custome(iconCode: selectedIcon ?? Constants.defaultIcon, color: selectedColor ?? Theme.Pallete.softGray)
+        delegate?.update(icon: icon)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard collectionView.tag == Constants.iconsCollectionTag else { return }
         pageControl.currentPage = indexPath.section
     }
-}
-
-class IconCell: UICollectionViewCell, ReusableIdentifier {
-    
-    static let cellSize = CGSize(width: Utils.screenWidth / 5, height: Theme.IconSize.large)
-    
-    private let iconView = UIFactory.createLable(withTheme: UIThemes.Label.IconPicker)
-    
-    override var isSelected: Bool {
-        didSet {
-            iconView.textColor = isSelected ? Theme.Pallete.darkGray : Theme.Pallete.softGray
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configureUI()
-        configureLayout()
-    }
-    
-    private func configureUI() {
-        iconView.roundCorners(withRadius: frame.height / 2)
-        iconView.tintColor = Theme.Pallete.softGray
-        iconView.contentMode = .scaleAspectFit
-    }
-    
-    private func configureLayout() {
-        addSubViews([iconView])
-        iconView.anchorSquare(size: Theme.IconSize.large)
-        iconView.anchorCenterSuperview()
-    }
-    
-    func configure(withIcon iconCode: String) {
-        iconView.text = iconCode
-    }
-
-}
-
-class ColorCell: UICollectionViewCell, ReusableIdentifier {
-    
-    static let cellSize = CGSize(width: (Utils.screenWidth - (Theme.Offset.small * 2)) / 6, height: Theme.IconSize.normal)
-    
-    private let colorView = UIView()
-    
-    override var isSelected: Bool {
-        didSet {
-            colorView.layer.borderWidth = isSelected ? 3 : 0
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configureUI()
-        configureLayout()
-    }
-    
-    private func configureUI() {
-        colorView.roundCorners(withRadius: Theme.IconSize.small / 2)
-        colorView.layer.borderColor = Theme.Pallete.darkGray.cgColor
-    }
-    
-    private func configureLayout() {
-        addSubViews([colorView])
-        colorView.anchorSquare(size: Theme.IconSize.small)
-        colorView.anchorCenterSuperview()
-    }
-    
-    func configure(withColor color: UIColor) {
-        colorView.backgroundColor = color
-    }
-    
 }

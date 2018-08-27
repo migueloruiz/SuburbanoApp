@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol CardBalanceViewDelegate: class {
+protocol CardBalancePickerDelegate: class {
     func addCard()
     func openCard(withId id: String)
 }
 
-class CardBalanceView: UIView {
+class CardBalancePicker: UIView {
     
     struct Constants {
         static let addButtonDiameter: CGFloat = Theme.IconSize.normal
@@ -21,11 +21,12 @@ class CardBalanceView: UIView {
     
     private let addButton = UIButton()
     private let emptyMessageView = BalanceEmptyMessageView()
-    weak var delegate: CardBalanceViewDelegate?
+    private weak var delegate: CardBalancePickerDelegate?
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    init() {
+    init(delegate: CardBalancePickerDelegate) {
+        self.delegate = delegate
         super.init(frame: .zero)
         configureUI()
         configureLayout()
@@ -40,9 +41,9 @@ class CardBalanceView: UIView {
         addButton.backgroundColor = Theme.Pallete.softGray
         addButton.anchorSquare(size: Constants.addButtonDiameter)
         addButton.roundCorners(withRadius: Constants.addButtonDiameter / 2)
-        addButton.target(forAction: #selector(CardBalanceView.addCard), withSender: nil)
+        addButton.target(forAction: #selector(CardBalancePicker.addCard), withSender: nil)
         
-        let addCardGesture = UITapGestureRecognizer(target: self, action: #selector(CardBalanceView.addCard))
+        let addCardGesture = UITapGestureRecognizer(target: self, action: #selector(CardBalancePicker.addCard))
         emptyMessageView.addGestureRecognizer(addCardGesture)
         emptyMessageView.isUserInteractionEnabled = true
         

@@ -76,4 +76,3 @@ class ActivitiesRepository: RepositoryRealm {
         return realmActivity
     }
 }
-

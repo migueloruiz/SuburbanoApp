@@ -46,9 +46,12 @@ class StationsViewController: NavigationalViewController {
         configureLayout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        cardBalanceView.display(elements: presenter.getCards())
+    }
+    
     private func configureUI() {
         mapView.delegate = self
-        cardBalanceView.display(elements: [])
     }
     
     private func configureLayout() {

@@ -13,11 +13,13 @@ class RealmHandler: NSObject {
     
     private var realmInstance: Realm? {
         guard let realmInstance = try? Realm() else {
-            assertionFailure("Somethig went wrong by getting Realm instance")
+            RealmAppDelegate.shared.handleMigrationFail()
             return nil
         }
         return realmInstance
     }
+    
+    // MARK: Operations
     
     func add(object: Object, update: Bool = true) {
         guard let realm = realmInstance else { return }

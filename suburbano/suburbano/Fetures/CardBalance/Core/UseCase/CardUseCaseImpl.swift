@@ -1,5 +1,5 @@
 //
-//  CardBalanceUseCaseImpl.swift
+//  CardUseCaseImpl.swift
 //  suburbano
 //
 //  Created by Miguel Ruiz on 26/08/18.
@@ -8,13 +8,19 @@
 
 import Foundation
 
-class CardBalanceUseCaseImpl: CardBalanceUseCase {
+class CardUseCaseImpl: CardUseCase {
     
     let cardBalanceWebService: CardBalanceWebService
-//    let activitiesRepository: ActivitiesRepository
+    let cardRepository: CardRepository
     
-    init(cardBalanceWebService: CardBalanceWebService) {
+    init(cardBalanceWebService: CardBalanceWebService,
+         cardRepository: CardRepository) {
         self.cardBalanceWebService = cardBalanceWebService
+        self.cardRepository = cardRepository
+    }
+    
+    func get() -> [Card] {
+        return cardRepository.get() ?? []
     }
     
     func update(cards: [Card]) -> [Card] {
@@ -26,8 +32,7 @@ class CardBalanceUseCaseImpl: CardBalanceUseCase {
             guard let strongSelf = self else { return }
             switch response {
             case .success(let card, _):
-    //            strongSelf.activitiesRepository.deleteAll()
-    //            strongSelf.activitiesRepository.add(objects: activities)
+                strongSelf.cardRepository.add(object: card)
                 complition(.succes(card: card))
             case .failure(let error):
                 complition(.failure(error: error))

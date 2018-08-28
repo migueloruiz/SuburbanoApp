@@ -41,7 +41,7 @@ class CardBalancePicker: UIView {
         addButton.backgroundColor = Theme.Pallete.softGray
         addButton.anchorSquare(size: Constants.addButtonDiameter)
         addButton.roundCorners(withRadius: Constants.addButtonDiameter / 2)
-        addButton.target(forAction: #selector(CardBalancePicker.addCard), withSender: nil)
+        addButton.addTarget(self, action: #selector(CardBalancePicker.addCard), for: UIControlEvents.touchUpInside)
         
         let addCardGesture = UITapGestureRecognizer(target: self, action: #selector(CardBalancePicker.addCard))
         emptyMessageView.addGestureRecognizer(addCardGesture)
@@ -57,15 +57,15 @@ class CardBalancePicker: UIView {
         emptyMessageView.fillSuperview()
     }
     
-    func display(elements: [Int]) {
+    func display(elements: [Card]) {
         guard !elements.isEmpty else {
             addButton.isHidden = true
             emptyMessageView.isHidden = false
             return
         }
         
-        addButton.isHidden = true
-        emptyMessageView.isHidden = false
+        addButton.isHidden = false
+        emptyMessageView.isHidden = true
     }
     
     @objc func addCard() {

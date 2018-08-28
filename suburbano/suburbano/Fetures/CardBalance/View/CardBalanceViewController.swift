@@ -134,6 +134,21 @@ class CardBalanceViewController: UIViewController {
 }
 
 extension CardBalanceViewController: CardBalanceViewDelegate {
+    func addCardResult(result: AddCardResult) {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success:
+                strongSelf.close()
+                // TODO add popup
+            case .falure:
+                strongSelf.cardNumberInput.shake()
+                strongSelf.cardNumberDisclaimerLabel.text = "Numero de tarjeta no valido. Pudes encontrar el numero al frente de tu tarjeta en la parte inferior"
+                strongSelf.cardNumberDisclaimerLabel.textColor = .red
+            }
+        }
+    }
+    
     func setInvalid(form: CardBalanceForm) {
         switch form {
         case .icon:

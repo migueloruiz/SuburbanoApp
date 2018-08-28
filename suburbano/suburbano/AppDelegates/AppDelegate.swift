@@ -17,8 +17,9 @@ class AppDelegate: PluggableApplicationDelegate {
     
     override var services: [UIApplicationDelegate] {
         return [
-            ApplicationCoordinatorAppDelegate.shared,
-            ResourceSynchronizerAppDelegate.shared
+            RealmAppDelegate.shared,
+            ResourceSynchronizerAppDelegate.shared,
+            ApplicationCoordinatorAppDelegate.shared
         ]
     }
 }

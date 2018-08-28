@@ -14,6 +14,12 @@ protocol CardBalancePresenter: class  {
 
 protocol CardBalanceViewDelegate: class {
     func setInvalid(form: CardBalanceForm)
+    func addCardResult(result: AddCardResult)
+}
+
+enum AddCardResult {
+    case success
+    case falure(error: ErrorResponse)
 }
 
 enum CardBalanceForm {
@@ -22,10 +28,10 @@ enum CardBalanceForm {
 }
 
 class CardBalancePresenterImpl: CardBalancePresenter {
-    private let cardUseCase: CardBalanceUseCase?
+    private let cardUseCase: CardUseCase?
     weak var viewDelegate: CardBalanceViewDelegate?
     
-    init(cardUseCase: CardBalanceUseCase?) {
+    init(cardUseCase: CardUseCase?) {
         self.cardUseCase = cardUseCase
     }
     
@@ -45,10 +51,10 @@ class CardBalancePresenterImpl: CardBalancePresenter {
         cardUseCase?.get(card: tempCard, complition: { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {
-            case .succes(let card):
-                print(card)
+            case .succes:
+                strongSelf.viewDelegate?.addCardResult(result: .success)
             case .failure(let error):
-                print(error)
+                strongSelf.viewDelegate?.addCardResult(result: .falure(error: error))
             }
         })
     }

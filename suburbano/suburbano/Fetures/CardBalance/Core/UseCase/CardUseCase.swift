@@ -21,4 +21,8 @@ protocol GetCardBalanceUseCase {
     func get(card: Card, complition: @escaping (GetCardResult) -> Void)
 }
 
-protocol CardBalanceUseCase: UpdateCardsBalanceUseCase, GetCardBalanceUseCase {}
+protocol GetCardUseCase {
+    func get() -> [Card]
+}
+
+protocol CardUseCase: UpdateCardsBalanceUseCase, GetCardBalanceUseCase, GetCardUseCase {}

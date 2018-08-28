@@ -20,5 +20,4 @@ final class ApplicationCoordinatorAppDelegate: NSObject, UIApplicationDelegate {
         applicationCoordinator?.start()
         return true
     }
-
 }

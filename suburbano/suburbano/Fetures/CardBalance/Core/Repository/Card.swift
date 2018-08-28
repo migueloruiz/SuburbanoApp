@@ -10,6 +10,7 @@ import Foundation
 
 protocol CardEntity {
     var id: String { get }
+    var balance: String { get }
     var icon: String { get }
     var color: String { get }
 }

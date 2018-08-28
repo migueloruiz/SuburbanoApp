@@ -11,6 +11,7 @@ import RealmSwift
 
 class RealmCard: Object, CardEntity {
     @objc dynamic var id: String = ""
+    @objc dynamic var balance: String = ""
     @objc dynamic var icon: String = ""
     @objc dynamic var color: String = ""
 

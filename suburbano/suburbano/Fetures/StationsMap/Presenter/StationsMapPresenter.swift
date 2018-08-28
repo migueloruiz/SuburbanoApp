@@ -25,9 +25,16 @@ struct StationMarker {
 protocol StationsMapPresenterProtocol {
     func getStations() -> [StationMarker]
     func getStation(withName: String) -> StationMarker?
+    func getCards() -> [Card]
 }
 
 class StationsMapPresenter: StationsMapPresenterProtocol {
+    
+    private let getCardUseCase: GetCardUseCase?
+    
+    init(getCardUseCase: GetCardUseCase?) {
+        self.getCardUseCase = getCardUseCase
+    }
     
     private var stations: [String: StationMarker] = [
         "Buenavista": StationMarker(name: "Buenavista", latitude: 19.4485249, longitude: -99.1519117, markerImage: "BuenavistaMarker", markerTitleImage: "BuenavistaMarkerTitle", titleSide: true),
@@ -45,5 +52,9 @@ class StationsMapPresenter: StationsMapPresenterProtocol {
     
     func getStation(withName: String) -> StationMarker? {
         return stations[withName]
+    }
+    
+    func getCards() -> [Card] {
+        return getCardUseCase?.get() ?? []
     }
 }

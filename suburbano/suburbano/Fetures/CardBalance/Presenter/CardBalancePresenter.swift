@@ -14,7 +14,9 @@ protocol CardBalancePresenter: class  {
 
 protocol CardBalanceViewDelegate: class {
     func setInvalid(form: CardBalanceForm)
-    func addCardResult(result: AddCardResult)
+    func addCardSuccess(card: Card)
+    func addCardFailure(error: ErrorResponse)
+    func showAnimation()
 }
 
 enum AddCardResult {
@@ -48,13 +50,22 @@ class CardBalancePresenterImpl: CardBalancePresenter {
         
         let iconValues = icon.values
         let tempCard = Card(id: number, balance: "", icon: iconValues.icon, color: iconValues.color)
+
+        guard let isRegistered = cardUseCase?.isAlreadyRegister(card: tempCard), !isRegistered else {
+            let error = ErrorResponse(code: .unknownCode, header: "", body: "Esta tarjeta ya esta registrada", tecnicalDescription: "")
+            viewDelegate?.addCardFailure(error: error)
+            return
+        }
+        
+        viewDelegate?.showAnimation()
+        
         cardUseCase?.get(card: tempCard, complition: { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {
-            case .succes:
-                strongSelf.viewDelegate?.addCardResult(result: .success)
+            case .succes(let card):
+                strongSelf.viewDelegate?.addCardSuccess(card: card)
             case .failure(let error):
-                strongSelf.viewDelegate?.addCardResult(result: .falure(error: error))
+                strongSelf.viewDelegate?.addCardFailure(error: error)
             }
         })
     }

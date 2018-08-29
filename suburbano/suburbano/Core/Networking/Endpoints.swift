@@ -8,8 +8,6 @@
 
 import Foundation
 
-//"https://app.fsuburbanos.com/suburbano/mobileMethods/Saldo.php?tarjeta=2102802447&usr=subur"
-
 enum Host: String {
     case main = "MainHost"
     case fsuburbanos = "FsuburbanoHost"

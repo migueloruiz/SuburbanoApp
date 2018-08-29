@@ -18,6 +18,7 @@ protocol UpdateCardsBalanceUseCase {
 }
 
 protocol GetCardBalanceUseCase {
+    func isAlreadyRegister(card: Card) -> Bool
     func get(card: Card, complition: @escaping (GetCardResult) -> Void)
 }
 

@@ -93,7 +93,10 @@
 		869E2CCB2125347500B2FA9F /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 869E2CCA2125347500B2FA9F /* Montserrat-Bold.ttf */; };
 		869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCC2125380600B2FA9F /* UIButton.swift */; };
 		869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */; };
+		869E40E121371CC900EB133F /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 869E40E021371CC900EB133F /* loading.json */; };
+		869E40E321371CE100EB133F /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 869E40E221371CE100EB133F /* success.json */; };
 		86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */; };
+		86B830DC2137422A0063AC75 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DB2137422A0063AC75 /* LoadingView.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
@@ -221,7 +224,10 @@
 		869E2CCA2125347500B2FA9F /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "Montserrat/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		869E2CCC2125380600B2FA9F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationMapAnnotation.swift; sourceTree = "<group>"; };
+		869E40E021371CC900EB133F /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		869E40E221371CE100EB133F /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
+		86B830DB2137422A0063AC75 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -472,7 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				8652A35E212A3FED00ED1910 /* CardBalance */,
-				869E2CC521250C7100B2FA9F /* Alerts */,
+				869E2CC521250C7100B2FA9F /* Overlay */,
 				86C0681E20F4168C00A6B17A /* AppLaunch */,
 				8681284F2123BACC00A7A011 /* MoreBoard */,
 				8641325320FFFF860031F4F4 /* StationsMap */,
@@ -569,6 +575,7 @@
 		868D00B220F0167400C9D8B1 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				869E40DD21370C7F00EB133F /* Animations */,
 				86C0680A20F0532A00A6B17A /* AppIcon.xcassets */,
 				86F14E4820F43F6D00D1CF7D /* Assets.xcassets */,
 				86C0680620F0496300A6B17A /* Colors.xcassets */,
@@ -680,13 +687,39 @@
 			path = "Type Extentions";
 			sourceTree = "<group>";
 		};
-		869E2CC521250C7100B2FA9F /* Alerts */ = {
+		869E2CC521250C7100B2FA9F /* Overlay */ = {
 			isa = PBXGroup;
 			children = (
-				869E2CC621250C9300B2FA9F /* PopUpViewController.swift */,
-				869E2CC8212524DB00B2FA9F /* PopUpTransition.swift */,
+				86B830DA213742110063AC75 /* Loading */,
+				86B830D9213742030063AC75 /* PopUp */,
 			);
-			path = Alerts;
+			path = Overlay;
+			sourceTree = "<group>";
+		};
+		869E40DD21370C7F00EB133F /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				869E40E221371CE100EB133F /* success.json */,
+				869E40E021371CC900EB133F /* loading.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		86B830D9213742030063AC75 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				869E2CC8212524DB00B2FA9F /* PopUpTransition.swift */,
+				869E2CC621250C9300B2FA9F /* PopUpViewController.swift */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		86B830DA213742110063AC75 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				86B830DB2137422A0063AC75 /* LoadingView.swift */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		86C0680D20F413A000A6B17A /* UseCases */ = {
@@ -951,10 +984,12 @@
 			files = (
 				8621A2E120F6FE0A00A2D8B1 /* train-rail.geojson in Resources */,
 				8621A2E220F6FE0A00A2D8B1 /* LaunchScreen.storyboard in Resources */,
+				869E40E121371CC900EB133F /* loading.json in Resources */,
 				8621A2E320F6FE0A00A2D8B1 /* Colors.xcassets in Resources */,
 				8621A2E420F6FE0A00A2D8B1 /* Assets.xcassets in Resources */,
 				8621A2E520F6FE0A00A2D8B1 /* AppIcon.xcassets in Resources */,
 				869E2CCB2125347500B2FA9F /* Montserrat-Bold.ttf in Resources */,
+				869E40E321371CE100EB133F /* success.json in Resources */,
 				867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */,
 				864C6FDD212CE7DE0072C26B /* IconsCataloge.ttf in Resources */,
 				8621A2E620F6FE0A00A2D8B1 /* mapStyle.json in Resources */,
@@ -1081,6 +1116,7 @@
 				869E1D122134C9D0004BE0A9 /* RealmAppDelegate.swift in Sources */,
 				863EF66B211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift in Sources */,
 				8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */,
+				86B830DC2137422A0063AC75 /* LoadingView.swift in Sources */,
 				8621A30E20F70DF900A2D8B1 /* Activity.swift in Sources */,
 				8641325C210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift in Sources */,
 				86385C7521335D91002EA9DF /* ColorCell.swift in Sources */,

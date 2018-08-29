@@ -66,4 +66,10 @@ class UIFactory {
         view.anchorSquare(size: size)
         return view
     }
+    
+    static func createImageView(image: UIImage?, color: UIColor) -> UIImageView {
+        let view = UIImageView(image: image)
+        view.tintColor = color
+        return view
+    }
 }

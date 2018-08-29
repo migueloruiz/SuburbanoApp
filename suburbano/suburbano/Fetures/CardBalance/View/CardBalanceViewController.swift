@@ -13,17 +13,22 @@ class CardBalanceViewController: UIViewController {
     struct Constants {
         static let excamationIconHeigth: CGFloat = Theme.IconSize.small
     }
-    
     private let presenter: CardBalancePresenter
+    private var card: Card?
+    
     private(set) lazy var containerView = UIView()
+    
+    private lazy var formContinerView = UIView()
     private lazy var titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardBalanceNavTitle)
     private lazy var cardBalanceIconView = IconPickerView()
+    private lazy var excamationIcon = UIFactory.createImageView(image: #imageLiteral(resourceName: "exclamation"), color: Theme.Pallete.softGray)
+    
+    private let loadingView = LoadingView()
     private let cardNumberDisclaimerLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
-    private let excamationIcon = UIImageView()
     private let useDisclaimerLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
-    private let addButton = UIFactory.createButton(withTheme: UIThemes.Button.PrimaryButton)
-    private let backButton = UIFactory.createButton(withTheme: UIThemes.Button.SecondayButton)
-    private var bottomConstraint: NSLayoutConstraint?
+    private let primaryButton = UIFactory.createButton(withTheme: UIThemes.Button.PrimaryButton)
+    private let secondaryButton = UIFactory.createButton(withTheme: UIThemes.Button.SecondayButton)
+    private var bottomButtonsConstraint: NSLayoutConstraint?
     
     private lazy var cardNumberInput: CustomeTextField = {
         let input = CustomeTextField()
@@ -36,8 +41,9 @@ class CardBalanceViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    init(presenter: CardBalancePresenter) {
+    init(presenter: CardBalancePresenter, card: Card? = nil) {
         self.presenter = presenter
+        self.card = card
         super.init(nibName: nil, bundle: nil)
         modalPresentationStyle = .overFullScreen
     }
@@ -53,6 +59,8 @@ class CardBalanceViewController: UIViewController {
         _ = cardBalanceIconView.becomeFirstResponder()
     }
     
+    // MARK: configureUI
+    
     private func configureUI() {
         view.backgroundColor = Theme.Pallete.darkBackground
         containerView.backgroundColor = .white
@@ -60,58 +68,79 @@ class CardBalanceViewController: UIViewController {
         
         titleLabel.text = "Agrega tu tarjeta"
         cardNumberDisclaimerLabel.text = "Pudes encontrar el numero al frente de tu tarjeta en la parte inferior"
-        cardNumberDisclaimerLabel.backgroundColor = .clear
-        cardNumberDisclaimerLabel.textAlignment = .left
-        excamationIcon.image = #imageLiteral(resourceName: "exclamation")
-        excamationIcon.tintColor = Theme.Pallete.softGray
         useDisclaimerLabel.text = "El saldo de recargas a tu tarjeta, podrá verse reflejado en 15 min aproximadamente."
-        useDisclaimerLabel.backgroundColor = .clear
-        useDisclaimerLabel.textAlignment = .left
         
-        backButton.set(title: "Cancelar")
-        backButton.addTarget(self, action: #selector(CardBalanceViewController.close), for: .touchUpInside)
-        addButton.set(title: "Agregar")
-        addButton.addTarget(self, action: #selector(CardBalanceViewController.validateInformation), for: .touchUpInside)
+        configureButtons()
+        loadingView.configure()
         
         NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
     }
     
+    private func configureButtons() {
+        primaryButton.removeTarget(nil, action: nil, for: .allEvents)
+        secondaryButton.removeTarget(nil, action: nil, for: .allEvents)
+        
+        if card == nil {
+            primaryButton.set(title: "Agregar")
+            primaryButton.addTarget(self, action: #selector(CardBalanceViewController.validateInformation), for: .touchUpInside)
+            secondaryButton.set(title: "Cancelar")
+            secondaryButton.addTarget(self, action: #selector(CardBalanceViewController.close), for: .touchUpInside)
+        } else {
+            primaryButton.set(title: "Volver")
+            secondaryButton.set(title: "Eliminar")
+        }
+    }
+    
+    // MARK: ConfigureLayout
+    
     private func configureLayout() {
         let verticalOffset = Utils.isSmallPhone ? Theme.Offset.normal : Theme.Offset.extralarge
         let disclaimerOffset = Utils.isSmallPhone ? Theme.Offset.normal : Theme.Offset.extralarge
-        view.addSubViews([containerView])
+        
+        view.addSubViews([loadingView, containerView])
         containerView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, bottomConstant: -Theme.Offset.large)
-
+        loadingView.fillSuperview()
+        
         let buttonsContainer = UIStackView.with(distribution: .fillEqually, spacing: Theme.Offset.small)
 
-        containerView.addSubViews([titleLabel, cardBalanceIconView, cardNumberInput, cardNumberDisclaimerLabel, excamationIcon, useDisclaimerLabel, buttonsContainer])
+        containerView.addSubViews([titleLabel, formContinerView])
         
         titleLabel.anchor(top: containerView.topAnchor, topConstant: Theme.Offset.normal)
+        titleLabel.anchorSize(height: 30)
         titleLabel.anchorCenterXToSuperview()
+        
+        formContinerView.anchor(top: titleLabel.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: verticalOffset, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
+        let constraints = formContinerView.anchor(bottom: view.bottomAnchor, bottomConstant: Theme.Offset.normal)
+        bottomButtonsConstraint = constraints.first
+        
+        formContinerView.addSubViews([cardBalanceIconView, cardNumberInput, cardNumberDisclaimerLabel, excamationIcon, useDisclaimerLabel, buttonsContainer])
  
-        cardBalanceIconView.anchor(top: titleLabel.bottomAnchor, topConstant: verticalOffset)
+        cardBalanceIconView.anchor(top: formContinerView.topAnchor)
         cardBalanceIconView.anchorCenterXToSuperview()
         
-        cardNumberInput.anchor(top: cardBalanceIconView.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.large, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
+        cardNumberInput.anchor(top: cardBalanceIconView.bottomAnchor, left: formContinerView.leftAnchor, right: formContinerView.rightAnchor, topConstant: Theme.Offset.large)
         
-        cardNumberDisclaimerLabel.anchor(top: cardNumberInput.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
+        cardNumberDisclaimerLabel.anchor(top: cardNumberInput.bottomAnchor, left: formContinerView.leftAnchor, right: formContinerView.rightAnchor, topConstant: Theme.Offset.normal)
         
-        excamationIcon.anchor(left: containerView.leftAnchor, leftConstant: Theme.Offset.large)
+        excamationIcon.anchor(left: formContinerView.leftAnchor)
         excamationIcon.center(x: nil, y: useDisclaimerLabel.centerYAnchor)
         excamationIcon.anchorSquare(size: Constants.excamationIconHeigth)
+        
         let topConstraint = useDisclaimerLabel.topAnchor.constraintGreaterThanOrEqualToSystemSpacingBelow(cardNumberDisclaimerLabel.bottomAnchor, multiplier: 1)
         topConstraint.isActive = true
         topConstraint.constant = Theme.Offset.normal
-        useDisclaimerLabel.anchor(left: excamationIcon.rightAnchor, right: containerView.rightAnchor, leftConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
+        useDisclaimerLabel.anchor(left: excamationIcon.rightAnchor, right: formContinerView.rightAnchor, leftConstant: Theme.Offset.normal)
         
-        buttonsContainer.anchor(top: useDisclaimerLabel.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: disclaimerOffset, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
-        let constraints = buttonsContainer.anchor(bottom: view.bottomAnchor, bottomConstant: Theme.Offset.normal)
-        bottomConstraint = constraints.first
+        buttonsContainer.anchor(top: useDisclaimerLabel.bottomAnchor, left: formContinerView.leftAnchor, bottom: formContinerView.bottomAnchor ,right: formContinerView.rightAnchor, topConstant: disclaimerOffset)
         
-        buttonsContainer.addArranged(subViews: [addButton, backButton])
+        buttonsContainer.addArranged(subViews: [primaryButton, secondaryButton])
     }
-    
+}
+
+// MARK: Actions
+
+extension CardBalanceViewController {
     @objc func close() {
         view.endEditing(true)
         dismiss(animated: true, completion: nil)
@@ -123,28 +152,45 @@ class CardBalanceViewController: UIViewController {
     
     @objc func keyboardWillShow(notification: Notification) {
         guard let keyboard = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
-        bottomConstraint?.constant = -(keyboard.cgRectValue.height + Theme.Offset.normal)
+        bottomButtonsConstraint?.constant = -(keyboard.cgRectValue.height + Theme.Offset.normal)
         view.layoutIfNeeded()
     }
     
     @objc func keyboardWillHide(notification: Notification) {
-        bottomConstraint?.constant = -Theme.Offset.small
+        bottomButtonsConstraint?.constant = -Theme.Offset.small
         view.layoutIfNeeded()
     }
 }
 
+// MARK: CardBalanceViewDelegate
+
 extension CardBalanceViewController: CardBalanceViewDelegate {
-    func addCardResult(result: AddCardResult) {
+    func showAnimation() {
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
-            switch result {
-            case .success:
+            strongSelf.loadingView.show(hiddingView: strongSelf.formContinerView)
+        }
+    }
+    
+    func addCardSuccess(card: Card) {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.loadingView.dismiss(hiddingView: strongSelf.formContinerView) { [weak self] in
+                guard let strongSelf = self else { return }
                 strongSelf.close()
-                // TODO add popup
-            case .falure:
+            }
+        }
+    }
+    
+    func addCardFailure(error: ErrorResponse) {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.loadingView.dismiss(hiddingView: strongSelf.formContinerView) { [weak self] in
+                guard let strongSelf = self else { return }
                 strongSelf.cardNumberInput.shake()
-                strongSelf.cardNumberDisclaimerLabel.text = "Numero de tarjeta no valido. Pudes encontrar el numero al frente de tu tarjeta en la parte inferior"
-                strongSelf.cardNumberDisclaimerLabel.textColor = .red
+                strongSelf.cardNumberDisclaimerLabel.text = error.body
+                strongSelf.cardNumberDisclaimerLabel.textColor = .red // TODO pick red error
+                _ = strongSelf.cardNumberInput.becomeFirstResponder()
             }
         }
     }

@@ -140,6 +140,14 @@ extension StationsViewController: CardBalancePickerDelegate {
     func open(card: Card) { delegate?.open(card: card) }
 }
 
+extension StationsViewController: StationsViewDelegate {
+    func update(cards: [Card]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.cardBalanceView.display(cards: cards)
+        }
+    }
+}
+
 extension StationsViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,

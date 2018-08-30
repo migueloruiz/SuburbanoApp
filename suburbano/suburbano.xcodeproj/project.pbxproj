@@ -101,6 +101,7 @@
 		86B830E1213843FB0063AC75 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E0213843FB0063AC75 /* CardCell.swift */; };
 		86B830E3213844440063AC75 /* FadingCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E2213844440063AC75 /* FadingCollectionLayout.swift */; };
 		86B830E52138485A0063AC75 /* FadingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E42138485A0063AC75 /* FadingCollectionView.swift */; };
+		86B830E8213857EA0063AC75 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E7213857EA0063AC75 /* Notifications.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
@@ -236,6 +237,7 @@
 		86B830E0213843FB0063AC75 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		86B830E2213844440063AC75 /* FadingCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingCollectionLayout.swift; sourceTree = "<group>"; };
 		86B830E42138485A0063AC75 /* FadingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingCollectionView.swift; sourceTree = "<group>"; };
+		86B830E7213857EA0063AC75 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -742,6 +744,14 @@
 			path = CardBalancePicker;
 			sourceTree = "<group>";
 		};
+		86B830E6213857C90063AC75 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				86B830E7213857EA0063AC75 /* Notifications.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		86C0680D20F413A000A6B17A /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -775,6 +785,7 @@
 		86C0681420F4150C00A6B17A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				86B830E6213857C90063AC75 /* Notifications */,
 				86C0681820F4158000A6B17A /* Constatns */,
 				862517C920F849CF002F2048 /* Data Persistence */,
 				86695E1D20F6D3F900F74150 /* Networking */,
@@ -1090,6 +1101,7 @@
 				86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
 				8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */,
+				86B830E8213857EA0063AC75 /* Notifications.swift in Sources */,
 				86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */,
 				8621A2D020F6FE0A00A2D8B1 /* StationsViewController.swift in Sources */,
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,

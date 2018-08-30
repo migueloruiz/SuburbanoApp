@@ -33,6 +33,7 @@ class CardUseCaseImpl: CardUseCase {
     
     func delate(withId id: String) {
         cardRepository.delate(withId: id)
+        notifiCardsUpdate()
     }
     
     func get(card: Card, complition: @escaping (GetCardResult) -> Void) {
@@ -47,11 +48,18 @@ class CardUseCaseImpl: CardUseCase {
             switch response {
             case .success(let card, _):
                 strongSelf.cardRepository.add(object: card)
+                strongSelf.notifiCardsUpdate()
                 complition(.succes(card: card))
             case .failure:
                 let error = ErrorResponse(code: .unknownCode, header: "", body: "Numero de tarjeta no valido. Pudes encontrar el numero al frente de tu tarjeta en la parte inferior", tecnicalDescription: "")
                 complition(.failure(error: error))
             }
         }
+    }
+}
+
+extension CardUseCaseImpl {
+    fileprivate func notifiCardsUpdate() {
+        NotificationCenter.default.post(name: .UpdateCards, object: nil)
     }
 }

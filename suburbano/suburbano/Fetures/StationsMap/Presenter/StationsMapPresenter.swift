@@ -28,12 +28,19 @@ protocol StationsMapPresenterProtocol {
     func getCards() -> [Card]
 }
 
+protocol StationsViewDelegate: class {
+    func update(cards: [Card])
+}
+
 class StationsMapPresenter: StationsMapPresenterProtocol {
     
     private let getCardUseCase: GetCardUseCase?
+    weak var viewDelegate: StationsViewDelegate?
     
     init(getCardUseCase: GetCardUseCase?) {
         self.getCardUseCase = getCardUseCase
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(StationsMapPresenter.updateCards), name: .UpdateCards, object: nil)
     }
     
     private var stations: [String: StationMarker] = [
@@ -56,5 +63,9 @@ class StationsMapPresenter: StationsMapPresenterProtocol {
     
     func getCards() -> [Card] {
         return getCardUseCase?.get() ?? []
+    }
+    
+    @objc func updateCards() {
+        viewDelegate?.update(cards: getCards())
     }
 }

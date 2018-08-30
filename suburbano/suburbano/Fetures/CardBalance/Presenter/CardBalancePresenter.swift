@@ -20,11 +20,6 @@ protocol CardBalanceViewDelegate: class {
     func showAnimation()
 }
 
-enum AddCardResult {
-    case success
-    case falure(error: ErrorResponse)
-}
-
 enum CardBalanceForm {
     case number
     case icon
@@ -75,7 +70,6 @@ class CardBalancePresenterImpl: CardBalancePresenter {
     func deleteCard(withId id: String) {
         cardUseCase?.delate(withId: id)
     }
-    
 }
 
 extension CardBalancePresenterImpl {

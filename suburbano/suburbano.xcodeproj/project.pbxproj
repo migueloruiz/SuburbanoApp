@@ -98,6 +98,9 @@
 		86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */; };
 		86B830DC2137422A0063AC75 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DB2137422A0063AC75 /* LoadingView.swift */; };
 		86B830DE213765A80063AC75 /* AlertContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DD213765A80063AC75 /* AlertContext.swift */; };
+		86B830E1213843FB0063AC75 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E0213843FB0063AC75 /* CardCell.swift */; };
+		86B830E3213844440063AC75 /* FadingCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E2213844440063AC75 /* FadingCollectionLayout.swift */; };
+		86B830E52138485A0063AC75 /* FadingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E42138485A0063AC75 /* FadingCollectionView.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
@@ -230,6 +233,9 @@
 		86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
 		86B830DB2137422A0063AC75 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		86B830DD213765A80063AC75 /* AlertContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContext.swift; sourceTree = "<group>"; };
+		86B830E0213843FB0063AC75 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		86B830E2213844440063AC75 /* FadingCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingCollectionLayout.swift; sourceTree = "<group>"; };
+		86B830E42138485A0063AC75 /* FadingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingCollectionView.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -729,6 +735,9 @@
 			children = (
 				8652A35A2129074700ED1910 /* CardBalancePicker.swift */,
 				8652A35C212915C900ED1910 /* BalanceEmptyMessageView.swift */,
+				86B830E0213843FB0063AC75 /* CardCell.swift */,
+				86B830E2213844440063AC75 /* FadingCollectionLayout.swift */,
+				86B830E42138485A0063AC75 /* FadingCollectionView.swift */,
 			);
 			path = CardBalancePicker;
 			sourceTree = "<group>";
@@ -1092,7 +1101,9 @@
 				86385C8821337558002EA9DF /* RealmCard.swift in Sources */,
 				86385C8A21338392002EA9DF /* CardUseCase.swift in Sources */,
 				869E2CC9212524DB00B2FA9F /* PopUpTransition.swift in Sources */,
+				86B830E52138485A0063AC75 /* FadingCollectionView.swift in Sources */,
 				868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */,
+				86B830E3213844440063AC75 /* FadingCollectionLayout.swift in Sources */,
 				86385C7A213362DC002EA9DF /* CardBalancePresenter.swift in Sources */,
 				8641325A21000DA70031F4F4 /* ActivitiesBoardPresenter.swift in Sources */,
 				864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */,
@@ -1113,6 +1124,7 @@
 				862517E220FD7A32002F2048 /* RepositoryRealm.swift in Sources */,
 				8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */,
 				86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */,
+				86B830E1213843FB0063AC75 /* CardCell.swift in Sources */,
 				8621A2D820F6FE0A00A2D8B1 /* Utils.swift in Sources */,
 				8652A35D212915CA00ED1910 /* BalanceEmptyMessageView.swift in Sources */,
 				862517D420FD7071002F2048 /* ActivitiesUseCaseImpl.swift in Sources */,

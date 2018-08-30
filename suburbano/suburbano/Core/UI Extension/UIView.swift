@@ -22,6 +22,10 @@ extension UIView {
         layer.cornerRadius = radius
     }
     
+    func roundCorners(withDiameter diameter: CGFloat)  {
+        layer.cornerRadius = diameter / 2
+    }
+    
     func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)

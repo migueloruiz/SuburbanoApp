@@ -16,27 +16,19 @@ class CardBalanceViewController: UIViewController {
     private let presenter: CardBalancePresenter
     private var card: Card?
     
-    private(set) lazy var containerView = UIView()
-    
-    private lazy var formContinerView = UIView()
-    private lazy var titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardBalanceNavTitle)
-    private lazy var cardBalanceIconView = IconPickerView()
-    private lazy var excamationIcon = UIFactory.createImageView(image: #imageLiteral(resourceName: "exclamation"), color: Theme.Pallete.softGray)
-    
     private let loadingView = LoadingView()
     private let cardNumberDisclaimerLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
     private let useDisclaimerLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
     private let primaryButton = UIFactory.createButton(withTheme: UIThemes.Button.PrimaryButton)
     private let secondaryButton = UIFactory.createButton(withTheme: UIThemes.Button.SecondayButton)
+    
+    private(set) lazy var containerView = UIView()
+    private lazy var formContinerView = UIView()
+    private lazy var titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardBalanceNavTitle)
+    private lazy var cardBalanceIconView = IconPickerView()
+    private lazy var excamationIcon = UIFactory.createImageView(image: #imageLiteral(resourceName: "exclamation"), color: Theme.Pallete.softGray)
+    private lazy var cardNumberInput = CustomeTextField()
     private var bottomButtonsConstraint: NSLayoutConstraint?
-    
-    private lazy var cardNumberInput: CustomeTextField = {
-        let input = CustomeTextField()
-        input.title = "No. de trajeta"
-        input.placeholder = "XXXXXXXXX"
-        return input
-    }()
-    
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -69,6 +61,8 @@ class CardBalanceViewController: UIViewController {
         containerView.roundCorners(withRadius: Theme.Rounded.controller)
         
         titleLabel.text = "Agrega tu tarjeta"
+        cardNumberInput.title = "No. de trajeta"
+        cardNumberInput.placeholder = "XXXXXXXXX"
         cardNumberDisclaimerLabel.text = "Pudes encontrar el numero al frente de tu tarjeta en la parte inferior"
         useDisclaimerLabel.text = "El saldo de recargas a tu tarjeta, podrá verse reflejado en 15 min aproximadamente."
         
@@ -81,6 +75,14 @@ class CardBalanceViewController: UIViewController {
     
     private func setUIwithCard() {
         configureButtons()
+        
+        if card == nil {
+            cardNumberInput.isUserInteractionEnabled = true
+            cardBalanceIconView.isUserInteractionEnabled = true
+        } else {
+            cardNumberInput.isUserInteractionEnabled = false
+            cardBalanceIconView.isUserInteractionEnabled = false
+        }
     }
     
     private func configureButtons() {
@@ -96,7 +98,7 @@ class CardBalanceViewController: UIViewController {
             primaryButton.set(title: "Volver")
             primaryButton.addTarget(self, action: #selector(CardBalanceViewController.close), for: .touchUpInside)
             secondaryButton.set(title: "Eliminar")
-            primaryButton.addTarget(self, action: #selector(CardBalanceViewController.delateCard), for: .touchUpInside)
+            secondaryButton.addTarget(self, action: #selector(CardBalanceViewController.delateCard), for: .touchUpInside)
         }
     }
     
@@ -161,10 +163,12 @@ extension CardBalanceViewController {
     @objc func delateCard() {
         let controller = PopUpViewController(context: .confirmDelete)
         controller.transitioningDelegate = self
-        controller.didTapSecondary = { [weak self] in
-            guard let strongSelf = self, let card = strongSelf.card else { return }
-            strongSelf.presenter.deleteCard(withId: card.id)
-            strongSelf.dismiss(animated: true, completion: nil)
+        controller.didTapSecondary = {
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self, let card = strongSelf.card else { return }
+                strongSelf.presenter.deleteCard(withId: card.id)
+                strongSelf.dismiss(animated: true, completion: nil)
+            }
         }
         present(controller, animated: true, completion: nil)
     }

@@ -137,6 +137,19 @@ struct UIThemes {
                                            textColor: Theme.Pallete.softGray,
                                            backgroundColor: .white,
                                            font: FontStyle(size: .icon, largeFactor: Theme.FontFactor.large, name: .icons, style: .none))
+        
+        // MARK: - Card Picker Label Themes
+        static let CardPickerIcon = LabelTheme(numberOfLines: 0,
+                                           textAlignment: .center,
+                                           textColor: .white,
+                                           backgroundColor: .white,
+                                           font: FontStyle(size: .smallIcon, largeFactor: Theme.FontFactor.large, name: .icons, style: .none))
+        
+        static let CardPickerTitle = LabelTheme(numberOfLines: 0,
+                                                  textAlignment: .right,
+                                                  textColor: Theme.Pallete.darkGray,
+                                                  backgroundColor: .clear,
+                                                  font: FontStyle(size: .h3, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .bold))
     }
     
     // MARK: - Button Themes

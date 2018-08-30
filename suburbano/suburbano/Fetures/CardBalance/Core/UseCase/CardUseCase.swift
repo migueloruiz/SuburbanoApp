@@ -14,7 +14,7 @@ enum GetCardResult {
 }
 
 protocol UpdateCardsBalanceUseCase {
-    func update(cards: [Card]) -> [Card]
+    func updateCards()
 }
 
 protocol GetCardBalanceUseCase {

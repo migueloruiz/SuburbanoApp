@@ -11,7 +11,8 @@ import UIKit
 final class ResourceSynchronizerAppDelegate: NSObject, UIApplicationDelegate {
     
     static let shared = ResourceSynchronizerAppDelegate()
-    let service = ActivitiesUseCaseImpl(activitiesWebService: ActivitiesWebServiceImpl(), activitiesRepository: ActivitiesRepository())
+    let activitiesUseCase = UseCaseLocator.getUseCase(ofType: UpdateActivitiesUseCase.self)
+    let cardsUseCase = UseCaseLocator.getUseCase(ofType: UpdateCardsBalanceUseCase.self)
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         syncResourse()
@@ -22,7 +23,8 @@ extension ResourceSynchronizerAppDelegate {
     func syncResourse() {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.service.load()
+            strongSelf.cardsUseCase?.updateCards()
+            strongSelf.activitiesUseCase?.updateActivities()
         }
     }
 }

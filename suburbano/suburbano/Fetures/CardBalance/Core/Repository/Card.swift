@@ -14,6 +14,7 @@ protocol CardEntity {
     var balance: String { get }
     var icon: String { get }
     var color: Data { get }
+    var date: Double { get }
 }
 
 struct Card: CardEntity, Codable {
@@ -21,6 +22,7 @@ struct Card: CardEntity, Codable {
     var balance: String
     var icon: String
     var color: Data
+    var date: Double
     
     var displayColor: UIColor {
         return NSKeyedUnarchiver.unarchiveObject(with: color) as? UIColor ?? Theme.Pallete.darkGray

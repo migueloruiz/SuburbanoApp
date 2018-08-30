@@ -23,8 +23,33 @@ class CardUseCaseImpl: CardUseCase {
         return cardRepository.get() ?? []
     }
     
-    func update(cards: [Card]) -> [Card] {
-        return []
+    func updateCards() {
+        guard let cards = cardRepository.get() else { return }
+        let dispatchGroup = DispatchGroup()
+        var updatedCards: [Card] = []
+        
+        for _ in cards { dispatchGroup.enter() }
+        
+        for card in cards {
+            DispatchQueue.global(qos: .background).async {
+                [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.cardBalanceWebService.getBalace(for: card) { response in
+                    switch response {
+                    case .success(let card, _):
+                        updatedCards.append(card)
+                    default: break
+                    }
+                    dispatchGroup.leave()
+                }
+            }
+        }
+        
+        dispatchGroup.notify(queue: .global(qos: .background), execute: { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.cardRepository.add(objects: updatedCards)
+            strongSelf.notifiCardsUpdate()
+        })
     }
     
     func isAlreadyRegister(card: Card) -> Bool {

@@ -9,7 +9,7 @@
 import Foundation
 
 class ActivitiesUseCaseImpl: ActivitiesUseCase {
-    
+
     let activitiesWebService: ActivitiesWebService
     let activitiesRepository: ActivitiesRepository
     
@@ -19,7 +19,7 @@ class ActivitiesUseCaseImpl: ActivitiesUseCase {
         self.activitiesRepository = activitiesRepository
     }
     
-    func load() {
+    func updateActivities() {
         activitiesWebService.getActivities { [weak self] response in
             guard let strongSelf = self else { return }
             switch response {

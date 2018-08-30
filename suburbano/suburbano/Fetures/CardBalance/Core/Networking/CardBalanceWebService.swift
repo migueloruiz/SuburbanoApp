@@ -22,6 +22,7 @@ class CardBalanceWebServiceImpl: BaseService<Card>, CardBalanceWebService {
         make(request: request, parsingData: card, completion: completion)
     }
     
+    // TODO
     override func parse(json: Data, parsingData: Any?) throws -> Card {
         guard let card = parsingData as? Card else {
             throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: [], debugDescription: "TODO ERROR", underlyingError: nil))
@@ -30,6 +31,7 @@ class CardBalanceWebServiceImpl: BaseService<Card>, CardBalanceWebService {
     }
 }
 
+// TODO
 class CardParser {
     static func parse(response: Data, card: Card) throws -> Card {
         let balance = String(data: response, encoding: String.Encoding.utf8) ?? ""
@@ -37,6 +39,6 @@ class CardParser {
         guard let match = matches.first else {
         throw DecodingError.valueNotFound(Card.self, DecodingError.Context(codingPath: [], debugDescription: "Value balance not found"))
         }
-        return Card(id: card.id, balance: match, icon: card.icon, color: card.color)
+        return Card(id: card.id, balance: match, icon: card.icon, color: card.color, date: Date().timeIntervalSince1970)
     }
 }

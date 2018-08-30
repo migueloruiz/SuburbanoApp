@@ -12,7 +12,7 @@ class UseCaseLocator {
     
     static func getUseCase<UseCase>(ofType type: UseCase.Type) -> UseCase? {
         switch String(describing: type) {
-        case String(describing: LoadActivitiesUseCase.self),
+        case String(describing: UpdateActivitiesUseCase.self),
              String(describing: GetActivitiesUseCase.self),
              String(describing: ActivitiesUseCase.self):
             return ActivitiesUseCaseImpl(

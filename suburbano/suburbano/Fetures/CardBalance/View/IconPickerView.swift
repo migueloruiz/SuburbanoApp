@@ -16,10 +16,10 @@ enum CardBalanceIcon {
     case initial
     case custome(iconCode: String, color: UIColor)
     
-    var values: (icon: String, color: String) {
+    var values: (icon: String, color: Data) {
         switch self {
-        case .initial: return (Constants.defaultIcon, "")//Theme.Pallete.softGray)
-        case .custome(let icon, let color): return (icon, "")
+        case .initial: return (Constants.defaultIcon, NSKeyedArchiver.archivedData(withRootObject: Theme.Pallete.softGray))
+        case .custome(let icon, let color): return (icon, NSKeyedArchiver.archivedData(withRootObject: color))
         }
     }
 }

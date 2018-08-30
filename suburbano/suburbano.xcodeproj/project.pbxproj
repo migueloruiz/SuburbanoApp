@@ -74,7 +74,7 @@
 		864C6FDD212CE7DE0072C26B /* IconsCataloge.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 864C6FDC212CE7DE0072C26B /* IconsCataloge.ttf */; };
 		864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D121163E170053DFB1 /* UIFactory.swift */; };
 		864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D32116422A0053DFB1 /* UIThemes.swift */; };
-		8652A35B2129074700ED1910 /* CardBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A35A2129074700ED1910 /* CardBalanceView.swift */; };
+		8652A35B2129074700ED1910 /* CardBalancePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A35A2129074700ED1910 /* CardBalancePicker.swift */; };
 		8652A35D212915CA00ED1910 /* BalanceEmptyMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A35C212915C900ED1910 /* BalanceEmptyMessageView.swift */; };
 		8652A361212A407600ED1910 /* CardBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A360212A407600ED1910 /* CardBalanceViewController.swift */; };
 		8652A363212B2D3500ED1910 /* CardBalanceTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A362212B2D3500ED1910 /* CardBalanceTransition.swift */; };
@@ -192,7 +192,7 @@
 		864C6FDC212CE7DE0072C26B /* IconsCataloge.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IconsCataloge.ttf; sourceTree = "<group>"; };
 		864FE4D121163E170053DFB1 /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
 		864FE4D32116422A0053DFB1 /* UIThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIThemes.swift; sourceTree = "<group>"; };
-		8652A35A2129074700ED1910 /* CardBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceView.swift; sourceTree = "<group>"; };
+		8652A35A2129074700ED1910 /* CardBalancePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalancePicker.swift; sourceTree = "<group>"; };
 		8652A35C212915C900ED1910 /* BalanceEmptyMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceEmptyMessageView.swift; sourceTree = "<group>"; };
 		8652A360212A407600ED1910 /* CardBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceViewController.swift; sourceTree = "<group>"; };
 		8652A362212B2D3500ED1910 /* CardBalanceTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceTransition.swift; sourceTree = "<group>"; };
@@ -648,7 +648,7 @@
 				86F14E5120F4550200D1CF7D /* MapViewFactory.swift */,
 				868D008220F00FFE00C9D8B1 /* StationsViewController.swift */,
 				869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */,
-				86B830DF21376CE80063AC75 /* CardBalance */,
+				86B830DF21376CE80063AC75 /* CardBalancePicker */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -724,13 +724,13 @@
 			path = Loading;
 			sourceTree = "<group>";
 		};
-		86B830DF21376CE80063AC75 /* CardBalance */ = {
+		86B830DF21376CE80063AC75 /* CardBalancePicker */ = {
 			isa = PBXGroup;
 			children = (
-				8652A35A2129074700ED1910 /* CardBalanceView.swift */,
+				8652A35A2129074700ED1910 /* CardBalancePicker.swift */,
 				8652A35C212915C900ED1910 /* BalanceEmptyMessageView.swift */,
 			);
-			path = CardBalance;
+			path = CardBalancePicker;
 			sourceTree = "<group>";
 		};
 		86C0680D20F413A000A6B17A /* UseCases */ = {
@@ -1066,7 +1066,7 @@
 				8641325020FFF4E10031F4F4 /* ActivitiesBoardViewController.swift in Sources */,
 				862517D120FD6ED0002F2048 /* UseCaseLocator.swift in Sources */,
 				867468E221018BAD00E4809D /* String.swift in Sources */,
-				8652A35B2129074700ED1910 /* CardBalanceView.swift in Sources */,
+				8652A35B2129074700ED1910 /* CardBalancePicker.swift in Sources */,
 				8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */,
 				86385C8421337437002EA9DF /* CardBalanceWebService.swift in Sources */,
 				8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */,

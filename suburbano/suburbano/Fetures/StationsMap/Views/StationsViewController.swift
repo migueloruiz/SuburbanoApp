@@ -11,7 +11,8 @@ import Mapbox
 
 protocol StationsMapViewControllerDelegate: class {
     func stationSelected(station: StationMarker)
-    func showCardBalance(id: String?)
+    func openAddCard()
+    func open(card: Card)
 }
 
 class StationsViewController: NavigationalViewController {
@@ -47,7 +48,7 @@ class StationsViewController: NavigationalViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        cardBalanceView.display(elements: presenter.getCards())
+        cardBalanceView.display(cards: presenter.getCards())
     }
     
     private func configureUI() {
@@ -134,9 +135,9 @@ extension StationsViewController: MGLMapViewDelegate {
 }
 
 extension StationsViewController: CardBalancePickerDelegate {
-    func addCard() { delegate?.showCardBalance(id: nil) }
+    func addCard() { delegate?.openAddCard() }
     
-    func openCard(withId id: String) { delegate?.showCardBalance(id: id) }
+    func open(card: Card) { delegate?.open(card: card) }
 }
 
 extension StationsViewController: UIViewControllerTransitioningDelegate {

@@ -56,7 +56,9 @@ class CardBalanceViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        _ = cardBalanceIconView.becomeFirstResponder()
+        if card == nil {
+            _ = cardBalanceIconView.becomeFirstResponder()
+        }
     }
     
     // MARK: configureUI
@@ -70,11 +72,15 @@ class CardBalanceViewController: UIViewController {
         cardNumberDisclaimerLabel.text = "Pudes encontrar el numero al frente de tu tarjeta en la parte inferior"
         useDisclaimerLabel.text = "El saldo de recargas a tu tarjeta, podrá verse reflejado en 15 min aproximadamente."
         
-        configureButtons()
+        setUIwithCard()
         loadingView.configure()
         
         NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    private func setUIwithCard() {
+        configureButtons()
     }
     
     private func configureButtons() {
@@ -88,7 +94,9 @@ class CardBalanceViewController: UIViewController {
             secondaryButton.addTarget(self, action: #selector(CardBalanceViewController.close), for: .touchUpInside)
         } else {
             primaryButton.set(title: "Volver")
+            primaryButton.addTarget(self, action: #selector(CardBalanceViewController.close), for: .touchUpInside)
             secondaryButton.set(title: "Eliminar")
+            primaryButton.addTarget(self, action: #selector(CardBalanceViewController.delateCard), for: .touchUpInside)
         }
     }
     
@@ -150,6 +158,17 @@ extension CardBalanceViewController {
         presenter.addCard(withIcon: cardBalanceIconView.icon, number: cardNumberInput.text)
     }
     
+    @objc func delateCard() {
+        let controller = PopUpViewController(context: .confirmDelete)
+        controller.transitioningDelegate = self
+        controller.didTapSecondary = { [weak self] in
+            guard let strongSelf = self, let card = strongSelf.card else { return }
+            strongSelf.presenter.deleteCard(withId: card.id)
+            strongSelf.dismiss(animated: true, completion: nil)
+        }
+        present(controller, animated: true, completion: nil)
+    }
+    
     @objc func keyboardWillShow(notification: Notification) {
         guard let keyboard = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
         bottomButtonsConstraint?.constant = -(keyboard.cgRectValue.height + Theme.Offset.normal)
@@ -204,5 +223,20 @@ extension CardBalanceViewController: CardBalanceViewDelegate {
             _ = cardNumberInput.becomeFirstResponder()
             cardNumberInput.shake()
         }
+    }
+}
+
+// MARK: UIViewControllerTransitioningDelegate
+
+extension CardBalanceViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let _ = presented as? PopUpViewController else { return nil }
+        return PopUpTransition()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
     }
 }

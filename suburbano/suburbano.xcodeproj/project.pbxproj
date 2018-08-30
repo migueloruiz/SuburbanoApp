@@ -97,6 +97,7 @@
 		869E40E321371CE100EB133F /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 869E40E221371CE100EB133F /* success.json */; };
 		86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */; };
 		86B830DC2137422A0063AC75 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DB2137422A0063AC75 /* LoadingView.swift */; };
+		86B830DE213765A80063AC75 /* AlertContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DD213765A80063AC75 /* AlertContext.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
@@ -228,6 +229,7 @@
 		869E40E221371CE100EB133F /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
 		86B830DB2137422A0063AC75 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		86B830DD213765A80063AC75 /* AlertContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContext.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -646,8 +648,7 @@
 				86F14E5120F4550200D1CF7D /* MapViewFactory.swift */,
 				868D008220F00FFE00C9D8B1 /* StationsViewController.swift */,
 				869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */,
-				8652A35A2129074700ED1910 /* CardBalanceView.swift */,
-				8652A35C212915C900ED1910 /* BalanceEmptyMessageView.swift */,
+				86B830DF21376CE80063AC75 /* CardBalance */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -710,6 +711,7 @@
 			children = (
 				869E2CC8212524DB00B2FA9F /* PopUpTransition.swift */,
 				869E2CC621250C9300B2FA9F /* PopUpViewController.swift */,
+				86B830DD213765A80063AC75 /* AlertContext.swift */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -720,6 +722,15 @@
 				86B830DB2137422A0063AC75 /* LoadingView.swift */,
 			);
 			path = Loading;
+			sourceTree = "<group>";
+		};
+		86B830DF21376CE80063AC75 /* CardBalance */ = {
+			isa = PBXGroup;
+			children = (
+				8652A35A2129074700ED1910 /* CardBalanceView.swift */,
+				8652A35C212915C900ED1910 /* BalanceEmptyMessageView.swift */,
+			);
+			path = CardBalance;
 			sourceTree = "<group>";
 		};
 		86C0680D20F413A000A6B17A /* UseCases */ = {
@@ -1066,6 +1077,7 @@
 				86385C862133747E002EA9DF /* Card.swift in Sources */,
 				8652A361212A407600ED1910 /* CardBalanceViewController.swift in Sources */,
 				8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */,
+				86B830DE213765A80063AC75 /* AlertContext.swift in Sources */,
 				86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
 				8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */,

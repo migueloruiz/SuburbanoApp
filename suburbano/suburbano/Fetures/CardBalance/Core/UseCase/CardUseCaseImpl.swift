@@ -31,6 +31,11 @@ class CardUseCaseImpl: CardUseCase {
         return cardRepository.get(forKey: card.id) == nil ? false : true
     }
     
+    func delate(withId id: String) {
+        guard let card = cardRepository.get(forKey: id) else { return }
+        cardRepository.delete(object: card)
+    }
+    
     func get(card: Card, complition: @escaping (GetCardResult) -> Void) {
         guard cardRepository.get(forKey: card.id) == nil else {
             let error = ErrorResponse(code: .unknownCode, header: "", body: "Esta tarjeta ya esta registrada", tecnicalDescription: "")

@@ -23,6 +23,7 @@ class UseCaseLocator {
         case String(describing: UpdateCardsBalanceUseCase.self),
              String(describing: GetCardBalanceUseCase.self),
              String(describing: GetCardUseCase.self),
+             String(describing: DeleteCardUseCase.self),
              String(describing: CardUseCase.self):
             return CardUseCaseImpl(
                 cardBalanceWebService: CardBalanceWebServiceImpl(),

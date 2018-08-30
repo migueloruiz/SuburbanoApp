@@ -13,7 +13,7 @@ class RealmCard: Object, CardEntity {
     @objc dynamic var id: String = ""
     @objc dynamic var balance: String = ""
     @objc dynamic var icon: String = ""
-    @objc dynamic var color: String = ""
+    @objc dynamic var color: Data = Data()
 
     override class func primaryKey() -> String? {
         return "id"

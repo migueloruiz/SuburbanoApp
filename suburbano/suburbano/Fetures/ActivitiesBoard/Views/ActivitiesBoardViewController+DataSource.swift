@@ -52,12 +52,19 @@ extension ActivitiesBoardViewController: AcvtivityCellDelegate {
             case .authorized(let eventStore):
                 strongSelf.presentScheduleView(withActivityid: id, eventStore: eventStore)
             case .denied:
-                let error = ErrorResponse(code: .unknownCode, header: "Oups!", body: "No tenemos permiso para poder accesar a tu calendario. Puedes darnos acceso en la seccion de ajustes de tu telefono", tecnicalDescription: "")
-                let controller = PopUpViewController(context: .error(error: error))
+                let controller = PopUpViewController(context: .errorAccessCalendar)
                 controller.transitioningDelegate = self
+                controller.didTapSecondary = { [weak self] in self?.openSettings() }
                 strongSelf.present(controller, animated: true, completion: nil)
             }
         }
+    }
+    
+    func openSettings() {
+        // TODO: No llamar app delegate usar Notificaciones
+        guard let appSettings = URL(string: UIApplicationOpenSettingsURLString + Bundle.main.bundleIdentifier!),
+            UIApplication.shared.canOpenURL(appSettings) else { return }
+        UIApplication.shared.open(appSettings)
     }
     
     func shareActivity(withId id: String) {}

@@ -22,8 +22,12 @@ protocol GetCardBalanceUseCase {
     func get(card: Card, complition: @escaping (GetCardResult) -> Void)
 }
 
+protocol DeleteCardUseCase {
+    func delate(withId: String)
+}
+
 protocol GetCardUseCase {
     func get() -> [Card]
 }
 
-protocol CardUseCase: UpdateCardsBalanceUseCase, GetCardBalanceUseCase, GetCardUseCase {}
+protocol CardUseCase: UpdateCardsBalanceUseCase, GetCardBalanceUseCase, GetCardUseCase, DeleteCardUseCase {}

@@ -7,17 +7,22 @@
 //
 
 import Foundation
+import UIKit
 
 protocol CardEntity {
     var id: String { get }
     var balance: String { get }
     var icon: String { get }
-    var color: String { get }
+    var color: Data { get }
 }
 
 struct Card: CardEntity, Codable {
     let id: String
     var balance: String
     var icon: String
-    var color: String
+    var color: Data
+    
+    var displayColor: UIColor {
+        return NSKeyedUnarchiver.unarchiveObject(with: color) as? UIColor ?? Theme.Pallete.darkGray
+    }
 }

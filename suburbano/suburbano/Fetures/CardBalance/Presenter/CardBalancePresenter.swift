@@ -10,6 +10,7 @@ import Foundation
 
 protocol CardBalancePresenter: class  {
     func addCard(withIcon: CardBalanceIcon, number: String)
+    func deleteCard(withId id: String)
 }
 
 protocol CardBalanceViewDelegate: class {
@@ -30,6 +31,7 @@ enum CardBalanceForm {
 }
 
 class CardBalancePresenterImpl: CardBalancePresenter {
+    
     private let cardUseCase: CardUseCase?
     weak var viewDelegate: CardBalanceViewDelegate?
     
@@ -49,7 +51,7 @@ class CardBalancePresenterImpl: CardBalancePresenter {
         }
         
         let iconValues = icon.values
-        let tempCard = Card(id: number, balance: "", icon: iconValues.icon, color: iconValues.color)
+        let tempCard = Card(id: number, balance: "", icon: iconValues.icon, color: NSKeyedArchiver.archivedData(withRootObject: iconValues.color))
 
         guard let isRegistered = cardUseCase?.isAlreadyRegister(card: tempCard), !isRegistered else {
             let error = ErrorResponse(code: .unknownCode, header: "", body: "Esta tarjeta ya esta registrada", tecnicalDescription: "")
@@ -70,14 +72,21 @@ class CardBalancePresenterImpl: CardBalancePresenter {
         })
     }
     
-    func isIconValid(icon: CardBalanceIcon) -> Bool {
+    func deleteCard(withId id: String) {
+        cardUseCase?.delate(withId: id)
+    }
+    
+}
+
+extension CardBalancePresenterImpl {
+    private func isIconValid(icon: CardBalanceIcon) -> Bool {
         switch icon {
         case .initial: return false
         case .custome: return true
         }
     }
     
-    func isCardNumberValid(number: String) -> Bool {
+    private func isCardNumberValid(number: String) -> Bool {
         return number.matchesPattern(pattern: "^[0-9]+$")
     }
 }

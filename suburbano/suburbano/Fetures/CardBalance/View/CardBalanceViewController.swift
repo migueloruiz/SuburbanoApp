@@ -17,8 +17,6 @@ class CardBalanceViewController: UIViewController {
     private var card: Card?
     
     private let loadingView = LoadingView()
-    private let cardNumberDisclaimerLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
-    private let useDisclaimerLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
     private let primaryButton = UIFactory.createButton(withTheme: UIThemes.Button.PrimaryButton)
     private let secondaryButton = UIFactory.createButton(withTheme: UIThemes.Button.SecondayButton)
     
@@ -26,7 +24,7 @@ class CardBalanceViewController: UIViewController {
     private lazy var formContinerView = UIView()
     private lazy var titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardBalanceNavTitle)
     private lazy var cardBalanceIconView = IconPickerView()
-    private lazy var excamationIcon = UIFactory.createImageView(image: #imageLiteral(resourceName: "exclamation"), color: Theme.Pallete.softGray)
+    private lazy var useDisclaimerView = PromptView()
     private lazy var cardNumberInput = CustomeTextField()
     private var bottomButtonsConstraint: NSLayoutConstraint?
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -63,8 +61,8 @@ class CardBalanceViewController: UIViewController {
         titleLabel.text = "Agrega tu tarjeta"
         cardNumberInput.title = "No. de trajeta"
         cardNumberInput.placeholder = "XXXXXXXXX"
-        cardNumberDisclaimerLabel.text = "Pudes encontrar el numero al frente de tu tarjeta en la parte inferior"
-        useDisclaimerLabel.text = "El saldo de recargas a tu tarjeta, podrá verse reflejado en 15 min aproximadamente."
+        cardNumberInput.disclaimer = "Pudes encontrar el numero al frente de tu tarjeta en la parte inferior"
+        useDisclaimerView.configure(disclaimer: "El saldo de recargas a tu tarjeta, podrá verse reflejado en 15 min aproximadamente.")
         
         setUIwithCard()
         loadingView.configure()
@@ -126,25 +124,19 @@ class CardBalanceViewController: UIViewController {
         let constraints = formContinerView.anchor(bottom: view.bottomAnchor, bottomConstant: Theme.Offset.normal)
         bottomButtonsConstraint = constraints.first
         
-        formContinerView.addSubViews([cardBalanceIconView, cardNumberInput, cardNumberDisclaimerLabel, excamationIcon, useDisclaimerLabel, buttonsContainer])
+        formContinerView.addSubViews([cardBalanceIconView, cardNumberInput, useDisclaimerView, buttonsContainer])
  
         cardBalanceIconView.anchor(top: formContinerView.topAnchor)
         cardBalanceIconView.anchorCenterXToSuperview()
         
         cardNumberInput.anchor(top: cardBalanceIconView.bottomAnchor, left: formContinerView.leftAnchor, right: formContinerView.rightAnchor, topConstant: Theme.Offset.large)
         
-        cardNumberDisclaimerLabel.anchor(top: cardNumberInput.bottomAnchor, left: formContinerView.leftAnchor, right: formContinerView.rightAnchor, topConstant: Theme.Offset.normal)
-        
-        excamationIcon.anchor(left: formContinerView.leftAnchor)
-        excamationIcon.center(x: nil, y: useDisclaimerLabel.centerYAnchor)
-        excamationIcon.anchorSquare(size: Constants.excamationIconHeigth)
-        
-        let topConstraint = useDisclaimerLabel.topAnchor.constraintGreaterThanOrEqualToSystemSpacingBelow(cardNumberDisclaimerLabel.bottomAnchor, multiplier: 1)
+        let topConstraint = useDisclaimerView.topAnchor.constraintGreaterThanOrEqualToSystemSpacingBelow(cardNumberInput.bottomAnchor, multiplier: 1)
         topConstraint.isActive = true
         topConstraint.constant = Theme.Offset.normal
-        useDisclaimerLabel.anchor(left: excamationIcon.rightAnchor, right: formContinerView.rightAnchor, leftConstant: Theme.Offset.normal)
+        useDisclaimerView.anchor(left: formContinerView.leftAnchor, right: formContinerView.rightAnchor, leftConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
         
-        buttonsContainer.anchor(top: useDisclaimerLabel.bottomAnchor, left: formContinerView.leftAnchor, bottom: formContinerView.bottomAnchor ,right: formContinerView.rightAnchor, topConstant: disclaimerOffset)
+        buttonsContainer.anchor(top: useDisclaimerView.bottomAnchor, left: formContinerView.leftAnchor, bottom: formContinerView.bottomAnchor ,right: formContinerView.rightAnchor, topConstant: disclaimerOffset)
         
         buttonsContainer.addArranged(subViews: [primaryButton, secondaryButton])
     }
@@ -213,8 +205,7 @@ extension CardBalanceViewController: CardBalanceViewDelegate {
             strongSelf.loadingView.dismiss(hiddingView: strongSelf.formContinerView) { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.cardNumberInput.shake()
-                strongSelf.cardNumberDisclaimerLabel.text = error.body
-                strongSelf.cardNumberDisclaimerLabel.textColor = .red // TODO pick red error
+                strongSelf.cardNumberInput.error = error.body
                 _ = strongSelf.cardNumberInput.becomeFirstResponder()
             }
         }

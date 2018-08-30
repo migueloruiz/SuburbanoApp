@@ -102,6 +102,7 @@
 		86B830E3213844440063AC75 /* FadingCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E2213844440063AC75 /* FadingCollectionLayout.swift */; };
 		86B830E52138485A0063AC75 /* FadingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E42138485A0063AC75 /* FadingCollectionView.swift */; };
 		86B830E8213857EA0063AC75 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E7213857EA0063AC75 /* Notifications.swift */; };
+		86B830EA21385FBB0063AC75 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E921385FBB0063AC75 /* PromptView.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
@@ -238,6 +239,7 @@
 		86B830E2213844440063AC75 /* FadingCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingCollectionLayout.swift; sourceTree = "<group>"; };
 		86B830E42138485A0063AC75 /* FadingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingCollectionView.swift; sourceTree = "<group>"; };
 		86B830E7213857EA0063AC75 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		86B830E921385FBB0063AC75 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 				8652A362212B2D3500ED1910 /* CardBalanceTransition.swift */,
 				86CB75E3212B607200DBDB98 /* IconPickerView.swift */,
 				86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */,
+				86B830E921385FBB0063AC75 /* PromptView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1092,6 +1095,7 @@
 				8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */,
 				862517D820FD70D9002F2048 /* ActivitiesUseCase.swift in Sources */,
 				861FC581211010480024783A /* UIEdgeInsets.swift in Sources */,
+				86B830EA21385FBB0063AC75 /* PromptView.swift in Sources */,
 				868128462122748900A7A011 /* MainNavigationViewController.swift in Sources */,
 				8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */,
 				86385C862133747E002EA9DF /* Card.swift in Sources */,

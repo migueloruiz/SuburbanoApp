@@ -17,6 +17,7 @@ class CustomeTextField: UIView {
     
     private let textInput = UIFactory.createTextField(withTheme: UIThemes.Field.CardNumberField)
     private let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
+    private let disclaimerLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
     private let bottomLine = UIView()
     
     var title: String {
@@ -62,6 +63,28 @@ class CustomeTextField: UIView {
         }
     }
     
+    var disclaimer: String {
+        get {
+            return disclaimerLabel.text ?? ""
+        }
+        
+        set(value) {
+            disclaimerLabel.text = value
+            disclaimerLabel.textColor = Theme.Pallete.softGray
+        }
+    }
+    
+    var error: String {
+        get {
+            return disclaimerLabel.text ?? ""
+        }
+        
+        set(value) {
+            disclaimerLabel.text = value
+            disclaimerLabel.textColor = Theme.Pallete.softRed // Pick Error red
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     init() {
@@ -71,7 +94,7 @@ class CustomeTextField: UIView {
     }
 
     private func configureUI() {
-        addSubViews([titleLabel, textInput, bottomLine])
+        addSubViews([titleLabel, textInput, bottomLine, disclaimerLabel])
         textInput.textColor = Theme.Pallete.darkGray
         bottomLine.backgroundColor = Contants.lineDesableColor
         
@@ -81,9 +104,11 @@ class CustomeTextField: UIView {
     
     private func configureLayout() {
         titleLabel.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor)
-        textInput.anchor(top: titleLabel.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: Theme.Offset.small)
+        textInput.anchor(top: titleLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, topConstant: Theme.Offset.small)
         bottomLine.anchor(top: textInput.bottomAnchor, left: textInput.leftAnchor, right: textInput.rightAnchor, topConstant: Contants.lineHeigth)
         bottomLine.anchorSize(height: Contants.lineHeigth)
+        disclaimerLabel.anchor(top: bottomLine.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: Theme.Offset.normal)
+        
     }
     
     override func becomeFirstResponder() -> Bool {

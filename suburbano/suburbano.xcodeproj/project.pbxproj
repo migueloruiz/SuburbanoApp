@@ -103,6 +103,7 @@
 		86B830E52138485A0063AC75 /* FadingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E42138485A0063AC75 /* FadingCollectionView.swift */; };
 		86B830E8213857EA0063AC75 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E7213857EA0063AC75 /* Notifications.swift */; };
 		86B830EA21385FBB0063AC75 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E921385FBB0063AC75 /* PromptView.swift */; };
+		86B830EC21388E420063AC75 /* CardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830EB21388E420063AC75 /* CardParser.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
@@ -240,6 +241,7 @@
 		86B830E42138485A0063AC75 /* FadingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingCollectionView.swift; sourceTree = "<group>"; };
 		86B830E7213857EA0063AC75 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		86B830E921385FBB0063AC75 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
+		86B830EB21388E420063AC75 /* CardParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardParser.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				86385C8321337437002EA9DF /* CardBalanceWebService.swift */,
+				86B830EB21388E420063AC75 /* CardParser.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1088,6 +1091,7 @@
 			files = (
 				8641325020FFF4E10031F4F4 /* ActivitiesBoardViewController.swift in Sources */,
 				862517D120FD6ED0002F2048 /* UseCaseLocator.swift in Sources */,
+				86B830EC21388E420063AC75 /* CardParser.swift in Sources */,
 				867468E221018BAD00E4809D /* String.swift in Sources */,
 				8652A35B2129074700ED1910 /* CardBalancePicker.swift in Sources */,
 				8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */,

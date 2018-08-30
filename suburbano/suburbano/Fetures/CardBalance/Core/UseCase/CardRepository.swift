@@ -56,7 +56,9 @@ class CardRepository: RepositoryRealm {
                     balance: object.balance,
                     icon: object.icon,
                     color: object.color,
+                    displayDate: object.displayDate,
                     date: object.date)
+        
     }
     
     func map(object: Card) -> RealmCard {
@@ -65,6 +67,7 @@ class CardRepository: RepositoryRealm {
         realmCard.balance = object.balance
         realmCard.icon = object.icon
         realmCard.color = object.color
+        realmCard.displayDate = object.displayDate
         realmCard.date = object.date
         return realmCard
     }

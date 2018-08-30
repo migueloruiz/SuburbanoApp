@@ -79,7 +79,7 @@ class CardBalanceViewController: UIViewController {
             titleLabel.text = "Detalle Tarjeta"
             cardNumberInput.text = card.id
             balanceLabel.text = card.balance
-            dateLabel.text = "12:30 12/03/2018"
+            dateLabel.text = card.displayDate
             cardBalanceIconView.set(icon: .custome(iconCode: card.icon, color: card.displayColor))
             cardNumberInput.isUserInteractionEnabled = false
             cardBalanceIconView.isUserInteractionEnabled = false

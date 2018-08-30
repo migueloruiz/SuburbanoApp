@@ -14,6 +14,7 @@ protocol CardEntity {
     var balance: String { get }
     var icon: String { get }
     var color: Data { get }
+    var displayDate: String { get }
     var date: Double { get }
 }
 
@@ -22,6 +23,7 @@ struct Card: CardEntity, Codable {
     var balance: String
     var icon: String
     var color: Data
+    var displayDate: String
     var date: Double
     
     var displayColor: UIColor {

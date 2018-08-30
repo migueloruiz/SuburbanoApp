@@ -31,6 +31,11 @@ class CardUseCaseImpl: CardUseCase {
         for _ in cards { dispatchGroup.enter() }
         
         for card in cards {
+            guard shouldUpdate(card: card) else {
+                dispatchGroup.leave()
+                continue
+            }
+            
             DispatchQueue.global(qos: .background).async {
                 [weak self] in
                 guard let strongSelf = self else { return }
@@ -46,7 +51,7 @@ class CardUseCaseImpl: CardUseCase {
         }
         
         dispatchGroup.notify(queue: .global(qos: .background), execute: { [weak self] in
-            guard let strongSelf = self else { return }
+            guard let strongSelf = self, !updatedCards.isEmpty else { return }
             strongSelf.cardRepository.add(objects: updatedCards)
             strongSelf.notifiCardsUpdate()
         })
@@ -86,5 +91,10 @@ class CardUseCaseImpl: CardUseCase {
 extension CardUseCaseImpl {
     fileprivate func notifiCardsUpdate() {
         NotificationCenter.default.post(name: .UpdateCards, object: nil)
+    }
+    
+    fileprivate func shouldUpdate(card: Card) -> Bool {
+        let now = Date().timeIntervalSince1970
+        return (now - card.date) > 900
     }
 }

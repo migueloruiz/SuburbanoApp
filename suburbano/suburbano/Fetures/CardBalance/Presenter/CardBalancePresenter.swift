@@ -46,7 +46,12 @@ class CardBalancePresenterImpl: CardBalancePresenter {
         }
         
         let iconValues = icon.values
-        let tempCard = Card(id: number, balance: "", icon: iconValues.icon, color: iconValues.color, date: 0)
+        let tempCard = Card(id: number,
+                            balance: "",
+                            icon: iconValues.icon,
+                            color: iconValues.color,
+                            displayDate: "",
+                            date: 0)
 
         guard let isRegistered = cardUseCase?.isAlreadyRegister(card: tempCard), !isRegistered else {
             let error = ErrorResponse(code: .unknownCode, header: "", body: "Esta tarjeta ya esta registrada", tecnicalDescription: "")

@@ -32,8 +32,7 @@ class CardUseCaseImpl: CardUseCase {
     }
     
     func delate(withId id: String) {
-        guard let card = cardRepository.get(forKey: id) else { return }
-        cardRepository.delete(object: card)
+        cardRepository.delate(withId: id)
     }
     
     func get(card: Card, complition: @escaping (GetCardResult) -> Void) {

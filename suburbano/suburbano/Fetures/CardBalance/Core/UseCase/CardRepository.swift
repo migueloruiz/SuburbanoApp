@@ -37,6 +37,11 @@ class CardRepository: RepositoryRealm {
         realmHandler.delete(object: map(object: object))
     }
     
+    func delate(withId id: String) {
+        guard let realmCard = realmHandler.get(ofType: RealmCard.self, forKey: id) else { return }
+        realmHandler.delete(object: realmCard)
+    }
+    
     func delete(objects: [Card]) {
         let realmCards = objects.map { map(object: $0) }
         realmHandler.delete(objects: realmCards)

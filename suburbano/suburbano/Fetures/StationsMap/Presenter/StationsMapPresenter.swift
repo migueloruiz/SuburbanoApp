@@ -35,25 +35,31 @@ protocol StationsViewDelegate: class {
 class StationsMapPresenter: StationsMapPresenterProtocol {
     
     private let getCardUseCase: GetCardUseCase?
+    private let getStationsUseCase: GetStationsUseCase?
     weak var viewDelegate: StationsViewDelegate?
+    var stations: [String: StationMarker] = [:]
     
-    init(getCardUseCase: GetCardUseCase?) {
+    init(getCardUseCase: GetCardUseCase?, getStationsUseCase: GetStationsUseCase?) {
         self.getCardUseCase = getCardUseCase
+        self.getStationsUseCase = getStationsUseCase
         
         NotificationCenter.default.addObserver(self, selector: #selector(StationsMapPresenter.updateCards), name: .UpdateCards, object: nil)
     }
     
-    private var stations: [String: StationMarker] = [
-        "Buenavista": StationMarker(name: "Buenavista", latitude: 19.4485249, longitude: -99.1519117, markerImage: "BuenavistaMarker", markerTitleImage: "BuenavistaMarkerTitle", titleSide: true),
-        "Fortuna": StationMarker(name: "Fortuna", latitude: 19.4919398, longitude: -99.1710413, markerImage: "FortunaMarker", markerTitleImage: "FortunaMarkerTitle", titleSide: false),
-        "Talnepantla": StationMarker(name: "Talnepantla", latitude: 19.5366676, longitude: -99.1841143, markerImage: "TalnepantlaMarker", markerTitleImage: "TalnepantlaMarkerTitle", titleSide: true),
-        "San Rafael": StationMarker(name: "San Rafael", latitude: 19.565224, longitude: -99.1954601, markerImage: "SanRafaelMarker", markerTitleImage: "SanRafaelMarkerTitle", titleSide: false),
-        "Lecheria": StationMarker(name: "Lecheria", latitude: 19.5996579, longitude: -99.1860026, markerImage: "LecheriaMarker", markerTitleImage: "LecheriaMarkerTitle", titleSide: true),
-        "Tultitlan": StationMarker(name: "Tultitlan", latitude: 19.6355092, longitude: -99.1803351, markerImage: "TultitlanMarker", markerTitleImage: "TultitlanMarkerTitle", titleSide: false),
-        "Cuautitlan": StationMarker(name: "Cuautitlan", latitude: 19.6669502, longitude: -99.1762689, markerImage: "CuautitlanMarker", markerTitleImage: "CuautitlanMarkerTitle", titleSide: true)
-    ]
-    
     func getStations() -> [StationMarker] {
+        guard stations.isEmpty else { return Array(stations.values) }
+        guard let rawStation = getStationsUseCase?.getStations() else { return [] }
+        
+        for station in rawStation {
+            let stationMarker = StationMarker(name: station.name,
+                                              latitude: station.railLocation.latitude,
+                                              longitude: station.railLocation.longitude,
+                                              markerImage: station.markerImage,
+                                              markerTitleImage: station.markerTitleImage,
+                                              titleSide: station.titleSide)
+            stations[station.name] = stationMarker
+        }
+    
         return Array(stations.values)
     }
     

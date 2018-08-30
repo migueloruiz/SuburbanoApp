@@ -104,6 +104,13 @@
 		86B830E8213857EA0063AC75 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E7213857EA0063AC75 /* Notifications.swift */; };
 		86B830EA21385FBB0063AC75 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E921385FBB0063AC75 /* PromptView.swift */; };
 		86B830EC21388E420063AC75 /* CardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830EB21388E420063AC75 /* CardParser.swift */; };
+		86B830EE213896F30063AC75 /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B830ED213896F30063AC75 /* stations.json */; };
+		86B830F22138984C0063AC75 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830F12138984C0063AC75 /* Station.swift */; };
+		86B830F4213899BE0063AC75 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830F3213899BE0063AC75 /* Location.swift */; };
+		86B830F621389FD00063AC75 /* RealmStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830F521389FD00063AC75 /* RealmStation.swift */; };
+		86B830F82138A0A90063AC75 /* RealmLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830F72138A0A90063AC75 /* RealmLocation.swift */; };
+		86B830FB2138AA630063AC75 /* StationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830FA2138AA630063AC75 /* StationsUseCase.swift */; };
+		86B830FD2138AAE70063AC75 /* StationsUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830FC2138AAE70063AC75 /* StationsUseCaseImpl.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
@@ -242,6 +249,13 @@
 		86B830E7213857EA0063AC75 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		86B830E921385FBB0063AC75 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
 		86B830EB21388E420063AC75 /* CardParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardParser.swift; sourceTree = "<group>"; };
+		86B830ED213896F30063AC75 /* stations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stations.json; sourceTree = "<group>"; };
+		86B830F12138984C0063AC75 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		86B830F3213899BE0063AC75 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		86B830F521389FD00063AC75 /* RealmStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStation.swift; sourceTree = "<group>"; };
+		86B830F72138A0A90063AC75 /* RealmLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmLocation.swift; sourceTree = "<group>"; };
+		86B830FA2138AA630063AC75 /* StationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsUseCase.swift; sourceTree = "<group>"; };
+		86B830FC2138AAE70063AC75 /* StationsUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsUseCaseImpl.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -411,6 +425,7 @@
 		8641325320FFFF860031F4F4 /* StationsMap */ = {
 			isa = PBXGroup;
 			children = (
+				86B830EF2138982A0063AC75 /* Core */,
 				869E2CC12124FA0800B2FA9F /* Presenter */,
 				869E2CC02124F9ED00B2FA9F /* Views */,
 			);
@@ -597,26 +612,19 @@
 				86C0680620F0496300A6B17A /* Colors.xcassets */,
 				8611AF7521017A2D0002663B /* Fonts */,
 				868D008920F00FFF00C9D8B1 /* LaunchScreen.storyboard */,
-				868D00B320F0167C00C9D8B1 /* maps */,
+				868D00B320F0167C00C9D8B1 /* Map */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		868D00B320F0167C00C9D8B1 /* maps */ = {
-			isa = PBXGroup;
-			children = (
-				86C0680420F01F7D00A6B17A /* mapStyle.json */,
-				868D00B420F0168600C9D8B1 /* geoJSON */,
-			);
-			path = maps;
-			sourceTree = "<group>";
-		};
-		868D00B420F0168600C9D8B1 /* geoJSON */ = {
+		868D00B320F0167C00C9D8B1 /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				86C0680220F0175800A6B17A /* train-rail.geojson */,
+				86C0680420F01F7D00A6B17A /* mapStyle.json */,
+				86B830ED213896F30063AC75 /* stations.json */,
 			);
-			path = geoJSON;
+			path = Map;
 			sourceTree = "<group>";
 		};
 		869E2CBB2124F95200B2FA9F /* Views */ = {
@@ -756,6 +764,35 @@
 				86B830E7213857EA0063AC75 /* Notifications.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		86B830EF2138982A0063AC75 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				86B830F92138AA430063AC75 /* UseCase */,
+				86B830F0213898350063AC75 /* Repository */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		86B830F0213898350063AC75 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				86B830F12138984C0063AC75 /* Station.swift */,
+				86B830F3213899BE0063AC75 /* Location.swift */,
+				86B830F521389FD00063AC75 /* RealmStation.swift */,
+				86B830F72138A0A90063AC75 /* RealmLocation.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		86B830F92138AA430063AC75 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				86B830FA2138AA630063AC75 /* StationsUseCase.swift */,
+				86B830FC2138AAE70063AC75 /* StationsUseCaseImpl.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		86C0680D20F413A000A6B17A /* UseCases */ = {
@@ -1027,6 +1064,7 @@
 				8621A2E520F6FE0A00A2D8B1 /* AppIcon.xcassets in Resources */,
 				869E2CCB2125347500B2FA9F /* Montserrat-Bold.ttf in Resources */,
 				869E40E321371CE100EB133F /* success.json in Resources */,
+				86B830EE213896F30063AC75 /* stations.json in Resources */,
 				867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */,
 				864C6FDD212CE7DE0072C26B /* IconsCataloge.ttf in Resources */,
 				8621A2E620F6FE0A00A2D8B1 /* mapStyle.json in Resources */,
@@ -1089,6 +1127,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86B830F82138A0A90063AC75 /* RealmLocation.swift in Sources */,
 				8641325020FFF4E10031F4F4 /* ActivitiesBoardViewController.swift in Sources */,
 				862517D120FD6ED0002F2048 /* UseCaseLocator.swift in Sources */,
 				86B830EC21388E420063AC75 /* CardParser.swift in Sources */,
@@ -1132,6 +1171,7 @@
 				86385C7721335ED3002EA9DF /* IconCell.swift in Sources */,
 				869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */,
 				86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */,
+				86B830FB2138AA630063AC75 /* StationsUseCase.swift in Sources */,
 				868128482123AAF200A7A011 /* MenuItemView.swift in Sources */,
 				869E2CC721250C9300B2FA9F /* PopUpViewController.swift in Sources */,
 				861FC583211015460024783A /* UIStackView.swift in Sources */,
@@ -1140,12 +1180,14 @@
 				8621A2D520F6FE0A00A2D8B1 /* MapViewFactory.swift in Sources */,
 				8621A2D620F6FE0A00A2D8B1 /* UIColor.swift in Sources */,
 				868128512123BAFA00A7A011 /* MoreBoardViewController.swift in Sources */,
+				86B830F4213899BE0063AC75 /* Location.swift in Sources */,
 				8621A2D720F6FE0A00A2D8B1 /* StationsMapPresenter.swift in Sources */,
 				862517E220FD7A32002F2048 /* RepositoryRealm.swift in Sources */,
 				8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */,
 				86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */,
 				86B830E1213843FB0063AC75 /* CardCell.swift in Sources */,
 				8621A2D820F6FE0A00A2D8B1 /* Utils.swift in Sources */,
+				86B830F621389FD00063AC75 /* RealmStation.swift in Sources */,
 				8652A35D212915CA00ED1910 /* BalanceEmptyMessageView.swift in Sources */,
 				862517D420FD7071002F2048 /* ActivitiesUseCaseImpl.swift in Sources */,
 				862517E420FD7FB6002F2048 /* ActivitiesRepository.swift in Sources */,
@@ -1161,7 +1203,9 @@
 				863EF66B211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift in Sources */,
 				8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */,
 				86B830DC2137422A0063AC75 /* LoadingView.swift in Sources */,
+				86B830FD2138AAE70063AC75 /* StationsUseCaseImpl.swift in Sources */,
 				8621A30E20F70DF900A2D8B1 /* Activity.swift in Sources */,
+				86B830F22138984C0063AC75 /* Station.swift in Sources */,
 				8641325C210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift in Sources */,
 				86385C7521335D91002EA9DF /* ColorCell.swift in Sources */,
 				8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */,

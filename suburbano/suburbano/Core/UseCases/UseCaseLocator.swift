@@ -29,6 +29,12 @@ class UseCaseLocator {
                 cardBalanceWebService: CardBalanceWebServiceImpl(),
                 cardRepository: CardRepository()
             ) as? UseCase
+            
+        case String(describing: GetStationsUseCase.self),
+             String(describing: LoadStationsUseCase.self),
+             String(describing: StationsUseCase.self):
+            return StationsUseCaseImpl() as? UseCase
+
         default:
             return nil
         }

@@ -76,12 +76,14 @@ class CardBalanceViewController: UIViewController {
     private func setUIwithCard() {
         configureButtons()
         
-        if card == nil {
-            cardNumberInput.isUserInteractionEnabled = true
-            cardBalanceIconView.isUserInteractionEnabled = true
-        } else {
+        if let card = card {
+            cardNumberInput.text = card.id
+            cardBalanceIconView.set(icon: .custome(iconCode: card.icon, color: card.displayColor))
             cardNumberInput.isUserInteractionEnabled = false
             cardBalanceIconView.isUserInteractionEnabled = false
+        } else {
+            cardNumberInput.isUserInteractionEnabled = true
+            cardBalanceIconView.isUserInteractionEnabled = true
         }
     }
     

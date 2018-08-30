@@ -56,6 +56,10 @@ class CustomeTextField: UIView {
         get {
             return textInput.text ?? ""
         }
+        
+        set(value) {
+             textInput.text = value
+        }
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }

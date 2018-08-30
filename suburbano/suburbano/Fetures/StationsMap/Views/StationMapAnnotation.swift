@@ -12,7 +12,7 @@ import Mapbox
 class StationMapAnnotation: MGLAnnotationView{
     
     private var imageView = UIImageView()
-    private lazy var titleLable = UIImageView() //UIFactory.createLable(withTheme: UIThemes.Label.StationMarkerTitle)
+    private lazy var titleView = UIImageView()
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -24,21 +24,21 @@ class StationMapAnnotation: MGLAnnotationView{
     
     private func configureLayout(titleSide: Bool) {
         translatesAutoresizingMaskIntoConstraints = false
-        addSubViews([imageView, titleLable])
+        addSubViews([imageView, titleView])
         imageView.anchorCenterYToSuperview(constant: -imageView.frame.height / 2)
         imageView.anchorCenterXToSuperview()
-        titleLable.anchor(top: imageView.topAnchor, bottom: imageView.bottomAnchor)
+        titleView.anchor(top: imageView.topAnchor, bottom: imageView.bottomAnchor)
         
         if !titleSide {
-            titleLable.anchor(left: imageView.rightAnchor, right: rightAnchor, leftConstant: Theme.Offset.small)
+            titleView.anchor(left: imageView.rightAnchor, right: rightAnchor, leftConstant: Theme.Offset.small)
         } else {
-            titleLable.anchor(left: leftAnchor, right: imageView.leftAnchor, rightConstant: Theme.Offset.small)
+            titleView.anchor(left: leftAnchor, right: imageView.leftAnchor, rightConstant: Theme.Offset.small)
         }
     }
     
     private func configureUI(withStation station: StationMarker) {
         imageView.image = UIImage(named: station.markerImage)
-        titleLable.image = UIImage(named: station.markerTitleImage)
-        titleLable.contentMode = .scaleAspectFit
+        titleView.image = UIImage(named: station.markerTitleImage)
+        titleView.contentMode = .scaleAspectFit
     }
 }

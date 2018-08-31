@@ -19,7 +19,7 @@ class MapStationsViewController: NavigationalViewController {
     
     struct Constants {
         static let railRoadColor: UIColor = Theme.Pallete.softGray
-        static let railRoadWith: CGFloat = 8 // TODO
+        static let railRoadWith: CGFloat = 7 // TODO
     }
     
     private let mapBounds: MGLCoordinateBounds
@@ -66,18 +66,29 @@ class MapStationsViewController: NavigationalViewController {
 extension MapStationsViewController: MGLMapViewDelegate {
     
     func draw(mapView: MGLMapView, railRoad: AppResource) {
+        // TODO: Need Refactor
         DispatchQueue.global(qos: .background).async {
-            guard let url = Utils.bundleUrl(forResource: railRoad),
+            guard let url = Utils.bundleUrl(forResource: railRoad), // TODO: get from presenter
                 let data = try? Data(contentsOf: url),
                 let shapeCollectionFeature = try? MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as? MGLShapeCollectionFeature,
                 let polyline = shapeCollectionFeature?.shapes.first as? MGLPolylineFeature else { return }
-            polyline.identifier = polyline.attributes["name"]
+            let identifier = polyline.attributes["name"] as? String ?? ""
+            polyline.identifier = identifier
+            
+            let source = MGLShapeSource(identifier: identifier, shape: polyline, options: nil)
+            let layer = MGLLineStyleLayer(identifier: identifier, source: source)
+            layer.sourceLayerIdentifier = identifier
+            layer.lineWidth = NSExpression(forConstantValue: Constants.railRoadWith)
+            layer.lineColor = NSExpression(forConstantValue: Constants.railRoadColor)
+            layer.lineCap = NSExpression(forConstantValue: "round")
+            
             DispatchQueue.main.async{ [weak self] in
                 guard let strongSelf = self else { return }
-                mapView.addAnnotation(polyline)
+                strongSelf.mapView.style?.addSource(source)
+                strongSelf.mapView.style?.addLayer(layer)
                 strongSelf.defaultCamera = mapView.cameraThatFitsCoordinateBounds(polyline.overlayBounds,
                                                                        edgePadding: UIEdgeInsets(top: 25, left: 0, bottom: 80, right: 0))
-                mapView.setCamera(strongSelf.defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+                strongSelf.mapView.setCamera(strongSelf.defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
             }
         }
     }
@@ -123,7 +134,7 @@ extension MapStationsViewController: MGLMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, strokeColorForShapeAnnotation annotation: MGLShape) -> UIColor {
-        return annotation is MGLPolyline ? Constants.railRoadColor : .blue
+        return annotation is MGLPolyline ? .clear : .blue
     }
     
     func mapView(_ mapView: MGLMapView, didSelect annotationView: MGLAnnotationView) {

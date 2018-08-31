@@ -9,7 +9,7 @@
 import UIKit
 import Mapbox
 
-class StationMapAnnotation: MGLAnnotationView{
+class StationMapAnnotation: MGLAnnotationView {
     
     private var imageView = UIImageView()
     private lazy var titleView = UIImageView()
@@ -22,12 +22,27 @@ class StationMapAnnotation: MGLAnnotationView{
         configureLayout(titleSide: station.titleSide)
     }
     
+    var isTitleVisible: Bool {
+        get {
+            return titleView.alpha == 1
+        }
+        
+        set(value) {
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                self?.titleView.alpha = value ? 1 : 0
+            }
+        }
+    }
+    
     private func configureLayout(titleSide: Bool) {
         translatesAutoresizingMaskIntoConstraints = false
-        addSubViews([imageView, titleView])
-        imageView.anchorCenterYToSuperview(constant: -imageView.frame.height / 2)
+        let spacerView = UIView()
+        addSubViews([imageView, titleView, spacerView])
         imageView.anchorCenterXToSuperview()
+        imageView.anchor(top: topAnchor)
         titleView.anchor(top: imageView.topAnchor, bottom: imageView.bottomAnchor)
+        spacerView.anchorSquare(size: 30)
+        spacerView.anchor(top: imageView.bottomAnchor, bottom: bottomAnchor)
         
         if !titleSide {
             titleView.anchor(left: imageView.rightAnchor, right: rightAnchor, leftConstant: Theme.Offset.small)

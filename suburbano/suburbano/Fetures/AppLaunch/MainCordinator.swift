@@ -19,7 +19,7 @@ class MainCordinator: NSObject, Coordinator {
     func start() {
         let stationsMapPresenter = StationsMapPresenter(getCardUseCase: UseCaseLocator.getUseCase(ofType: GetCardUseCase.self),
                                                         getStationsUseCase: UseCaseLocator.getUseCase(ofType: GetStationsUseCase.self))
-        let stationsMapViewController = StationsViewController(presenter: stationsMapPresenter, mapConfiguration: StationsMap(), delegate: self)
+        let stationsMapViewController = MapStationsViewController(presenter: stationsMapPresenter, mapConfiguration: StationsMap(), delegate: self)
         stationsMapPresenter.viewDelegate = stationsMapViewController
         let activitiesBoardViewController = ActivitiesBoardViewController(activitiesBoardPresenter: ActivitiesBoardPresenter())
         let moreBoardViewController = MoreBoardViewController()
@@ -32,8 +32,10 @@ class MainCordinator: NSObject, Coordinator {
 
 extension MainCordinator: StationsMapViewControllerDelegate {
 
-    func stationSelected(station: StationMarker) {
-        print(station)
+    func stationSelected(station: Station) {
+        guard let stationsViewController = rootViewController.selectedViewController() as? MapStationsViewController else { return }
+        let stationDetailCordinator = StationDetailCordinator(rootViewController: stationsViewController, station: station)
+        stationDetailCordinator.start()
     }
     
     func openAddCard() { openCardBalance(card: nil) }
@@ -41,7 +43,7 @@ extension MainCordinator: StationsMapViewControllerDelegate {
     func open(card: Card) { openCardBalance(card: card) }
     
     private func openCardBalance(card: Card?) {
-        guard let stationsViewController = rootViewController.selectedViewController() as? StationsViewController else { return }
+        guard let stationsViewController = rootViewController.selectedViewController() as? MapStationsViewController else { return }
         let cardBalanceCordinator = CardBalanceCordinator(rootViewController: stationsViewController, card: card)
         cardBalanceCordinator.start()
     }

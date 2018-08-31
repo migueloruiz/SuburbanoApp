@@ -8,11 +8,12 @@
 
 import UIKit
 
-class CardBalanceViewController: UIViewController {
+class CardBalanceViewController: UIViewController, PrentableView {
     
     struct Constants {
         static let excamationIconHeigth: CGFloat = Theme.IconSize.small
     }
+    
     private let presenter: CardBalancePresenter
     private var card: Card?
     
@@ -20,7 +21,7 @@ class CardBalanceViewController: UIViewController {
     private let primaryButton = UIFactory.createButton(withTheme: UIThemes.Button.PrimaryButton)
     private let secondaryButton = UIFactory.createButton(withTheme: UIThemes.Button.SecondayButton)
     
-    private(set) lazy var containerView = UIView()
+    private(set) lazy var containerView = UIFactory.createContainerView()
     private lazy var formContinerView = UIView()
     private lazy var titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardBalanceNavTitle)
     private lazy var cardBalanceIconView = IconPickerView()
@@ -29,7 +30,10 @@ class CardBalanceViewController: UIViewController {
     private lazy var balanceLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardPickerTitle)
     private lazy var dateLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
     private var bottomButtonsConstraint: NSLayoutConstraint?
+    
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    var inTransition: UIViewControllerAnimatedTransitioning? { return CardBalanceTransitionIn() }
+    var outTransition: UIViewControllerAnimatedTransitioning? { return CardBalanceTransitionOut() }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -57,8 +61,6 @@ class CardBalanceViewController: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = Theme.Pallete.darkBackground
-        containerView.backgroundColor = .white
-        containerView.roundCorners(withRadius: Theme.Rounded.controller)
         
         cardNumberInput.title = "No. de trajeta"
         cardNumberInput.placeholder = "XXXXXXXXX"

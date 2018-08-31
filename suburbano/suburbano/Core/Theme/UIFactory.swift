@@ -60,6 +60,14 @@ class UIFactory {
         return vw
     }
     
+    static func createContainerView() -> UIView {
+        let vw = UIView()
+        vw.backgroundColor = .white
+        vw.roundCorners(withRadius: Theme.Rounded.controller)
+        vw.addDropShadow()
+        return vw
+    }
+    
     static func createSquare(image: UIImage?, size: CGFloat, color: UIColor = Theme.Pallete.darkGray) -> UIImageView {
         let view = UIImageView(image: image)
         view.tintColor = color

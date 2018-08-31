@@ -16,7 +16,7 @@
 		8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4A20F43FE300D1CF7D /* UITabBar.swift */; };
 		8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */; };
 		8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4E20F450B700D1CF7D /* AppResources.swift */; };
-		8621A2D020F6FE0A00A2D8B1 /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008220F00FFE00C9D8B1 /* StationsViewController.swift */; };
+		8621A2D020F6FE0A00A2D8B1 /* MapStationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008220F00FFE00C9D8B1 /* MapStationsViewController.swift */; };
 		8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682720F4227900A6B17A /* Coordinator.swift */; };
 		8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0681F20F4176D00A6B17A /* PluggableApplicationDelegate.swift */; };
 		8621A2D320F6FE0A00A2D8B1 /* WebResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86695E2220F6E67C00F74150 /* WebResources.swift */; };
@@ -111,6 +111,10 @@
 		86B830F82138A0A90063AC75 /* RealmLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830F72138A0A90063AC75 /* RealmLocation.swift */; };
 		86B830FB2138AA630063AC75 /* StationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830FA2138AA630063AC75 /* StationsUseCase.swift */; };
 		86B830FD2138AAE70063AC75 /* StationsUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830FC2138AAE70063AC75 /* StationsUseCaseImpl.swift */; };
+		86B831012138C1920063AC75 /* StationDetailCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831002138C1920063AC75 /* StationDetailCordinator.swift */; };
+		86B831042138C1AE0063AC75 /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831032138C1AE0063AC75 /* StationDetailViewController.swift */; };
+		86B831062138C95A0063AC75 /* PrentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831052138C95A0063AC75 /* PrentableView.swift */; };
+		86B831082138CC6F0063AC75 /* StationDetailTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831072138CC6F0063AC75 /* StationDetailTransition.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
@@ -220,7 +224,7 @@
 		868128502123BAFA00A7A011 /* MoreBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBoardViewController.swift; sourceTree = "<group>"; };
 		868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutAnchor.swift; sourceTree = "<group>"; };
 		868D008020F00FFE00C9D8B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		868D008220F00FFE00C9D8B1 /* StationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
+		868D008220F00FFE00C9D8B1 /* MapStationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStationsViewController.swift; sourceTree = "<group>"; };
 		868D008A20F00FFF00C9D8B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		868D008C20F00FFF00C9D8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		868D009120F00FFF00C9D8B1 /* suburbanoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = suburbanoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,6 +260,10 @@
 		86B830F72138A0A90063AC75 /* RealmLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmLocation.swift; sourceTree = "<group>"; };
 		86B830FA2138AA630063AC75 /* StationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsUseCase.swift; sourceTree = "<group>"; };
 		86B830FC2138AAE70063AC75 /* StationsUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsUseCaseImpl.swift; sourceTree = "<group>"; };
+		86B831002138C1920063AC75 /* StationDetailCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailCordinator.swift; sourceTree = "<group>"; };
+		86B831032138C1AE0063AC75 /* StationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailViewController.swift; sourceTree = "<group>"; };
+		86B831052138C95A0063AC75 /* PrentableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrentableView.swift; sourceTree = "<group>"; };
+		86B831072138CC6F0063AC75 /* StationDetailTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailTransition.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -436,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				864132572100017A0031F4F4 /* ReusableIdentifier.swift */,
+				86B831052138C95A0063AC75 /* PrentableView.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -508,6 +517,7 @@
 		868128432122743900A7A011 /* Fetures */ = {
 			isa = PBXGroup;
 			children = (
+				86B830FE2138C15A0063AC75 /* StationDetail */,
 				8652A35E212A3FED00ED1910 /* CardBalance */,
 				869E2CC521250C7100B2FA9F /* Overlay */,
 				86C0681E20F4168C00A6B17A /* AppLaunch */,
@@ -668,7 +678,7 @@
 			isa = PBXGroup;
 			children = (
 				86F14E5120F4550200D1CF7D /* MapViewFactory.swift */,
-				868D008220F00FFE00C9D8B1 /* StationsViewController.swift */,
+				868D008220F00FFE00C9D8B1 /* MapStationsViewController.swift */,
 				869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */,
 				86B830DF21376CE80063AC75 /* CardBalancePicker */,
 			);
@@ -793,6 +803,32 @@
 				86B830FC2138AAE70063AC75 /* StationsUseCaseImpl.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		86B830FE2138C15A0063AC75 /* StationDetail */ = {
+			isa = PBXGroup;
+			children = (
+				86B831022138C19F0063AC75 /* View */,
+				86B830FF2138C1810063AC75 /* Cordinator */,
+			);
+			path = StationDetail;
+			sourceTree = "<group>";
+		};
+		86B830FF2138C1810063AC75 /* Cordinator */ = {
+			isa = PBXGroup;
+			children = (
+				86B831002138C1920063AC75 /* StationDetailCordinator.swift */,
+			);
+			path = Cordinator;
+			sourceTree = "<group>";
+		};
+		86B831022138C19F0063AC75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86B831032138C1AE0063AC75 /* StationDetailViewController.swift */,
+				86B831072138CC6F0063AC75 /* StationDetailTransition.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		86C0680D20F413A000A6B17A /* UseCases */ = {
@@ -1150,7 +1186,7 @@
 				8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */,
 				86B830E8213857EA0063AC75 /* Notifications.swift in Sources */,
 				86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */,
-				8621A2D020F6FE0A00A2D8B1 /* StationsViewController.swift in Sources */,
+				8621A2D020F6FE0A00A2D8B1 /* MapStationsViewController.swift in Sources */,
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,
 				86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */,
 				8641325520FFFFD00031F4F4 /* AcvtivityCell.swift in Sources */,
@@ -1159,6 +1195,7 @@
 				8611AF8021017D3F0002663B /* FontStyle.swift in Sources */,
 				86385C8821337558002EA9DF /* RealmCard.swift in Sources */,
 				86385C8A21338392002EA9DF /* CardUseCase.swift in Sources */,
+				86B831082138CC6F0063AC75 /* StationDetailTransition.swift in Sources */,
 				869E2CC9212524DB00B2FA9F /* PopUpTransition.swift in Sources */,
 				86B830E52138485A0063AC75 /* FadingCollectionView.swift in Sources */,
 				868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */,
@@ -1168,6 +1205,7 @@
 				864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */,
 				864132582100017A0031F4F4 /* ReusableIdentifier.swift in Sources */,
 				8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */,
+				86B831042138C1AE0063AC75 /* StationDetailViewController.swift in Sources */,
 				86385C7721335ED3002EA9DF /* IconCell.swift in Sources */,
 				869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */,
 				86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */,
@@ -1177,6 +1215,7 @@
 				861FC583211015460024783A /* UIStackView.swift in Sources */,
 				8621A2D320F6FE0A00A2D8B1 /* WebResources.swift in Sources */,
 				8621A2D420F6FE0A00A2D8B1 /* RequestFactory.swift in Sources */,
+				86B831062138C95A0063AC75 /* PrentableView.swift in Sources */,
 				8621A2D520F6FE0A00A2D8B1 /* MapViewFactory.swift in Sources */,
 				8621A2D620F6FE0A00A2D8B1 /* UIColor.swift in Sources */,
 				868128512123BAFA00A7A011 /* MoreBoardViewController.swift in Sources */,
@@ -1209,6 +1248,7 @@
 				8641325C210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift in Sources */,
 				86385C7521335D91002EA9DF /* ColorCell.swift in Sources */,
 				8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */,
+				86B831012138C1920063AC75 /* StationDetailCordinator.swift in Sources */,
 				862517E720FD8001002F2048 /* RealmActivity.swift in Sources */,
 				8621A31020F7107000A2D8B1 /* DecodingError.swift in Sources */,
 				86385C8C2133840E002EA9DF /* CardUseCaseImpl.swift in Sources */,

@@ -24,7 +24,8 @@ struct StationMarker {
 
 protocol StationsMapPresenterProtocol {
     func getStations() -> [StationMarker]
-    func getStation(withName: String) -> StationMarker?
+    func getStationMarker(withName name: String) -> StationMarker?
+    func getStation(withName name: String) -> Station?
     func getCards() -> [Card]
 }
 
@@ -33,11 +34,13 @@ protocol StationsViewDelegate: class {
 }
 
 class StationsMapPresenter: StationsMapPresenterProtocol {
-    
+
     private let getCardUseCase: GetCardUseCase?
     private let getStationsUseCase: GetStationsUseCase?
+    
     weak var viewDelegate: StationsViewDelegate?
-    var stations: [String: StationMarker] = [:]
+    private var stationsMarkers: [String: StationMarker] = [:]
+    private var stations: [String: Station] = [:]
     
     init(getCardUseCase: GetCardUseCase?, getStationsUseCase: GetStationsUseCase?) {
         self.getCardUseCase = getCardUseCase
@@ -47,7 +50,7 @@ class StationsMapPresenter: StationsMapPresenterProtocol {
     }
     
     func getStations() -> [StationMarker] {
-        guard stations.isEmpty else { return Array(stations.values) }
+        guard stationsMarkers.isEmpty else { return Array(stationsMarkers.values) }
         guard let rawStation = getStationsUseCase?.getStations() else { return [] }
         
         for station in rawStation {
@@ -57,14 +60,19 @@ class StationsMapPresenter: StationsMapPresenterProtocol {
                                               markerImage: station.markerImage,
                                               markerTitleImage: station.markerTitleImage,
                                               titleSide: station.titleSide)
-            stations[station.name] = stationMarker
+            stationsMarkers[station.name] = stationMarker
+            stations[station.name] = station
         }
     
-        return Array(stations.values)
+        return Array(stationsMarkers.values)
     }
     
-    func getStation(withName: String) -> StationMarker? {
-        return stations[withName]
+    func getStationMarker(withName name: String) -> StationMarker? {
+        return stationsMarkers[name]
+    }
+    
+    func getStation(withName name: String) -> Station? {
+        return stations[name]
     }
     
     func getCards() -> [Card] {

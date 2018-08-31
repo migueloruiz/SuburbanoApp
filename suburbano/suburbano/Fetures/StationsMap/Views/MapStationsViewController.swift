@@ -10,12 +10,12 @@ import UIKit
 import Mapbox
 
 protocol StationsMapViewControllerDelegate: class {
-    func stationSelected(station: StationMarker)
+    func stationSelected(station: Station)
     func openAddCard()
     func open(card: Card)
 }
 
-class StationsViewController: NavigationalViewController {
+class MapStationsViewController: NavigationalViewController {
     
     struct Constants {
         static let railRoadColor: UIColor = Theme.Pallete.softGray
@@ -30,6 +30,8 @@ class StationsViewController: NavigationalViewController {
     
     private lazy var cardBalanceView = CardBalancePicker(delegate: self)
     private lazy var mapView: MGLMapView = MapViewFactory.create(frame: view.frame, initilConfiguration: mapConfiguration)
+    private lazy var defaultCamera = mapView.camera
+    private weak var selectedAnotation: StationMapAnnotation?
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -61,7 +63,7 @@ class StationsViewController: NavigationalViewController {
     }
 }
 
-extension StationsViewController: MGLMapViewDelegate {
+extension MapStationsViewController: MGLMapViewDelegate {
     
     func draw(mapView: MGLMapView, railRoad: AppResource) {
         DispatchQueue.global(qos: .background).async {
@@ -70,9 +72,12 @@ extension StationsViewController: MGLMapViewDelegate {
                 let shapeCollectionFeature = try? MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as? MGLShapeCollectionFeature,
                 let polyline = shapeCollectionFeature?.shapes.first as? MGLPolylineFeature else { return }
             polyline.identifier = polyline.attributes["name"]
-            DispatchQueue.main.async{
+            DispatchQueue.main.async{ [weak self] in
+                guard let strongSelf = self else { return }
                 mapView.addAnnotation(polyline)
-                mapView.showAnnotations([polyline], edgePadding: UIEdgeInsets(top: 25, left: 0, bottom: 80, right: 0), animated: true)
+                strongSelf.defaultCamera = mapView.cameraThatFitsCoordinateBounds(polyline.overlayBounds,
+                                                                       edgePadding: UIEdgeInsets(top: 25, left: 0, bottom: 80, right: 0))
+                mapView.setCamera(strongSelf.defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
             }
         }
     }
@@ -106,7 +111,7 @@ extension StationsViewController: MGLMapViewDelegate {
         
         if let anotation = mapView.dequeueReusableAnnotationView(withIdentifier: title) {
             return anotation
-        } else if let station = presenter.getStation(withName: title) {
+        } else if let station = presenter.getStationMarker(withName: title) {
             return StationMapAnnotation(station: station)
         } else {
             return nil
@@ -121,26 +126,51 @@ extension StationsViewController: MGLMapViewDelegate {
         return annotation is MGLPolyline ? Constants.railRoadColor : .blue
     }
     
-    func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
-        guard let marker = annotation as? MGLPointAnnotation,
-            let station = presenter.getStation(withName: marker.title ?? "") else { return }
+    func mapView(_ mapView: MGLMapView, didSelect annotationView: MGLAnnotationView) {
+        guard let marker = annotationView as? StationMapAnnotation,
+            let anotation = marker.annotation,
+            let title = anotation.title,
+            let station = presenter.getStation(withName: title ?? "") else { return }
+        selectedAnotation = marker
         delegate?.stationSelected(station: station)
-        let newCamera = mapView.camera
-        newCamera.centerCoordinate = annotation.coordinate
-        mapView.setCamera(newCamera, withDuration: 0.2, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)) {
-            newCamera.altitude = 4600 // TODO
-            mapView.setCamera(newCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
+
+        let circularArea = polygonCircleForCoordinate(coordinate: anotation.coordinate, withMeterRadius: 500).overlayBounds
+        let newCamera = mapView.cameraThatFitsCoordinateBounds(circularArea,
+                                                               edgePadding: UIEdgeInsets(top: 25, left: 0, bottom: Utils.screenHeight * 0.7, right: 0))
+        marker.isTitleVisible = false
+        mapView.setCamera(newCamera, withDuration: 0.7, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+    }
+    
+    func polygonCircleForCoordinate(coordinate: CLLocationCoordinate2D, withMeterRadius: Double) -> MGLPolygon {
+        let degreesBetweenPoints = 45.0
+        let numberOfPoints = floor(360.0 / degreesBetweenPoints)
+        let distRadians: Double = withMeterRadius / 6371000.0
+
+        let centerLatRadians: Double = coordinate.latitude * Double.pi / 180
+        let centerLonRadians: Double = coordinate.longitude * Double.pi / 180
+        var coordinates = [CLLocationCoordinate2D]()
+
+        for index in 0 ..< Int(numberOfPoints) {
+            let degrees: Double = Double(index) * Double(degreesBetweenPoints)
+            let degreeRadians: Double = degrees * Double.pi / 180
+            let pointLatRadians: Double = asin(sin(centerLatRadians) * cos(distRadians) + cos(centerLatRadians) * sin(distRadians) * cos(degreeRadians))
+            let pointLonRadians: Double = centerLonRadians + atan2(sin(degreeRadians) * sin(distRadians) * cos(centerLatRadians), cos(distRadians) - sin(centerLatRadians) * sin(pointLatRadians))
+            let pointLat: Double = pointLatRadians * 180 / Double.pi
+            let pointLon: Double = pointLonRadians * 180 / Double.pi
+            let point: CLLocationCoordinate2D = CLLocationCoordinate2DMake(pointLat, pointLon)
+            coordinates.append(point)
         }
+        return MGLPolygon(coordinates: &coordinates, count: UInt(coordinates.count))
     }
 }
 
-extension StationsViewController: CardBalancePickerDelegate {
+extension MapStationsViewController: CardBalancePickerDelegate {
     func addCard() { delegate?.openAddCard() }
     
     func open(card: Card) { delegate?.open(card: card) }
 }
 
-extension StationsViewController: StationsViewDelegate {
+extension MapStationsViewController: StationsViewDelegate {
     func update(cards: [Card]) {
         DispatchQueue.main.async { [weak self] in
             self?.cardBalanceView.display(cards: cards)
@@ -148,16 +178,23 @@ extension StationsViewController: StationsViewDelegate {
     }
 }
 
-extension StationsViewController: UIViewControllerTransitioningDelegate {
+extension MapStationsViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        guard let _ = presented as? CardBalanceViewController else { return nil }
-        return CardBalanceTransitionIn()
+        guard let prentableView = presented as? PrentableView else { return nil }
+        return prentableView.inTransition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        guard let _ = dismissed as? CardBalanceViewController else { return nil }
-        return CardBalanceTransitionOut()
+        guard let prentableView = dismissed as? PrentableView else { return nil }
+        
+        if let _ = dismissed as? StationDetailViewController {
+            selectedAnotation?.isTitleVisible = true
+            mapView.setCamera(defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+            selectedAnotation = nil
+        }
+        
+        return prentableView.outTransition
     }
 }

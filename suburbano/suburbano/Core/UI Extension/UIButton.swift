@@ -14,5 +14,12 @@ extension UIButton {
         setTitle(title, for: .normal)
         setTitle(title, for: .focused)
     }
+    
+    func set(image: UIImage?, color: UIColor) {
+        setImage(image, for: .normal)
+        setImage(image, for: .focused)
+        imageView?.tintColor = color
+        imageView?.contentMode = .scaleAspectFit
+    }
 
 }

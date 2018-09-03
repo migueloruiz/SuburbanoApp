@@ -13,6 +13,7 @@ class StationDetailViewController: UIViewController, PrentableView {
     private let station: Station
     
     private(set) lazy var containerView = UIFactory.createContainerView()
+    private(set) lazy var backButton = UIButton()
     private lazy var stationLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
     private let stationNameImage = UIImageView()
     private let tableView = UITableView()
@@ -38,6 +39,9 @@ class StationDetailViewController: UIViewController, PrentableView {
         stationNameImage.image = UIImage(named: station.markerTitleImage)
         stationNameImage.contentMode = .scaleAspectFit
         
+        backButton.set(image: #imageLiteral(resourceName: "down-arrow"), color: Theme.Pallete.darkGray)
+        backButton.addTarget(self, action: #selector(StationDetailViewController.close), for: .touchUpInside)
+        
         containerView.backgroundColor = .white
         containerView.roundCorners(withRadius: Theme.Rounded.controller)
         
@@ -45,15 +49,18 @@ class StationDetailViewController: UIViewController, PrentableView {
     }
     
     private func configureLayout() {
-        view.addSubViews([containerView])
+        view.addSubViews([containerView, backButton])
         containerView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, bottomConstant: -Theme.Offset.large)
-        containerView.anchorSize(height: (Utils.screenHeight * 0.7) + Theme.Offset.large)
+        containerView.anchorSize(height: (Utils.screenHeight * 0.7) + Theme.Offset.large) // TODO
+        
+        backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large)
+        backButton.anchorSize(width: 30, height: 30) // TODO
         
         containerView.addSubViews([stationLabel, stationNameImage])
         
         stationLabel.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, topConstant: Theme.Offset.large, leftConstant: Theme.Offset.large)
         stationNameImage.anchor(top: stationLabel.bottomAnchor, left: containerView.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
-        let sacleSize = scaleImage(actualSize: stationNameImage.image?.size ?? CGSize(width: 100, height: 28), withHeight: 28)
+        let sacleSize = scaleImage(actualSize: stationNameImage.image?.size ?? CGSize(width: 100, height: 28), withHeight: 28) // TOO
         stationNameImage.anchorSize(width: sacleSize.width, height: sacleSize.height)
     }
     

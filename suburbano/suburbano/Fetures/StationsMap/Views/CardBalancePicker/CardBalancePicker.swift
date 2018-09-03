@@ -50,10 +50,7 @@ class CardBalancePicker: UIView {
     private func configureUI() {
         
         // TODO factory for circular buttons with icon
-        addButton.setImage(#imageLiteral(resourceName: "plus"), for: .normal)
-        addButton.setImage(#imageLiteral(resourceName: "plus"), for: .focused)
-        addButton.imageView?.tintColor = .white
-        addButton.imageView?.contentMode = .center
+        addButton.set(image: #imageLiteral(resourceName: "plus"), color: .white)
         addButton.backgroundColor = Theme.Pallete.softGray
         addButton.anchorSquare(size: Constants.addButtonDiameter)
         addButton.roundCorners(withRadius: Constants.addButtonDiameter / 2)

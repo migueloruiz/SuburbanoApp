@@ -150,6 +150,14 @@ struct UIThemes {
                                                   textColor: Theme.Pallete.darkGray,
                                                   backgroundColor: .clear,
                                                   font: FontStyle(size: .h3, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .bold))
+        
+        // MARK: - Staion Detail Label Themes
+        
+        static let StaionDetailStation = LabelTheme(numberOfLines: 1,
+                                                    textAlignment: .left,
+                                                    textColor: Theme.Pallete.softGray,
+                                                    backgroundColor: .white,
+                                                    font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
     }
     
     // MARK: - Button Themes

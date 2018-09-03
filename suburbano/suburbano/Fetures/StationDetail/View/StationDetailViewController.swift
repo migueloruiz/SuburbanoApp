@@ -13,7 +13,7 @@ class StationDetailViewController: UIViewController, PrentableView {
     private let station: Station
     
     private(set) lazy var containerView = UIFactory.createContainerView()
-    private lazy var stationLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardBalanceNavTitle)
+    private lazy var stationLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
     private let stationNameImage = UIImageView()
     private let tableView = UITableView()
     
@@ -36,6 +36,7 @@ class StationDetailViewController: UIViewController, PrentableView {
     private func configureUI() {
         stationLabel.text = "ESTACION"
         stationNameImage.image = UIImage(named: station.markerTitleImage)
+        stationNameImage.contentMode = .scaleAspectFit
         
         containerView.backgroundColor = .white
         containerView.roundCorners(withRadius: Theme.Rounded.controller)
@@ -52,9 +53,19 @@ class StationDetailViewController: UIViewController, PrentableView {
         
         stationLabel.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, topConstant: Theme.Offset.large, leftConstant: Theme.Offset.large)
         stationNameImage.anchor(top: stationLabel.bottomAnchor, left: containerView.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
+        let sacleSize = scaleImage(actualSize: stationNameImage.image?.size ?? CGSize(width: 100, height: 28), withHeight: 28)
+        stationNameImage.anchorSize(width: sacleSize.width, height: sacleSize.height)
     }
     
     @objc func close() {
         dismiss(animated: true, completion: nil)
     }
 }
+
+extension StationDetailViewController {
+    fileprivate func scaleImage(actualSize: CGSize, withHeight height: CGFloat) -> CGSize {
+        let width = (actualSize.width * height) / actualSize.height
+        return CGSize(width: width, height: height)
+    }
+}
+

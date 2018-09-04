@@ -108,6 +108,10 @@ extension MapStationsViewController: MGLMapViewDelegate {
         draw(mapView: mapView, stations: presenter.getStations())
     }
     
+    func mapViewDidFinishRenderingMap(_ mapView: MGLMapView, fullyRendered: Bool) {
+        print("End")
+    }
+    
     func mapView(_ mapView: MGLMapView, shouldChangeFrom oldCamera: MGLMapCamera, to newCamera: MGLMapCamera) -> Bool {
         let currentCamera = mapView.camera
         let newCameraCenter = newCamera.centerCoordinate
@@ -116,19 +120,21 @@ extension MapStationsViewController: MGLMapViewDelegate {
         return inside
     }
     
+    
+    
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         guard let marker = annotation as? MGLPointAnnotation,
-            let title = marker.title else { return nil }
+            let title = marker.title,
+            let station = presenter.getStationMarker(withName: title) else { return nil }
         
-        if let anotation = mapView.dequeueReusableAnnotationView(withIdentifier: title) {
+        if let anotation = mapView.dequeueReusableAnnotationView(withIdentifier: station.markerIdentifier) as? StationMapAnnotation {
+            anotation.configure(with: station)
             return anotation
-        } else if let station = presenter.getStationMarker(withName: title) {
-            return StationMapAnnotation(station: station)
         } else {
-            return nil
+            return StationMapAnnotation(station: station)
         }
     }
-    
+
     func mapView(_ mapView: MGLMapView, lineWidthForPolylineAnnotation annotation: MGLPolyline) -> CGFloat {
         return Constants.railRoadWith
     }
@@ -147,8 +153,8 @@ extension MapStationsViewController: MGLMapViewDelegate {
 
         let circularArea = polygonCircleForCoordinate(coordinate: anotation.coordinate, withMeterRadius: 500).overlayBounds
         let newCamera = mapView.cameraThatFitsCoordinateBounds(circularArea,
-                                                               edgePadding: UIEdgeInsets(top: 25, left: 0, bottom: Utils.screenHeight * 0.7, right: 0))
-        marker.isTitleVisible = false
+                                                               edgePadding: UIEdgeInsets(top: 30, left: 0, bottom: Utils.screenHeight * 0.65, right: 0))
+        marker.isActive = false
         mapView.setCamera(newCamera, withDuration: 0.7, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
     }
     
@@ -201,7 +207,7 @@ extension MapStationsViewController: UIViewControllerTransitioningDelegate {
         guard let prentableView = dismissed as? PresentableView else { return nil }
         
         if let _ = dismissed as? StationDetailViewController {
-            selectedAnotation?.isTitleVisible = true
+            selectedAnotation?.isActive = true
             mapView.setCamera(defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
             selectedAnotation = nil
         }

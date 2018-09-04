@@ -67,8 +67,18 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         
         var anchors = [NSLayoutConstraint]()
-        if width > 0 { anchors.append(widthAnchor.constraint(equalToConstant: width, identifier: .height)) }
-        if height > 0 { anchors.append(heightAnchor.constraint(equalToConstant: height, identifier: .width)) }
+        if width > 0 { anchors.append(widthAnchor.constraint(equalToConstant: width, identifier: .width)) }
+        if height > 0 { anchors.append(heightAnchor.constraint(equalToConstant: height, identifier: .height)) }
+        anchors.forEach{ $0.isActive = true }
+        return anchors
+    }
+    
+    @discardableResult
+    func anchorSize(width: NSLayoutDimension?, widthMultiplier: CGFloat = 1, height: NSLayoutDimension?, heightMultiplier: CGFloat = 1) -> [NSLayoutConstraint] {
+        translatesAutoresizingMaskIntoConstraints = false
+        var anchors = [NSLayoutConstraint]()
+        if let width = width { anchors.append(widthAnchor.constraint(equalTo: width, multiplier: widthMultiplier, identifier: .width)) }
+        if let height = height { anchors.append(heightAnchor.constraint(equalTo: height, multiplier: heightMultiplier, identifier: .height))}
         anchors.forEach{ $0.isActive = true }
         return anchors
     }

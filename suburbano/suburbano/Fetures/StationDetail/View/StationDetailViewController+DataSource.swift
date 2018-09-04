@@ -16,7 +16,6 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
         detailsTableView.separatorStyle = .none
         detailsTableView.rowHeight = UITableViewAutomaticDimension
         detailsTableView.sectionHeaderHeight = UITableViewAutomaticDimension
-        detailsTableView.estimatedSectionHeaderHeight = 40
         detailsTableView.register(DetailAddressCell.self, forCellReuseIdentifier: DetailAddressCell.reuseIdentifier)
         detailsTableView.register(DetailScheduleCell.self, forCellReuseIdentifier: DetailScheduleCell.reuseIdentifier)
         detailsTableView.register(DeatilConectionsCell.self, forCellReuseIdentifier: DeatilConectionsCell.reuseIdentifier)

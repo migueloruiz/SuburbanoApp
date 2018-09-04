@@ -11,25 +11,50 @@ import Mapbox
 
 class StationMapAnnotation: MGLAnnotationView {
     
+    struct Costants {
+        static let normalSize: CGFloat = 30 // TODO
+        static let selectedSize: CGFloat = 60 // TODO
+    }
+    
+    deinit {
+        print("deinit")
+    }
+    
     private var imageView = UIImageView()
     private lazy var titleView = UIImageView()
+    private var markerSizeConstaints: [NSLayoutConstraint] = []
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     init(station: StationMarker) {
-        super.init(reuseIdentifier: station.name)
-        configureUI(withStation: station)
+        super.init(reuseIdentifier: station.markerIdentifier)
+        configureUI()
         configureLayout(titleSide: station.titleSide)
     }
     
-    var isTitleVisible: Bool {
+    var isActive: Bool {
         get {
             return titleView.alpha == 1
         }
         
         set(value) {
+            for contraint in markerSizeConstaints {
+                contraint.constant = value ? Costants.normalSize : Costants.selectedSize
+            }
+            
             UIView.animate(withDuration: 0.5) { [weak self] in
-                self?.titleView.alpha = value ? 1 : 0
+                guard let strongSelf = self else { return }
+                strongSelf.titleView.alpha = value ? 1 : 0
+                strongSelf.layoutIfNeeded()
+            }
+        }
+    }
+    
+    override var annotation: MGLAnnotation? {
+        didSet {
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.alpha = strongSelf.annotation == nil ? 0 : 1
             }
         }
     }
@@ -40,8 +65,11 @@ class StationMapAnnotation: MGLAnnotationView {
         addSubViews([imageView, titleView, spacerView])
         imageView.anchorCenterXToSuperview()
         imageView.anchor(top: topAnchor)
+        markerSizeConstaints = imageView.anchorSize(height: 30)
+        imageView.anchorSize(width: imageView.heightAnchor, widthMultiplier: 0.8, height: nil)
+        
         titleView.anchor(top: imageView.topAnchor, bottom: imageView.bottomAnchor)
-        spacerView.anchorSquare(size: 30)
+        spacerView.anchorSize(width: imageView.widthAnchor, height: imageView.heightAnchor)
         spacerView.anchor(top: imageView.bottomAnchor, bottom: bottomAnchor)
         
         if !titleSide {
@@ -51,9 +79,20 @@ class StationMapAnnotation: MGLAnnotationView {
         }
     }
     
-    private func configureUI(withStation station: StationMarker) {
+    private func configureUI() {
+        imageView.contentMode = .scaleAspectFit
+        titleView.contentMode = .scaleAspectFit
+    }
+    
+//    override func prepareForReuse() {
+//        imageView.image = nil
+//        titleView.image = nil
+//        print("\(annotation)-\(annotation?.coordinate)")
+//        layoutIfNeeded()
+//    }
+    
+    func configure(with station: StationMarker) {
         imageView.image = UIImage(named: station.markerImage)
         titleView.image = UIImage(named: station.markerTitleImage)
-        titleView.contentMode = .scaleAspectFit
     }
 }

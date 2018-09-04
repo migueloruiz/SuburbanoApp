@@ -20,6 +20,10 @@ struct StationMarker {
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
+    
+    var markerIdentifier: String {
+        return "StationMarker-\(titleSide ? "right" : "left")"
+    }
 }
 
 protocol StationsMapPresenterProtocol {

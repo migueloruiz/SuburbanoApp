@@ -24,7 +24,6 @@ class DetailHeaderView: UITableViewHeaderFooterView, ReusableIdentifier {
         backgroundView?.backgroundColor = .white
         addSubViews([addressLabel])
         addressLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
-        addressLabel.anchorSize(height: 30)
         addressLabel.textColor = Theme.Pallete.darkGray
     }
     

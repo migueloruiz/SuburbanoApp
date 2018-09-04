@@ -14,7 +14,8 @@ class StationDetailCordinator: NSObject, Coordinator {
     
     init(rootViewController: MapStationsViewController, station: Station) {
         self.rootViewController = rootViewController
-        self.controller = StationDetailViewController(station: station)
+        let presenter = StationDetailPresenterImpl(station: station)
+        self.controller = StationDetailViewController(presenter: presenter)
     }
     
     func start() {

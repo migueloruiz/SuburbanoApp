@@ -13,6 +13,13 @@ extension UIStackView {
         for view in subViews { addArrangedSubview(view) }
     }
     
+    func removeAllArrangedViews() {
+        for view in arrangedSubviews {
+            removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+    }
+    
     static func with(axis: UILayoutConstraintAxis = .horizontal,
                    distribution: UIStackViewDistribution = .fillProportionally,
                    alignment: UIStackViewAlignment = .fill,

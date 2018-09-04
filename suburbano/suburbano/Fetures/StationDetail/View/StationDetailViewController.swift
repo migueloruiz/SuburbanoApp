@@ -8,23 +8,22 @@
 
 import UIKit
 
-class StationDetailViewController: UIViewController, PrentableView {
+class StationDetailViewController: UIViewController, PresentableView {
     
-    private let station: Station
-    
+    let presenter: StationDetailPresenter
     private(set) lazy var containerView = UIFactory.createContainerView()
     private(set) lazy var backButton = UIButton()
     private lazy var stationLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
     private let stationNameImage = UIImageView()
-    private let tableView = UITableView()
+    let detailsTableView = UITableView(frame: .zero, style: .grouped)
     
     var inTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionIn() }
     var outTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionOut() }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    init(station: Station) {
-        self.station = station
+    init(presenter: StationDetailPresenter) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         modalPresentationStyle = .overFullScreen
     }
@@ -36,7 +35,7 @@ class StationDetailViewController: UIViewController, PrentableView {
     
     private func configureUI() {
         stationLabel.text = "ESTACION"
-        stationNameImage.image = UIImage(named: station.markerTitleImage)
+        stationNameImage.image = UIImage(named: presenter.titleImageName)
         stationNameImage.contentMode = .scaleAspectFit
         
         backButton.set(image: #imageLiteral(resourceName: "down-arrow"), color: Theme.Pallete.darkGray)
@@ -44,6 +43,8 @@ class StationDetailViewController: UIViewController, PrentableView {
         
         containerView.backgroundColor = .white
         containerView.roundCorners(withRadius: Theme.Rounded.controller)
+        
+        configureTable()
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(StationDetailViewController.close)))
     }
@@ -53,15 +54,17 @@ class StationDetailViewController: UIViewController, PrentableView {
         containerView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, bottomConstant: -Theme.Offset.large)
         containerView.anchorSize(height: (Utils.screenHeight * 0.7) + Theme.Offset.large) // TODO
         
-        backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large)
-        backButton.anchorSize(width: 30, height: 30) // TODO
+        backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
+        backButton.anchorSize(width: 25, height: 25) // TODO
         
-        containerView.addSubViews([stationLabel, stationNameImage])
+        containerView.addSubViews([stationLabel, stationNameImage, detailsTableView])
         
         stationLabel.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, topConstant: Theme.Offset.large, leftConstant: Theme.Offset.large)
         stationNameImage.anchor(top: stationLabel.bottomAnchor, left: containerView.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
         let sacleSize = scaleImage(actualSize: stationNameImage.image?.size ?? CGSize(width: 100, height: 28), withHeight: 28) // TOO
         stationNameImage.anchorSize(width: sacleSize.width, height: sacleSize.height)
+        
+        detailsTableView.anchor(top: stationNameImage.bottomAnchor, left: containerView.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
     }
     
     @objc func close() {
@@ -75,4 +78,3 @@ extension StationDetailViewController {
         return CGSize(width: width, height: height)
     }
 }
-

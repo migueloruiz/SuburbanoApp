@@ -113,8 +113,15 @@
 		86B830FD2138AAE70063AC75 /* StationsUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830FC2138AAE70063AC75 /* StationsUseCaseImpl.swift */; };
 		86B831012138C1920063AC75 /* StationDetailCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831002138C1920063AC75 /* StationDetailCordinator.swift */; };
 		86B831042138C1AE0063AC75 /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831032138C1AE0063AC75 /* StationDetailViewController.swift */; };
-		86B831062138C95A0063AC75 /* PrentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831052138C95A0063AC75 /* PrentableView.swift */; };
+		86B831062138C95A0063AC75 /* PresentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831052138C95A0063AC75 /* PresentableView.swift */; };
 		86B831082138CC6F0063AC75 /* StationDetailTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831072138CC6F0063AC75 /* StationDetailTransition.swift */; };
+		86B8310E213DADB70063AC75 /* StationDetailViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8310D213DADB70063AC75 /* StationDetailViewController+DataSource.swift */; };
+		86B83111213DAEBA0063AC75 /* StationDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83110213DAEBA0063AC75 /* StationDetailPresenter.swift */; };
+		86B83114213DBF350063AC75 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83113213DBF350063AC75 /* DetailHeaderView.swift */; };
+		86B83116213DC4F30063AC75 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83115213DC4F30063AC75 /* DetailCell.swift */; };
+		86B83118213DC5140063AC75 /* DetailAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83117213DC5140063AC75 /* DetailAddressCell.swift */; };
+		86B8311A213DC6230063AC75 /* DetailScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83119213DC6230063AC75 /* DetailScheduleCell.swift */; };
+		86B8311C213DF3AA0063AC75 /* DeatilConectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8311B213DF3AA0063AC75 /* DeatilConectionsCell.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
@@ -262,8 +269,15 @@
 		86B830FC2138AAE70063AC75 /* StationsUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsUseCaseImpl.swift; sourceTree = "<group>"; };
 		86B831002138C1920063AC75 /* StationDetailCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailCordinator.swift; sourceTree = "<group>"; };
 		86B831032138C1AE0063AC75 /* StationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailViewController.swift; sourceTree = "<group>"; };
-		86B831052138C95A0063AC75 /* PrentableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrentableView.swift; sourceTree = "<group>"; };
+		86B831052138C95A0063AC75 /* PresentableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableView.swift; sourceTree = "<group>"; };
 		86B831072138CC6F0063AC75 /* StationDetailTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailTransition.swift; sourceTree = "<group>"; };
+		86B8310D213DADB70063AC75 /* StationDetailViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationDetailViewController+DataSource.swift"; sourceTree = "<group>"; };
+		86B83110213DAEBA0063AC75 /* StationDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailPresenter.swift; sourceTree = "<group>"; };
+		86B83113213DBF350063AC75 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
+		86B83115213DC4F30063AC75 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		86B83117213DC5140063AC75 /* DetailAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAddressCell.swift; sourceTree = "<group>"; };
+		86B83119213DC6230063AC75 /* DetailScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScheduleCell.swift; sourceTree = "<group>"; };
+		86B8311B213DF3AA0063AC75 /* DeatilConectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilConectionsCell.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -444,7 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				864132572100017A0031F4F4 /* ReusableIdentifier.swift */,
-				86B831052138C95A0063AC75 /* PrentableView.swift */,
+				86B831052138C95A0063AC75 /* PresentableView.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -808,8 +822,9 @@
 		86B830FE2138C15A0063AC75 /* StationDetail */ = {
 			isa = PBXGroup;
 			children = (
-				86B831022138C19F0063AC75 /* View */,
+				86B8310F213DAE9F0063AC75 /* Presenter */,
 				86B830FF2138C1810063AC75 /* Cordinator */,
+				86B831022138C19F0063AC75 /* View */,
 			);
 			path = StationDetail;
 			sourceTree = "<group>";
@@ -825,10 +840,32 @@
 		86B831022138C19F0063AC75 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				86B83112213DBF2C0063AC75 /* Cells */,
 				86B831032138C1AE0063AC75 /* StationDetailViewController.swift */,
 				86B831072138CC6F0063AC75 /* StationDetailTransition.swift */,
+				86B8310D213DADB70063AC75 /* StationDetailViewController+DataSource.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		86B8310F213DAE9F0063AC75 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				86B83110213DAEBA0063AC75 /* StationDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		86B83112213DBF2C0063AC75 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				86B83113213DBF350063AC75 /* DetailHeaderView.swift */,
+				86B83115213DC4F30063AC75 /* DetailCell.swift */,
+				86B83117213DC5140063AC75 /* DetailAddressCell.swift */,
+				86B83119213DC6230063AC75 /* DetailScheduleCell.swift */,
+				86B8311B213DF3AA0063AC75 /* DeatilConectionsCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		86C0680D20F413A000A6B17A /* UseCases */ = {
@@ -1174,6 +1211,7 @@
 				8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */,
 				862517D820FD70D9002F2048 /* ActivitiesUseCase.swift in Sources */,
 				861FC581211010480024783A /* UIEdgeInsets.swift in Sources */,
+				86B83114213DBF350063AC75 /* DetailHeaderView.swift in Sources */,
 				86B830EA21385FBB0063AC75 /* PromptView.swift in Sources */,
 				868128462122748900A7A011 /* MainNavigationViewController.swift in Sources */,
 				8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */,
@@ -1181,9 +1219,11 @@
 				8652A361212A407600ED1910 /* CardBalanceViewController.swift in Sources */,
 				8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */,
 				86B830DE213765A80063AC75 /* AlertContext.swift in Sources */,
+				86B8311A213DC6230063AC75 /* DetailScheduleCell.swift in Sources */,
 				86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
 				8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */,
+				86B83118213DC5140063AC75 /* DetailAddressCell.swift in Sources */,
 				86B830E8213857EA0063AC75 /* Notifications.swift in Sources */,
 				86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */,
 				8621A2D020F6FE0A00A2D8B1 /* MapStationsViewController.swift in Sources */,
@@ -1215,7 +1255,7 @@
 				861FC583211015460024783A /* UIStackView.swift in Sources */,
 				8621A2D320F6FE0A00A2D8B1 /* WebResources.swift in Sources */,
 				8621A2D420F6FE0A00A2D8B1 /* RequestFactory.swift in Sources */,
-				86B831062138C95A0063AC75 /* PrentableView.swift in Sources */,
+				86B831062138C95A0063AC75 /* PresentableView.swift in Sources */,
 				8621A2D520F6FE0A00A2D8B1 /* MapViewFactory.swift in Sources */,
 				8621A2D620F6FE0A00A2D8B1 /* UIColor.swift in Sources */,
 				868128512123BAFA00A7A011 /* MoreBoardViewController.swift in Sources */,
@@ -1231,9 +1271,13 @@
 				862517D420FD7071002F2048 /* ActivitiesUseCaseImpl.swift in Sources */,
 				862517E420FD7FB6002F2048 /* ActivitiesRepository.swift in Sources */,
 				8621A2D920F6FE0A00A2D8B1 /* Endpoints.swift in Sources */,
+				86B83116213DC4F30063AC75 /* DetailCell.swift in Sources */,
+				86B83111213DAEBA0063AC75 /* StationDetailPresenter.swift in Sources */,
 				8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				8611AF7B21017AAD0002663B /* Theme.swift in Sources */,
+				86B8311C213DF3AA0063AC75 /* DeatilConectionsCell.swift in Sources */,
 				8652A363212B2D3500ED1910 /* CardBalanceTransition.swift in Sources */,
+				86B8310E213DADB70063AC75 /* StationDetailViewController+DataSource.swift in Sources */,
 				86385C7D21336C2E002EA9DF /* CardBalanceCordinator.swift in Sources */,
 				869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */,
 				864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */,

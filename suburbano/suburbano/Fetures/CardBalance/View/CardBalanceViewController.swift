@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardBalanceViewController: UIViewController, PrentableView {
+class CardBalanceViewController: UIViewController, PresentableView {
     
     struct Constants {
         static let excamationIconHeigth: CGFloat = Theme.IconSize.small

@@ -157,7 +157,7 @@ struct UIThemes {
                                                     textAlignment: .left,
                                                     textColor: Theme.Pallete.softGray,
                                                     backgroundColor: .white,
-                                                    font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
+                                                    font: FontStyle(size: .h3, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
     }
     
     // MARK: - Button Themes

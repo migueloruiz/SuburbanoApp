@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FadingCollectionLayout: UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout {
+class FadingCollectionLayout: UICollectionViewFlowLayout, UICollectionViewDelegateFlowLayout {
     
     private var previousOffset: CGFloat = 0
     private var currentPage = 0
@@ -50,7 +50,7 @@ class FadingCollectionLayout: UICollectionViewFlowLayout,UICollectionViewDelegat
         if (previousOffset > collectionView.contentOffset.x) && (velocity.x < 0) {
             currentPage = max(currentPage - 1, 0)
         } else if (previousOffset < collectionView.contentOffset.x) && (velocity.x > 0.0) {
-            currentPage = min(currentPage + 1, itemsCount - 1);
+            currentPage = min(currentPage + 1, itemsCount - 1)
         }
         
         let itemEdgeOffset = (collectionView.frame.width - itemSize.width -  minimumLineSpacing * 2) / 2
@@ -72,4 +72,3 @@ extension FadingCollectionLayout {
             abs((0.00005 * distance * distance * -1) + 1)
     }
 }
-

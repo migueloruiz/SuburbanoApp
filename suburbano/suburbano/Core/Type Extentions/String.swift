@@ -15,8 +15,8 @@ extension String {
     }
     
     func matchesPattern(pattern: String) -> Bool {
-        guard !self.isEmpty || !pattern.isEmpty else { return false }
-        guard let _ = self.range(of: pattern, options: .regularExpression) else { return false }
+        guard !isEmpty || !pattern.isEmpty else { return false }
+        guard range(of: pattern, options: .regularExpression) != nil else { return false }
         return true
     }
     

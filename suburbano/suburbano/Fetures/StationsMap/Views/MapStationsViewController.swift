@@ -82,7 +82,7 @@ extension MapStationsViewController: MGLMapViewDelegate {
             layer.lineColor = NSExpression(forConstantValue: Constants.railRoadColor)
             layer.lineCap = NSExpression(forConstantValue: "round")
             
-            DispatchQueue.main.async{ [weak self] in
+            DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.mapView.style?.addSource(source)
                 strongSelf.mapView.style?.addLayer(layer)
@@ -119,8 +119,6 @@ extension MapStationsViewController: MGLMapViewDelegate {
         let inside = MGLCoordinateInCoordinateBounds(newCameraCenter, mapBounds)
         return inside
     }
-    
-    
     
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         guard let marker = annotation as? MGLPointAnnotation,

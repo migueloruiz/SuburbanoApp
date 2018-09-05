@@ -13,7 +13,7 @@ final class RealmAppDelegate: NSObject, UIApplicationDelegate {
     
     static let shared = RealmAppDelegate()
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         realmSetup()
         return true
     }
@@ -25,7 +25,7 @@ extension RealmAppDelegate {
             let schemaVersion = getBundleVersion() else { return }
         do {
             try configure(schemaVersion: schemaVersion, realmFileURL: realmPath)
-        } catch  {
+        } catch {
             handleMigrationFail()
         }
     }
@@ -33,7 +33,7 @@ extension RealmAppDelegate {
     func configure(schemaVersion: Int, realmFileURL: URL) throws {
         var config = Realm.Configuration(
             schemaVersion: UInt64(schemaVersion),
-            migrationBlock: { migration, oldSchemaVersion in
+            migrationBlock: { _, oldSchemaVersion in
                 guard oldSchemaVersion < UInt64(schemaVersion) else { return }
         }, deleteRealmIfMigrationNeeded: false)
         

@@ -21,12 +21,12 @@ class IconInputView: UIInputView {
     
     private let colors = [Theme.Pallete.concert, Theme.Pallete.workshop, Theme.Pallete.fair, Theme.Pallete.exhibition, Theme.Pallete.special, Theme.Pallete.softRed]
     private let icons = [
-        ["\u{e901}","\u{e902}","\u{e904}","\u{e905}","\u{e906}","\u{e900}","\u{e903}","\u{e907}","\u{e908}","\u{e909}"],
-        ["\u{e90b}","\u{e90a}","\u{e90c}","\u{e90d}","\u{e90e}","\u{e910}","\u{e911}","\u{e912}","\u{e914}","\u{e91a}"],
-        ["\u{e90f}","\u{e913}","\u{e915}","\u{e916}","\u{e917}","\u{e918}","\u{e919}","\u{e93f}","\u{e941}","\u{e985}"],
-        ["\u{e999}","\u{e99e}","\u{e99f}","\u{e9a0}","\u{e9a2}","\u{e9a9}","\u{e9aa}","\u{e9ae}","\u{e9d9}","\u{e9da}"],
-        ["\u{e9db}","\u{e9dc}","\u{e9dd}","\u{e9df}","\u{e9e1}","\u{e9e3}","\u{e9e5}","\u{e9e7}","\u{e9e9}","\u{e9eb}"],
-        ["\u{e9ed}","\u{e9ef}","\u{e9f1}","\u{e9f3}","\u{e9f5}","\u{e9f7}","\u{e9f9}","\u{e9fb}","\u{e9fd}","\u{e9ff}"]
+        ["\u{e901}", "\u{e902}", "\u{e904}", "\u{e905}", "\u{e906}", "\u{e900}", "\u{e903}", "\u{e907}", "\u{e908}", "\u{e909}"],
+        ["\u{e90b}", "\u{e90a}", "\u{e90c}", "\u{e90d}", "\u{e90e}", "\u{e910}", "\u{e911}", "\u{e912}", "\u{e914}", "\u{e91a}"],
+        ["\u{e90f}", "\u{e913}", "\u{e915}", "\u{e916}", "\u{e917}", "\u{e918}", "\u{e919}", "\u{e93f}", "\u{e941}", "\u{e985}"],
+        ["\u{e999}", "\u{e99e}", "\u{e99f}", "\u{e9a0}", "\u{e9a2}", "\u{e9a9}", "\u{e9aa}", "\u{e9ae}", "\u{e9d9}", "\u{e9da}"],
+        ["\u{e9db}", "\u{e9dc}", "\u{e9dd}", "\u{e9df}", "\u{e9e1}", "\u{e9e3}", "\u{e9e5}", "\u{e9e7}", "\u{e9e9}", "\u{e9eb}"],
+        ["\u{e9ed}", "\u{e9ef}", "\u{e9f1}", "\u{e9f3}", "\u{e9f5}", "\u{e9f7}", "\u{e9f9}", "\u{e9fb}", "\u{e9fd}", "\u{e9ff}"]
     ]
     
     weak var delegate: IconInputViewDelegate?
@@ -38,7 +38,7 @@ class IconInputView: UIInputView {
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        let collection = UICollectionView(frame: .zero, collectionViewLayout:  layout)
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.backgroundColor = .white
         collection.showsHorizontalScrollIndicator = false
         return collection
@@ -49,7 +49,7 @@ class IconInputView: UIInputView {
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        let collection = UICollectionView(frame: .zero, collectionViewLayout:  layout)
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.backgroundColor = .white
         collection.showsHorizontalScrollIndicator = false
         collection.isPagingEnabled = true

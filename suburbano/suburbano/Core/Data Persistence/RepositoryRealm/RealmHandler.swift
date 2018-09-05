@@ -47,12 +47,12 @@ class RealmHandler: NSObject {
         }
     }
     
-    func get<Element>(ofType type: Element.Type, forKey key: String) -> Element? where Element : RealmSwift.Object {
+    func get<Element>(ofType type: Element.Type, forKey key: String) -> Element? where Element: RealmSwift.Object {
         guard let realm = realmInstance, !key.isEmpty else { return nil }
         return realm.object(ofType: type, forPrimaryKey: key)
     }
 
-    func get<Element>(type: Element.Type, predicateFormat: NSPredicate? = nil) -> [Element]? where Element : RealmSwift.Object {
+    func get<Element>(type: Element.Type, predicateFormat: NSPredicate? = nil) -> [Element]? where Element: RealmSwift.Object {
         guard let realm = realmInstance else { return nil }
         var result = realm.objects(type)
         if let predicate = predicateFormat {
@@ -72,7 +72,7 @@ class RealmHandler: NSObject {
         }
     }
     
-    func delete<Element>(objects: [Element]) where Element : RealmSwift.Object {
+    func delete<Element>(objects: [Element]) where Element: RealmSwift.Object {
         guard let realm = realmInstance else { return }
         do {
             try realm.write {
@@ -83,7 +83,7 @@ class RealmHandler: NSObject {
         }
     }
     
-    func deleteAll<Element>(forType type: Element.Type) where Element : RealmSwift.Object {
+    func deleteAll<Element>(forType type: Element.Type) where Element: RealmSwift.Object {
         guard let realm = realmInstance else { return }
         let allObjects = realm.objects(type)
         do {

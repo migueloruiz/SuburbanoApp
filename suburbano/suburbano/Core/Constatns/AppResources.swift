@@ -9,8 +9,8 @@
 import Foundation
 
 enum FileExtention: String {
-    case json = "json"
-    case geojson = "geojson"
+    case json
+    case geojson
 }
 
 struct AppResource {

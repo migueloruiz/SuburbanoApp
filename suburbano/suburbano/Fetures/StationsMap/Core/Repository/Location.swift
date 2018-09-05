@@ -19,8 +19,8 @@ struct Location: LocationEntity, Codable {
     let longitude: Double
     
     enum CodingKeys: String, CodingKey {
-        case latitude = "latitude"
-        case longitude = "longitude"
+        case latitude
+        case longitude
     }
     
     init(latitude: Double, longitude: Double) {

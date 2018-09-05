@@ -32,7 +32,7 @@ class PopUpTransition: NSObject, UIViewControllerAnimatedTransitioning {
             toViewController.view.backgroundColor = Theme.Pallete.darkBackground
             messageContiner.transform = finalScale
             messageContiner.alpha = 1
-        }, completion:{ (complit) in
+        }, completion: { (_) in
             transitionContext.completeTransition(true)
         })
     }

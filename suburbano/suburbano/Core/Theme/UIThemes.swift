@@ -53,7 +53,7 @@ protocol FieldStyle {
 
 struct FieldTheme: FieldStyle {
     let textColor: UIColor
-    let tintColor : UIColor
+    let tintColor: UIColor
     let backgroundColor: UIColor
     let font: FontStyle
     let autocorrectionType: UITextAutocorrectionType

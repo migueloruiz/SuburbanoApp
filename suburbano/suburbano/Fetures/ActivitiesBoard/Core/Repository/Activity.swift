@@ -53,17 +53,17 @@ struct Activity: ActivityEntity, Codable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case title = "title"
-        case descripcion = "descripcion"
-        case category = "category"
-        case loaction = "loaction"
-        case displayDate = "displayDate"
-        case startHour = "startHour"
-        case duration = "duration"
-        case starDate = "starDate"
-        case endDate = "endDate"
-        case repeatEvent = "repeatEvent"
+        case id
+        case title
+        case descripcion
+        case category
+        case loaction
+        case displayDate
+        case startHour
+        case duration
+        case starDate
+        case endDate
+        case repeatEvent
     }
     
     init(id: String, title: String, descripcion: String, category: String, loaction: String, displayDate: String, startHour: String, duration: Int, starDate: Int, endDate: Int, repeatEvent: String?) {

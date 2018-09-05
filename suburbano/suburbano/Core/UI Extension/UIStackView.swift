@@ -21,9 +21,9 @@ extension UIStackView {
     }
     
     static func with(axis: UILayoutConstraintAxis = .horizontal,
-                   distribution: UIStackViewDistribution = .fillProportionally,
-                   alignment: UIStackViewAlignment = .fill,
-                   spacing: CGFloat = 0) -> UIStackView {
+                     distribution: UIStackViewDistribution = .fillProportionally,
+                     alignment: UIStackViewAlignment = .fill,
+                     spacing: CGFloat = 0) -> UIStackView {
         let stack = UIStackView()
         stack.axis = axis
         stack.distribution = distribution

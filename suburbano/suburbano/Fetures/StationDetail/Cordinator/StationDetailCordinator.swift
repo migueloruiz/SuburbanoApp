@@ -23,4 +23,3 @@ class StationDetailCordinator: NSObject, Coordinator {
         rootViewController.present(controller, animated: true, completion: nil)
     }
 }
-

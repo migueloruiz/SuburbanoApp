@@ -12,8 +12,8 @@ extension DecodingError {
     var debugDescription: String {
         switch self {
         case .dataCorrupted(let context): return context.debugDescription
-        case .keyNotFound(_ , let context): return context.debugDescription
-        case .typeMismatch(_, let context), .valueNotFound(_ , let context): return context.debugDescription
+        case .keyNotFound(_, let context): return context.debugDescription
+        case .typeMismatch(_, let context), .valueNotFound(_, let context): return context.debugDescription
         }
     }
 }

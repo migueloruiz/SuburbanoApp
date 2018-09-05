@@ -18,11 +18,11 @@ extension UIView {
         layer.shadowRadius = radius
     }
     
-    func roundCorners(withRadius radius: CGFloat = 8)  {
+    func roundCorners(withRadius radius: CGFloat = 8) {
         layer.cornerRadius = radius
     }
     
-    func roundCorners(withDiameter diameter: CGFloat)  {
+    func roundCorners(withDiameter diameter: CGFloat) {
         layer.cornerRadius = diameter / 2
     }
     
@@ -58,7 +58,7 @@ extension UIView {
         if let left = left { anchors.append(leftAnchor.constraint(equalTo: left, constant: leftConstant, identifier: .left)) }
         if let bottom = bottom { anchors.append(bottomAnchor.constraint(equalTo: bottom, constant: -bottomConstant, identifier: .bottom)) }
         if let right = right { anchors.append(rightAnchor.constraint(equalTo: right, constant: -rightConstant, identifier: .right)) }
-        anchors.forEach{ $0.isActive = true }
+        anchors.forEach { $0.isActive = true }
         return anchors
     }
     
@@ -69,7 +69,7 @@ extension UIView {
         var anchors = [NSLayoutConstraint]()
         if width > 0 { anchors.append(widthAnchor.constraint(equalToConstant: width, identifier: .width)) }
         if height > 0 { anchors.append(heightAnchor.constraint(equalToConstant: height, identifier: .height)) }
-        anchors.forEach{ $0.isActive = true }
+        anchors.forEach { $0.isActive = true }
         return anchors
     }
     
@@ -79,7 +79,7 @@ extension UIView {
         var anchors = [NSLayoutConstraint]()
         if let width = width { anchors.append(widthAnchor.constraint(equalTo: width, multiplier: widthMultiplier, identifier: .width)) }
         if let height = height { anchors.append(heightAnchor.constraint(equalTo: height, multiplier: heightMultiplier, identifier: .height))}
-        anchors.forEach{ $0.isActive = true }
+        anchors.forEach { $0.isActive = true }
         return anchors
     }
     

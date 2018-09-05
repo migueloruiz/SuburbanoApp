@@ -35,7 +35,7 @@ class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning
             containerView.transform = finalScale
             backButton.transform = finalFrameBack
             backButton.alpha = 1
-        }, completion:{ _ in
+        }, completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }
@@ -62,7 +62,7 @@ class StationDetailTransitionOut: NSObject, UIViewControllerAnimatedTransitionin
             containerView.transform = finalScale
             backButton.transform = finalFrameBack
             backButton.alpha = 0
-        }, completion:{ _ in
+        }, completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }

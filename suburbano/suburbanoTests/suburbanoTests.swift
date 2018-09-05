@@ -9,7 +9,7 @@
 import XCTest
 @testable import suburbano
 
-class suburbanoTests: XCTestCase {
+class SuburbanoTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

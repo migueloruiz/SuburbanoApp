@@ -34,10 +34,8 @@ class IconPickerView: UIView {
     private let field = UIFactory.createTextField(withTheme: UIThemes.Field.IconPickerField)
     
     var icon: CardBalanceIcon {
-        get {
-            guard backgroundColor != Theme.Pallete.softGray && field.text != Constants.defaultIcon else { return .initial }
-            return .custome(iconCode: field.text ?? "", color: backgroundColor ?? Theme.Pallete.softRed)
-        }
+        guard backgroundColor != Theme.Pallete.softGray && field.text != Constants.defaultIcon else { return .initial }
+        return .custome(iconCode: field.text ?? "", color: backgroundColor ?? Theme.Pallete.softRed)
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }

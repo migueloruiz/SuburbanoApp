@@ -10,7 +10,7 @@ import UIKit
 
 extension UITabBar {
     func removeTitles() {
-        let imageInset = UIEdgeInsetsMake(7, 0, -7, 0)
+        let imageInset = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
         items?.forEach({ item in
             item.imageInsets = imageInset
         })

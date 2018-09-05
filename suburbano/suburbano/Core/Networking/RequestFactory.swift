@@ -41,4 +41,3 @@ class RequestFactory {
         return request
     }
 }
-

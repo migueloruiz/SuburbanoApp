@@ -42,7 +42,7 @@ class MainNavigationViewController: UIViewController {
     
     fileprivate lazy var menuCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let collection = UICollectionView(frame: .zero, collectionViewLayout:  layout)
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.backgroundColor = .white
         return collection
     }()

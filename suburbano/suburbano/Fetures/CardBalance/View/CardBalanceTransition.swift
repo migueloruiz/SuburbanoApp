@@ -30,7 +30,7 @@ class CardBalanceTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             toViewController.view.backgroundColor = Theme.Pallete.darkBackground
             containerView.transform = finalScale
-        }, completion:{ _ in
+        }, completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }
@@ -55,7 +55,7 @@ class CardBalanceTransitionOut: NSObject, UIViewControllerAnimatedTransitioning 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             fromViewController.view.backgroundColor = .clear
             containerView.transform = finalScale
-        }, completion:{ _ in
+        }, completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }

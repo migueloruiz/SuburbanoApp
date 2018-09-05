@@ -35,7 +35,7 @@ class CustomeTextField: UIView {
         }
     }
     
-    var autocorrectionType: UITextAutocorrectionType = .no  {
+    var autocorrectionType: UITextAutocorrectionType = .no {
         didSet {
             textInput.autocorrectionType = autocorrectionType
         }

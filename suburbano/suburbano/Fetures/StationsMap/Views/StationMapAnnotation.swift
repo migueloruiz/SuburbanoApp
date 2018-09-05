@@ -84,13 +84,6 @@ class StationMapAnnotation: MGLAnnotationView {
         titleView.contentMode = .scaleAspectFit
     }
     
-//    override func prepareForReuse() {
-//        imageView.image = nil
-//        titleView.image = nil
-//        print("\(annotation)-\(annotation?.coordinate)")
-//        layoutIfNeeded()
-//    }
-    
     func configure(with station: StationMarker) {
         imageView.image = UIImage(named: station.markerImage)
         titleView.image = UIImage(named: station.markerTitleImage)

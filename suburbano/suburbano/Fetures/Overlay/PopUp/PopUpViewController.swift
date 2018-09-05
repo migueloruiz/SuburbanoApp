@@ -23,8 +23,8 @@ class PopUpViewController: UIViewController {
     private lazy var buttonsContainer: UIStackView = UIStackView.with(distribution: .fillEqually, spacing: Theme.Offset.small)
     private(set) lazy var messageContiner: UIView = UIFactory.createCardView()
     
-    var didTapPrimary: (()->Void)?
-    var didTapSecondary: (()->Void)?
+    var didTapPrimary: (() -> Void)?
+    var didTapSecondary: (() -> Void)?
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     

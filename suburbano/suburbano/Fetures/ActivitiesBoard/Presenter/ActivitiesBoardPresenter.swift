@@ -51,7 +51,7 @@ class ActivitiesBoardPresenter {
     func hasAccessToSchedule(complition: @escaping (ScheduleAccessRepsonse) -> Void) {
         switch EKEventStore.authorizationStatus(for: .event) {
         case .notDetermined:
-            eventStore.requestAccess(to: .event) { [weak self] (granted, error) in
+            eventStore.requestAccess(to: .event) { [weak self] (granted, _) in
                 guard let strongSelf = self else { return }
                 let response: ScheduleAccessRepsonse = granted ? .authorized(eventStore: strongSelf.eventStore) : .denied
                 complition(response)
@@ -107,7 +107,7 @@ extension ActivitiesBoardPresenter {
                 EKRecurrenceDayOfWeek(.tuesday),
                 EKRecurrenceDayOfWeek(.friday),
                 EKRecurrenceDayOfWeek(.saturday),
-                EKRecurrenceDayOfWeek(.sunday),
+                EKRecurrenceDayOfWeek(.sunday)
             ]
         }
         let repeatDays = repeatEvent.components(separatedBy: ",")

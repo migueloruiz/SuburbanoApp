@@ -20,7 +20,7 @@ class StationsUseCaseImpl: StationsUseCase {
         do {
             let json = try JSONDecoder().decode([Station].self, from: rawSattions)
             return json
-        } catch(let error) {
+        } catch let error {
             print(error.localizedDescription)
             return []
         }

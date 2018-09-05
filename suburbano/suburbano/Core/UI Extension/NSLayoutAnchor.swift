@@ -9,18 +9,18 @@
 import UIKit
 
 enum ConstraintIdentifire: String {
-    case top = "top"
-    case left = "left"
-    case bottom = "bottom"
-    case right = "right"
-    case width = "width"
-    case height = "height"
+    case top
+    case left
+    case bottom
+    case right
+    case width
+    case height
 }
 
 extension NSLayoutConstraint {
     func hasIdentifier(_ constraintIdentifire: ConstraintIdentifire) -> Bool {
-        guard let id = ConstraintIdentifire(rawValue: self.identifier ?? ""),
-            id.rawValue == constraintIdentifire.rawValue else { return false }
+        guard let constraintId = ConstraintIdentifire(rawValue: self.identifier ?? ""),
+            constraintId.rawValue == constraintIdentifire.rawValue else { return false }
         return true
     }
 }

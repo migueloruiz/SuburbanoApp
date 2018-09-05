@@ -16,34 +16,34 @@ class RealmStation: Object, StationEntity {
     @objc dynamic var markerImage: String = ""
     @objc dynamic var markerTitleImage: String = ""
     @objc dynamic var titleSide: Bool = false
-    @objc dynamic var r_railLocation: RealmLocation?
-    @objc dynamic var r_accessLocation: RealmLocation?
+    @objc dynamic var safeRailLocation: RealmLocation?
+    @objc dynamic var safeAccessLocation: RealmLocation?
     
     override class func primaryKey() -> String? { return "name" }
     
     var railLocation: Location {
         get {
-            return Location(latitude: r_railLocation?.latitude ?? 0, longitude: r_railLocation?.longitude ?? 0)
+            return Location(latitude: safeRailLocation?.latitude ?? 0, longitude: safeRailLocation?.longitude ?? 0)
         }
         
         set(value) {
             let objectLocation = RealmLocation()
             objectLocation.latitude = value.latitude
             objectLocation.longitude = value.longitude
-            r_railLocation = objectLocation
+            safeRailLocation = objectLocation
         }
     }
     
     var accessLocation: Location {
         get {
-            return Location(latitude: r_accessLocation?.latitude ?? 0, longitude: r_accessLocation?.longitude ?? 0)
+            return Location(latitude: safeAccessLocation?.latitude ?? 0, longitude: safeAccessLocation?.longitude ?? 0)
         }
         
         set(value) {
             let objectLocation = RealmLocation()
             objectLocation.latitude = value.latitude
             objectLocation.longitude = value.longitude
-            r_accessLocation = objectLocation
+            safeAccessLocation = objectLocation
         }
     }
 }

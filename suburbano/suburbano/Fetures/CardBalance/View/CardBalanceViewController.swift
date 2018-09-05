@@ -150,7 +150,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
         topConstraint.constant = Theme.Offset.normal
         useDisclaimerView.anchor(left: formContinerView.leftAnchor, right: formContinerView.rightAnchor)
         
-        buttonsContainer.anchor(top: useDisclaimerView.bottomAnchor, left: formContinerView.leftAnchor, bottom: formContinerView.bottomAnchor ,right: formContinerView.rightAnchor, topConstant: disclaimerOffset)
+        buttonsContainer.anchor(top: useDisclaimerView.bottomAnchor, left: formContinerView.leftAnchor, bottom: formContinerView.bottomAnchor, right: formContinerView.rightAnchor, topConstant: disclaimerOffset)
         
         buttonsContainer.addArranged(subViews: [primaryButton, secondaryButton])
     }

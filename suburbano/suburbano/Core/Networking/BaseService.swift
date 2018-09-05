@@ -50,7 +50,7 @@ open class BaseService<Model: Codable> {
                 let responseModel = try parse(json: jsonResponse, parsingData: parsingData)
                 let headers = urlResponse.allHeaderFields as? [String: String] ?? [:]
                 success(result: responseModel, headers: headers, completion: completion)
-            } catch(let error) {
+            } catch let error {
                 handleDecodingError(error: error, completion: completion)
             }
         case ResponseStatusCodes.badRequest.rawValue,

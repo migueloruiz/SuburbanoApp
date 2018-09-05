@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CardBalancePresenter: class  {
+protocol CardBalancePresenter: class {
     func addCard(withIcon: CardBalanceIcon, number: String)
     func deleteCard(withId id: String)
 }

@@ -11,14 +11,16 @@ import UIKit
 class StationDetailViewController: UIViewController, PresentableView {
     
     let presenter: StationDetailPresenter
+    weak var flowDelegate: StationDetailViewFlowDelegate?
+    
+    var inTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionIn() }
+    var outTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionOut() }
+    
     private(set) lazy var containerView = UIFactory.createContainerView()
     private(set) lazy var backButton = UIButton()
     private lazy var stationLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
     private let stationNameImage = UIImageView()
     let detailsTableView = UITableView(frame: .zero, style: .grouped)
-    
-    var inTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionIn() }
-    var outTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionOut() }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     

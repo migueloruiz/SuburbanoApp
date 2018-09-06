@@ -14,8 +14,9 @@ struct Theme {
         static let softGray: UIColor = UIColor(named: "softGray") ?? .red
         static let softRed: UIColor = UIColor(named: "softRed") ?? .blue
         static let detailGray: UIColor = UIColor(named: "detailGray") ?? .blue
-        static let darkBackground: UIColor = UIColor.black.withAlphaComponent(0.6)
+        static let darkBackground: UIColor = UIColor.black.withAlphaComponent(0.8)
         static let primaryAction: UIColor = UIColor(named: "concertColor") ?? .purple
+        static let blue: UIColor = UIColor(named: "blue") ?? .purple
         
         static let concert: UIColor = UIColor(named: "concertColor") ?? .purple
         static let workshop: UIColor = UIColor(named: "workshopColor") ?? .purple
@@ -41,7 +42,7 @@ struct Theme {
     
     struct Rounded {
         static let controller: CGFloat = 20
-        static let button: CGFloat = 18
+        static let button: CGFloat = 20
     }
     
     struct Offset {

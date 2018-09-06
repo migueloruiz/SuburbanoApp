@@ -31,7 +31,7 @@ class CardBalancePicker: UIView {
     }
     
     private let containerView = UIView()
-    private let addButton = UIButton()
+    private let addButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "plus"), tintColor: .white, backgroundColor: Theme.Pallete.softGray)
     private let cardsCollection = FadingCollectionView()
     private let emptyMessageView = BalanceEmptyMessageView()
     
@@ -48,14 +48,7 @@ class CardBalancePicker: UIView {
     }
     
     private func configureUI() {
-        
-        // TODO factory for circular buttons with icon
-        addButton.set(image: #imageLiteral(resourceName: "plus"), color: .white)
-        addButton.backgroundColor = Theme.Pallete.softGray
-        addButton.anchorSquare(size: Constants.addButtonDiameter)
-        addButton.roundCorners(withRadius: Constants.addButtonDiameter / 2)
-        addButton.addTarget(self, action: #selector(CardBalancePicker.addCard), for: UIControlEvents.touchUpInside)
-        
+        addButton.addTarget(self, action: #selector(CardBalancePicker.addCard), for: .touchUpInside)
         let addCardGesture = UITapGestureRecognizer(target: self, action: #selector(CardBalancePicker.addCard))
         emptyMessageView.addGestureRecognizer(addCardGesture)
         emptyMessageView.isUserInteractionEnabled = true

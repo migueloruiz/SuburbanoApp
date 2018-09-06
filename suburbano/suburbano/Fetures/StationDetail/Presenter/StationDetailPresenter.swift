@@ -37,6 +37,7 @@ enum DetailItem {
 }
 
 protocol StationDetailPresenter: class {
+    var station: Station { get }
     var titleImageName: String { get }
     func numberOfSections() -> Int
     func numberOfItems(atSection: Int) -> Int
@@ -46,7 +47,7 @@ protocol StationDetailPresenter: class {
 
 class StationDetailPresenterImpl: StationDetailPresenter {
     
-    fileprivate let station: Station
+    let station: Station
     fileprivate var stationDetails: [[DetailItem]] = []
     
     init(station: Station) {

@@ -122,6 +122,10 @@
 		86B83118213DC5140063AC75 /* DetailAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83117213DC5140063AC75 /* DetailAddressCell.swift */; };
 		86B8311A213DC6230063AC75 /* DetailScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83119213DC6230063AC75 /* DetailScheduleCell.swift */; };
 		86B8311C213DF3AA0063AC75 /* DeatilConectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8311B213DF3AA0063AC75 /* DeatilConectionsCell.swift */; };
+		86B83121213F79490063AC75 /* DirectionsDetailCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83120213F79480063AC75 /* DirectionsDetailCordinator.swift */; };
+		86B83125213F7A620063AC75 /* DirectionsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83124213F7A620063AC75 /* DirectionsDetailViewController.swift */; };
+		86B831282140BB5B0063AC75 /* DirectionsDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831272140BB5B0063AC75 /* DirectionsDetailPresenter.swift */; };
+		86B8312A2140CDFF0063AC75 /* DirectionActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831292140CDFF0063AC75 /* DirectionActionView.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
@@ -278,6 +282,10 @@
 		86B83117213DC5140063AC75 /* DetailAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAddressCell.swift; sourceTree = "<group>"; };
 		86B83119213DC6230063AC75 /* DetailScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScheduleCell.swift; sourceTree = "<group>"; };
 		86B8311B213DF3AA0063AC75 /* DeatilConectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilConectionsCell.swift; sourceTree = "<group>"; };
+		86B83120213F79480063AC75 /* DirectionsDetailCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsDetailCordinator.swift; sourceTree = "<group>"; };
+		86B83124213F7A620063AC75 /* DirectionsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsDetailViewController.swift; sourceTree = "<group>"; };
+		86B831272140BB5B0063AC75 /* DirectionsDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsDetailPresenter.swift; sourceTree = "<group>"; };
+		86B831292140CDFF0063AC75 /* DirectionActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionActionView.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -531,13 +539,14 @@
 		868128432122743900A7A011 /* Fetures */ = {
 			isa = PBXGroup;
 			children = (
-				86B830FE2138C15A0063AC75 /* StationDetail */,
-				8652A35E212A3FED00ED1910 /* CardBalance */,
-				869E2CC521250C7100B2FA9F /* Overlay */,
-				86C0681E20F4168C00A6B17A /* AppLaunch */,
-				8681284F2123BACC00A7A011 /* MoreBoard */,
-				8641325320FFFF860031F4F4 /* StationsMap */,
+				86B8311E213F787D0063AC75 /* DirectionsDetail */,
 				86C0681020F413D800A6B17A /* ActivitiesBoard */,
+				86C0681E20F4168C00A6B17A /* AppLaunch */,
+				8652A35E212A3FED00ED1910 /* CardBalance */,
+				8681284F2123BACC00A7A011 /* MoreBoard */,
+				869E2CC521250C7100B2FA9F /* Overlay */,
+				86B830FE2138C15A0063AC75 /* StationDetail */,
+				8641325320FFFF860031F4F4 /* StationsMap */,
 			);
 			path = Fetures;
 			sourceTree = "<group>";
@@ -866,6 +875,41 @@
 				86B8311B213DF3AA0063AC75 /* DeatilConectionsCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		86B8311E213F787D0063AC75 /* DirectionsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				86B83126213F7AF10063AC75 /* Presenter */,
+				86B83123213F7A330063AC75 /* View */,
+				86B8311F213F78F20063AC75 /* Cordinator */,
+			);
+			path = DirectionsDetail;
+			sourceTree = "<group>";
+		};
+		86B8311F213F78F20063AC75 /* Cordinator */ = {
+			isa = PBXGroup;
+			children = (
+				86B83120213F79480063AC75 /* DirectionsDetailCordinator.swift */,
+			);
+			path = Cordinator;
+			sourceTree = "<group>";
+		};
+		86B83123213F7A330063AC75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86B83124213F7A620063AC75 /* DirectionsDetailViewController.swift */,
+				86B831292140CDFF0063AC75 /* DirectionActionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		86B83126213F7AF10063AC75 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				86B831272140BB5B0063AC75 /* DirectionsDetailPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		86C0680D20F413A000A6B17A /* UseCases */ = {
@@ -1233,6 +1277,7 @@
 				8652A361212A407600ED1910 /* CardBalanceViewController.swift in Sources */,
 				8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */,
 				86B830DE213765A80063AC75 /* AlertContext.swift in Sources */,
+				86B8312A2140CDFF0063AC75 /* DirectionActionView.swift in Sources */,
 				86B8311A213DC6230063AC75 /* DetailScheduleCell.swift in Sources */,
 				86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
@@ -1244,6 +1289,7 @@
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,
 				86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */,
 				8641325520FFFFD00031F4F4 /* AcvtivityCell.swift in Sources */,
+				86B83121213F79490063AC75 /* DirectionsDetailCordinator.swift in Sources */,
 				8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */,
 				861FC57F210FF7BD0024783A /* Date.swift in Sources */,
 				8611AF8021017D3F0002663B /* FontStyle.swift in Sources */,
@@ -1298,10 +1344,12 @@
 				869E1D102134BA04004BE0A9 /* CardRepository.swift in Sources */,
 				869E1D122134C9D0004BE0A9 /* RealmAppDelegate.swift in Sources */,
 				863EF66B211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift in Sources */,
+				86B831282140BB5B0063AC75 /* DirectionsDetailPresenter.swift in Sources */,
 				8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */,
 				86B830DC2137422A0063AC75 /* LoadingView.swift in Sources */,
 				86B830FD2138AAE70063AC75 /* StationsUseCaseImpl.swift in Sources */,
 				8621A30E20F70DF900A2D8B1 /* Activity.swift in Sources */,
+				86B83125213F7A620063AC75 /* DirectionsDetailViewController.swift in Sources */,
 				86B830F22138984C0063AC75 /* Station.swift in Sources */,
 				8641325C210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift in Sources */,
 				86385C7521335D91002EA9DF /* ColorCell.swift in Sources */,

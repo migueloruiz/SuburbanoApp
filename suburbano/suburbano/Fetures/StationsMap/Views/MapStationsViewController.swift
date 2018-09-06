@@ -9,10 +9,11 @@
 import UIKit
 import Mapbox
 
-protocol StationsMapViewControllerDelegate: class {
+protocol StationsMapFlowDelegate: class {
     func stationSelected(station: Station)
     func openAddCard()
     func open(card: Card)
+    func dismissedDetail()
 }
 
 class MapStationsViewController: NavigationalViewController {
@@ -25,7 +26,7 @@ class MapStationsViewController: NavigationalViewController {
     private let mapBounds: MGLCoordinateBounds
     private let mapConfiguration: MapInitialConfiguration
     private let presenter: StationsMapPresenterProtocol
-    private weak var delegate: StationsMapViewControllerDelegate?
+    private weak var flowDelegate: StationsMapFlowDelegate?
     override var navgationIcon: UIImage { return #imageLiteral(resourceName: "TrainIcon") }
     
     private lazy var cardBalanceView = CardBalancePicker(delegate: self)
@@ -35,11 +36,11 @@ class MapStationsViewController: NavigationalViewController {
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    init(presenter: StationsMapPresenterProtocol, mapConfiguration: MapInitialConfiguration, delegate: StationsMapViewControllerDelegate) {
+    init(presenter: StationsMapPresenterProtocol, mapConfiguration: MapInitialConfiguration, delegate: StationsMapFlowDelegate) {
         self.presenter = presenter
         self.mapConfiguration = mapConfiguration
         self.mapBounds = MGLCoordinateBounds(sw: mapConfiguration.mapBoundsSW, ne: mapConfiguration.mapBoundsNE)
-        self.delegate = delegate
+        self.flowDelegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -147,7 +148,7 @@ extension MapStationsViewController: MGLMapViewDelegate {
             let title = anotation.title,
             let station = presenter.getStation(withName: title ?? "") else { return }
         selectedAnotation = marker
-        delegate?.stationSelected(station: station)
+        flowDelegate?.stationSelected(station: station)
 
         let circularArea = polygonCircleForCoordinate(coordinate: anotation.coordinate, withMeterRadius: 500).overlayBounds
         let newCamera = mapView.cameraThatFitsCoordinateBounds(circularArea,
@@ -180,9 +181,9 @@ extension MapStationsViewController: MGLMapViewDelegate {
 }
 
 extension MapStationsViewController: CardBalancePickerDelegate {
-    func addCard() { delegate?.openAddCard() }
+    func addCard() { flowDelegate?.openAddCard() }
     
-    func open(card: Card) { delegate?.open(card: card) }
+    func open(card: Card) { flowDelegate?.open(card: card) }
 }
 
 extension MapStationsViewController: StationsViewDelegate {
@@ -208,6 +209,7 @@ extension MapStationsViewController: UIViewControllerTransitioningDelegate {
             selectedAnotation?.isActive = true
             mapView.setCamera(defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
             selectedAnotation = nil
+            flowDelegate?.dismissedDetail()
         }
         
         return prentableView.outTransition

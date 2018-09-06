@@ -39,6 +39,9 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let detailCell = cell as? DetailCell else { return }
         detailCell.configure(with: presenter.item(atIndex: indexPath))
+        
+        guard let detailAddressCell = cell as? DetailAddressCell else { return }
+        detailAddressCell.delegate = self
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -48,5 +51,11 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? DetailHeaderView else { return }
         header.configure(with: presenter.section(atIndex: section))
+    }
+}
+
+extension StationDetailViewController: DetailAddressCellDelegate {
+    func showLocation() {
+        flowDelegate?.showDirectionsDetails(for: presenter.station)
     }
 }

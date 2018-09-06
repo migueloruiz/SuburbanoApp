@@ -9,8 +9,9 @@
 import UIKit
 
 class MainCordinator: NSObject, Coordinator {
-    let window: UIWindow
-    let rootViewController = MainNavigationViewController()
+    private let window: UIWindow
+    private let rootViewController = MainNavigationViewController()
+    private var detailCordinator: Coordinator?
     
     init(window: UIWindow) {
         self.window = window
@@ -30,12 +31,15 @@ class MainCordinator: NSObject, Coordinator {
     }
 }
 
-extension MainCordinator: StationsMapViewControllerDelegate {
+extension MainCordinator: StationsMapFlowDelegate {
+    func dismissedDetail() {
+        detailCordinator = nil
+    }
 
     func stationSelected(station: Station) {
         guard let stationsViewController = rootViewController.selectedViewController() as? MapStationsViewController else { return }
-        let stationDetailCordinator = StationDetailCordinator(rootViewController: stationsViewController, station: station)
-        stationDetailCordinator.start()
+        detailCordinator = StationDetailCordinator(rootViewController: stationsViewController, station: station)
+        detailCordinator?.start()
     }
     
     func openAddCard() { openCardBalance(card: nil) }

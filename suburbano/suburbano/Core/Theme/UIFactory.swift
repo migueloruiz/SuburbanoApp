@@ -41,6 +41,16 @@ class UIFactory {
         return button
     }
     
+    static func createCircularButton(image: UIImage, tintColor: UIColor, backgroundColor: UIColor) -> UIButton {
+        let button = UIButton()
+        button.set(image: image, color: tintColor)
+        button.backgroundColor = backgroundColor
+        button.anchorSquare(size: Theme.IconSize.normal)
+        button.roundCorners(withRadius: Theme.IconSize.normal / 2)
+        button.addDropShadow()
+        return button
+    }
+    
     static func createTextField(withTheme theme: FieldStyle) -> UITextField {
         let field = UITextField()
         field.textColor = theme.textColor

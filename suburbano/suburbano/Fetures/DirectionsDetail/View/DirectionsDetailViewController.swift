@@ -33,17 +33,20 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
     }
     
     override func viewDidLoad() {
-        configureUI()
         configureLayout()
+        configureUI()
     }
     
     private func configureUI() {
         view.backgroundColor = Theme.Pallete.darkBackground
+        view.isUserInteractionEnabled = true
+        containerView.isUserInteractionEnabled = true
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(DirectionsDetailViewController.close))
         view.addGestureRecognizer(gesture)
         backButton.set(title: "Cancelar")
         backButton.addTarget(self, action: #selector(DirectionsDetailViewController.close), for: .touchUpInside)
+        backButton.isUserInteractionEnabled = true
         
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
@@ -53,7 +56,9 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
         titleLabel.addDropShadow()
         
         for app in presenter.availableAppsRedirectios {
-            let itemView = DirectionActionView(app: app)
+            let itemView = DirectionActionView(app: app, clousure: { app in
+                print(app)
+            })
             bottonsContainer.addArrangedSubview(itemView)
         }
     }
@@ -74,7 +79,7 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
 
             disclaimerView.anchor(left: containerView.leftAnchor, bottom: backButton.topAnchor, right: containerView.rightAnchor, bottomConstant: Theme.Offset.large)
 
-            bottonsContainer.anchor(left: containerView.leftAnchor, bottom: disclaimerView.topAnchor, right: containerView.rightAnchor, bottomConstant: Theme.Offset.large)
+            bottonsContainer.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: disclaimerView.topAnchor, right: containerView.rightAnchor, bottomConstant: Theme.Offset.large)
 
         } else {
             bottonsContainer.anchor(left: containerView.leftAnchor, bottom: backButton.topAnchor, right: containerView.rightAnchor, bottomConstant: Theme.Offset.large)

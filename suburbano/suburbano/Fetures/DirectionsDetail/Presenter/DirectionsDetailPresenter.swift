@@ -57,8 +57,8 @@ enum DirectionsApp: String {
         switch self {
         case .uber:
             guard let url = URL(string: self.url),
-                UIApplication.shared.canOpenURL(url) else { return nil }
-            return "* Descuneto disponible para nuevos usurios"
+                UIApplication.shared.canOpenURL(url) else { return "* Descuneto disponible para nuevos usuarios" }  // Localize
+            return nil
         default: return nil
         }
     }

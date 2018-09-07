@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13B53F332142D78200848B8D /* DirectionDetailsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B53F322142D78200848B8D /* DirectionDetailsTransition.swift */; };
 		8611AF7B21017AAD0002663B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7A21017AAD0002663B /* Theme.swift */; };
 		8611AF8021017D3F0002663B /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7F21017D3F0002663B /* FontStyle.swift */; };
 		8611AF83210186100002663B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8611AF82210186100002663B /* Montserrat-Medium.ttf */; };
@@ -171,6 +172,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		13B53F322142D78200848B8D /* DirectionDetailsTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionDetailsTransition.swift; sourceTree = "<group>"; };
 		8611AF7A21017AAD0002663B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8611AF7F21017D3F0002663B /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		8611AF82210186100002663B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "suburbano/Assets/Fonts/Montserrat-Medium.ttf"; sourceTree = SOURCE_ROOT; };
@@ -539,10 +541,10 @@
 		868128432122743900A7A011 /* Fetures */ = {
 			isa = PBXGroup;
 			children = (
-				86B8311E213F787D0063AC75 /* DirectionsDetail */,
 				86C0681020F413D800A6B17A /* ActivitiesBoard */,
 				86C0681E20F4168C00A6B17A /* AppLaunch */,
 				8652A35E212A3FED00ED1910 /* CardBalance */,
+				86B8311E213F787D0063AC75 /* DirectionsDetail */,
 				8681284F2123BACC00A7A011 /* MoreBoard */,
 				869E2CC521250C7100B2FA9F /* Overlay */,
 				86B830FE2138C15A0063AC75 /* StationDetail */,
@@ -900,6 +902,7 @@
 			children = (
 				86B83124213F7A620063AC75 /* DirectionsDetailViewController.swift */,
 				86B831292140CDFF0063AC75 /* DirectionActionView.swift */,
+				13B53F322142D78200848B8D /* DirectionDetailsTransition.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1308,6 +1311,7 @@
 				86B831042138C1AE0063AC75 /* StationDetailViewController.swift in Sources */,
 				86385C7721335ED3002EA9DF /* IconCell.swift in Sources */,
 				869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */,
+				13B53F332142D78200848B8D /* DirectionDetailsTransition.swift in Sources */,
 				86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */,
 				86B830FB2138AA630063AC75 /* StationsUseCase.swift in Sources */,
 				868128482123AAF200A7A011 /* MenuItemView.swift in Sources */,

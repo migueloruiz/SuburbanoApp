@@ -22,6 +22,8 @@ class DetailScheduleCell: UITableViewCell, DetailCell, ReusableIdentifier {
     }
     
     private func configureUI() {
+        selectionStyle = .none
+        accessibilityTraits = UIAccessibilityTraitNotEnabled
         scheduleLabel.textColor = Theme.Pallete.darkGray
         scheduleLabel.textAlignment = .right
     }

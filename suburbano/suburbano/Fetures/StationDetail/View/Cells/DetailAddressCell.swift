@@ -27,6 +27,8 @@ class DetailAddressCell: UITableViewCell, DetailCell, ReusableIdentifier {
     }
     
     private func configureUI() {
+        selectionStyle = .none
+        accessibilityTraits = UIAccessibilityTraitNotEnabled
         addressLable.textColor = Theme.Pallete.darkGray
         addressButton.addTarget(self, action: #selector(DetailAddressCell.showLocation), for: .touchUpInside)
     }

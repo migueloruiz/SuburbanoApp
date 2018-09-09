@@ -16,15 +16,20 @@ class DetailHeaderView: UITableViewHeaderFooterView, ReusableIdentifier {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
+        configureUI()
         configureLayout()
     }
     
-    private func configureLayout() {
+    private func configureUI() {
         backgroundView = UIView(frame: bounds)
         backgroundView?.backgroundColor = .white
+        accessibilityTraits = UIAccessibilityTraitNotEnabled
+        addressLabel.textColor = Theme.Pallete.darkGray // TODO: Add Theme
+    }
+    
+    private func configureLayout() {
         addSubViews([addressLabel])
-        addressLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
-        addressLabel.textColor = Theme.Pallete.darkGray
+        addressLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: Theme.Offset.small, bottomConstant: Theme.Offset.small)
     }
     
     func configure(with detail: DetailSection) {

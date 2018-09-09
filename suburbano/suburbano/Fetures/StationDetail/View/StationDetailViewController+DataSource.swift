@@ -11,11 +11,13 @@ import UIKit
 extension StationDetailViewController: UITableViewDataSource, UITableViewDelegate {
     func configureTable() {
         detailsTableView.backgroundColor = .white
+        detailsTableView.showsVerticalScrollIndicator = false
         detailsTableView.dataSource = self
         detailsTableView.delegate = self
         detailsTableView.separatorStyle = .none
         detailsTableView.rowHeight = UITableViewAutomaticDimension
         detailsTableView.sectionHeaderHeight = UITableViewAutomaticDimension
+        detailsTableView.estimatedSectionFooterHeight = 50
         detailsTableView.register(DetailAddressCell.self, forCellReuseIdentifier: DetailAddressCell.reuseIdentifier)
         detailsTableView.register(DetailScheduleCell.self, forCellReuseIdentifier: DetailScheduleCell.reuseIdentifier)
         detailsTableView.register(DeatilConectionsCell.self, forCellReuseIdentifier: DeatilConectionsCell.reuseIdentifier)
@@ -51,6 +53,10 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? DetailHeaderView else { return }
         header.configure(with: presenter.section(atIndex: section))
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20 + (Theme.Offset.normal * 2)
     }
 }
 

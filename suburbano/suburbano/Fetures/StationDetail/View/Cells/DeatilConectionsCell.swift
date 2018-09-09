@@ -19,6 +19,11 @@ class DeatilConectionsCell: UITableViewCell, DetailCell, ReusableIdentifier {
         configureLayout()
     }
     
+    private func configure() {
+        selectionStyle = .none
+        accessibilityTraits = UIAccessibilityTraitNotEnabled
+    }
+    
     private func configureLayout() {
         addSubViews([stackView])
         stackView.fillSuperview()

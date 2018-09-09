@@ -11,15 +11,18 @@ import UIKit
 class DirectionsDetailViewController: UIViewController, PresentableView {
     
     private let presenter: DirectionsDetailPresenter
-    private let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupTitle)
+    
+    let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupTitle)
+    let containerView = UIView()
+    
     private let backButton = UIFactory.createButton(withTheme: UIThemes.Button.SecondayButton)
-    private let disclaimerView = PromptView()
+    private let disclaimerView = PromptView(labelTheme: UIThemes.Label.DirectionsDisclainer)
     private let bottonsContainer = UIStackView.with(axis: .vertical,
                                                     distribution: .fill,
                                                     spacing: Theme.Offset.normal)
     
-    var inTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionIn() }
-    var outTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionOut() }
+    var inTransition: UIViewControllerAnimatedTransitioning? { return DirectionDetailsTransitionIn() }
+    var outTransition: UIViewControllerAnimatedTransitioning? { return DirectionDetailsTransitionOut() }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -30,14 +33,20 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
     }
     
     override func viewDidLoad() {
-        configureUI()
         configureLayout()
+        configureUI()
     }
     
     private func configureUI() {
         view.backgroundColor = Theme.Pallete.darkBackground
+        view.isUserInteractionEnabled = true
+        containerView.isUserInteractionEnabled = true
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(DirectionsDetailViewController.close))
+        view.addGestureRecognizer(gesture)
         backButton.set(title: "Cancelar")
         backButton.addTarget(self, action: #selector(DirectionsDetailViewController.close), for: .touchUpInside)
+        backButton.isUserInteractionEnabled = true
         
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
@@ -47,28 +56,34 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
         titleLabel.addDropShadow()
         
         for app in presenter.availableAppsRedirectios {
-            let itemView = DirectionActionView(app: app)
+            let itemView = DirectionActionView(app: app, clousure: { app in
+                print(app)
+            })
             bottonsContainer.addArrangedSubview(itemView)
         }
     }
     
     private func configureLayout() {
-        view.addSubViews([titleLabel, backButton, bottonsContainer])
+        view.addSubViews([titleLabel, containerView])
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, topConstant: Theme.Offset.large, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
         
-        backButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
+        containerView.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
         
-//        if let disclaimer = presenter.disclaimers.first, !disclaimer.isEmpty {
-//            view.addSubViews([disclaimerView])
-//            disclaimerView.configure(disclaimer: disclaimer)
-//
-//            disclaimerView.anchor(left: view.leftAnchor, bottom: backButton.topAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
-//
-//            bottonsContainer.anchor(left: view.leftAnchor, bottom: disclaimerView.topAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
-//
-//        } else {
-            bottonsContainer.anchor(left: view.leftAnchor, bottom: backButton.topAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
-//        }
+        containerView.addSubViews([backButton, bottonsContainer])
+        
+        backButton.anchor(left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor)
+        
+        if let disclaimer = presenter.disclaimers.first, !disclaimer.isEmpty {
+            containerView.addSubViews([disclaimerView])
+            disclaimerView.configure(disclaimer: disclaimer)
+
+            disclaimerView.anchor(left: containerView.leftAnchor, bottom: backButton.topAnchor, right: containerView.rightAnchor, bottomConstant: Theme.Offset.large)
+
+            bottonsContainer.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: disclaimerView.topAnchor, right: containerView.rightAnchor, bottomConstant: Theme.Offset.large)
+
+        } else {
+            bottonsContainer.anchor(left: containerView.leftAnchor, bottom: backButton.topAnchor, right: containerView.rightAnchor, bottomConstant: Theme.Offset.large)
+        }
     }
     
     @objc func close() {

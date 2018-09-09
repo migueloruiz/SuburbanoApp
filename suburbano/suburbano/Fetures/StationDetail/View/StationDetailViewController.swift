@@ -80,3 +80,17 @@ extension StationDetailViewController {
         return CGSize(width: width, height: height)
     }
 }
+
+extension StationDetailViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let prentableView = presented as? PresentableView else { return nil }
+        return prentableView.inTransition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let prentableView = dismissed as? PresentableView else { return nil }
+        return prentableView.outTransition
+    }
+}

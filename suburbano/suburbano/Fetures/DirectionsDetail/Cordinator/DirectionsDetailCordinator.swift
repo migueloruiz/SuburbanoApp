@@ -20,7 +20,7 @@ class DirectionsDetailCordinator: NSObject, Coordinator {
     func start() {
         let presenter = DirectionsDetailPresenterImpl(station: station)
         let controller = DirectionsDetailViewController(presenter: presenter)
-        //        controller.transitioningDelegate = rootViewController
+        controller.transitioningDelegate = rootViewController
         rootViewController.present(controller, animated: true, completion: nil)
     }
 }

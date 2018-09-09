@@ -158,6 +158,13 @@ struct UIThemes {
                                                     textColor: Theme.Pallete.softGray,
                                                     backgroundColor: .white,
                                                     font: FontStyle(size: .h3, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
+        
+        // MARK: - Directions discraimer Label Themes
+        static let DirectionsDisclainer = LabelTheme(numberOfLines: 0,
+                                                 textAlignment: .left,
+                                                 textColor: .white,
+                                                 backgroundColor: .clear,
+                                                 font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
     }
     
     // MARK: - Button Themes

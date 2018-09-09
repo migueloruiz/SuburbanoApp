@@ -59,7 +59,7 @@ class MapStationsViewController: NavigationalViewController {
     }
     
     private func configureUI() {
-        automaticallyAdjustsScrollViewInsets = false
+        automaticallyAdjustsScrollViewInsets = false // MapBox is working in no depend on this property
         mapView.delegate = self
         gradientView.backgroundColor = .white
         gradientView.addDropShadow(color: .white, opacity: 1)

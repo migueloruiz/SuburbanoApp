@@ -20,6 +20,10 @@ class DetailHeaderView: UITableViewHeaderFooterView, ReusableIdentifier {
         configureLayout()
     }
     
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIViewNoIntrinsicMetric, height: UIViewNoIntrinsicMetric)
+    }
+    
     private func configureUI() {
         backgroundView = UIView(frame: bounds)
         backgroundView?.backgroundColor = .white
@@ -30,6 +34,7 @@ class DetailHeaderView: UITableViewHeaderFooterView, ReusableIdentifier {
     private func configureLayout() {
         addSubViews([addressLabel])
         addressLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: Theme.Offset.small, bottomConstant: Theme.Offset.small)
+        addressLabel.anchorSize(height: 20)
     }
     
     func configure(with detail: DetailSection) {

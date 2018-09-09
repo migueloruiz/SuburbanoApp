@@ -21,4 +21,12 @@ extension Utils {
     static var isSmallPhone: Bool {
         return 568.0 >= UIScreen.main.bounds.height
     }
+    
+    static var isIphoneX: Bool {
+        guard UIDevice.current.userInterfaceIdiom == .phone else { return false }
+        switch UIScreen.main.nativeBounds.height {
+        case 2436: return true
+        default: return false
+        }
+    }
 }

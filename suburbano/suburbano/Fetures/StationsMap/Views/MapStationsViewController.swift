@@ -22,7 +22,7 @@ class MapStationsViewController: NavigationalViewController {
         static let railRoadColor: UIColor = Theme.Pallete.softGray
         static let railRoadWith: CGFloat = 7 // TODO
         static let defaultEdges = UIEdgeInsets(top: 75, left: 0, bottom: 70, right: 0)
-        static let detailEdger = UIEdgeInsets(top: 75, left: 0, bottom: Utils.screenHeight * 0.65, right: 0)
+        static let detailEdges = UIEdgeInsets(top: 75, left: 0, bottom: Utils.screenHeight * 0.65, right: 0)
         static let detailZoomLevel = 11000.0
     }
     
@@ -65,10 +65,16 @@ class MapStationsViewController: NavigationalViewController {
     }
     
     private func configureLayout() {
-        
         view.addSubViews([mapView, cardBalanceView, gradientView])
-        gradientView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor)
-        gradientView.heightAnchor.constraint(greaterThanOrEqualToConstant: 20).isActive = true
+        
+        gradientView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor)
+        if Utils.isIphoneX {
+            gradientView.anchor(bottom: view.safeAreaLayoutGuide.topAnchor)
+        } else {
+            gradientView.anchorSize(height: 20)
+        }
+        
+        mapView.fillSuperview()
         
         cardBalanceView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
     }
@@ -158,7 +164,7 @@ extension MapStationsViewController: MGLMapViewDelegate {
             let title = anotation.title,
             let station = presenter.getStation(withName: title ?? "") else { return }
         selectedAnotation = marker
-        mapView.setContentInset(Constants.detailEdger, animated: true)
+        mapView.setContentInset(Constants.detailEdges, animated: true)
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1000)) { [weak self] in
             guard let strongSelf = self else { return }

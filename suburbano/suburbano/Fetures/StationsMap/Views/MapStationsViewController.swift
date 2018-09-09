@@ -21,6 +21,9 @@ class MapStationsViewController: NavigationalViewController {
     struct Constants {
         static let railRoadColor: UIColor = Theme.Pallete.softGray
         static let railRoadWith: CGFloat = 7 // TODO
+        static let defaultEdges = UIEdgeInsets(top: 75, left: 0, bottom: 70, right: 0)
+        static let detailEdger = UIEdgeInsets(top: 75, left: 0, bottom: Utils.screenHeight * 0.65, right: 0)
+        static let detailZoomLevel = 11000.0
     }
     
     private let mapBounds: MGLCoordinateBounds
@@ -28,11 +31,12 @@ class MapStationsViewController: NavigationalViewController {
     private let presenter: StationsMapPresenterProtocol
     private weak var flowDelegate: StationsMapFlowDelegate?
     override var navgationIcon: UIImage { return #imageLiteral(resourceName: "TrainIcon") }
+    private lazy var defaultCamera = mapView.camera
+    private weak var selectedAnotation: StationMapAnnotation?
     
     private lazy var cardBalanceView = CardBalancePicker(delegate: self)
     private lazy var mapView: MGLMapView = MapViewFactory.create(frame: view.frame, initilConfiguration: mapConfiguration)
-    private lazy var defaultCamera = mapView.camera
-    private weak var selectedAnotation: StationMapAnnotation?
+    private lazy var gradientView = UIView()
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -56,10 +60,16 @@ class MapStationsViewController: NavigationalViewController {
     
     private func configureUI() {
         mapView.delegate = self
+        gradientView.backgroundColor = .white
+        gradientView.addDropShadow(color: .white, opacity: 1)
     }
     
     private func configureLayout() {
-        view.addSubViews([mapView, cardBalanceView])
+        
+        view.addSubViews([mapView, cardBalanceView, gradientView])
+        gradientView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor)
+        gradientView.heightAnchor.constraint(greaterThanOrEqualToConstant: 20).isActive = true
+        
         cardBalanceView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
     }
 }
@@ -87,8 +97,8 @@ extension MapStationsViewController: MGLMapViewDelegate {
                 guard let strongSelf = self else { return }
                 strongSelf.mapView.style?.addSource(source)
                 strongSelf.mapView.style?.addLayer(layer)
-                strongSelf.defaultCamera = mapView.cameraThatFitsCoordinateBounds(polyline.overlayBounds,
-                                                                       edgePadding: UIEdgeInsets(top: 25, left: 0, bottom: 80, right: 0))
+                strongSelf.mapView.setContentInset(Constants.defaultEdges, animated: true)
+                strongSelf.defaultCamera = mapView.cameraThatFitsCoordinateBounds(polyline.overlayBounds)
                 strongSelf.mapView.setCamera(strongSelf.defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
             }
         }
@@ -148,13 +158,20 @@ extension MapStationsViewController: MGLMapViewDelegate {
             let title = anotation.title,
             let station = presenter.getStation(withName: title ?? "") else { return }
         selectedAnotation = marker
-        flowDelegate?.stationSelected(station: station)
-
-        let circularArea = polygonCircleForCoordinate(coordinate: anotation.coordinate, withMeterRadius: 500).overlayBounds
-        let newCamera = mapView.cameraThatFitsCoordinateBounds(circularArea,
-                                                               edgePadding: UIEdgeInsets(top: 30, left: 0, bottom: Utils.screenHeight * 0.65, right: 0))
-        marker.isActive = false
-        mapView.setCamera(newCamera, withDuration: 0.7, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+        mapView.setContentInset(Constants.detailEdger, animated: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1000)) { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.flowDelegate?.stationSelected(station: station)
+            let tempCamera = mapView.camera
+            tempCamera.centerCoordinate = anotation.coordinate
+            mapView.setCamera(tempCamera, withDuration: 0.3, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)) {
+                marker.isActive = false
+                let endCamera = mapView.camera
+                endCamera.altitude = Constants.detailZoomLevel
+                mapView.setCamera(endCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+            }
+        }
     }
     
     func polygonCircleForCoordinate(coordinate: CLLocationCoordinate2D, withMeterRadius: Double) -> MGLPolygon {
@@ -207,7 +224,9 @@ extension MapStationsViewController: UIViewControllerTransitioningDelegate {
         
         if let _ = dismissed as? StationDetailViewController {
             selectedAnotation?.isActive = true
+            mapView.setContentInset(Constants.defaultEdges, animated: true)
             mapView.setCamera(defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+            selectedAnotation?.isSelected = false
             selectedAnotation = nil
             flowDelegate?.dismissedDetail()
         }

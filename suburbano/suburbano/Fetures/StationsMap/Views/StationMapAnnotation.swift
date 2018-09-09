@@ -13,11 +13,9 @@ class StationMapAnnotation: MGLAnnotationView {
     
     struct Costants {
         static let normalSize: CGFloat = 30 // TODO
+        static let normalOffset: CGFloat = -15 // TODO
         static let selectedSize: CGFloat = 60 // TODO
-    }
-    
-    deinit {
-        print("deinit")
+        static let selectedOffset: CGFloat = -30 // TODO
     }
     
     private var imageView = UIImageView()
@@ -40,6 +38,7 @@ class StationMapAnnotation: MGLAnnotationView {
         set(value) {
             for contraint in markerSizeConstaints {
                 contraint.constant = value ? Costants.normalSize : Costants.selectedSize
+                centerOffset = CGVector(dx: 0, dy: value ? Costants.normalOffset : Costants.selectedOffset)
             }
             
             UIView.animate(withDuration: 0.5) { [weak self] in
@@ -60,17 +59,15 @@ class StationMapAnnotation: MGLAnnotationView {
     }
     
     private func configureLayout(titleSide: Bool) {
+        scalesWithViewingDistance = false
         translatesAutoresizingMaskIntoConstraints = false
-        let spacerView = UIView()
-        addSubViews([imageView, titleView, spacerView])
+        addSubViews([imageView, titleView])
         imageView.anchorCenterXToSuperview()
-        imageView.anchor(top: topAnchor)
-        markerSizeConstaints = imageView.anchorSize(height: 30)
+        imageView.anchor(top: topAnchor, bottom: bottomAnchor)
+        markerSizeConstaints = imageView.anchorSize(height: Costants.normalSize)
+        centerOffset = CGVector(dx: 0, dy: Costants.normalOffset)
         imageView.anchorSize(width: imageView.heightAnchor, widthMultiplier: 0.8, height: nil)
-        
         titleView.anchor(top: imageView.topAnchor, bottom: imageView.bottomAnchor)
-        spacerView.anchorSize(width: imageView.widthAnchor, height: imageView.heightAnchor)
-        spacerView.anchor(top: imageView.bottomAnchor, bottom: bottomAnchor)
         
         if !titleSide {
             titleView.anchor(left: imageView.rightAnchor, right: rightAnchor, leftConstant: Theme.Offset.small)

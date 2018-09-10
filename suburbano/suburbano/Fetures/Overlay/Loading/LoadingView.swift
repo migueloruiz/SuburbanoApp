@@ -11,7 +11,7 @@ import Lottie
 
 class LoadingView: UIView {
     
-    private let animation = LOTAnimationView(name: "loading")
+    private let animation: LOTAnimationView
     private let dispatchGroup = DispatchGroup()
     private let blurredEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
     
@@ -21,7 +21,10 @@ class LoadingView: UIView {
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    init() { super.init(frame: .zero) }
+    init(animation: String = Theme.Animations.loading) {
+        self.animation = LOTAnimationView(name: animation)
+        super.init(frame: .zero)
+    }
     
     func configure() {
         alpha = 0
@@ -48,12 +51,28 @@ class LoadingView: UIView {
         })
     }
     
+    func showNow(hiddingView: UIView? = nil) {
+        dispatchGroup.enter()
+        animation.loopAnimation = true
+        superview?.endEditing(true)
+        superview?.bringSubview(toFront: self)
+        
+        alpha = 1
+        hiddingView?.alpha = 0
+        animation.play(completion: { [weak self] _ in
+            self?.dispatchGroup.leave()
+        })
+    }
+    
     func dismiss(hiddingView: UIView? = nil, completion: (() -> Void)? = nil ) {
         animation.loopAnimation = false
         dispatchGroup.notify(queue: .main, execute: { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.animation.stop()
             strongSelf.superview?.sendSubview(toBack: strongSelf)
+            if let hiddingView = hiddingView {
+                strongSelf.superview?.bringSubview(toFront: hiddingView)
+            }
             
             UIView.animate(withDuration: Constants.animationDuartion, delay: 0, options: .curveEaseInOut, animations: { [weak self] in
                 guard let strongSelf = self else { return }

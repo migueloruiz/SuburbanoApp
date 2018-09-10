@@ -14,6 +14,7 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
         detailsTableView.showsVerticalScrollIndicator = false
         detailsTableView.dataSource = self
         detailsTableView.delegate = self
+        detailsTableView.allowsSelection = false
         detailsTableView.separatorStyle = .none
         detailsTableView.rowHeight = UITableViewAutomaticDimension
         detailsTableView.sectionHeaderHeight = UITableViewAutomaticDimension

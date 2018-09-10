@@ -25,7 +25,12 @@ struct Theme {
         static let special: UIColor = UIColor(named: "specialColor") ?? .purple
     }
     
-    struct Animation {
+    struct Animations {
+        static let loading = "loading"
+        static let tableLoading = "table-loading"
+    }
+    
+    struct AnimationInterval {
         static let defaultInterval: TimeInterval = 0.5
         
         static let springWithDamping: CGFloat = 0.7

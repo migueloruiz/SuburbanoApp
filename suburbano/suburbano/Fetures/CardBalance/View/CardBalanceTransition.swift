@@ -11,7 +11,7 @@ import UIKit
 class CardBalanceTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.Animation.defaultInterval
+        return Theme.AnimationInterval.defaultInterval
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -39,7 +39,7 @@ class CardBalanceTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
 class CardBalanceTransitionOut: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.Animation.defaultInterval
+        return Theme.AnimationInterval.defaultInterval
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {

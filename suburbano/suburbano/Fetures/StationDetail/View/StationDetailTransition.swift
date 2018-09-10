@@ -11,7 +11,7 @@ import UIKit
 class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.Animation.defaultInterval
+        return Theme.AnimationInterval.defaultInterval
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -44,7 +44,7 @@ class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning
 class StationDetailTransitionOut: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.Animation.defaultInterval
+        return Theme.AnimationInterval.defaultInterval
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {

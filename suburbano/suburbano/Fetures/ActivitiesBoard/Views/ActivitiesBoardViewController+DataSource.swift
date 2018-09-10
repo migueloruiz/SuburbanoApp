@@ -31,17 +31,6 @@ extension ActivitiesBoardViewController: UITableViewDataSource, UITableViewDeleg
         cell.configure(with: presenter.activity(at: indexPath), delegate: self)
         return cell
     }
-    
-    func showEmptyMessage(enable: Bool) {
-        guard enable == emptyMessage.isHidden else { return }
-        emptyMessage.isHidden = !enable
-        
-        if enable {
-            view.bringSubview(toFront: emptyMessage)
-        } else {
-            view.sendSubview(toBack: emptyMessage)
-        }
-    }
 }
 
 extension ActivitiesBoardViewController: AcvtivityCellDelegate {

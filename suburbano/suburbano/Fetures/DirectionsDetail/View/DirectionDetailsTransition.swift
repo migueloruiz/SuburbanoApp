@@ -11,7 +11,7 @@ import UIKit
 class DirectionDetailsTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.Animation.defaultInterval
+        return Theme.AnimationInterval.defaultInterval
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -44,7 +44,7 @@ class DirectionDetailsTransitionIn: NSObject, UIViewControllerAnimatedTransition
 class DirectionDetailsTransitionOut: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.Animation.defaultInterval
+        return Theme.AnimationInterval.defaultInterval
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {

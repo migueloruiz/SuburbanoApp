@@ -55,9 +55,9 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
         titleLabel.text = "¿Como llego a la estacion \(presenter.stationName.firstUppercased)?"
         titleLabel.addDropShadow()
         
-        for app in presenter.availableAppsRedirectios {
-            let itemView = DirectionActionView(app: app, clousure: { app in
-                print(app)
+        for app in presenter.availableApps {
+            let itemView = DirectionActionView(app: app, clousure: { [weak self] app in
+                self?.presenter.openDirections(app: app)
             })
             bottonsContainer.addArrangedSubview(itemView)
         }
@@ -73,7 +73,7 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
         
         backButton.anchor(left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor)
         
-        if let disclaimer = presenter.disclaimers.first, !disclaimer.isEmpty {
+        if let disclaimer = presenter.disclaimer, !disclaimer.isEmpty {
             containerView.addSubViews([disclaimerView])
             disclaimerView.configure(disclaimer: disclaimer)
 
@@ -82,7 +82,7 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
             bottonsContainer.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: disclaimerView.topAnchor, right: containerView.rightAnchor, bottomConstant: Theme.Offset.large)
 
         } else {
-            bottonsContainer.anchor(left: containerView.leftAnchor, bottom: backButton.topAnchor, right: containerView.rightAnchor, bottomConstant: Theme.Offset.large)
+            bottonsContainer.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: backButton.topAnchor, right: containerView.rightAnchor, bottomConstant: Theme.Offset.large)
         }
     }
     

@@ -10,6 +10,8 @@ import UIKit
 
 class DetailHeaderView: UITableViewHeaderFooterView, ReusableIdentifier {
     
+    static var cellHeight: CGFloat = 20 + (Theme.Offset.small * 2)
+    
     private let addressLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }

@@ -54,6 +54,10 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
         guard let header = view as? DetailHeaderView else { return }
         header.configure(with: presenter.section(atIndex: section))
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return DetailHeaderView.cellHeight
+    }
 }
 
 extension StationDetailViewController: DetailAddressCellDelegate {

@@ -30,7 +30,7 @@ class DirectionActionView: UIView {
     private func configureUI() {
         roundCorners(withRadius: (Theme.IconSize.normal + (Theme.Offset.small * 2)) / 2)
         addDropShadow()
-        icon.image = app.icon
+        icon.image = UIImage(named: app.icon)
         icon.contentMode = .scaleAspectFit
         icon.isUserInteractionEnabled = true
         titleLabel.text = app.title

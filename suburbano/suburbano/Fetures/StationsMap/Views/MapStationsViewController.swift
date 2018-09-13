@@ -37,6 +37,9 @@ class MapStationsViewController: NavigationalViewController {
     private lazy var cardBalanceView = CardBalancePicker(delegate: self)
     private lazy var mapView: MGLMapView = MapViewFactory.create(frame: view.frame, initilConfiguration: mapConfiguration)
     private lazy var gradientView = UIView()
+    private lazy var buttonsContiner = UIStackView.with(axis: .vertical, spacing: Theme.Offset.small)
+    private lazy var pricesButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "money"), tintColor: .white, backgroundColor: Theme.Pallete.softRed)
+    private lazy var centerMapButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "mapCenter"), tintColor: .white, backgroundColor: Theme.Pallete.blue)
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -63,10 +66,14 @@ class MapStationsViewController: NavigationalViewController {
         mapView.delegate = self
         gradientView.backgroundColor = .white
         gradientView.addDropShadow(color: .white, opacity: 1)
+        
+        pricesButton.addTarget(self, action: #selector(MapStationsViewController.openRouteCalculator), for: .touchUpInside)
+        centerMapButton.addTarget(self, action: #selector(MapStationsViewController.centerMap), for: .touchUpInside)
+        centerMapButton.isHidden = true
     }
     
     private func configureLayout() {
-        view.addSubViews([mapView, cardBalanceView, gradientView])
+        view.addSubViews([mapView, cardBalanceView, gradientView, buttonsContiner])
         
         gradientView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor)
         if Utils.isIphoneX {
@@ -76,8 +83,20 @@ class MapStationsViewController: NavigationalViewController {
         }
         
         mapView.fillSuperview()
-        
         cardBalanceView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
+        buttonsContiner.anchor(top: gradientView.bottomAnchor, right: view.rightAnchor, topConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
+        
+        buttonsContiner.addArranged(subViews: [pricesButton, centerMapButton])
+    }
+    
+    @objc func openRouteCalculator() {
+        print("openRouteCalculator")
+    }
+    
+    @objc func centerMap() {
+        mapView.setContentInset(Constants.defaultEdges, animated: true)
+        mapView.setCamera(defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+        centerMapButton.isHidden = true
     }
 }
 
@@ -92,6 +111,11 @@ extension MapStationsViewController: MGLMapViewDelegate {
                 let polyline = shapeCollectionFeature?.shapes.first as? MGLPolylineFeature else { return }
             let identifier = polyline.attributes["name"] as? String ?? ""
             polyline.identifier = identifier
+            
+            if let geometry = polyline.geoJSONDictionary()["geometry"] as? [String: Any],
+                let cordinates = geometry["coordinates"] as? [[Double]] {
+                print(cordinates)
+            }
             
             let source = MGLShapeSource(identifier: identifier, shape: polyline, options: nil)
             let layer = MGLLineStyleLayer(identifier: identifier, source: source)
@@ -131,6 +155,7 @@ extension MapStationsViewController: MGLMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, shouldChangeFrom oldCamera: MGLMapCamera, to newCamera: MGLMapCamera) -> Bool {
+        centerMapButton.isHidden = newCamera == defaultCamera
         let currentCamera = mapView.camera
         let newCameraCenter = newCamera.centerCoordinate
         mapView.camera = currentCamera
@@ -169,6 +194,7 @@ extension MapStationsViewController: MGLMapViewDelegate {
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1000)) { [weak self] in
             guard let strongSelf = self else { return }
+            strongSelf.centerMapButton.isHidden = true
             strongSelf.flowDelegate?.stationSelected(station: station)
             let tempCamera = mapView.camera
             tempCamera.centerCoordinate = anotation.coordinate
@@ -231,8 +257,7 @@ extension MapStationsViewController: UIViewControllerTransitioningDelegate {
         
         if let _ = dismissed as? StationDetailViewController {
             selectedAnotation?.isActive = true
-            mapView.setContentInset(Constants.defaultEdges, animated: true)
-            mapView.setCamera(defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+            centerMap()
             selectedAnotation?.isSelected = false
             selectedAnotation = nil
             flowDelegate?.dismissedDetail()

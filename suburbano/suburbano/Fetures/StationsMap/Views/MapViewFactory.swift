@@ -34,6 +34,7 @@ class MapViewFactory {
         map.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         map.attributionButton.isHidden = true
         map.logoView.isHidden = true
+        map.compassView.isHidden = true
         return map
     }
 }

@@ -26,18 +26,20 @@ class MapStationsViewController: NavigationalViewController {
         static let detailZoomLevel = 11000.0
     }
     
+    override var navgationIcon: UIImage { return #imageLiteral(resourceName: "TrainIcon") }
+    
+    private weak var flowDelegate: StationsMapFlowDelegate?
+    private weak var selectedAnotation: StationMapAnnotation?
+    
     private let mapBounds: MGLCoordinateBounds
     private let mapConfiguration: MapInitialConfiguration
     private let presenter: StationsMapPresenterProtocol
-    private weak var flowDelegate: StationsMapFlowDelegate?
-    override var navgationIcon: UIImage { return #imageLiteral(resourceName: "TrainIcon") }
     private lazy var defaultCamera = mapView.camera
-    private weak var selectedAnotation: StationMapAnnotation?
     
+    fileprivate lazy var mapView: MGLMapView = MapViewFactory.create(frame: view.frame, initilConfiguration: mapConfiguration)
+    private(set) lazy var buttonsContiner = UIStackView.with(axis: .vertical, spacing: Theme.Offset.small)
     private lazy var cardBalanceView = CardBalancePicker(delegate: self)
-    private lazy var mapView: MGLMapView = MapViewFactory.create(frame: view.frame, initilConfiguration: mapConfiguration)
     private lazy var gradientView = UIView()
-    private lazy var buttonsContiner = UIStackView.with(axis: .vertical, spacing: Theme.Offset.small)
     private lazy var pricesButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "money"), tintColor: .white, backgroundColor: Theme.Pallete.softRed)
     private lazy var centerMapButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "mapCenter"), tintColor: .white, backgroundColor: Theme.Pallete.blue)
     
@@ -185,48 +187,7 @@ extension MapStationsViewController: MGLMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, didSelect annotationView: MGLAnnotationView) {
-        guard let marker = annotationView as? StationMapAnnotation,
-            let anotation = marker.annotation,
-            let title = anotation.title,
-            let station = presenter.getStation(withName: title ?? "") else { return }
-        selectedAnotation = marker
-        mapView.setContentInset(Constants.detailEdges, animated: true)
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1000)) { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.centerMapButton.isHidden = true
-            strongSelf.flowDelegate?.stationSelected(station: station)
-            let tempCamera = mapView.camera
-            tempCamera.centerCoordinate = anotation.coordinate
-            mapView.setCamera(tempCamera, withDuration: 0.3, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)) {
-                marker.isActive = false
-                let endCamera = mapView.camera
-                endCamera.altitude = Constants.detailZoomLevel
-                mapView.setCamera(endCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
-            }
-        }
-    }
-    
-    func polygonCircleForCoordinate(coordinate: CLLocationCoordinate2D, withMeterRadius: Double) -> MGLPolygon {
-        let degreesBetweenPoints = 45.0
-        let numberOfPoints = floor(360.0 / degreesBetweenPoints)
-        let distRadians: Double = withMeterRadius / 6371000.0
-
-        let centerLatRadians: Double = coordinate.latitude * Double.pi / 180
-        let centerLonRadians: Double = coordinate.longitude * Double.pi / 180
-        var coordinates = [CLLocationCoordinate2D]()
-
-        for index in 0 ..< Int(numberOfPoints) {
-            let degrees: Double = Double(index) * Double(degreesBetweenPoints)
-            let degreeRadians: Double = degrees * Double.pi / 180
-            let pointLatRadians: Double = asin(sin(centerLatRadians) * cos(distRadians) + cos(centerLatRadians) * sin(distRadians) * cos(degreeRadians))
-            let pointLonRadians: Double = centerLonRadians + atan2(sin(degreeRadians) * sin(distRadians) * cos(centerLatRadians), cos(distRadians) - sin(centerLatRadians) * sin(pointLatRadians))
-            let pointLat: Double = pointLatRadians * 180 / Double.pi
-            let pointLon: Double = pointLonRadians * 180 / Double.pi
-            let point: CLLocationCoordinate2D = CLLocationCoordinate2DMake(pointLat, pointLon)
-            coordinates.append(point)
-        }
-        return MGLPolygon(coordinates: &coordinates, count: UInt(coordinates.count))
+        setDetailCamera(annotationView: annotationView)
     }
 }
 
@@ -254,15 +215,36 @@ extension MapStationsViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         guard let prentableView = dismissed as? PresentableView else { return nil }
-        
-        if let _ = dismissed as? StationDetailViewController {
-            selectedAnotation?.isActive = true
-            centerMap()
-            selectedAnotation?.isSelected = false
-            selectedAnotation = nil
-            flowDelegate?.dismissedDetail()
-        }
-        
         return prentableView.outTransition
+    }
+    
+    func backFromDetailCamera() {
+        selectedAnotation?.isActive = true
+        centerMap()
+        selectedAnotation?.isSelected = false
+        selectedAnotation = nil
+        flowDelegate?.dismissedDetail()
+    }
+    
+    func setDetailCamera(annotationView: MGLAnnotationView) {
+        guard let marker = annotationView as? StationMapAnnotation,
+            let anotation = marker.annotation,
+            let title = anotation.title,
+            let station = presenter.getStation(withName: title ?? "") else { return }
+        selectedAnotation = marker
+        mapView.setContentInset(Constants.detailEdges, animated: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1000)) { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.flowDelegate?.stationSelected(station: station)
+            let tempCamera = strongSelf.mapView.camera
+            tempCamera.centerCoordinate = anotation.coordinate
+            strongSelf.mapView.setCamera(tempCamera, withDuration: 0.3, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)) {
+                marker.isActive = false
+                let endCamera = strongSelf.mapView.camera
+                endCamera.altitude = Constants.detailZoomLevel
+                strongSelf.mapView.setCamera(endCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+            }
+        }
     }
 }

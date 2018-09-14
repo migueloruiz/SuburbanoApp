@@ -19,6 +19,7 @@ class StationDetailViewController: UIViewController, PresentableView {
     private(set) lazy var containerView = UIFactory.createContainerView()
     private(set) lazy var backButton = UIButton()
     private lazy var stationLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
+    private lazy var pricesButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "money"), tintColor: .white, backgroundColor: Theme.Pallete.softRed)
     private let stationNameImage = UIImageView()
     let detailsTableView = UITableView(frame: .zero, style: .grouped)
     
@@ -59,12 +60,14 @@ class StationDetailViewController: UIViewController, PresentableView {
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
         backButton.anchorSize(width: 25, height: 25) // TODO
         
-        containerView.addSubViews([stationLabel, stationNameImage, detailsTableView])
+        containerView.addSubViews([stationLabel, stationNameImage, pricesButton, detailsTableView])
         
         stationLabel.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, topConstant: Theme.Offset.large, leftConstant: Theme.Offset.large)
         stationNameImage.anchor(top: stationLabel.bottomAnchor, left: containerView.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
         let sacleSize = scaleImage(actualSize: stationNameImage.image?.size ?? CGSize(width: 100, height: 28), withHeight: 28) // TODO
         stationNameImage.anchorSize(width: sacleSize.width, height: sacleSize.height)
+        
+        pricesButton.anchor(top: containerView.topAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
         
         detailsTableView.anchor(top: stationNameImage.bottomAnchor, left: containerView.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
     }

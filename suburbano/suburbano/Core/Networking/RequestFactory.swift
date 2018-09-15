@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyUserDefaults
 
 enum HTTPMethod: String {
     case get = "GET"

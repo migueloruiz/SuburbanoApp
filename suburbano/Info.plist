@@ -30,7 +30,7 @@
 		<string>$(MAIN_HOST)</string>
 	</dict>
 	<key>MGLMapboxAccessToken</key>
-	<string>pk.eyJ1IjoibWlndWVsb3J1aXoiLCJhIjoiY2pqYWFscGNyM2ZoNDNrbW1zcWVydnZ2diJ9.bLhq0uSWWAJGWD2QhlB6fQ</string>
+	<string>${MAPBOX_ACCESS_TOKEN}</string>
 	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
 	<true/>
 	<key>NSCalendarsUsageDescription</key>

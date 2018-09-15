@@ -177,6 +177,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		135366F5214C01450022B042 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		135366F6214C03300022B042 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		135366F7214C090B0022B042 /* Example.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Example.xcconfig; sourceTree = "<group>"; };
 		13B53F322142D78200848B8D /* DirectionDetailsTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionDetailsTransition.swift; sourceTree = "<group>"; };
 		8611AF7A21017AAD0002663B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8611AF7F21017D3F0002663B /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
@@ -362,6 +365,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		135366F4214C01110022B042 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				135366F5214C01450022B042 /* Development.xcconfig */,
+				135366F6214C03300022B042 /* Production.xcconfig */,
+				135366F7214C090B0022B042 /* Example.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 		8611AF7521017A2D0002663B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -610,6 +623,7 @@
 		868D007F20F00FFE00C9D8B1 /* suburbano */ = {
 			isa = PBXGroup;
 			children = (
+				135366F4214C01110022B042 /* Configurations */,
 				869E1D132134CEA0004BE0A9 /* suburbano.entitlements */,
 				86C0681220F4140E00A6B17A /* AppDelegates */,
 				868D00B220F0167400C9D8B1 /* Assets */,
@@ -1483,25 +1497,22 @@
 /* Begin XCBuildConfiguration section */
 		8621A2E920F6FE0A00A2D8B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 135366F5214C01450022B042 /* Development.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "Suburbano-Dev";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
 				CODE_SIGN_ENTITLEMENTS = suburbano/suburbano.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C6Z3FX5CCN;
-				ENVIRONMENT_NAME = Debug;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				FSUBURBANOS_HOST = "https://app.fsuburbanos.com";
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
-				MAIN_HOST = "https://raw.githubusercontent.com";
 				PRODUCT_BUNDLE_IDENTIFIER = com.migueloruiz.suburbano.suburbano;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1512,25 +1523,22 @@
 		};
 		8621A2EA20F6FE0A00A2D8B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 135366F6214C03300022B042 /* Production.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = Suburbano;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
 				CODE_SIGN_ENTITLEMENTS = suburbano/suburbano.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C6Z3FX5CCN;
-				ENVIRONMENT_NAME = Release;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				FSUBURBANOS_HOST = "https://app.fsuburbanos.com";
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
-				MAIN_HOST = "https://raw.githubusercontent.com";
 				PRODUCT_BUNDLE_IDENTIFIER = com.migueloruiz.suburbano.suburbano;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1758,6 +1766,7 @@
 		};
 		868D00A920F00FFF00C9D8B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 135366F5214C01450022B042 /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

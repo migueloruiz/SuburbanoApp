@@ -46,7 +46,7 @@ struct Theme {
     }
     
     struct Rounded {
-        static let controller: CGFloat = 20
+        static let controller: CGFloat = 10
         static let button: CGFloat = 20
     }
     

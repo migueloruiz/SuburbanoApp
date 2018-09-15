@@ -14,6 +14,7 @@ protocol StationsMapFlowDelegate: class {
     func openAddCard()
     func open(card: Card)
     func dismissedDetail()
+    func openRouteCalculator(departure: Station)
 }
 
 class MapStationsViewController: NavigationalViewController {
@@ -92,7 +93,8 @@ class MapStationsViewController: NavigationalViewController {
     }
     
     @objc func openRouteCalculator() {
-        print("openRouteCalculator")
+        guard let station = presenter.getStation(withName: "Buenavista") else { return }
+        flowDelegate?.openRouteCalculator(departure: station)
     }
     
     @objc func centerMap() {

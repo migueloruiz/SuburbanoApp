@@ -32,6 +32,7 @@ class MainCordinator: NSObject, Coordinator {
 }
 
 extension MainCordinator: StationsMapFlowDelegate {
+
     func dismissedDetail() {
         detailCordinator = nil
     }
@@ -45,6 +46,12 @@ extension MainCordinator: StationsMapFlowDelegate {
     func openAddCard() { openCardBalance(card: nil) }
     
     func open(card: Card) { openCardBalance(card: card) }
+    
+    func openRouteCalculator(departure: Station) {
+        guard let stationsViewController = rootViewController.selectedViewController() as? MapStationsViewController else { return }
+        let routeCalculatorCordinator = RouteCalculatorCordinator(rootViewController: stationsViewController, departure: departure)
+        routeCalculatorCordinator.start()
+    }
     
     private func openCardBalance(card: Card?) {
         guard let stationsViewController = rootViewController.selectedViewController() as? MapStationsViewController else { return }

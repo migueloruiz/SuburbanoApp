@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class RealmStation: Object, StationEntity {
+    @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var address: String = ""
     @objc dynamic var conections: String = ""

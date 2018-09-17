@@ -16,8 +16,8 @@ class StationDetailViewController: UIViewController, PresentableView {
     var inTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionIn() }
     var outTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionOut() }
     
-    private(set) lazy var containerView = UIFactory.createContainerView()
-    private(set) lazy var backButton = UIButton()
+    let containerView = UIFactory.createContainerView()
+    let backButton = UIButton()
     private lazy var stationLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
     private lazy var pricesButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "money"), tintColor: .white, backgroundColor: Theme.Pallete.softRed)
     private let stationNameImage = UIImageView()
@@ -43,9 +43,6 @@ class StationDetailViewController: UIViewController, PresentableView {
         
         backButton.set(image: #imageLiteral(resourceName: "down-arrow"), color: Theme.Pallete.darkGray)
         backButton.addTarget(self, action: #selector(StationDetailViewController.close), for: .touchUpInside)
-        
-        containerView.backgroundColor = .white
-        containerView.roundCorners(withRadius: Theme.Rounded.controller)
         
         configureTable()
         

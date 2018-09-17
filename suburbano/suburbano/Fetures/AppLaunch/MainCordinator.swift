@@ -47,9 +47,9 @@ extension MainCordinator: StationsMapFlowDelegate {
     
     func open(card: Card) { openCardBalance(card: card) }
     
-    func openRouteCalculator(departure: Station) {
+    func openRouteCalculator(stations: [Station], departure: Station, arraival: Station) {
         guard let stationsViewController = rootViewController.selectedViewController() as? MapStationsViewController else { return }
-        let routeCalculatorCordinator = RouteCalculatorCordinator(rootViewController: stationsViewController, departure: departure)
+        let routeCalculatorCordinator = RouteCalculatorCordinator(rootViewController: stationsViewController, stations: stations, departure: departure, arraival: arraival)
         routeCalculatorCordinator.start()
     }
     

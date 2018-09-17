@@ -25,13 +25,13 @@ class RouteCalculatorTransitionIn: NSObject, UIViewControllerAnimatedTransitioni
         
         transitionContext.containerView.addSubview(toViewController.view)
         
-        let finalScalePickerContainer = toViewController.pickerContainer.transform
-        toViewController.pickerContainer.transform = finalScalePickerContainer.translatedBy(x: 0, y: Utils.screenHeight * 0.3)
-        toViewController.pickerContainer.alpha = 0
+        let finalScalePickerContainer = toViewController.containerView.transform
+        toViewController.containerView.transform = finalScalePickerContainer.translatedBy(x: 0, y: Utils.screenHeight)
+        toViewController.containerView.alpha = 0
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
-            toViewController.pickerContainer.transform = finalScalePickerContainer
-            toViewController.pickerContainer.alpha = 1
+            toViewController.containerView.transform = finalScalePickerContainer
+            toViewController.containerView.alpha = 1
             selectedViewCpntroller.buttonsContiner.transform = selectedViewCpntroller.buttonsContiner.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
             selectedViewCpntroller.buttonsContiner.alpha = 0
         }, completion: { _ in
@@ -53,10 +53,12 @@ class RouteCalculatorTransitionOut: NSObject, UIViewControllerAnimatedTransition
                 transitionContext.cancelInteractiveTransition()
                 return
         }
+        
+        selectedViewCpntroller.backFromDetailCamera()
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
-            fromViewController.pickerContainer.transform = fromViewController.pickerContainer.transform.translatedBy(x: 0, y: Utils.screenHeight * 0.3)
-            fromViewController.pickerContainer.alpha = 0
+            fromViewController.containerView.transform = fromViewController.containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
+            fromViewController.containerView.alpha = 0
             selectedViewCpntroller.buttonsContiner.transform = selectedViewCpntroller.buttonsContiner.transform.translatedBy(x: 0, y: Theme.Offset.extralarge)
             selectedViewCpntroller.buttonsContiner.alpha = 1
         }, completion: { _ in

@@ -9,6 +9,12 @@
 import UIKit
 import Mapbox
 
+enum AnnotationDisplayStyle {
+    case normal
+    case detail
+    case trip(active: Bool)
+}
+
 class StationMapAnnotation: MGLAnnotationView {
     
     struct Costants {
@@ -17,9 +23,10 @@ class StationMapAnnotation: MGLAnnotationView {
         static let selectedSize: CGFloat = 60 // TODO
         static let selectedOffset: CGFloat = -30 // TODO
     }
-    
-    private var imageView = UIImageView()
-    private lazy var titleView = UIImageView()
+
+    private(set) var id: String = ""
+    private let imageView = UIImageView()
+    private let titleView = UIImageView()
     private var markerSizeConstaints: [NSLayoutConstraint] = []
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -30,22 +37,9 @@ class StationMapAnnotation: MGLAnnotationView {
         configureLayout(titleSide: station.titleSide)
     }
     
-    var isActive: Bool {
-        get {
-            return titleView.alpha == 1
-        }
-        
-        set(value) {
-            for contraint in markerSizeConstaints {
-                contraint.constant = value ? Costants.normalSize : Costants.selectedSize
-                centerOffset = CGVector(dx: 0, dy: value ? Costants.normalOffset : Costants.selectedOffset)
-            }
-            
-            UIView.animate(withDuration: 0.5) { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.titleView.alpha = value ? 1 : 0
-                strongSelf.layoutIfNeeded()
-            }
+    var diaplayStyle: AnnotationDisplayStyle = .normal {
+        didSet {
+            updateDisplay(with: diaplayStyle)
         }
     }
     
@@ -79,10 +73,45 @@ class StationMapAnnotation: MGLAnnotationView {
     private func configureUI() {
         imageView.contentMode = .scaleAspectFit
         titleView.contentMode = .scaleAspectFit
+        updateDisplay(with: diaplayStyle)
     }
     
     func configure(with station: StationMarker) {
+        id = station.name
         imageView.image = UIImage(named: station.markerImage)
         titleView.image = UIImage(named: station.markerTitleImage)
+    }
+    
+    private func updateDisplay(with style: AnnotationDisplayStyle) {
+        var titleAlpha: CGFloat = 1
+        
+        switch style {
+        case .normal:
+            imageView.alpha = 1
+            imageView.tintColor = Theme.Pallete.darkRed
+            titleAlpha = 1
+            for contraint in markerSizeConstaints {
+                contraint.constant = Costants.normalSize
+                centerOffset = CGVector(dx: 0, dy: Costants.normalOffset)
+            }
+        case .detail:
+            imageView.alpha = 1
+            imageView.tintColor = Theme.Pallete.darkRed
+            titleAlpha = 0
+            for contraint in markerSizeConstaints {
+                contraint.constant = Costants.selectedSize
+                centerOffset = CGVector(dx: 0, dy: Costants.selectedOffset)
+            }
+        case .trip(let active):
+            imageView.alpha = active ? 1: 0.5
+            titleAlpha = 0
+        }
+        guard titleView.alpha != titleAlpha else { return }
+        
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.titleView.alpha = titleAlpha
+            strongSelf.layoutIfNeeded()
+        }
     }
 }

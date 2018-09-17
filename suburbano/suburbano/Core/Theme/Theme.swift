@@ -13,6 +13,7 @@ struct Theme {
         static let darkGray: UIColor = UIColor(named: "darkGray") ?? .red
         static let softGray: UIColor = UIColor(named: "softGray") ?? .red
         static let softRed: UIColor = UIColor(named: "softRed") ?? .blue
+        static let darkRed: UIColor = UIColor(named: "darkRed") ?? .blue
         static let detailGray: UIColor = UIColor(named: "detailGray") ?? .blue
         static let darkBackground: UIColor = UIColor.black.withAlphaComponent(0.8)
         static let primaryAction: UIColor = UIColor(named: "concertColor") ?? .purple

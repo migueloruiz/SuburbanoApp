@@ -31,6 +31,7 @@ class MainNavigationViewController: UIViewController {
     fileprivate lazy var menuView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
+        view.addDropShadow()
         return view
     }()
     

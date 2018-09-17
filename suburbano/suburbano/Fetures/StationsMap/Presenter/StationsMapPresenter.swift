@@ -26,11 +26,25 @@ struct StationMarker {
     }
 }
 
+enum TripDirection {
+    case buenavistaToCuautitlan
+    case cuautitlanToBuenavista
+    
+    var direction: Double {
+        switch self {
+        case .buenavistaToCuautitlan: return -90
+        case .cuautitlanToBuenavista: return 90
+        }
+    }
+}
+
 protocol StationsMapPresenterProtocol {
-    func getStations() -> [StationMarker]
+    func getStations() -> [Station]
+    func getMarkers() -> [StationMarker]
     func getStationMarker(withName name: String) -> StationMarker?
     func getStation(withName name: String) -> Station?
     func getCards() -> [Card]
+    func tripDirection(from departure: Station, to arrival: Station) -> TripDirection
 }
 
 protocol StationsViewDelegate: class {
@@ -53,7 +67,11 @@ class StationsMapPresenter: StationsMapPresenterProtocol {
         NotificationCenter.default.addObserver(self, selector: #selector(StationsMapPresenter.updateCards), name: .UpdateCards, object: nil)
     }
     
-    func getStations() -> [StationMarker] {
+    func getStations() -> [Station] {
+        return Array(stations.values).sorted(by: { $0.id > $1.id })
+    }
+    
+    func getMarkers() -> [StationMarker] {
         guard stationsMarkers.isEmpty else { return Array(stationsMarkers.values) }
         guard let rawStation = getStationsUseCase?.getStations() else { return [] }
         
@@ -81,6 +99,10 @@ class StationsMapPresenter: StationsMapPresenterProtocol {
     
     func getCards() -> [Card] {
         return getCardUseCase?.get() ?? []
+    }
+    
+    func tripDirection(from departure: Station, to arrival: Station) -> TripDirection {
+        return departure.id < arrival.id ? .cuautitlanToBuenavista : .buenavistaToCuautitlan
     }
     
     @objc func updateCards() {

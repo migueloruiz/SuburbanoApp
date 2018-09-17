@@ -1,5 +1,6 @@
  [
   {
+  "id": 145,
   "name": "Buenavista",
   "address": "Av. Insurgentes Nte. 455, Cuauhtémoc, 06350 Ciudad de México, CDMX",
   "conections": "metro-lineaB,metrobus-linea1,metrobus-linea3,metrobus-linea4,taxi,autobus",
@@ -15,6 +16,7 @@
   "longitude": 99.1530583
   }
   },{
+  "id": 124,
   "name": "Fortuna",
   "address": "Eje 4 Nte. (Calz. Azcapotzalco la Villa), Estacion Pantaco, 02230 Ciudad de México",
   "conections": "metro-linea6,taxi,autobus",
@@ -30,6 +32,7 @@
   "longitude": -99.1727649
   }
   },{
+  "id": 100,
   "name": "Talnepantla",
   "address": "Av. Mario Colín S/N, Col. San Javier, Tlalnepantla. Estado de México",
   "conections": "taxi,autobus",
@@ -45,6 +48,7 @@
   "longitude": -99.1845325
   }
   },{
+  "id": 74,
   "name": "San Rafael",
   "address": "Avenida Prolongacion Hidalgo S/N, Tlayapa, 54110 Tlanepantla, Estado de México",
   "conections": "taxi,autobus",
@@ -60,6 +64,7 @@
   "longitude": -99.1952009
   }
   },{
+  "id": 38,
   "name": "Lecheria",
   "address": "Av. Del Parque S/N Col. La Quebrada, Tultitlán. Estado de México",
   "conections": "mexibus-linea2,taxi,autobus",
@@ -75,6 +80,7 @@
   "longitude": -99.1864447
   }
   },{
+  "id": 24,
   "name": "Tultitlan",
   "address": "Av. La Cocila y Av. Independencia, Col. Barrio de la Concepción, Tultitlán. Estado de México",
   "conections": "taxi,autobus",
@@ -90,6 +96,7 @@
   "longitude": -99.1805239
   }
   },{
+  "id": 0,
   "name": "Cuautitlan",
   "address": "Av. Zaragoza y Av. Felipe Carrillo Puerto Col. Barrio el Huerto, Cautitlán de Romero Rubio. Estado de México",
   "conections": "taxi,autobus",

@@ -10,13 +10,14 @@ import Foundation
 
 class RouteCalculatorCordinator: NSObject, Coordinator {
     fileprivate let rootViewController: MapStationsViewController
-    fileprivate let departure: Station
     fileprivate var controller: RouteCalculatorViewController
     
-    init(rootViewController: MapStationsViewController, departure: Station) {
+    init(rootViewController: MapStationsViewController, stations: [Station], departure: Station, arraival: Station) {
         self.rootViewController = rootViewController
-        self.departure = departure
-        self.controller = RouteCalculatorViewController()
+        let presenter = RouteCalculatorPresenterImpl(stations: stations, departure: departure, arraival: arraival)
+        self.controller = RouteCalculatorViewController(presenter: presenter)
+        presenter.viewDelegate = self.controller
+        self.controller.routeCameraDelegate = rootViewController
     }
     
     func start() {

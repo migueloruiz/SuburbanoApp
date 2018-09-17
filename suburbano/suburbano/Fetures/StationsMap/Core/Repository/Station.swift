@@ -9,6 +9,7 @@
 import Foundation
 
 protocol StationEntity {
+    var id: Int { get }
     var name: String { get }
     var address: String { get }
     var conections: String { get }
@@ -20,7 +21,8 @@ protocol StationEntity {
 }
 
 struct Station: StationEntity, Codable {
-
+    
+    let id: Int
     let name: String
     let address: String
     let conections: String
@@ -31,6 +33,7 @@ struct Station: StationEntity, Codable {
     let accessLocation: Location
     
     enum CodingKeys: String, CodingKey {
+        case id = "id"
         case name = "name"
         case address = "address"
         case conections = "conections"
@@ -44,6 +47,7 @@ struct Station: StationEntity, Codable {
     init(from decoder: Decoder) throws {
         do {
             let values = try decoder.container(keyedBy: CodingKeys.self)
+            id = try values.decode(Int.self, forKey: .id)
             name = try values.decode(String.self, forKey: .name)
             address = try values.decode(String.self, forKey: .address)
             conections = try values.decode(String.self, forKey: .conections)
@@ -55,5 +59,11 @@ struct Station: StationEntity, Codable {
         } catch let jsonError {
             throw jsonError
         }
+    }
+}
+
+extension Station: Equatable {
+    static func == (lhs: Station, rhs: Station) -> Bool {
+        return lhs.name == rhs.name
     }
 }

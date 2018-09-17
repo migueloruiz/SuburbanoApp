@@ -14,7 +14,11 @@ protocol StationsMapFlowDelegate: class {
     func openAddCard()
     func open(card: Card)
     func dismissedDetail()
-    func openRouteCalculator(departure: Station)
+    func openRouteCalculator(stations: [Station], departure: Station, arraival: Station)
+}
+
+protocol RouteCameraDelegate: class {
+    func setRouteCamera(departure: Station, arraival: Station)
 }
 
 class MapStationsViewController: NavigationalViewController {
@@ -30,7 +34,6 @@ class MapStationsViewController: NavigationalViewController {
     override var navgationIcon: UIImage { return #imageLiteral(resourceName: "TrainIcon") }
     
     private weak var flowDelegate: StationsMapFlowDelegate?
-    private weak var selectedAnotation: StationMapAnnotation?
     
     private let mapBounds: MGLCoordinateBounds
     private let mapConfiguration: MapInitialConfiguration
@@ -43,6 +46,13 @@ class MapStationsViewController: NavigationalViewController {
     private lazy var gradientView = UIView()
     private lazy var pricesButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "money"), tintColor: .white, backgroundColor: Theme.Pallete.softRed)
     private lazy var centerMapButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "mapCenter"), tintColor: .white, backgroundColor: Theme.Pallete.blue)
+    
+    private weak var selectedAnotation: StationMapAnnotation?
+    private var railCordinates = [[Double]]()
+    private var tripRailSource: MGLShapeSource?
+    private var tripRailLayer: MGLLineStyleLayer?
+    private var departureStaionId: String?
+    private var arraivalStaionId: String?
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -93,8 +103,10 @@ class MapStationsViewController: NavigationalViewController {
     }
     
     @objc func openRouteCalculator() {
-        guard let station = presenter.getStation(withName: "Buenavista") else { return }
-        flowDelegate?.openRouteCalculator(departure: station)
+        guard let departure = presenter.getStation(withName: "Buenavista"),
+        let arraival = presenter.getStation(withName: "Cuautitlan") else { return }
+        setRouteCamera(departure: departure, arraival: arraival)
+        flowDelegate?.openRouteCalculator(stations: presenter.getStations(), departure: departure, arraival: arraival)
     }
     
     @objc func centerMap() {
@@ -108,7 +120,7 @@ extension MapStationsViewController: MGLMapViewDelegate {
     
     func draw(mapView: MGLMapView, railRoad: AppResource) {
         // TODO: Need Refactor
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global(qos: .background).async { [weak self] in
             guard let url = Utils.bundleUrl(forResource: railRoad), // TODO: get from presenter
                 let data = try? Data(contentsOf: url),
                 let shapeCollectionFeature = try? MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as? MGLShapeCollectionFeature,
@@ -118,7 +130,8 @@ extension MapStationsViewController: MGLMapViewDelegate {
             
             if let geometry = polyline.geoJSONDictionary()["geometry"] as? [String: Any],
                 let cordinates = geometry["coordinates"] as? [[Double]] {
-                print(cordinates)
+                self?.railCordinates = cordinates
+                print(polyline.coordinates)
             }
             
             let source = MGLShapeSource(identifier: identifier, shape: polyline, options: nil)
@@ -151,7 +164,7 @@ extension MapStationsViewController: MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         draw(mapView: mapView, railRoad: AppResources.Map.TrainRail)
-        draw(mapView: mapView, stations: presenter.getStations())
+        draw(mapView: mapView, stations: presenter.getMarkers())
     }
     
     func mapViewDidFinishRenderingMap(_ mapView: MGLMapView, fullyRendered: Bool) {
@@ -174,6 +187,11 @@ extension MapStationsViewController: MGLMapViewDelegate {
         
         if let anotation = mapView.dequeueReusableAnnotationView(withIdentifier: station.markerIdentifier) as? StationMapAnnotation {
             anotation.configure(with: station)
+            if let departure = departureStaionId, let arraival = arraivalStaionId {
+                anotation.diaplayStyle = .trip(active: anotation.id == departure || anotation.id == arraival)
+            } else {
+                anotation.diaplayStyle = .normal
+            }
             return anotation
         } else {
             return StationMapAnnotation(station: station)
@@ -221,8 +239,14 @@ extension MapStationsViewController: UIViewControllerTransitioningDelegate {
     }
     
     func backFromDetailCamera() {
-        selectedAnotation?.isActive = true
+        cleanMapDetailIfNeeded()
+        cleanMapFromRouteIfNeeded()
         centerMap()
+    }
+    
+    private func cleanMapDetailIfNeeded() {
+        guard selectedAnotation != nil else { return }
+        selectedAnotation?.diaplayStyle = .normal
         selectedAnotation?.isSelected = false
         selectedAnotation = nil
         flowDelegate?.dismissedDetail()
@@ -236,16 +260,88 @@ extension MapStationsViewController: UIViewControllerTransitioningDelegate {
         selectedAnotation = marker
         mapView.setContentInset(Constants.detailEdges, animated: true)
         
+        // Refactor
         DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1000)) { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.flowDelegate?.stationSelected(station: station)
             let tempCamera = strongSelf.mapView.camera
             tempCamera.centerCoordinate = anotation.coordinate
             strongSelf.mapView.setCamera(tempCamera, withDuration: 0.3, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)) {
-                marker.isActive = false
+                marker.diaplayStyle = .detail
                 let endCamera = strongSelf.mapView.camera
                 endCamera.altitude = Constants.detailZoomLevel
                 strongSelf.mapView.setCamera(endCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+            }
+        }
+    }
+}
+
+extension MapStationsViewController: RouteCameraDelegate {
+    private func cleanMapFromRouteIfNeeded() {
+        guard let source = tripRailSource, let layer = tripRailLayer else { return }
+        mapView.style?.removeLayer(layer)
+        mapView.style?.removeSource(source)
+        tripRailSource = nil
+        tripRailLayer = nil
+        departureStaionId = nil
+        arraivalStaionId = nil
+        for anomtation in mapView.annotations ?? [] {
+            guard let marker = mapView.view(for: anomtation) as? StationMapAnnotation else { continue }
+            marker.diaplayStyle = .normal
+        }
+    }
+    
+    func setRouteCamera(departure: Station, arraival: Station) {
+        if let source = tripRailSource, let layer = tripRailLayer {
+            mapView.style?.removeLayer(layer)
+            mapView.style?.removeSource(source)
+            tripRailSource = nil
+            tripRailLayer = nil
+        }
+        
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.departureStaionId = departure.name
+            strongSelf.arraivalStaionId = arraival.name
+            let tripDirection = strongSelf.presenter.tripDirection(from: departure, to: arraival)
+            var tripCordinates = [[Double]]()
+            
+            switch tripDirection {
+            case .buenavistaToCuautitlan:
+                tripCordinates = Array(strongSelf.railCordinates[arraival.id...departure.id])
+            case .cuautitlanToBuenavista:
+                tripCordinates = Array(strongSelf.railCordinates[departure.id...arraival.id])
+            }
+            
+            let tripMapCordinates = tripCordinates.map { cordinate in
+                return CLLocationCoordinate2D(latitude: cordinate.last ?? 0, longitude: cordinate.first ?? 0)
+            }
+            let tripLine = MGLPolyline(coordinates: tripMapCordinates, count: UInt(tripMapCordinates.count))
+            let source = MGLShapeSource(identifier: "trip", shape: tripLine, options: nil)
+            let layer = MGLLineStyleLayer(identifier: "trip", source: source)
+            layer.sourceLayerIdentifier = "trip"
+            layer.lineWidth = NSExpression(forConstantValue: Constants.railRoadWith)
+            layer.lineColor = NSExpression(forConstantValue: Theme.Pallete.blue)
+            layer.lineCap = NSExpression(forConstantValue: "round")
+            
+            strongSelf.tripRailSource = source
+            strongSelf.tripRailLayer = layer
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.mapView.style?.addSource(source)
+                strongSelf.mapView.style?.addLayer(layer)
+                
+                for anomtation in strongSelf.mapView.annotations ?? [] {
+                    guard let marker = strongSelf.mapView.view(for: anomtation) as? StationMapAnnotation else { continue }
+                    marker.diaplayStyle = .trip(active: marker.id == departure.name || marker.id == arraival.name)
+                }
+                
+                let menuOffset = Utils.screenHeight - strongSelf.mapView.frame.height
+                let tempCamera = strongSelf.mapView.cameraThatFitsShape(tripLine,
+                                                             direction: tripDirection.direction,
+                                                             edgePadding: UIEdgeInsets(top: 10, left: 20, bottom: Utils.screenHeight * 0.7 - menuOffset, right: 20))
+                strongSelf.mapView.setCamera(tempCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
             }
         }
     }

@@ -13,7 +13,7 @@ extension ActivitiesBoardViewController: UITableViewDataSource, UITableViewDeleg
         activitiesTable.dataSource = self
         activitiesTable.delegate = self
         activitiesTable.separatorStyle = .none
-        activitiesTable.rowHeight = UITableViewAutomaticDimension
+        activitiesTable.rowHeight = UITableView.automaticDimension
         activitiesTable.register(AcvtivityCell.self, forCellReuseIdentifier: AcvtivityCell.reuseIdentifier)
         activitiesTable.reloadData()
     }
@@ -51,7 +51,7 @@ extension ActivitiesBoardViewController: AcvtivityCellDelegate {
     
     func openSettings() {
         // TODO: No llamar app delegate usar Notificaciones
-        guard let appSettings = URL(string: UIApplicationOpenSettingsURLString + Bundle.main.bundleIdentifier!),
+        guard let appSettings = URL(string: UIApplication.openSettingsURLString + Bundle.main.bundleIdentifier!),
             UIApplication.shared.canOpenURL(appSettings) else { return }
         UIApplication.shared.open(appSettings)
     }

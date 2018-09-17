@@ -20,9 +20,9 @@ extension UIStackView {
         }
     }
     
-    static func with(axis: UILayoutConstraintAxis = .horizontal,
-                     distribution: UIStackViewDistribution = .fillProportionally,
-                     alignment: UIStackViewAlignment = .fill,
+    static func with(axis: NSLayoutConstraint.Axis = .horizontal,
+                     distribution: UIStackView.Distribution = .fillProportionally,
+                     alignment: UIStackView.Alignment = .fill,
                      spacing: CGFloat = 0) -> UIStackView {
         let stack = UIStackView()
         stack.axis = axis

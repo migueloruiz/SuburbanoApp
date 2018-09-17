@@ -19,12 +19,12 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
         safeServices.forEach { $0.applicationDidFinishLaunching?(application) }
     }
     
-    open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+    open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         let result = safeServices.map { $0.application?(application, didFinishLaunchingWithOptions: launchOptions) ?? true }
         return !result.contains(false)
     }
     
-    open func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+    open func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         let result = safeServices.map { $0.application?(application, willFinishLaunchingWithOptions: launchOptions) ?? true }
         return !result.contains(false)
     }

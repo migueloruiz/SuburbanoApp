@@ -38,7 +38,7 @@ class LoadingView: UIView {
     func show(hiddingView: UIView? = nil) {
         animation.loopAnimation = true
         superview?.endEditing(true)
-        superview?.bringSubview(toFront: self)
+        superview?.bringSubviewToFront(self)
         
         dispatchGroup.enter()
         UIView.animate(withDuration: Constants.animationDuartion, delay: 0, options: .curveEaseInOut, animations: { [weak self] in
@@ -55,7 +55,7 @@ class LoadingView: UIView {
         dispatchGroup.enter()
         animation.loopAnimation = true
         superview?.endEditing(true)
-        superview?.bringSubview(toFront: self)
+        superview?.bringSubviewToFront(self)
         
         alpha = 1
         hiddingView?.alpha = 0
@@ -69,9 +69,9 @@ class LoadingView: UIView {
         dispatchGroup.notify(queue: .main, execute: { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.animation.stop()
-            strongSelf.superview?.sendSubview(toBack: strongSelf)
+            strongSelf.superview?.sendSubviewToBack(strongSelf)
             if let hiddingView = hiddingView {
-                strongSelf.superview?.bringSubview(toFront: hiddingView)
+                strongSelf.superview?.bringSubviewToFront(hiddingView)
             }
             
             UIView.animate(withDuration: Constants.animationDuartion, delay: 0, options: .curveEaseInOut, animations: { [weak self] in

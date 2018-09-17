@@ -10,18 +10,18 @@ import UIKit
 
 class DeatilConectionsCell: UITableViewCell, DetailCell, ReusableIdentifier {
     
-    private let stackView = UIStackView.with(distribution: UIStackViewDistribution.fillProportionally, alignment: UIStackViewAlignment.trailing)
+    private let stackView = UIStackView.with(distribution: UIStackView.Distribution.fillProportionally, alignment: UIStackView.Alignment.trailing)
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureLayout()
     }
     
     private func configure() {
         selectionStyle = .none
-        accessibilityTraits = UIAccessibilityTraitNotEnabled
+        accessibilityTraits = .notEnabled
     }
     
     private func configureLayout() {

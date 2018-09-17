@@ -70,8 +70,8 @@ class CardBalanceViewController: UIViewController, PresentableView {
         setUIwithCard()
         loadingView.configure()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func setUIwithCard() {
@@ -145,7 +145,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
         
         cardNumberInput.anchor(top: cardBalanceIconView.bottomAnchor, left: formContinerView.leftAnchor, right: formContinerView.rightAnchor, topConstant: Theme.Offset.large)
         
-        let topConstraint = useDisclaimerView.topAnchor.constraintGreaterThanOrEqualToSystemSpacingBelow(cardNumberInput.bottomAnchor, multiplier: 1)
+        let topConstraint = useDisclaimerView.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: cardNumberInput.bottomAnchor, multiplier: 1)
         topConstraint.isActive = true
         topConstraint.constant = Theme.Offset.normal
         useDisclaimerView.anchor(left: formContinerView.leftAnchor, right: formContinerView.rightAnchor)
@@ -182,7 +182,7 @@ extension CardBalanceViewController {
     }
     
     @objc func keyboardWillShow(notification: Notification) {
-        guard let keyboard = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
+        guard let keyboard = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         bottomButtonsConstraint?.constant = -(keyboard.cgRectValue.height + Theme.Offset.normal)
         view.layoutIfNeeded()
     }

@@ -61,7 +61,7 @@ class MainNavigationViewController: UIViewController {
     
     private func configureLayout() {
         view.addSubViews([pageViewController.view, menuView])
-        addChildViewController(pageViewController)
+        addChild(pageViewController)
         pageViewController.view.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: menuView.topAnchor, right: view.rightAnchor)
         
         menuView.anchor(top: pageViewController.view.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
@@ -93,7 +93,7 @@ class MainNavigationViewController: UIViewController {
     }
     
     fileprivate func setView(at index: Int) {
-        let direction: UIPageViewControllerNavigationDirection = index > pageIndex ? .forward : .reverse
+        let direction: UIPageViewController.NavigationDirection = index > pageIndex ? .forward : .reverse
         pageIndex = index
         let controller = viewControllers[pageIndex]
         statusBarStyle = controller.preferredStatusBarStyle

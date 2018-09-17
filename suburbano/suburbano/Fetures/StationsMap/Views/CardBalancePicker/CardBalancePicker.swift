@@ -78,11 +78,11 @@ class CardBalancePicker: UIView {
         if cards.isEmpty {
             containerView.isHidden = true
             emptyMessageView.isHidden = false
-            bringSubview(toFront: emptyMessageView)
+            bringSubviewToFront(emptyMessageView)
         } else {
             containerView.isHidden = false
             emptyMessageView.isHidden = true
-            bringSubview(toFront: containerView)
+            bringSubviewToFront(containerView)
         }
         cardsCollection.reloadData()
         cardsCollection.collectionViewLayout.finalizeCollectionViewUpdates()

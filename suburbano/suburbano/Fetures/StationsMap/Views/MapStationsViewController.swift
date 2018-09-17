@@ -111,7 +111,7 @@ class MapStationsViewController: NavigationalViewController {
     
     @objc func centerMap() {
         mapView.setContentInset(Constants.defaultEdges, animated: true)
-        mapView.setCamera(defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+        mapView.setCamera(defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn))
         centerMapButton.isHidden = true
     }
 }
@@ -147,7 +147,7 @@ extension MapStationsViewController: MGLMapViewDelegate {
                 strongSelf.mapView.style?.addLayer(layer)
                 strongSelf.mapView.setContentInset(Constants.defaultEdges, animated: true)
                 strongSelf.defaultCamera = mapView.cameraThatFitsCoordinateBounds(polyline.overlayBounds)
-                strongSelf.mapView.setCamera(strongSelf.defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+                strongSelf.mapView.setCamera(strongSelf.defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn))
             }
         }
     }
@@ -266,11 +266,11 @@ extension MapStationsViewController: UIViewControllerTransitioningDelegate {
             strongSelf.flowDelegate?.stationSelected(station: station)
             let tempCamera = strongSelf.mapView.camera
             tempCamera.centerCoordinate = anotation.coordinate
-            strongSelf.mapView.setCamera(tempCamera, withDuration: 0.3, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)) {
+            strongSelf.mapView.setCamera(tempCamera, withDuration: 0.3, animationTimingFunction: CAMediaTimingFunction(name: .easeIn)) {
                 marker.diaplayStyle = .detail
                 let endCamera = strongSelf.mapView.camera
                 endCamera.altitude = Constants.detailZoomLevel
-                strongSelf.mapView.setCamera(endCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+                strongSelf.mapView.setCamera(endCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn))
             }
         }
     }
@@ -340,8 +340,8 @@ extension MapStationsViewController: RouteCameraDelegate {
                 let menuOffset = Utils.screenHeight - strongSelf.mapView.frame.height
                 let tempCamera = strongSelf.mapView.cameraThatFitsShape(tripLine,
                                                              direction: tripDirection.direction,
-                                                             edgePadding: UIEdgeInsets(top: 10, left: 20, bottom: Utils.screenHeight * 0.7 - menuOffset, right: 20))
-                strongSelf.mapView.setCamera(tempCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+                                                             edgePadding: UIEdgeInsets(top: 0, left: 20, bottom: Utils.screenHeight * 0.6 - menuOffset, right: 20))
+                strongSelf.mapView.setCamera(tempCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn))
             }
         }
     }

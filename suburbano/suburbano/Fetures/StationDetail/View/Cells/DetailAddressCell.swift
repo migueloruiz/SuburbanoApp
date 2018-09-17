@@ -20,7 +20,7 @@ class DetailAddressCell: UITableViewCell, DetailCell, ReusableIdentifier {
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureUI()
         configureLayout()
@@ -28,7 +28,7 @@ class DetailAddressCell: UITableViewCell, DetailCell, ReusableIdentifier {
     
     private func configureUI() {
         selectionStyle = .none
-        accessibilityTraits = UIAccessibilityTraitNotEnabled
+        accessibilityTraits = UIAccessibilityTraits.notEnabled
         addressLable.textColor = Theme.Pallete.darkGray
         addressButton.addTarget(self, action: #selector(DetailAddressCell.showLocation), for: .touchUpInside)
     }

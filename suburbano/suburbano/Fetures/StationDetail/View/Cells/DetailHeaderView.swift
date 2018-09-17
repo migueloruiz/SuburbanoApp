@@ -23,13 +23,13 @@ class DetailHeaderView: UITableViewHeaderFooterView, ReusableIdentifier {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: UIViewNoIntrinsicMetric)
+        return CGSize(width: UIView.noIntrinsicMetric, height: UIView.noIntrinsicMetric)
     }
     
     private func configureUI() {
         backgroundView = UIView(frame: bounds)
         backgroundView?.backgroundColor = .white
-        accessibilityTraits = UIAccessibilityTraitNotEnabled
+        accessibilityTraits = UIAccessibilityTraits.notEnabled
         addressLabel.textColor = Theme.Pallete.darkGray // TODO: Add Theme
     }
     

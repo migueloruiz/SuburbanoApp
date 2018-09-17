@@ -13,7 +13,7 @@ final class RealmAppDelegate: NSObject, UIApplicationDelegate {
     
     static let shared = RealmAppDelegate()
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         realmSetup()
         return true
     }

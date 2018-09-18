@@ -24,19 +24,18 @@ class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning
         }
         
         let containerView = toViewController.containerView
-        let backButton = toViewController.backButton
-        backButton.alpha = 0
+        toViewController.backButton.alpha = 0
         let finalScale = containerView.transform
-        let finalFrameBack = backButton.transform
         transitionContext.containerView.addSubview(toViewController.view)
         toViewController.view.backgroundColor = .clear
         containerView.transform = containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
-        backButton.transform = backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
+        let finalFrameBack = toViewController.backButton.transform
+        toViewController.backButton.transform = toViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             containerView.transform = finalScale
-            backButton.transform = finalFrameBack
-            backButton.alpha = 1
+            toViewController.backButton.transform = finalFrameBack
+            toViewController.backButton.alpha = 1
             selectedViewCpntroller.buttonsContiner.transform = selectedViewCpntroller.buttonsContiner.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
             selectedViewCpntroller.buttonsContiner.alpha = 0
         }, completion: { _ in
@@ -60,15 +59,14 @@ class StationDetailTransitionOut: NSObject, UIViewControllerAnimatedTransitionin
         }
         
         let containerView = fromViewController.containerView
-        let backButton = fromViewController.backButton
         let finalScale = containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
-        let finalFrameBack = backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
+        let finalFrameBack = fromViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
         selectedViewCpntroller.backFromDetailCamera()
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             containerView.transform = finalScale
-            backButton.transform = finalFrameBack
-            backButton.alpha = 0
+            fromViewController.backButton.transform = finalFrameBack
+            fromViewController.backButton.alpha = 0
             selectedViewCpntroller.buttonsContiner.transform = selectedViewCpntroller.buttonsContiner.transform.translatedBy(x: 0, y: Theme.Offset.extralarge)
             selectedViewCpntroller.buttonsContiner.alpha = 1
         }, completion: { _ in

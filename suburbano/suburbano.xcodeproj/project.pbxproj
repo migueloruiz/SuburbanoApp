@@ -12,6 +12,7 @@
 		8611AF8021017D3F0002663B /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7F21017D3F0002663B /* FontStyle.swift */; };
 		8611AF83210186100002663B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8611AF82210186100002663B /* Montserrat-Medium.ttf */; };
 		8611C836214ED5B400FFBC23 /* RouteCalculatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C835214ED5B400FFBC23 /* RouteCalculatorPresenter.swift */; };
+		8614723E2151A7320042BBB8 /* MenuTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614723D2151A7320042BBB8 /* MenuTextCell.swift */; };
 		861FC57F210FF7BD0024783A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC57E210FF7BD0024783A /* Date.swift */; };
 		861FC581211010480024783A /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC580211010480024783A /* UIEdgeInsets.swift */; };
 		861FC583211015460024783A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC582211015460024783A /* UIStackView.swift */; };
@@ -88,10 +89,11 @@
 		86593C3A2150443E00383445 /* PricesWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C392150443E00383445 /* PricesWebService.swift */; };
 		86593C3E2150456400383445 /* ResilienceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3D2150456400383445 /* ResilienceHandler.swift */; };
 		86593C4021505CB500383445 /* RouteInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3F21505CB500383445 /* RouteInfoView.swift */; };
+		86593C4221507CCD00383445 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C4121507CCD00383445 /* MenuView.swift */; };
 		867468E221018BAD00E4809D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867468E121018BAD00E4809D /* String.swift */; };
 		867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */; };
 		868128462122748900A7A011 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128452122748900A7A011 /* MainNavigationViewController.swift */; };
-		868128482123AAF200A7A011 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128472123AAF200A7A011 /* MenuItemView.swift */; };
+		868128482123AAF200A7A011 /* MenuIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128472123AAF200A7A011 /* MenuIconCell.swift */; };
 		868128512123BAFA00A7A011 /* MoreBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128502123BAFA00A7A011 /* MoreBoardViewController.swift */; };
 		868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */; };
 		868D009620F00FFF00C9D8B1 /* suburbanoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D009520F00FFF00C9D8B1 /* suburbanoTests.swift */; };
@@ -194,6 +196,7 @@
 		8611AF7F21017D3F0002663B /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		8611AF82210186100002663B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "suburbano/Assets/Fonts/Montserrat-Medium.ttf"; sourceTree = SOURCE_ROOT; };
 		8611C835214ED5B400FFBC23 /* RouteCalculatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCalculatorPresenter.swift; sourceTree = "<group>"; };
+		8614723D2151A7320042BBB8 /* MenuTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTextCell.swift; sourceTree = "<group>"; };
 		861FC57E210FF7BD0024783A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		861FC580211010480024783A /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		861FC582211015460024783A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
@@ -252,6 +255,7 @@
 		86593C392150443E00383445 /* PricesWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesWebService.swift; sourceTree = "<group>"; };
 		86593C3D2150456400383445 /* ResilienceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResilienceHandler.swift; sourceTree = "<group>"; };
 		86593C3F21505CB500383445 /* RouteInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteInfoView.swift; sourceTree = "<group>"; };
+		86593C4121507CCD00383445 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceSynchronizerAppDelegate.swift; sourceTree = "<group>"; };
 		86695E1E20F6D50600F74150 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		86695E2020F6E65900F74150 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
@@ -259,7 +263,7 @@
 		867468E121018BAD00E4809D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSansCondensed-Bold.ttf"; path = "Open_Sans_Condensed/OpenSansCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		868128452122748900A7A011 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
-		868128472123AAF200A7A011 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		868128472123AAF200A7A011 /* MenuIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuIconCell.swift; sourceTree = "<group>"; };
 		868128502123BAFA00A7A011 /* MoreBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBoardViewController.swift; sourceTree = "<group>"; };
 		868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutAnchor.swift; sourceTree = "<group>"; };
 		868D008020F00FFE00C9D8B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -421,6 +425,16 @@
 				8611C835214ED5B400FFBC23 /* RouteCalculatorPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8614723C2151A6940042BBB8 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				86593C4121507CCD00383445 /* MenuView.swift */,
+				868128472123AAF200A7A011 /* MenuIconCell.swift */,
+				8614723D2151A7320042BBB8 /* MenuTextCell.swift */,
+			);
+			path = MenuView;
 			sourceTree = "<group>";
 		};
 		862517C920F849CF002F2048 /* Data Persistence */ = {
@@ -618,6 +632,16 @@
 			path = Resilience;
 			sourceTree = "<group>";
 		};
+		86593C432151514B00383445 /* Cordinator */ = {
+			isa = PBXGroup;
+			children = (
+				86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */,
+				86C0682720F4227900A6B17A /* Coordinator.swift */,
+				86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */,
+			);
+			path = Cordinator;
+			sourceTree = "<group>";
+		};
 		86695E1D20F6D3F900F74150 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -650,8 +674,8 @@
 		868128442122746500A7A011 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8614723C2151A6940042BBB8 /* MenuView */,
 				868128452122748900A7A011 /* MainNavigationViewController.swift */,
-				868128472123AAF200A7A011 /* MenuItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1133,9 +1157,7 @@
 		86C0681E20F4168C00A6B17A /* AppLaunch */ = {
 			isa = PBXGroup;
 			children = (
-				86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */,
-				86C0682720F4227900A6B17A /* Coordinator.swift */,
-				86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */,
+				86593C432151514B00383445 /* Cordinator */,
 				868128442122746500A7A011 /* Views */,
 			);
 			path = AppLaunch;
@@ -1415,6 +1437,7 @@
 				86593C3721502E0A00383445 /* TripPriceRepository.swift in Sources */,
 				868128462122748900A7A011 /* MainNavigationViewController.swift in Sources */,
 				8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */,
+				86593C4221507CCD00383445 /* MenuView.swift in Sources */,
 				86385C862133747E002EA9DF /* Card.swift in Sources */,
 				8652A361212A407600ED1910 /* CardBalanceViewController.swift in Sources */,
 				8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */,
@@ -1458,7 +1481,7 @@
 				13B53F332142D78200848B8D /* DirectionDetailsTransition.swift in Sources */,
 				86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */,
 				86B830FB2138AA630063AC75 /* StationsUseCase.swift in Sources */,
-				868128482123AAF200A7A011 /* MenuItemView.swift in Sources */,
+				868128482123AAF200A7A011 /* MenuIconCell.swift in Sources */,
 				869E2CC721250C9300B2FA9F /* PopUpViewController.swift in Sources */,
 				868D2614214B361900700DE7 /* RouteCalculatorCordinator.swift in Sources */,
 				861FC583211015460024783A /* UIStackView.swift in Sources */,
@@ -1510,6 +1533,7 @@
 				8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */,
 				86B831012138C1920063AC75 /* StationDetailCordinator.swift in Sources */,
 				862517E720FD8001002F2048 /* RealmActivity.swift in Sources */,
+				8614723E2151A7320042BBB8 /* MenuTextCell.swift in Sources */,
 				8621A31020F7107000A2D8B1 /* DecodingError.swift in Sources */,
 				86385C8C2133840E002EA9DF /* CardUseCaseImpl.swift in Sources */,
 				862517DA20FD7851002F2048 /* ErrorResponse.swift in Sources */,

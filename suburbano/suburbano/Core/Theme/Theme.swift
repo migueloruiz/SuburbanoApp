@@ -57,6 +57,7 @@ struct Theme {
         static let large: CGFloat = 20
         static let normal: CGFloat = 10
         static let small: CGFloat = 5
+        static let selector: CGFloat = 2
         static let separator: CGFloat = 1
     }
     

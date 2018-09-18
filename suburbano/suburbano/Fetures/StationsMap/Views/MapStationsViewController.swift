@@ -31,7 +31,7 @@ class MapStationsViewController: NavigationalViewController {
         static let detailZoomLevel = 11000.0
     }
     
-    override var navgationIcon: UIImage { return #imageLiteral(resourceName: "TrainIcon") }
+    override var navgationIcon: String { return "TrainIcon" }
     
     private weak var flowDelegate: StationsMapFlowDelegate?
     

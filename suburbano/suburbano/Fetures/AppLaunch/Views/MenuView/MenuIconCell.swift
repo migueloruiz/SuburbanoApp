@@ -1,5 +1,5 @@
 //
-//  MenuItemView.swift
+//  MenuIconCell.swift
 //  suburbano
 //
 //  Created by Miguel Ruiz on 14/08/18.
@@ -8,7 +8,11 @@
 
 import UIKit
 
-class MenuItemView: UICollectionViewCell, ReusableIdentifier {
+protocol MenuCell {
+    func configure(withValue value: String)
+}
+
+class MenuIconCell: UICollectionViewCell, ReusableIdentifier, MenuCell {
     
     struct Constants {
         static let size: CGFloat = Theme.IconSize.small
@@ -32,8 +36,8 @@ class MenuItemView: UICollectionViewCell, ReusableIdentifier {
         iconView.tintColor = Theme.Pallete.softGray
     }
     
-    func configure(image: UIImage) {
-        iconView.image = image.withRenderingMode(.alwaysTemplate)
+    func configure(withValue value: String) {
+        iconView.image = UIImage(named: value)
     }
     
     override var isSelected: Bool {

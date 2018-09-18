@@ -10,7 +10,7 @@ import UIKit
 
 class MoreBoardViewController: NavigationalViewController {
     
-    override var navgationIcon: UIImage { return #imageLiteral(resourceName: "MoreIcon") }
+    override var navgationIcon: String { return "MoreIcon" }
     
     override func viewDidLoad() {
         super.viewDidLoad()

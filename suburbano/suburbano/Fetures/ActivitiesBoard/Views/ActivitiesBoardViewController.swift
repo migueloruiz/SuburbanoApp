@@ -22,7 +22,7 @@ class ActivitiesBoardViewController: NavigationalViewController {
     }()
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-    override var navgationIcon: UIImage { return #imageLiteral(resourceName: "NewspaperIcon") }
+    override var navgationIcon: String { return "NewspaperIcon" }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     

@@ -17,13 +17,16 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
     
     let containerView = UIFactory.createContainerView()
     let backButton = UIButton()
+    
     private let presenter: RouteCalculatorPresenter
     private let resultsContainer = UIFactory.createContainerView()
     private let departurePicker = UIPickerView()
     private let departureLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
     private let arrivalPicker = UIPickerView()
+    private let backView = UIView()
     private let arrivalLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
     private let routeInfoView = RouteInfoView()
+    private let scheduleSelctor = MenuView(menuItemCase: .text, selectorStyle: .bottom, itemHeigth: Theme.IconSize.normal)
     
     weak var routeCameraDelegate: RouteCameraDelegate?
     
@@ -41,11 +44,9 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
     }
     
     private func configureUI() {
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(StationDetailViewController.close)))
-        
-        departureLabel.text = "SALIDA"
+        departureLabel.text = "SALIDA" //Localize
         departureLabel.textColor = Theme.Pallete.darkGray
-        arrivalLabel.text = "LLEGADA"
+        arrivalLabel.text = "LLEGADA" //Localize
         arrivalLabel.textColor = Theme.Pallete.darkGray
         
         departurePicker.delegate = self
@@ -60,20 +61,24 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         departurePicker.reloadAllComponents()
         arrivalPicker.reloadAllComponents()
         
+        scheduleSelctor.configure(items: ["Lunes a Viernes", "Sabados", "Domingos y Festivos"]) //Localize
+        
         backButton.set(image: #imageLiteral(resourceName: "down-arrow"), color: Theme.Pallete.darkGray)
         backButton.addTarget(self, action: #selector(StationDetailViewController.close), for: .touchUpInside)
+        backView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(StationDetailViewController.close)))
     }
     
     private func configureLayout() {
-        view.addSubViews([containerView, backButton])
+        view.addSubViews([containerView, backView, backButton])
+        backView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: containerView.topAnchor, right: view.rightAnchor)
 
         containerView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, bottomConstant: -Theme.Offset.large)
         containerView.anchorSize(height: (Utils.screenHeight * 0.7) + Theme.Offset.large) // TODO
         
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
-        backButton.anchorSize(width: 25, height: 25) // TODO
+        backButton.anchorSquare(size: 25) // TODO
         
-        containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel, routeInfoView])
+        containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel, routeInfoView, scheduleSelctor])
         
         departureLabel.anchor(top: containerView.topAnchor, bottom: departurePicker.topAnchor, topConstant: Theme.Offset.normal, bottomConstant: -Theme.Offset.normal)
         departureLabel.center(x: departurePicker.centerXAnchor, y: nil)
@@ -86,6 +91,8 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         arrivalPicker.anchor(top: departurePicker.topAnchor, left: view.centerXAnchor, bottom: departurePicker.bottomAnchor, right: containerView.rightAnchor)
         
         routeInfoView.anchor(top: arrivalPicker.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor)
+        
+        scheduleSelctor.anchor(top: routeInfoView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor)
     }
     
     private func setSelectedStations() {

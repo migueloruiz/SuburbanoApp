@@ -28,8 +28,12 @@ class RouteCalculatorTransitionIn: NSObject, UIViewControllerAnimatedTransitioni
         let finalScalePickerContainer = toViewController.containerView.transform
         toViewController.containerView.transform = finalScalePickerContainer.translatedBy(x: 0, y: Utils.screenHeight)
         toViewController.containerView.alpha = 0
+        let finalFrameBack = toViewController.backButton.transform
+        toViewController.backButton.transform = toViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
+            toViewController.backButton.transform = finalFrameBack
+            toViewController.backButton.alpha = 1
             toViewController.containerView.transform = finalScalePickerContainer
             toViewController.containerView.alpha = 1
             selectedViewCpntroller.buttonsContiner.transform = selectedViewCpntroller.buttonsContiner.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
@@ -55,8 +59,11 @@ class RouteCalculatorTransitionOut: NSObject, UIViewControllerAnimatedTransition
         }
         
         selectedViewCpntroller.backFromDetailCamera()
+        let finalFrameBack = fromViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
+            fromViewController.backButton.transform = finalFrameBack
+            fromViewController.backButton.alpha = 0
             fromViewController.containerView.transform = fromViewController.containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
             fromViewController.containerView.alpha = 0
             selectedViewCpntroller.buttonsContiner.transform = selectedViewCpntroller.buttonsContiner.transform.translatedBy(x: 0, y: Theme.Offset.extralarge)

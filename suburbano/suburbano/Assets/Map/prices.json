@@ -1,0 +1,13 @@
+[
+    {
+        "type": "short",
+        "price": 8.0,
+        "low_limit": 0,
+        "top_limit": 12.89
+    },{
+        "type": "large",
+        "price": 18.0,
+        "low_limit": 12.9,
+        "top_limit": 25.59
+    }
+]

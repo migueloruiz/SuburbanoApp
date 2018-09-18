@@ -80,6 +80,14 @@
 		8652A35D212915CA00ED1910 /* BalanceEmptyMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A35C212915C900ED1910 /* BalanceEmptyMessageView.swift */; };
 		8652A361212A407600ED1910 /* CardBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A360212A407600ED1910 /* CardBalanceViewController.swift */; };
 		8652A363212B2D3500ED1910 /* CardBalanceTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A362212B2D3500ED1910 /* CardBalanceTransition.swift */; };
+		86593C2A215020A100383445 /* prices.json in Resources */ = {isa = PBXBuildFile; fileRef = 86593C29215020A100383445 /* prices.json */; };
+		86593C2D2150261F00383445 /* RouteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C2C2150261F00383445 /* RouteUseCase.swift */; };
+		86593C3321502A5900383445 /* TripPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3221502A5900383445 /* TripPrice.swift */; };
+		86593C3521502BC700383445 /* RealmTripPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3421502BC700383445 /* RealmTripPrice.swift */; };
+		86593C3721502E0A00383445 /* TripPriceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3621502E0A00383445 /* TripPriceRepository.swift */; };
+		86593C3A2150443E00383445 /* PricesWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C392150443E00383445 /* PricesWebService.swift */; };
+		86593C3E2150456400383445 /* ResilienceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3D2150456400383445 /* ResilienceHandler.swift */; };
+		86593C4021505CB500383445 /* RouteInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3F21505CB500383445 /* RouteInfoView.swift */; };
 		867468E221018BAD00E4809D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867468E121018BAD00E4809D /* String.swift */; };
 		867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */; };
 		868128462122748900A7A011 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128452122748900A7A011 /* MainNavigationViewController.swift */; };
@@ -236,6 +244,14 @@
 		8652A35C212915C900ED1910 /* BalanceEmptyMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceEmptyMessageView.swift; sourceTree = "<group>"; };
 		8652A360212A407600ED1910 /* CardBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceViewController.swift; sourceTree = "<group>"; };
 		8652A362212B2D3500ED1910 /* CardBalanceTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceTransition.swift; sourceTree = "<group>"; };
+		86593C29215020A100383445 /* prices.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = prices.json; sourceTree = "<group>"; };
+		86593C2C2150261F00383445 /* RouteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteUseCase.swift; sourceTree = "<group>"; };
+		86593C3221502A5900383445 /* TripPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPrice.swift; sourceTree = "<group>"; };
+		86593C3421502BC700383445 /* RealmTripPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTripPrice.swift; sourceTree = "<group>"; };
+		86593C3621502E0A00383445 /* TripPriceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPriceRepository.swift; sourceTree = "<group>"; };
+		86593C392150443E00383445 /* PricesWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesWebService.swift; sourceTree = "<group>"; };
+		86593C3D2150456400383445 /* ResilienceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResilienceHandler.swift; sourceTree = "<group>"; };
+		86593C3F21505CB500383445 /* RouteInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteInfoView.swift; sourceTree = "<group>"; };
 		86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceSynchronizerAppDelegate.swift; sourceTree = "<group>"; };
 		86695E1E20F6D50600F74150 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		86695E2020F6E65900F74150 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
@@ -473,7 +489,6 @@
 			children = (
 				86385C8921338392002EA9DF /* CardUseCase.swift */,
 				86385C8B2133840E002EA9DF /* CardUseCaseImpl.swift */,
-				869E1D0F2134BA04004BE0A9 /* CardRepository.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -481,6 +496,7 @@
 		86385C82213373AF002EA9DF /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				869E1D0F2134BA04004BE0A9 /* CardRepository.swift */,
 				86385C852133747E002EA9DF /* Card.swift */,
 				86385C8721337558002EA9DF /* RealmCard.swift */,
 			);
@@ -556,6 +572,50 @@
 				86B830E921385FBB0063AC75 /* PromptView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		86593C2B215025EE00383445 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				86593C382150441A00383445 /* Networking */,
+				86593C3121502A3000383445 /* Repository */,
+				86593C3021502A1E00383445 /* UseCase */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		86593C3021502A1E00383445 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				86593C2C2150261F00383445 /* RouteUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		86593C3121502A3000383445 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				86593C3221502A5900383445 /* TripPrice.swift */,
+				86593C3421502BC700383445 /* RealmTripPrice.swift */,
+				86593C3621502E0A00383445 /* TripPriceRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		86593C382150441A00383445 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				86593C392150443E00383445 /* PricesWebService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		86593C3C2150454A00383445 /* Resilience */ = {
+			isa = PBXGroup;
+			children = (
+				86593C3D2150456400383445 /* ResilienceHandler.swift */,
+			);
+			path = Resilience;
 			sourceTree = "<group>";
 		};
 		86695E1D20F6D3F900F74150 /* Networking */ = {
@@ -693,6 +753,7 @@
 				86C0680220F0175800A6B17A /* train-rail.geojson */,
 				86C0680420F01F7D00A6B17A /* mapStyle.json */,
 				86B830ED213896F30063AC75 /* stations.json */,
+				86593C29215020A100383445 /* prices.json */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -700,6 +761,7 @@
 		868D2610214B35D800700DE7 /* RouteCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				86593C2B215025EE00383445 /* Core */,
 				8611C834214ED59B00FFBC23 /* Presenter */,
 				868D2611214B35E900700DE7 /* Cordinator */,
 				868D2612214B35F500700DE7 /* Views */,
@@ -720,6 +782,7 @@
 			children = (
 				868D2615214B362500700DE7 /* RouteCalculatorViewController.swift */,
 				868D2617214B3AD000700DE7 /* RouteCalculatorTransition.swift */,
+				86593C3F21505CB500383445 /* RouteInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -846,7 +909,6 @@
 		86B830DF21376CE80063AC75 /* CardBalancePicker */ = {
 			isa = PBXGroup;
 			children = (
-				8652A35A2129074700ED1910 /* CardBalancePicker.swift */,
 				8652A35C212915C900ED1910 /* BalanceEmptyMessageView.swift */,
 				86B830E0213843FB0063AC75 /* CardCell.swift */,
 				86B830E2213844440063AC75 /* FadingCollectionLayout.swift */,
@@ -875,6 +937,7 @@
 		86B830F0213898350063AC75 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				8652A35A2129074700ED1910 /* CardBalancePicker.swift */,
 				86B830F12138984C0063AC75 /* Station.swift */,
 				86B830F3213899BE0063AC75 /* Location.swift */,
 				86B830F521389FD00063AC75 /* RealmStation.swift */,
@@ -1020,11 +1083,12 @@
 		86C0681420F4150C00A6B17A /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				86B830E6213857C90063AC75 /* Notifications */,
 				86C0681820F4158000A6B17A /* Constatns */,
 				862517C920F849CF002F2048 /* Data Persistence */,
 				86695E1D20F6D3F900F74150 /* Networking */,
+				86B830E6213857C90063AC75 /* Notifications */,
 				86413256210000220031F4F4 /* Protocols */,
+				86593C3C2150454A00383445 /* Resilience */,
 				8611AF7E21017D2A0002663B /* Theme */,
 				869E2CC42124FADA00B2FA9F /* Type Extentions */,
 				86C0681D20F4162F00A6B17A /* UI Extension */,
@@ -1262,6 +1326,7 @@
 				864C6FDD212CE7DE0072C26B /* IconsCataloge.ttf in Resources */,
 				8621A2E620F6FE0A00A2D8B1 /* mapStyle.json in Resources */,
 				8611AF83210186100002663B /* Montserrat-Medium.ttf in Resources */,
+				86593C2A215020A100383445 /* prices.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1338,6 +1403,7 @@
 				862517D120FD6ED0002F2048 /* UseCaseLocator.swift in Sources */,
 				86B830EC21388E420063AC75 /* CardParser.swift in Sources */,
 				867468E221018BAD00E4809D /* String.swift in Sources */,
+				86593C4021505CB500383445 /* RouteInfoView.swift in Sources */,
 				8652A35B2129074700ED1910 /* CardBalancePicker.swift in Sources */,
 				8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */,
 				86385C8421337437002EA9DF /* CardBalanceWebService.swift in Sources */,
@@ -1346,6 +1412,7 @@
 				861FC581211010480024783A /* UIEdgeInsets.swift in Sources */,
 				86B83114213DBF350063AC75 /* DetailHeaderView.swift in Sources */,
 				86B830EA21385FBB0063AC75 /* PromptView.swift in Sources */,
+				86593C3721502E0A00383445 /* TripPriceRepository.swift in Sources */,
 				868128462122748900A7A011 /* MainNavigationViewController.swift in Sources */,
 				8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */,
 				86385C862133747E002EA9DF /* Card.swift in Sources */,
@@ -1354,6 +1421,7 @@
 				86B830DE213765A80063AC75 /* AlertContext.swift in Sources */,
 				86B8312A2140CDFF0063AC75 /* DirectionActionView.swift in Sources */,
 				86B8311A213DC6230063AC75 /* DetailScheduleCell.swift in Sources */,
+				86593C2D2150261F00383445 /* RouteUseCase.swift in Sources */,
 				86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
 				8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */,
@@ -1365,6 +1433,7 @@
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,
 				86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */,
 				868D2618214B3AD000700DE7 /* RouteCalculatorTransition.swift in Sources */,
+				86593C3521502BC700383445 /* RealmTripPrice.swift in Sources */,
 				8641325520FFFFD00031F4F4 /* AcvtivityCell.swift in Sources */,
 				86B83121213F79490063AC75 /* DirectionsDetailCordinator.swift in Sources */,
 				8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */,
@@ -1396,6 +1465,7 @@
 				8621A2D320F6FE0A00A2D8B1 /* WebResources.swift in Sources */,
 				8621A2D420F6FE0A00A2D8B1 /* RequestFactory.swift in Sources */,
 				86B831062138C95A0063AC75 /* PresentableView.swift in Sources */,
+				86593C3321502A5900383445 /* TripPrice.swift in Sources */,
 				8621A2D520F6FE0A00A2D8B1 /* MapViewFactory.swift in Sources */,
 				8621A2D620F6FE0A00A2D8B1 /* UIColor.swift in Sources */,
 				868128512123BAFA00A7A011 /* MoreBoardViewController.swift in Sources */,
@@ -1416,6 +1486,7 @@
 				86B83111213DAEBA0063AC75 /* StationDetailPresenter.swift in Sources */,
 				8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				8611AF7B21017AAD0002663B /* Theme.swift in Sources */,
+				86593C3A2150443E00383445 /* PricesWebService.swift in Sources */,
 				86B8311C213DF3AA0063AC75 /* DeatilConectionsCell.swift in Sources */,
 				8652A363212B2D3500ED1910 /* CardBalanceTransition.swift in Sources */,
 				86B8310E213DADB70063AC75 /* StationDetailViewController+DataSource.swift in Sources */,
@@ -1427,6 +1498,7 @@
 				863EF66B211BEC26003FEBEC /* ActivitiesBoardViewController+EventSchedule.swift in Sources */,
 				86B831282140BB5B0063AC75 /* DirectionsDetailPresenter.swift in Sources */,
 				8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */,
+				86593C3E2150456400383445 /* ResilienceHandler.swift in Sources */,
 				868D2616214B362500700DE7 /* RouteCalculatorViewController.swift in Sources */,
 				86B830DC2137422A0063AC75 /* LoadingView.swift in Sources */,
 				86B830FD2138AAE70063AC75 /* StationsUseCaseImpl.swift in Sources */,

@@ -11,7 +11,7 @@ import Foundation
 class CardUseCaseImpl: CardUseCase {
 
     let cardBalanceWebService: CardBalanceWebService
-    let cardRepository: CardRepository
+    let cardRepository: CardRepository // Decouple Repository
     
     init(cardBalanceWebService: CardBalanceWebService,
          cardRepository: CardRepository) {

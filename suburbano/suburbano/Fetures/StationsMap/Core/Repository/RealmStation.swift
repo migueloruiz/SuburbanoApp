@@ -17,6 +17,8 @@ class RealmStation: Object, StationEntity {
     @objc dynamic var markerImage: String = ""
     @objc dynamic var markerTitleImage: String = ""
     @objc dynamic var titleSide: Bool = false
+    @objc dynamic var time: Int = 0
+    @objc dynamic var distance: Float = 0
     @objc dynamic var safeRailLocation: RealmLocation?
     @objc dynamic var safeAccessLocation: RealmLocation?
     

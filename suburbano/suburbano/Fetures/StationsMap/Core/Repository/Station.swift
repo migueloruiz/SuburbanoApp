@@ -16,6 +16,8 @@ protocol StationEntity {
     var markerImage: String { get }
     var markerTitleImage: String { get }
     var titleSide: Bool { get }
+    var time: Int { get }
+    var distance: Float { get }
     var railLocation: Location { get }
     var accessLocation: Location { get }
 }
@@ -29,6 +31,8 @@ struct Station: StationEntity, Codable {
     let markerImage: String
     let markerTitleImage: String
     let titleSide: Bool
+    let time: Int
+    let distance: Float
     let railLocation: Location
     let accessLocation: Location
     
@@ -40,6 +44,8 @@ struct Station: StationEntity, Codable {
         case markerImage = "marker_image"
         case markerTitleImage = "marker_title_image"
         case titleSide = "title_side"
+        case time = "time"
+        case distance = "distance"
         case railLocation = "rail_location"
         case accessLocation = "access_location"
     }
@@ -54,6 +60,8 @@ struct Station: StationEntity, Codable {
             markerImage = try values.decode(String.self, forKey: .markerImage)
             markerTitleImage = try values.decode(String.self, forKey: .markerTitleImage)
             titleSide = try values.decode(Bool.self, forKey: .titleSide)
+            time = try values.decode(Int.self, forKey: .time)
+            distance = try values.decode(Float.self, forKey: .distance)
             railLocation = try values.decode(Location.self, forKey: .railLocation)
             accessLocation = try values.decode(Location.self, forKey: .accessLocation)
         } catch let jsonError {

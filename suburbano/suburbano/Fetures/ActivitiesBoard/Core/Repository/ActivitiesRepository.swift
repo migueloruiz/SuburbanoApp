@@ -12,7 +12,11 @@ class ActivitiesRepository: RepositoryRealm {
     typealias RealElement = RealmActivity
     typealias Element = Activity
     
-    var realmHandler: RealmHandler = RealmHandler()
+    let realmHandler: RealmHandler
+    
+    init(realmHandler: RealmHandler) {
+        self.realmHandler = realmHandler
+    }
     
     func get(forKey key: String) -> Activity? {
         guard let realmActivity = realmHandler.get(ofType: RealmActivity.self, forKey: key) else { return nil }

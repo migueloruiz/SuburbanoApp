@@ -23,6 +23,7 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
     private let departureLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
     private let arrivalPicker = UIPickerView()
     private let arrivalLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
+    private let routeInfoView = RouteInfoView()
     
     weak var routeCameraDelegate: RouteCameraDelegate?
     
@@ -36,11 +37,7 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         super.viewDidLoad()
         configureUI()
         configureLayout()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setSelectedStations()
+        presenter.load()
     }
     
     private func configureUI() {
@@ -76,7 +73,7 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
         backButton.anchorSize(width: 25, height: 25) // TODO
         
-        containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel])
+        containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel, routeInfoView])
         
         departureLabel.anchor(top: containerView.topAnchor, bottom: departurePicker.topAnchor, topConstant: Theme.Offset.normal, bottomConstant: -Theme.Offset.normal)
         departureLabel.center(x: departurePicker.centerXAnchor, y: nil)
@@ -87,6 +84,8 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         departurePicker.anchor(left: containerView.leftAnchor, right: view.centerXAnchor, bottomConstant: Theme.Offset.large)
         departurePicker.anchorSize(height: 90) // TODO
         arrivalPicker.anchor(top: departurePicker.topAnchor, left: view.centerXAnchor, bottom: departurePicker.bottomAnchor, right: containerView.rightAnchor)
+        
+        routeInfoView.anchor(top: arrivalPicker.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor)
     }
     
     private func setSelectedStations() {
@@ -101,11 +100,12 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
 }
 
 extension RouteCalculatorViewController: RouteCalculatorViewDelegate {
-    func updateRouteStation(departure: Station, arraival: Station) {
+    func update(route: Route) {
         departurePicker.reloadAllComponents()
         arrivalPicker.reloadAllComponents()
         setSelectedStations()
-        routeCameraDelegate?.setRouteCamera(departure: departure, arraival: arraival)
+        routeCameraDelegate?.setRouteCamera(departure: route.departure, arraival: route.arraival)
+        routeInfoView.update(with: route.information)
     }
 }
 

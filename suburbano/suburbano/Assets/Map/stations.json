@@ -7,13 +7,15 @@
   "marker_image": "BuenavistaMarker",
   "marker_title_image": "BuenavistaMarkerTitle",
   "title_side": true,
+  "time": 0,
+  "distance": 0,
   "rail_location": {
   "latitude": 19.4485249,
   "longitude": -99.1519117
   },
   "access_location": {
   "latitude": 19.447046,
-  "longitude": 99.1530583
+  "longitude": -99.1530583
   }
   },{
   "id": 124,
@@ -23,6 +25,8 @@
   "marker_image": "FortunaMarker",
   "marker_title_image": "FortunaMarkerTitle",
   "title_side": false,
+  "time": 5,
+  "distance": 5.23,
   "rail_location": {
   "latitude": 19.4919398,
   "longitude": -99.1710413
@@ -39,6 +43,8 @@
   "marker_image": "TalnepantlaMarker",
   "marker_title_image": "TalnepantlaMarkerTitle",
   "title_side": true,
+  "time": 10,
+  "distance": 10.37,
   "rail_location": {
   "latitude": 19.5366676,
   "longitude": -99.1841143
@@ -55,6 +61,8 @@
   "marker_image": "SanRafaelMarker",
   "marker_title_image": "SanRafaelMarkerTitle",
   "title_side": false,
+  "time": 13,
+  "distance": 13.76,
   "rail_location": {
   "latitude": 19.565224,
   "longitude": -99.1954601
@@ -71,6 +79,8 @@
   "marker_image": "LecheriaMarker",
   "marker_title_image": "LecheriaMarkerTitle",
   "title_side": true,
+  "time": 17,
+  "distance": 17.18,
   "rail_location": {
   "latitude": 19.5996579,
   "longitude": -99.1860026
@@ -87,6 +97,8 @@
   "marker_image": "TultitlanMarker",
   "marker_title_image": "TultitlanMarkerTitle",
   "title_side": false,
+  "time": 20,
+  "distance": 21,
   "rail_location": {
   "latitude": 19.6355092,
   "longitude": -99.1803351
@@ -103,6 +115,8 @@
   "marker_image": "CuautitlanMarker",
   "marker_title_image": "CuautitlanMarkerTitle",
   "title_side": true,
+  "time": 23,
+  "distance": 24.42,
   "rail_location": {
   "latitude": 19.6669502,
   "longitude": -99.1762689

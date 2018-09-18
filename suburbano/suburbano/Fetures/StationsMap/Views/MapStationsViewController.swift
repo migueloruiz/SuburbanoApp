@@ -105,7 +105,6 @@ class MapStationsViewController: NavigationalViewController {
     @objc func openRouteCalculator() {
         guard let departure = presenter.getStation(withName: "Buenavista"),
         let arraival = presenter.getStation(withName: "Cuautitlan") else { return }
-        setRouteCamera(departure: departure, arraival: arraival)
         flowDelegate?.openRouteCalculator(stations: presenter.getStations(), departure: departure, arraival: arraival)
     }
     

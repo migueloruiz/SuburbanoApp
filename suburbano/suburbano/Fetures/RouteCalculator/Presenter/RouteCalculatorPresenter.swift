@@ -9,6 +9,7 @@
 import Foundation
 
 protocol RouteCalculatorPresenter: class {
+    func load()
     func selectedElements() -> (departureItem: Int, arraivalItem: Int)
     func elementsFor(pickerId: Int) -> Int
     func getImage(row: Int, pickerId: Int) -> String
@@ -16,23 +17,56 @@ protocol RouteCalculatorPresenter: class {
 }
 
 protocol RouteCalculatorViewDelegate: class {
-    func updateRouteStation(departure: Station, arraival: Station)
+    func update(route: Route)
+}
+
+struct Route {
+    let departure: Station
+    let arraival: Station
+    let information: DisplayRouteInformation
+}
+
+struct DisplayRouteInformation {
+    let time: String
+    let distance: String
+    let price: String
 }
 
 class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
 
+    private let routeUseCase: RouteUseCase?
     private var stations: [Station]
     private var filterStations: [Station]
     private var departure: Station
     private var arraival: Station
     
+    private lazy var distanceFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 1
+        return formatter
+    }()
+    
     weak var viewDelegate: RouteCalculatorViewDelegate?
     
-    init(stations: [Station], departure: Station, arraival: Station) {
+    init(routeUseCase: RouteUseCase?, stations: [Station], departure: Station, arraival: Station) {
+        self.routeUseCase = routeUseCase
         self.stations = stations
         self.departure = departure
         self.arraival = arraival
         self.filterStations = stations.filter { $0.name != departure.name }
+    }
+    
+    func load() {
+        routeUseCase?.getInformation(from: departure, to: arraival) { routeInfo in
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                let route = Route(departure: strongSelf.departure,
+                                  arraival: strongSelf.arraival,
+                                  information: strongSelf.preperForDisplay(info: routeInfo))
+                strongSelf.viewDelegate?.update(route: route)
+            }
+        }
     }
     
     func elementsFor(pickerId: Int) -> Int {
@@ -56,19 +90,41 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
     }
     
     func did(selcteItem: Int, atPicker pickerId: Int) {
-        switch pickerId {
-        case 0:
-            guard stations[selcteItem] != departure else { return }
-            departure = stations[selcteItem]
-            filterStations = stations.filter { $0.name != departure.name }
-            if departure == arraival, let fisrt = filterStations.first {
-                arraival = fisrt
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let strongSelf = self else { return }
+            switch pickerId {
+            case 0:
+                guard strongSelf.stations[selcteItem] != strongSelf.departure else { return }
+                strongSelf.departure = strongSelf.stations[selcteItem]
+                strongSelf.filterStations = strongSelf.stations.filter { $0.name != strongSelf.departure.name }
+                if strongSelf.departure == strongSelf.arraival, let fisrt = strongSelf.filterStations.first {
+                    strongSelf.arraival = fisrt
+                }
+            default:
+                guard strongSelf.filterStations[selcteItem] != strongSelf.arraival else { return }
+                strongSelf.arraival = strongSelf.filterStations[selcteItem]
             }
-            viewDelegate?.updateRouteStation(departure: departure, arraival: arraival)
-        default:
-            guard filterStations[selcteItem] != arraival else { return }
-            arraival = filterStations[selcteItem]
-            viewDelegate?.updateRouteStation(departure: departure, arraival: arraival)
+            
+            strongSelf.routeUseCase?.getInformation(from: strongSelf.departure, to: strongSelf.arraival) { routeInfo in
+                DispatchQueue.main.async { [weak self] in
+                    guard let strongSelf = self else { return }
+                    let route = Route(departure: strongSelf.departure,
+                                      arraival: strongSelf.arraival,
+                                      information: strongSelf.preperForDisplay(info: routeInfo))
+                    strongSelf.viewDelegate?.update(route: route)
+                }
+            }
         }
+    }
+}
+
+extension RouteCalculatorPresenterImpl {
+    private func preperForDisplay(info: RouteInformation) -> DisplayRouteInformation {
+        var distance = distanceFormatter.string(from: info.distance as NSNumber) ?? ""
+        distance = distance.isEmpty ? "-" : distance + "Km"
+        
+        return DisplayRouteInformation(time: String(info.time) + "min",
+                                       distance: distance,
+                                       price: String(format: "$%.02f", info.price))
     }
 }

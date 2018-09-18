@@ -17,7 +17,7 @@ class UseCaseLocator {
              String(describing: ActivitiesUseCase.self):
             return ActivitiesUseCaseImpl(
                 activitiesWebService: ActivitiesWebServiceImpl(),
-                activitiesRepository: ActivitiesRepository()
+                activitiesRepository: ActivitiesRepository(realmHandler: RealmHandler())
             ) as? UseCase
 
         case String(describing: UpdateCardsBalanceUseCase.self),
@@ -27,17 +27,22 @@ class UseCaseLocator {
              String(describing: CardUseCase.self):
             return CardUseCaseImpl(
                 cardBalanceWebService: CardBalanceWebServiceImpl(),
-                cardRepository: CardRepository()
+                cardRepository: CardRepository(realmHandler: RealmHandler())
             ) as? UseCase
             
         case String(describing: GetStationsUseCase.self),
              String(describing: LoadStationsUseCase.self),
              String(describing: StationsUseCase.self):
-            return StationsUseCaseImpl() as? UseCase
-
+            return StationsUseCaseImpl(resilienceHandler: ResilienceFileHandlerImpl()) as? UseCase
+            
+        case String(describing: GetRouteInformationUseCase.self),
+             String(describing: GetRouteScheduleUseCase.self),
+             String(describing: RouteUseCase.self):
+            return RouteUseCaseImpl(repository: TripPriceRepositoryRealmImpl(realmHandler: RealmHandler()),
+                                    service: PricesWebServiceImpl(),
+                                    resilienceHandler: ResilienceFileHandlerImpl()) as? UseCase
         default:
             return nil
         }
-
     }
 }

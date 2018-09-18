@@ -11,7 +11,7 @@ import Foundation
 class ActivitiesUseCaseImpl: ActivitiesUseCase {
 
     let activitiesWebService: ActivitiesWebService
-    let activitiesRepository: ActivitiesRepository
+    let activitiesRepository: ActivitiesRepository // Decouple
     
     init(activitiesWebService: ActivitiesWebService,
          activitiesRepository: ActivitiesRepository) {

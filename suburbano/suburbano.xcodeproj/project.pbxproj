@@ -13,6 +13,10 @@
 		8611AF83210186100002663B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8611AF82210186100002663B /* Montserrat-Medium.ttf */; };
 		8611C836214ED5B400FFBC23 /* RouteCalculatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C835214ED5B400FFBC23 /* RouteCalculatorPresenter.swift */; };
 		8614723E2151A7320042BBB8 /* MenuTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614723D2151A7320042BBB8 /* MenuTextCell.swift */; };
+		861472422151C0850042BBB8 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861472412151C0850042BBB8 /* Train.swift */; };
+		861472462151C47F0042BBB8 /* TrainStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861472452151C47F0042BBB8 /* TrainStop.swift */; };
+		861472482151D0EC0042BBB8 /* TrainsWebSercive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861472472151D0EC0042BBB8 /* TrainsWebSercive.swift */; };
+		8614724C2151DE660042BBB8 /* TrainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614724B2151DE660042BBB8 /* TrainRepository.swift */; };
 		861FC57F210FF7BD0024783A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC57E210FF7BD0024783A /* Date.swift */; };
 		861FC581211010480024783A /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC580211010480024783A /* UIEdgeInsets.swift */; };
 		861FC583211015460024783A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC582211015460024783A /* UIStackView.swift */; };
@@ -197,6 +201,10 @@
 		8611AF82210186100002663B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "suburbano/Assets/Fonts/Montserrat-Medium.ttf"; sourceTree = SOURCE_ROOT; };
 		8611C835214ED5B400FFBC23 /* RouteCalculatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCalculatorPresenter.swift; sourceTree = "<group>"; };
 		8614723D2151A7320042BBB8 /* MenuTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTextCell.swift; sourceTree = "<group>"; };
+		861472412151C0850042BBB8 /* Train.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
+		861472452151C47F0042BBB8 /* TrainStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStop.swift; sourceTree = "<group>"; };
+		861472472151D0EC0042BBB8 /* TrainsWebSercive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainsWebSercive.swift; sourceTree = "<group>"; };
+		8614724B2151DE660042BBB8 /* TrainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainRepository.swift; sourceTree = "<group>"; };
 		861FC57E210FF7BD0024783A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		861FC580211010480024783A /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		861FC582211015460024783A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
@@ -437,6 +445,26 @@
 			path = MenuView;
 			sourceTree = "<group>";
 		};
+		8614723F2151C0590042BBB8 /* TripPrice */ = {
+			isa = PBXGroup;
+			children = (
+				86593C3221502A5900383445 /* TripPrice.swift */,
+				86593C3421502BC700383445 /* RealmTripPrice.swift */,
+				86593C3621502E0A00383445 /* TripPriceRepository.swift */,
+			);
+			path = TripPrice;
+			sourceTree = "<group>";
+		};
+		861472402151C06D0042BBB8 /* Train */ = {
+			isa = PBXGroup;
+			children = (
+				861472412151C0850042BBB8 /* Train.swift */,
+				861472452151C47F0042BBB8 /* TrainStop.swift */,
+				8614724B2151DE660042BBB8 /* TrainRepository.swift */,
+			);
+			path = Train;
+			sourceTree = "<group>";
+		};
 		862517C920F849CF002F2048 /* Data Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,9 +637,8 @@
 		86593C3121502A3000383445 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				86593C3221502A5900383445 /* TripPrice.swift */,
-				86593C3421502BC700383445 /* RealmTripPrice.swift */,
-				86593C3621502E0A00383445 /* TripPriceRepository.swift */,
+				861472402151C06D0042BBB8 /* Train */,
+				8614723F2151C0590042BBB8 /* TripPrice */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -620,6 +647,7 @@
 			isa = PBXGroup;
 			children = (
 				86593C392150443E00383445 /* PricesWebService.swift */,
+				861472472151D0EC0042BBB8 /* TrainsWebSercive.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1446,6 +1474,7 @@
 				86B8311A213DC6230063AC75 /* DetailScheduleCell.swift in Sources */,
 				86593C2D2150261F00383445 /* RouteUseCase.swift in Sources */,
 				86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */,
+				8614724C2151DE660042BBB8 /* TrainRepository.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
 				8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */,
 				86B83118213DC5140063AC75 /* DetailAddressCell.swift in Sources */,
@@ -1474,6 +1503,7 @@
 				864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */,
 				864132582100017A0031F4F4 /* ReusableIdentifier.swift in Sources */,
 				86B8312F21459FD70063AC75 /* DirectionsAppsFactory.swift in Sources */,
+				861472482151D0EC0042BBB8 /* TrainsWebSercive.swift in Sources */,
 				8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */,
 				86B831042138C1AE0063AC75 /* StationDetailViewController.swift in Sources */,
 				86385C7721335ED3002EA9DF /* IconCell.swift in Sources */,
@@ -1500,6 +1530,7 @@
 				86B830E1213843FB0063AC75 /* CardCell.swift in Sources */,
 				8621A2D820F6FE0A00A2D8B1 /* Utils.swift in Sources */,
 				86B830F621389FD00063AC75 /* RealmStation.swift in Sources */,
+				861472422151C0850042BBB8 /* Train.swift in Sources */,
 				8652A35D212915CA00ED1910 /* BalanceEmptyMessageView.swift in Sources */,
 				862517D420FD7071002F2048 /* ActivitiesUseCaseImpl.swift in Sources */,
 				862517E420FD7FB6002F2048 /* ActivitiesRepository.swift in Sources */,
@@ -1528,6 +1559,7 @@
 				8621A30E20F70DF900A2D8B1 /* Activity.swift in Sources */,
 				86B83125213F7A620063AC75 /* DirectionsDetailViewController.swift in Sources */,
 				86B830F22138984C0063AC75 /* Station.swift in Sources */,
+				861472462151C47F0042BBB8 /* TrainStop.swift in Sources */,
 				8641325C210019360031F4F4 /* ActivitiesBoardViewController+DataSource.swift in Sources */,
 				86385C7521335D91002EA9DF /* ColorCell.swift in Sources */,
 				8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */,

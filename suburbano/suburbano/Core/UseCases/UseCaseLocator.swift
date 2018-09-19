@@ -38,8 +38,10 @@ class UseCaseLocator {
         case String(describing: GetRouteInformationUseCase.self),
              String(describing: GetRouteScheduleUseCase.self),
              String(describing: RouteUseCase.self):
-            return RouteUseCaseImpl(repository: TripPriceRepositoryRealmImpl(realmHandler: RealmHandler()),
-                                    service: PricesWebServiceImpl(),
+            return RouteUseCaseImpl(pricesRepository: TripPriceRepositoryRealmImpl(realmHandler: RealmHandler()),
+                                    pricesService: PricesWebServiceImpl(),
+                                    trainsService: TrainsWebSerciveImpl(),
+                                    trainsRepository: TrainRepositoryRealmImpl(realmHandler: RealmHandler()),
                                     resilienceHandler: ResilienceFileHandlerImpl()) as? UseCase
         default:
             return nil

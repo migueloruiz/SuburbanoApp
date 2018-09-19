@@ -39,6 +39,7 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
     private var filterStations: [Station]
     private var departure: Station
     private var arraival: Station
+    private var selectedDay: TripDay = .normal
     
     private lazy var distanceFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -58,14 +59,9 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
     }
     
     func load() {
-        routeUseCase?.getInformation(from: departure, to: arraival) { routeInfo in
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else { return }
-                let route = Route(departure: strongSelf.departure,
-                                  arraival: strongSelf.arraival,
-                                  information: strongSelf.preperForDisplay(info: routeInfo))
-                strongSelf.viewDelegate?.update(route: route)
-            }
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.getInformation(from: strongSelf.departure, to: strongSelf.arraival)
         }
     }
     
@@ -105,14 +101,10 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
                 strongSelf.arraival = strongSelf.filterStations[selcteItem]
             }
             
-            strongSelf.routeUseCase?.getInformation(from: strongSelf.departure, to: strongSelf.arraival) { routeInfo in
-                DispatchQueue.main.async { [weak self] in
-                    guard let strongSelf = self else { return }
-                    let route = Route(departure: strongSelf.departure,
-                                      arraival: strongSelf.arraival,
-                                      information: strongSelf.preperForDisplay(info: routeInfo))
-                    strongSelf.viewDelegate?.update(route: route)
-                }
+            strongSelf.getInformation(from: strongSelf.departure, to: strongSelf.arraival)
+            
+            strongSelf.routeUseCase?.getSchedule(from: strongSelf.departure, to: strongSelf.arraival, day: strongSelf.selectedDay) { trains in
+                print(trains)
             }
         }
     }
@@ -126,5 +118,17 @@ extension RouteCalculatorPresenterImpl {
         return DisplayRouteInformation(time: String(info.time) + "min",
                                        distance: distance,
                                        price: String(format: "$%.02f", info.price))
+    }
+    
+    private func getInformation(from departure: StationEntity, to arraival: StationEntity) {
+        routeUseCase?.getInformation(from: departure, to: arraival) { routeInfo in
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                let route = Route(departure: strongSelf.departure,
+                arraival: strongSelf.arraival,
+                information: strongSelf.preperForDisplay(info: routeInfo))
+                strongSelf.viewDelegate?.update(route: route)
+            }
+        }
     }
 }

@@ -26,9 +26,7 @@ class ActivitiesUseCaseImpl: ActivitiesUseCase {
             case .success(let activities, _):
                 strongSelf.activitiesRepository.deleteAll()
                 strongSelf.activitiesRepository.add(objects: activities)
-            case .failure(let error):
-                print(error)
-                return
+            default: break
             }
         }
     }

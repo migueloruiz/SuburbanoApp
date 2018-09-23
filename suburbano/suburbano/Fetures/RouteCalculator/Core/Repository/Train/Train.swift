@@ -34,10 +34,18 @@ enum TrainDirection: String {
     }
 }
 
-enum TripDay: String {
-    case sundayAndHolidays = "SundayAndHolidays"
+enum TripDay: String, CaseIterable {
     case normal = "Normal"
     case saturday = "Saturday"
+    case sundayAndHolidays = "SundayAndHolidays"
+    
+    var selectionText: String {
+        switch self {
+        case .sundayAndHolidays: return "Domingos y Festivos" // Localize
+        case .normal: return "Lunes a Viernes" // Localize
+        case .saturday: return "Sabados"
+        }
+    }
 }
 
 struct Train: TrainEntity, Codable {

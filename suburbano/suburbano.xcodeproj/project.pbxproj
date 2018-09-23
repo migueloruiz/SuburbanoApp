@@ -147,6 +147,7 @@
 		86B8312D21459ADD0063AC75 /* DirectionsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8312C21459ADD0063AC75 /* DirectionsApp.swift */; };
 		86B8312F21459FD70063AC75 /* DirectionsAppsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8312E21459FD70063AC75 /* DirectionsAppsFactory.swift */; };
 		86B8313121460CC60063AC75 /* table-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B8313021460CC60063AC75 /* table-loading.json */; };
+		86BD985321532ED80022DC6F /* ScheduleTrainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985221532ED80022DC6F /* ScheduleTrainCell.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
@@ -331,6 +332,7 @@
 		86B8312C21459ADD0063AC75 /* DirectionsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsApp.swift; sourceTree = "<group>"; };
 		86B8312E21459FD70063AC75 /* DirectionsAppsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsAppsFactory.swift; sourceTree = "<group>"; };
 		86B8313021460CC60063AC75 /* table-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "table-loading.json"; sourceTree = "<group>"; };
+		86BD985221532ED80022DC6F /* ScheduleTrainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTrainCell.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -835,6 +837,7 @@
 				868D2615214B362500700DE7 /* RouteCalculatorViewController.swift */,
 				868D2617214B3AD000700DE7 /* RouteCalculatorTransition.swift */,
 				86593C3F21505CB500383445 /* RouteInfoView.swift */,
+				86BD985221532ED80022DC6F /* ScheduleTrainCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1492,6 +1495,7 @@
 				861FC57F210FF7BD0024783A /* Date.swift in Sources */,
 				8611AF8021017D3F0002663B /* FontStyle.swift in Sources */,
 				86385C8821337558002EA9DF /* RealmCard.swift in Sources */,
+				86BD985321532ED80022DC6F /* ScheduleTrainCell.swift in Sources */,
 				86385C8A21338392002EA9DF /* CardUseCase.swift in Sources */,
 				86B831082138CC6F0063AC75 /* StationDetailTransition.swift in Sources */,
 				869E2CC9212524DB00B2FA9F /* PopUpTransition.swift in Sources */,

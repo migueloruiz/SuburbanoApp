@@ -27,6 +27,7 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
     private let arrivalLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
     private let routeInfoView = RouteInfoView()
     private let scheduleSelctor = MenuView(menuItemCase: .text, selectorStyle: .bottom, itemHeigth: Theme.IconSize.normal)
+    fileprivate let scheduleTable = UITableView()
     
     weak var routeCameraDelegate: RouteCameraDelegate?
     
@@ -61,7 +62,9 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         departurePicker.reloadAllComponents()
         arrivalPicker.reloadAllComponents()
         
-        scheduleSelctor.configure(items: ["Lunes a Viernes", "Sabados", "Domingos y Festivos"]) //Localize
+        scheduleSelctor.configure(items: presenter.daysItems())
+        scheduleSelctor.delegate = self
+        configureScheduleTable()
         
         backButton.set(image: #imageLiteral(resourceName: "down-arrow"), color: Theme.Pallete.darkGray)
         backButton.addTarget(self, action: #selector(StationDetailViewController.close), for: .touchUpInside)
@@ -78,7 +81,7 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
         backButton.anchorSquare(size: 25) // TODO
         
-        containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel, routeInfoView, scheduleSelctor])
+        containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel, routeInfoView, scheduleSelctor, scheduleTable, scheduleTable])
         
         departureLabel.anchor(top: containerView.topAnchor, bottom: departurePicker.topAnchor, topConstant: Theme.Offset.normal, bottomConstant: -Theme.Offset.normal)
         departureLabel.center(x: departurePicker.centerXAnchor, y: nil)
@@ -90,9 +93,11 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         departurePicker.anchorSize(height: 90) // TODO
         arrivalPicker.anchor(top: departurePicker.topAnchor, left: view.centerXAnchor, bottom: departurePicker.bottomAnchor, right: containerView.rightAnchor)
         
-        routeInfoView.anchor(top: arrivalPicker.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor)
+        routeInfoView.anchor(top: arrivalPicker.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor)
         
-        scheduleSelctor.anchor(top: routeInfoView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor)
+        scheduleSelctor.anchor(top: routeInfoView.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor)
+        
+        scheduleTable.anchor(top: scheduleSelctor.bottomAnchor, left: containerView.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: containerView.rightAnchor)
     }
     
     private func setSelectedStations() {
@@ -114,6 +119,20 @@ extension RouteCalculatorViewController: RouteCalculatorViewDelegate {
         routeCameraDelegate?.setRouteCamera(departure: route.departure, arraival: route.arraival)
         routeInfoView.update(with: route.information)
     }
+    
+    func updateSchedule() {
+        scheduleTable.reloadData()
+    }
+    
+    func showScheduleLoader() {
+        
+    }
+}
+
+extension RouteCalculatorViewController: MenuDelegate {
+    func itemSelected(at index: Int) {
+        presenter.did(selecteDay: index)
+    }
 }
 
 extension RouteCalculatorViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -124,7 +143,7 @@ extension RouteCalculatorViewController: UIPickerViewDelegate, UIPickerViewDataS
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let image = presenter.getImage(row: row, pickerId: pickerView.tag)
+        let image = presenter.getImage(forPicker: pickerView.tag, at: row)
         let imageView = UIImageView(image: UIImage(named: image))
         imageView.tintColor = Theme.Pallete.darkGray
         return imageView
@@ -132,5 +151,29 @@ extension RouteCalculatorViewController: UIPickerViewDelegate, UIPickerViewDataS
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         presenter.did(selcteItem: row, atPicker: pickerView.tag)
+    }
+}
+
+extension RouteCalculatorViewController: UITableViewDelegate, UITableViewDataSource {
+    fileprivate func configureScheduleTable() {
+        scheduleTable.delegate = self
+        scheduleTable.dataSource = self
+        scheduleTable.backgroundColor = Theme.Pallete.ligthGray
+        scheduleTable.separatorStyle = .none
+        scheduleTable.allowsSelection = false
+        scheduleTable.register(ScheduleTrainCell.self, forCellReuseIdentifier: ScheduleTrainCell.reuseIdentifier)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.numberOfScheduleItems()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return tableView.dequeueReusableCell(withIdentifier: ScheduleTrainCell.reuseIdentifier) ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let scheduleCell = cell as? ScheduleTrainCell else { return }
+        scheduleCell.configure(with: presenter.scheduleModel(at: indexPath.row))
     }
 }

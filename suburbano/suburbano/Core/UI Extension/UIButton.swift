@@ -21,5 +21,4 @@ extension UIButton {
         imageView?.tintColor = color
         imageView?.contentMode = .scaleAspectFit
     }
-
 }

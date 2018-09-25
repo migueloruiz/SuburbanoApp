@@ -41,13 +41,13 @@ class UIFactory {
         return button
     }
     
-    static func createCircularButton(image: UIImage, tintColor: UIColor, backgroundColor: UIColor) -> UIButton {
+    static func createCircularButton(image: UIImage?, tintColor: UIColor, backgroundColor: UIColor, addShadow: Bool = true) -> UIButton {
         let button = UIButton()
         button.set(image: image, color: tintColor)
         button.backgroundColor = backgroundColor
         button.anchorSquare(size: Theme.IconSize.normal)
         button.roundCorners(withRadius: Theme.IconSize.normal / 2)
-        button.addDropShadow()
+        if addShadow { button.addDropShadow()}
         return button
     }
     

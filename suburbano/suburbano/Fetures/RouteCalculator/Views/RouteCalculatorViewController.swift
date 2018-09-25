@@ -26,6 +26,7 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
     private let backView = UIView()
     private let arrivalLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoTitle)
     private let routeInfoView = RouteInfoView()
+    private let daySelector = DaySelectorView()
     
     weak var routeCameraDelegate: RouteCameraDelegate?
     
@@ -55,10 +56,11 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         arrivalPicker.tag = 1
         arrivalPicker.backgroundColor = .white
         
+        daySelector.configure(items: ["Lunes", "Martes", "Mercoles"])
+        
         departurePicker.reloadAllComponents()
         arrivalPicker.reloadAllComponents()
-        
-        backButton.set(image: #imageLiteral(resourceName: "down-arrow"), color: Theme.Pallete.darkGray)
+    
         backButton.addTarget(self, action: #selector(StationDetailViewController.close), for: .touchUpInside)
         backView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(StationDetailViewController.close)))
     }
@@ -73,7 +75,7 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
         backButton.anchorSquare(size: 25) // TODO
         
-        containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel, routeInfoView])
+        containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel, routeInfoView, daySelector])
         
         departureLabel.anchor(top: containerView.topAnchor, bottom: departurePicker.topAnchor, topConstant: Theme.Offset.normal, bottomConstant: -Theme.Offset.normal)
         departureLabel.center(x: departurePicker.centerXAnchor, y: nil)
@@ -86,6 +88,8 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         arrivalPicker.anchor(top: departurePicker.topAnchor, left: view.centerXAnchor, bottom: departurePicker.bottomAnchor, right: containerView.rightAnchor)
         
         routeInfoView.anchor(top: arrivalPicker.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor)
+        
+        daySelector.anchor(top: routeInfoView.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor)
     }
     
     private func setSelectedStations() {

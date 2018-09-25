@@ -8,18 +8,6 @@
 
 import Foundation
 
-protocol ScheludeViewModel {
-    var id: String { get }
-    var departureTime: String { get }
-    var arraivalTime: String { get }
-}
-
-struct ScheduleItemModel: ScheludeViewModel {
-    let id: String
-    let departureTime: String
-    let arraivalTime: String
-}
-
 protocol RouteCalculatorPresenter: class {
     func load()
     func selectedElements() -> (departureItem: Int, arraivalItem: Int)
@@ -37,12 +25,6 @@ struct Route {
     let departure: Station
     let arraival: Station
     let information: DisplayRouteInformation
-}
-
-struct DisplayRouteInformation {
-    let time: String
-    let distance: String
-    let price: String
 }
 
 class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
@@ -140,22 +122,6 @@ extension RouteCalculatorPresenterImpl {
                 strongSelf.viewDelegate?.update(route: route)
             }
         }
-    }
-    
-    func map(trains: [TrainEntity]) -> [ScheludeViewModel] {
-        var scheduleItems = [ScheduleItemModel]()
-        
-        for train in trains {
-            guard let departureStop = getStop(from: train, at: departure),
-                let arraivalStop = getStop(from: train, at: arraival),
-            let departureDisplay = departureStop.departure,
-            let arraivalDisplay = arraivalStop.arraival else { continue }
-            let item = ScheduleItemModel(id: train.id,
-                                         departureTime: departureDisplay,
-                                         arraivalTime: arraivalDisplay)
-            scheduleItems.append(item)
-        }
-        return scheduleItems
     }
     
     func getStop(from train: TrainEntity, at station: StationEntity) -> TrainStopEntity? {

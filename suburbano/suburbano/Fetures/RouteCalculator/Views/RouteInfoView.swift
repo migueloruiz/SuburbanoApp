@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct DisplayRouteInformation {
+    let time: String
+    let distance: String
+    let price: String
+}
+
 class RouteInfoItem: UIView {
     private let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoTitle)
     private let amountLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoAmount)

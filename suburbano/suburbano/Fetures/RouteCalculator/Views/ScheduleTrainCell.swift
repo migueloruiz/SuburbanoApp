@@ -8,6 +8,18 @@
 
 import UIKit
 
+protocol ScheludeViewModel {
+    var id: String { get }
+    var departureTime: String { get }
+    var arraivalTime: String { get }
+}
+
+struct ScheduleItemModel: ScheludeViewModel {
+    let id: String
+    let departureTime: String
+    let arraivalTime: String
+}
+
 class ScheduleTrainCell: UITableViewCell, ReusableIdentifier {
     
     private let containerView = UIFactory.createCardView()

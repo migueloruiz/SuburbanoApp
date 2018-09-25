@@ -9,8 +9,8 @@
 import UIKit
 
 class RouteInfoItem: UIView {
-    private let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
-    private let amountLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardTitle)
+    private let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoTitle)
+    private let amountLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoAmount)
     
     var title: String {
         get {
@@ -37,11 +37,6 @@ class RouteInfoItem: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureLayout()
-        titleLabel.textColor = Theme.Pallete.softRed
-        titleLabel.textAlignment = .center
-        titleLabel.backgroundColor = .clear
-        amountLabel.textAlignment = .center
-        amountLabel.backgroundColor = .clear
     }
     
     private func configureLayout() {

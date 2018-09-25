@@ -11,7 +11,7 @@ import Foundation
 protocol ScheludeViewModel {
     var id: String { get }
     var departureTime: String { get }
-    var arraivalTime: String  { get }
+    var arraivalTime: String { get }
 }
 
 struct ScheduleItemModel: ScheludeViewModel {
@@ -26,15 +26,10 @@ protocol RouteCalculatorPresenter: class {
     func elementsFor(pickerId: Int) -> Int
     func getImage(forPicker pickerId: Int, at row: Int) -> String
     func did(selcteItem: Int, atPicker pickerId: Int)
-    func numberOfScheduleItems() -> Int
-    func scheduleModel(at row: Int) -> ScheludeViewModel
-    func daysItems() -> [String]
-    func did(selecteDay: Int)
 }
 
 protocol RouteCalculatorViewDelegate: class {
     func update(route: Route)
-    func updateSchedule()
     func showScheduleLoader()
 }
 
@@ -81,7 +76,6 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.getInformation(from: strongSelf.departure, to: strongSelf.arraival)
-            strongSelf.getSchedule(from: strongSelf.departure, to: strongSelf.arraival, day: strongSelf.selectedDay)
         }
     }
     
@@ -122,27 +116,6 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
             }
             
             strongSelf.getInformation(from: strongSelf.departure, to: strongSelf.arraival)
-            strongSelf.getSchedule(from: strongSelf.departure, to: strongSelf.arraival, day: strongSelf.selectedDay)
-        }
-    }
-    
-    func numberOfScheduleItems() -> Int {
-        return scheduleItems.count
-    }
-    
-    func scheduleModel(at row: Int) -> ScheludeViewModel {
-        return scheduleItems[row]
-    }
-    
-    func daysItems() -> [String] {
-        return TripDay.allCases.map { $0.selectionText }
-    }
-    
-    func did(selecteDay: Int) {
-        selectedDay = TripDay.allCases[selecteDay]
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.getSchedule(from: strongSelf.departure, to: strongSelf.arraival, day: strongSelf.selectedDay)
         }
     }
 }
@@ -169,17 +142,6 @@ extension RouteCalculatorPresenterImpl {
         }
     }
     
-    private func getSchedule(from departure: StationEntity, to arraival: StationEntity, day: TripDay) {
-        viewDelegate?.showScheduleLoader()
-        routeUseCase?.getSchedule(from: departure, to: arraival, day: selectedDay) { [weak self] trains in
-            guard let strongSelf = self else { return }
-            strongSelf.scheduleItems = strongSelf.map(trains: trains)
-            DispatchQueue.main.async { [weak self] in
-                self?.viewDelegate?.updateSchedule()
-            }
-        }
-    }
-    
     func map(trains: [TrainEntity]) -> [ScheludeViewModel] {
         var scheduleItems = [ScheduleItemModel]()
         
@@ -187,7 +149,6 @@ extension RouteCalculatorPresenterImpl {
             guard let departureStop = getStop(from: train, at: departure),
                 let arraivalStop = getStop(from: train, at: arraival),
             let departureDisplay = departureStop.departure,
-//            let depatureTimestamp = departureStop.departureTimestamp,
             let arraivalDisplay = arraivalStop.arraival else { continue }
             let item = ScheduleItemModel(id: train.id,
                                          departureTime: departureDisplay,

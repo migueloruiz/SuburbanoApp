@@ -11,6 +11,8 @@ import RealmSwift
 
 class RealmHandler: NSObject {
     
+    static let shared = RealmHandler()
+    
     private var realmInstance: Realm? {
         guard let realmInstance = try? Realm() else {
             RealmAppDelegate.shared.handleMigrationFail()

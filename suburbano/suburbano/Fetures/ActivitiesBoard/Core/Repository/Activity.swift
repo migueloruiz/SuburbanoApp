@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import RealmSwift
 
+// MARK: Entity
 enum Category: String {
     case concert = "concert"
     case workshop =  "workshop"
@@ -35,6 +37,7 @@ protocol ActivityEntity {
     var repeatEvent: String? { get }
 }
 
+// MARK: Struct
 struct Activity: ActivityEntity, Codable {
     let id: String
     let title: String
@@ -97,5 +100,28 @@ struct Activity: ActivityEntity, Codable {
         } catch let jsonError {
             throw jsonError
         }
+    }
+}
+
+// MARK: Realm
+class RealmActivity: Object, ActivityEntity {
+    @objc dynamic var id: String = ""
+    @objc dynamic var title: String = ""
+    @objc dynamic var descripcion: String = ""
+    @objc dynamic var category: String = ""
+    @objc dynamic var loaction: String = ""
+    @objc dynamic var displayDate: String = ""
+    @objc dynamic var startHour: String = ""
+    @objc dynamic var duration: Int = 0
+    @objc dynamic var starDate: Int = 0
+    @objc dynamic var endDate: Int = 0
+    @objc dynamic var repeatEvent: String?
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
+    override static func indexedProperties() -> [String] {
+        return ["category", "endDate"]
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Refactor
 class ActivitiesRepository: RepositoryRealm {
     typealias RealElement = RealmActivity
     typealias Element = Activity
@@ -50,6 +51,7 @@ class ActivitiesRepository: RepositoryRealm {
         realmHandler.deleteAll(forType: RealmActivity.self)
     }
     
+    // Refactor
     func map(object: RealmActivity) -> Activity {
         return Activity(id: object.id,
                         title: object.title,
@@ -64,6 +66,7 @@ class ActivitiesRepository: RepositoryRealm {
                         repeatEvent: object.repeatEvent)
     }
     
+    // Refactor
     func map(object: Activity) -> RealmActivity {
         let realmActivity = RealmActivity()
         realmActivity.id = object.id

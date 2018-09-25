@@ -17,6 +17,7 @@ struct RouteInformation {
 typealias RouteInformationResponse = (RouteInformation) -> Void
 typealias TripPriceResponse = ([TripPriceEntity]) -> Void
 typealias TrainResponse = ([TrainEntity]) -> Void
+typealias WaitTimeResponse = ([StationWaitTimeEntity]) -> Void
 
 protocol GetRouteInformationUseCase {
     func getInformation(from departure: StationEntity, to arraival: StationEntity, complition: @escaping RouteInformationResponse)
@@ -26,7 +27,11 @@ protocol GetRouteScheduleUseCase {
     func getSchedule(from departure: StationEntity, to arraival: StationEntity, day: TripDay, complition: @escaping TrainResponse)
 }
 
-protocol RouteUseCase: GetRouteInformationUseCase, GetRouteScheduleUseCase { }
+protocol GetRouteWaitTimeUseCase {
+    func getWaitTime(inStation station: String, complition: @escaping WaitTimeResponse)
+}
+
+protocol RouteUseCase: GetRouteInformationUseCase, GetRouteScheduleUseCase, GetRouteWaitTimeUseCase { }
 
 class RouteUseCaseImpl: RouteUseCase {
     
@@ -38,17 +43,23 @@ class RouteUseCaseImpl: RouteUseCase {
     private let pricesService: PricesWebService
     private let trainsService: TrainsWebSercive
     private let trainsRepository: TrainRepository
+    private let stationWaitTimeRepository: StationWaitTimeRepository
+    private let stationWaitTimeService: StationWaitTimeWebService
     private let resilienceHandler: ResilienceFileHandler
     
     init(pricesRepository: TripPriceRepository,
          pricesService: PricesWebService,
          trainsService: TrainsWebSercive,
          trainsRepository: TrainRepository,
+         stationWaitTimeRepository: StationWaitTimeRepository,
+         stationWaitTimeService: StationWaitTimeWebService,
          resilienceHandler: ResilienceFileHandler) {
         self.pricesRepository = pricesRepository
         self.pricesService = pricesService
         self.trainsService = trainsService
         self.trainsRepository = trainsRepository
+        self.stationWaitTimeRepository = stationWaitTimeRepository
+        self.stationWaitTimeService = stationWaitTimeService
         self.resilienceHandler = resilienceHandler
     }
     
@@ -59,6 +70,25 @@ class RouteUseCaseImpl: RouteUseCase {
         getPrices { tripPrices in
             let tripPrice = tripPrices.first(where: { $0.lowLimit < distance && $0.topLimit >= distance })
             complition(RouteInformation(time: time, distance: distance, price: tripPrice?.price ?? 0))
+        }
+    }
+    
+    func getWaitTime(inStation station: String, complition: @escaping WaitTimeResponse) {
+        let waitTime = stationWaitTimeRepository.get(inStation: station)
+        guard waitTime.isEmpty else {
+            complition(waitTime)
+            return
+        }
+        stationWaitTimeService.getWaitTimes { [weak self] response in
+            guard let strongSelf = self else { return }
+            switch response {
+            case .success(let response, _):
+                strongSelf.stationWaitTimeRepository.add(objects: response)
+                let waitTimeReponse = strongSelf.stationWaitTimeRepository.get(inStation: station)
+                complition(waitTimeReponse)
+            case .failure:
+                complition([])
+            }
         }
     }
     

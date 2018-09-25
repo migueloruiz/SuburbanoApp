@@ -165,6 +165,17 @@ struct UIThemes {
                                                  textColor: .white,
                                                  backgroundColor: .clear,
                                                  font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
+        // MARK: - Info Title Label Themes
+        static let InfoTitle = LabelTheme(numberOfLines: 0,
+                                            textAlignment: .center,
+                                            textColor: Theme.Pallete.softRed,
+                                            backgroundColor: .clear,
+                                            font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
+        static let InfoAmount = LabelTheme(numberOfLines: 0,
+                                          textAlignment: .center,
+                                          textColor: Theme.Pallete.darkGray,
+                                          backgroundColor: Theme.Pallete.ligthGray,
+                                          font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
     }
     
     // MARK: - Button Themes

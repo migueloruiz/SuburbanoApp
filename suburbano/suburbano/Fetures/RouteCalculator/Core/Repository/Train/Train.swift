@@ -29,6 +29,7 @@ enum TrainDirection: String {
     case north = "North"
     case south = "South"
     
+    // Refactor
     static func get(from departure: StationEntity, to arraival: StationEntity) -> TrainDirection {
         return (departure.distance - arraival.distance) > 0 ? .south : .north
     }
@@ -64,8 +65,8 @@ struct Train: TrainEntity, Codable {
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case day = "day"
-        case direction = "directions"
-        case startTimestamp = "startTimestamp"
+        case direction = "direction"
+        case startTimestamp = "start_timestamp"
         case buenavista = "Buenavista"
         case fortuna = "Fortuna"
         case talnepantla = "Talnepantla"

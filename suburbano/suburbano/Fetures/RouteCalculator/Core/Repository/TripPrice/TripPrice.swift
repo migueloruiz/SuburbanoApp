@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import RealmSwift
 
+// MARK: Entity
 protocol TripPriceEntity {
     var type: String { get }
     var price: Float { get }
@@ -15,6 +17,7 @@ protocol TripPriceEntity {
     var topLimit: Float { get }
 }
 
+// MARK: Struct
 struct TripPrice: TripPriceEntity, Codable {
     let type: String
     let price: Float
@@ -45,5 +48,26 @@ struct TripPrice: TripPriceEntity, Codable {
         } catch let jsonError {
             throw jsonError
         }
+    }
+}
+
+// MARK: Realm
+class RealmTripPrice: Object, TripPriceEntity {
+    @objc dynamic var type: String = ""
+    @objc dynamic var price: Float = 0
+    @objc dynamic var lowLimit: Float = 0
+    @objc dynamic var topLimit: Float = 0
+    
+    override class func primaryKey() -> String? { return "type" }
+}
+
+extension RealmTripPrice {
+    static func make(from entity: TripPrice) -> RealmTripPrice {
+        let realmTripPrice = RealmTripPrice()
+        realmTripPrice.type = entity.type
+        realmTripPrice.price = entity.price
+        realmTripPrice.lowLimit = entity.lowLimit
+        realmTripPrice.topLimit = entity.topLimit
+        return realmTripPrice
     }
 }

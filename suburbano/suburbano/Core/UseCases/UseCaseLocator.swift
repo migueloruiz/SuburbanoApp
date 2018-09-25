@@ -17,7 +17,7 @@ class UseCaseLocator {
              String(describing: ActivitiesUseCase.self):
             return ActivitiesUseCaseImpl(
                 activitiesWebService: ActivitiesWebServiceImpl(),
-                activitiesRepository: ActivitiesRepository(realmHandler: RealmHandler())
+                activitiesRepository: ActivitiesRepository(realmHandler: RealmHandler.shared)
             ) as? UseCase
 
         case String(describing: UpdateCardsBalanceUseCase.self),
@@ -27,7 +27,7 @@ class UseCaseLocator {
              String(describing: CardUseCase.self):
             return CardUseCaseImpl(
                 cardBalanceWebService: CardBalanceWebServiceImpl(),
-                cardRepository: CardRepository(realmHandler: RealmHandler())
+                cardRepository: CardRepository(realmHandler: RealmHandler.shared)
             ) as? UseCase
             
         case String(describing: GetStationsUseCase.self),
@@ -37,11 +37,14 @@ class UseCaseLocator {
             
         case String(describing: GetRouteInformationUseCase.self),
              String(describing: GetRouteScheduleUseCase.self),
+             String(describing: GetRouteWaitTimeUseCase.self),
              String(describing: RouteUseCase.self):
-            return RouteUseCaseImpl(pricesRepository: TripPriceRepositoryRealmImpl(realmHandler: RealmHandler()),
+            return RouteUseCaseImpl(pricesRepository: TripPriceRepositoryRealmImpl(realmHandler: RealmHandler.shared),
                                     pricesService: PricesWebServiceImpl(),
                                     trainsService: TrainsWebSerciveImpl(),
-                                    trainsRepository: TrainRepositoryRealmImpl(realmHandler: RealmHandler()),
+                                    trainsRepository: TrainRepositoryRealmImpl(realmHandler: RealmHandler.shared),
+                                    stationWaitTimeRepository: StationWaitTimeRepositoryImpl(realmHandler: RealmHandler.shared),
+                                    stationWaitTimeService: StationWaitTimeWebServiceImpl(),
                                     resilienceHandler: ResilienceFileHandlerImpl()) as? UseCase
         default:
             return nil

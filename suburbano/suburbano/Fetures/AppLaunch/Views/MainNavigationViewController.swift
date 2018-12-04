@@ -24,8 +24,7 @@ class MainNavigationViewController: UIViewController {
     
     private var viewControllers: [NavigationalViewController] = []
     private var pageIndex = 0
-    private var statusBarStyle: UIStatusBarStyle = .default
-    override var preferredStatusBarStyle: UIStatusBarStyle { return statusBarStyle }
+    override var childForStatusBarStyle: UIViewController { return selectedViewController() }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +37,7 @@ class MainNavigationViewController: UIViewController {
         menuContainer.backgroundColor = .white
         menuContainer.addDropShadow()
         menuView.delegate = self
+        modalPresentationCapturesStatusBarAppearance = true
     }
     
     private func configureLayout() {
@@ -64,7 +64,6 @@ class MainNavigationViewController: UIViewController {
         let direction: UIPageViewController.NavigationDirection = index > pageIndex ? .forward : .reverse
         pageIndex = index
         let controller = viewControllers[pageIndex]
-        statusBarStyle = controller.preferredStatusBarStyle
         setNeedsStatusBarAppearanceUpdate()
         pageViewController.setViewControllers([controller], direction: direction, animated: true, completion: nil)
     }

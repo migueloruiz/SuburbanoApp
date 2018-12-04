@@ -31,7 +31,13 @@ class DaySelectorCell: UICollectionViewCell, ReusableIdentifier {
     }
 }
 
+protocol DaySelectorDelegate: class {
+    func didChange(daySelected: Int)
+}
+
 class DaySelectorView: UIView {
+    
+    weak var delegate: DaySelectorDelegate?
     
     private let leftButton = UIFactory.createCircularButton(image: UIImage(named: "left-arrow"), tintColor: Theme.Pallete.darkGray, backgroundColor: .white, addShadow: false)
     private let rightButton = UIFactory.createCircularButton(image: UIImage(named: "rigth-arrow"), tintColor: Theme.Pallete.darkGray, backgroundColor: .white, addShadow: false)
@@ -84,12 +90,14 @@ class DaySelectorView: UIView {
     @objc func moveLeft() {
         guard let selectedIndex = collectionView.indexPathsForVisibleItems.first else { return }
         let next = (selectedIndex.row - 1) >= 0 ? (selectedIndex.row - 1) : (items.count - 1)
+        delegate?.didChange(daySelected: next)
         collectionView.scrollToItem(at: IndexPath(row: next, section: 0), at: .left, animated: true)
     }
     
     @objc func moveRight() {
         guard let selectedIndex = collectionView.indexPathsForVisibleItems.first else { return }
         let next = (selectedIndex.row + 1) < items.count ? (selectedIndex.row + 1) : 0
+        delegate?.didChange(daySelected: next)
         collectionView.scrollToItem(at: IndexPath(row: next, section: 0), at: .left, animated: true)
     }
 }

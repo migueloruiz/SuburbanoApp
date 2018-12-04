@@ -150,6 +150,7 @@
 		86BD98592159CD680022DC6F /* StationWaitTimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98582159CD680022DC6F /* StationWaitTimeRepository.swift */; };
 		86BD985D2159CFF20022DC6F /* StationWaitTimeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */; };
 		86BD985F2159D7660022DC6F /* DaySelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985E2159D7660022DC6F /* DaySelectorView.swift */; };
+		86BD9861215AE6640022DC6F /* WaitTaimeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD9860215AE6640022DC6F /* WaitTaimeDetail.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
@@ -337,6 +338,7 @@
 		86BD98582159CD680022DC6F /* StationWaitTimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWaitTimeRepository.swift; sourceTree = "<group>"; };
 		86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWaitTimeWebService.swift; sourceTree = "<group>"; };
 		86BD985E2159D7660022DC6F /* DaySelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectorView.swift; sourceTree = "<group>"; };
+		86BD9860215AE6640022DC6F /* WaitTaimeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTaimeDetail.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -844,6 +846,7 @@
 				86593C3F21505CB500383445 /* RouteInfoView.swift */,
 				86BD985221532ED80022DC6F /* ScheduleTrainCell.swift */,
 				86BD985E2159D7660022DC6F /* DaySelectorView.swift */,
+				86BD9860215AE6640022DC6F /* WaitTaimeDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1486,6 +1489,7 @@
 				86593C4221507CCD00383445 /* MenuView.swift in Sources */,
 				86385C862133747E002EA9DF /* Card.swift in Sources */,
 				8652A361212A407600ED1910 /* CardBalanceViewController.swift in Sources */,
+				86BD9861215AE6640022DC6F /* WaitTaimeDetail.swift in Sources */,
 				8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */,
 				86B830DE213765A80063AC75 /* AlertContext.swift in Sources */,
 				86B8312A2140CDFF0063AC75 /* DirectionActionView.swift in Sources */,

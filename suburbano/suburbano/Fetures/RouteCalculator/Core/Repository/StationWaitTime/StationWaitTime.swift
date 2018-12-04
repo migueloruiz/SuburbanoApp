@@ -13,33 +13,38 @@ import RealmSwift
 protocol StationWaitTimeEntity {
     var station: String { get }
     var day: Int { get }
-    var concurence: Int { get }
+    var concurrence: Int { get }
     var displayTime: String { get }
-    var timestap: Int { get }
+    var timestamp: Int { get }
+    var waitTime: Int { get }
 }
 
 // MARK: Struct
 struct StationWaitTime: StationWaitTimeEntity, Codable {
+    
     let station: String
     let day: Int
-    let concurence: Int
+    let concurrence: Int
     let displayTime: String
-    let timestap: Int
+    let timestamp: Int
+    let waitTime: Int
     
     enum CodingKeys: String, CodingKey {
         case station = "station"
         case day = "day"
-        case concurence = "concurence"
+        case concurrence = "concurrence"
         case displayTime = "time"
-        case timestap = "houre"
+        case timestamp = "houre"
+        case waitTime = "wait_time"
     }
     
     init(entity: StationWaitTimeEntity) {
         self.station = entity.station
         self.day = entity.day
-        self.concurence = entity.concurence
+        self.concurrence = entity.concurrence
         self.displayTime = entity.displayTime
-        self.timestap = entity.timestap
+        self.timestamp = entity.timestamp
+        self.waitTime = entity.waitTime
     }
     
     init(from decoder: Decoder) throws {
@@ -47,9 +52,10 @@ struct StationWaitTime: StationWaitTimeEntity, Codable {
             let values = try decoder.container(keyedBy: CodingKeys.self)
             station = try values.decode(String.self, forKey: .station)
             day = try values.decode(Int.self, forKey: .day)
-            concurence = try values.decode(Int.self, forKey: .concurence)
+            concurrence = try values.decode(Int.self, forKey: .concurrence)
             displayTime = try values.decode(String.self, forKey: .displayTime)
-            timestap = try values.decode(Int.self, forKey: .timestap)
+            timestamp = try values.decode(Int.self, forKey: .timestamp)
+            waitTime = try values.decode(Int.self, forKey: .waitTime)
         } catch let jsonError {
             throw jsonError
         }
@@ -60,38 +66,26 @@ struct StationWaitTime: StationWaitTimeEntity, Codable {
 
 class RealmStationWaitTime: Object, StationWaitTimeEntity {
     @objc dynamic var id: String = ""
-    @objc dynamic var concurence: Int = 0
+    @objc dynamic var concurrence: Int = 0
     @objc dynamic var displayTime: String = ""
-    
-    @objc dynamic var station: String = "" {
-        didSet {
-            id = "\(station)-\(day)-\(timestap)"
-        }
-    }
-    
-    @objc dynamic var day: Int = 0 {
-        didSet {
-            id = "\(station)-\(day)-\(timestap)"
-        }
-    }
-    
-    @objc dynamic var timestap: Int = 0 {
-        didSet {
-            id = "\(station)-\(day)-\(timestap)"
-        }
-    }
+    @objc dynamic var waitTime: Int = 0
+    @objc dynamic var station: String = ""
+    @objc dynamic var day: Int = 0
+    @objc dynamic var timestamp: Int = 0
     
     override class func primaryKey() -> String? { return "id" }
     override static func indexedProperties() -> [String] {
-        return ["station", "day", "timestap"]
+        return ["station", "day", "timestamp"]
     }
     
     convenience init(entity: StationWaitTimeEntity) {
         self.init()
+        self.id = "\(entity.station)-\(entity.day)-\(entity.timestamp)"
         self.station = entity.station
         self.day = entity.day
-        self.concurence = entity.concurence
+        self.concurrence = entity.concurrence
         self.displayTime = entity.displayTime
-        self.timestap = entity.timestap
+        self.timestamp = entity.timestamp
+        self.waitTime = entity.waitTime
     }
 }

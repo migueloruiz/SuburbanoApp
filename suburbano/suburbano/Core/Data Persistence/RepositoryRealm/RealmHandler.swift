@@ -54,11 +54,14 @@ class RealmHandler: NSObject {
         return realm.object(ofType: type, forPrimaryKey: key)
     }
 
-    func get<Element>(type: Element.Type, predicateFormat: NSPredicate? = nil) -> [Element]? where Element: RealmSwift.Object {
+    func get<Element>(type: Element.Type, predicateFormat: NSPredicate? = nil, sortingKey: String? = nil, ascending: Bool = false) -> [Element]? where Element: RealmSwift.Object {
         guard let realm = realmInstance else { return nil }
         var result = realm.objects(type)
         if let predicate = predicateFormat {
             result = result.filter(predicate)
+        }
+        if let key = sortingKey {
+            result = result.sorted(byKeyPath: key, ascending: ascending)
         }
         return Array(result)
     }

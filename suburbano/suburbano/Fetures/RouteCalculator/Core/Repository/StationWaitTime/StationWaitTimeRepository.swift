@@ -24,7 +24,7 @@ class StationWaitTimeRepositoryImpl: StationWaitTimeRepository {
     
     func get(inStation station: String) -> [StationWaitTimeEntity] {
         let predicate = NSPredicate(format: "station == %@", argumentArray: [station])
-        guard let realmActivities = realmHandler.get(type: RealmStationWaitTime.self, predicateFormat: predicate) else { return [] }
+        guard let realmActivities = realmHandler.get(type: RealmStationWaitTime.self, predicateFormat: predicate, sortingKey: "timestamp", ascending: true) else { return [] }
         return realmActivities.map { StationWaitTime(entity: $0) }
     }
     

@@ -19,7 +19,7 @@ class StationDetailViewController: UIViewController, PresentableView {
     let containerView = UIFactory.createContainerView()
     let backButton = UIButton()
     private lazy var stationLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
-    private lazy var pricesButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "money"), tintColor: .white, backgroundColor: Theme.Pallete.softRed)
+    private lazy var locationButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "cursor"), tintColor: .white, backgroundColor: Theme.Pallete.blue)
     private let stationNameImage = UIImageView()
     let detailsTableView = UITableView(frame: .zero, style: .grouped)
     
@@ -43,6 +43,7 @@ class StationDetailViewController: UIViewController, PresentableView {
         
         backButton.set(image: #imageLiteral(resourceName: "down-arrow"), color: Theme.Pallete.darkGray)
         backButton.addTarget(self, action: #selector(StationDetailViewController.close), for: .touchUpInside)
+        locationButton.addTarget(self, action: #selector(StationDetailViewController.showLocation), for: .touchUpInside)
         
         configureTable()
         
@@ -57,20 +58,24 @@ class StationDetailViewController: UIViewController, PresentableView {
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
         backButton.anchorSize(width: 25, height: 25) // TODO
         
-        containerView.addSubViews([stationLabel, stationNameImage, pricesButton, detailsTableView])
+        containerView.addSubViews([stationLabel, stationNameImage, locationButton, detailsTableView])
         
         stationLabel.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, topConstant: Theme.Offset.large, leftConstant: Theme.Offset.large)
         stationNameImage.anchor(top: stationLabel.bottomAnchor, left: containerView.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
         let sacleSize = scaleImage(actualSize: stationNameImage.image?.size ?? CGSize(width: 100, height: 28), withHeight: 28) // TODO
         stationNameImage.anchorSize(width: sacleSize.width, height: sacleSize.height)
         
-        pricesButton.anchor(top: containerView.topAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
+        locationButton.anchor(top: stationLabel.topAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.small, rightConstant: Theme.Offset.large)
         
         detailsTableView.anchor(top: stationNameImage.bottomAnchor, left: containerView.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
     }
     
     @objc func close() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func showLocation() {
+        flowDelegate?.showDirectionsDetails(for: presenter.station)
     }
 }
 

@@ -97,7 +97,7 @@ class MapStationsViewController: NavigationalViewController {
         
         mapView.fillSuperview()
         cardBalanceView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
-        buttonsContiner.anchor(top: gradientView.bottomAnchor, right: view.rightAnchor, topConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
+        buttonsContiner.anchor(top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, topConstant: Theme.Offset.small, rightConstant: Theme.Offset.normal)
         
         buttonsContiner.addArranged(subViews: [pricesButton, centerMapButton])
     }

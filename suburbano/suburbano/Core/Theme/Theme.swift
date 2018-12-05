@@ -39,8 +39,13 @@ struct Theme {
         static let initialSpringVelocity: CGFloat = 0.3
     }
     
+    struct ContainerPropotion {
+        static let porcent70: CGFloat = 0.7
+    }
+    
     struct IconSize {
         static let extraSmall: CGFloat = 15
+        static let button: CGFloat = 25
         static let small: CGFloat = 30
         static let normal: CGFloat = 40
         static let large: CGFloat = 50

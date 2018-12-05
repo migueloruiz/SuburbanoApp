@@ -111,7 +111,7 @@ class MapStationsViewController: NavigationalViewController {
     
     @objc func centerMap() {
         mapView.setContentInset(Constants.defaultEdges, animated: true)
-        mapView.setCamera(defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn))
+        mapView.setCamera(defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn)) // TODO
         centerMapButton.isHidden = true
     }
 }
@@ -125,11 +125,11 @@ extension MapStationsViewController: MGLMapViewDelegate {
                 let data = try? Data(contentsOf: url),
                 let shapeCollectionFeature = try? MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as? MGLShapeCollectionFeature,
                 let polyline = shapeCollectionFeature?.shapes.first as? MGLPolylineFeature else { return }
-            let identifier = polyline.attributes["name"] as? String ?? ""
+            let identifier = polyline.attributes["name"] as? String ?? "" // TODO
             polyline.identifier = identifier
             
-            if let geometry = polyline.geoJSONDictionary()["geometry"] as? [String: Any],
-                let cordinates = geometry["coordinates"] as? [[Double]] {
+            if let geometry = polyline.geoJSONDictionary()["geometry"] as? [String: Any], // TODO
+                let cordinates = geometry["coordinates"] as? [[Double]] { // TODO
                 self?.railCordinates = cordinates
                 print(polyline.coordinates)
             }
@@ -139,7 +139,7 @@ extension MapStationsViewController: MGLMapViewDelegate {
             layer.sourceLayerIdentifier = identifier
             layer.lineWidth = NSExpression(forConstantValue: Constants.railRoadWith)
             layer.lineColor = NSExpression(forConstantValue: Constants.railRoadColor)
-            layer.lineCap = NSExpression(forConstantValue: "round")
+            layer.lineCap = NSExpression(forConstantValue: "round") // TODO
             
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
@@ -165,10 +165,6 @@ extension MapStationsViewController: MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         draw(mapView: mapView, railRoad: AppResources.Map.TrainRail)
         draw(mapView: mapView, stations: presenter.getMarkers())
-    }
-    
-    func mapViewDidFinishRenderingMap(_ mapView: MGLMapView, fullyRendered: Bool) {
-        print("End")
     }
     
     func mapView(_ mapView: MGLMapView, shouldChangeFrom oldCamera: MGLMapCamera, to newCamera: MGLMapCamera) -> Bool {
@@ -261,17 +257,17 @@ extension MapStationsViewController: UIViewControllerTransitioningDelegate {
         selectedAnotation = marker
         mapView.setContentInset(Constants.detailEdges, animated: true)
         
-        // Refactor
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1000)) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1000)) { [weak self] in // TODO
             guard let strongSelf = self else { return }
             strongSelf.flowDelegate?.stationSelected(station: station)
             let tempCamera = strongSelf.mapView.camera
             tempCamera.centerCoordinate = anotation.coordinate
+            // TODO
             strongSelf.mapView.setCamera(tempCamera, withDuration: 0.3, animationTimingFunction: CAMediaTimingFunction(name: .easeIn)) {
                 marker.diaplayStyle = .detail
                 let endCamera = strongSelf.mapView.camera
                 endCamera.altitude = Constants.detailZoomLevel
-                strongSelf.mapView.setCamera(endCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn))
+                strongSelf.mapView.setCamera(endCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn)) // TODO
             }
         }
     }
@@ -318,12 +314,12 @@ extension MapStationsViewController: RouteCameraDelegate {
                 return CLLocationCoordinate2D(latitude: cordinate.last ?? 0, longitude: cordinate.first ?? 0)
             }
             let tripLine = MGLPolyline(coordinates: tripMapCordinates, count: UInt(tripMapCordinates.count))
-            let source = MGLShapeSource(identifier: "trip", shape: tripLine, options: nil)
-            let layer = MGLLineStyleLayer(identifier: "trip", source: source)
-            layer.sourceLayerIdentifier = "trip"
+            let source = MGLShapeSource(identifier: "trip", shape: tripLine, options: nil)// TODO
+            let layer = MGLLineStyleLayer(identifier: "trip", source: source)// TODO
+            layer.sourceLayerIdentifier = "trip"// TODO
             layer.lineWidth = NSExpression(forConstantValue: Constants.railRoadWith)
             layer.lineColor = NSExpression(forConstantValue: Theme.Pallete.blue)
-            layer.lineCap = NSExpression(forConstantValue: "round")
+            layer.lineCap = NSExpression(forConstantValue: "round")// TODO
             
             strongSelf.tripRailSource = source
             strongSelf.tripRailLayer = layer
@@ -341,8 +337,8 @@ extension MapStationsViewController: RouteCameraDelegate {
                 let menuOffset = Utils.screenHeight - strongSelf.mapView.frame.height
                 let tempCamera = strongSelf.mapView.cameraThatFitsShape(tripLine,
                                                              direction: tripDirection.direction,
-                                                             edgePadding: UIEdgeInsets(top: 0, left: 20, bottom: Utils.screenHeight * 0.6 - menuOffset, right: 20))
-                strongSelf.mapView.setCamera(tempCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn))
+                                                             edgePadding: UIEdgeInsets(top: 0, left: 20, bottom: menuOffset, right: 20)) // TODO
+                strongSelf.mapView.setCamera(tempCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn)) // TODO
             }
         }
     }

@@ -19,23 +19,13 @@ class RouteInfoItem: UIView {
     private let amountLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoAmount)
     
     var title: String {
-        get {
-            return titleLabel.text ?? ""
-        }
-        
-        set(newValue) {
-            titleLabel.text = newValue
-        }
+        get { return titleLabel.text ?? "" }
+        set(newValue) { titleLabel.text = newValue }
     }
     
     var amount: String {
-        get {
-            return amountLabel.text ?? ""
-        }
-        
-        set(newValue) {
-            amountLabel.text = newValue
-        }
+        get { return amountLabel.text ?? "" }
+        set(newValue) { amountLabel.text = newValue }
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }

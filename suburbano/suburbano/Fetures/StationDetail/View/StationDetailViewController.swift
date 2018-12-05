@@ -14,6 +14,11 @@ protocol  StationDetailViewDelegate: class {
 
 class StationDetailViewController: UIViewController, PresentableView {
     
+    struct Constant {
+        static let deafiltImageSize = CGSize(width: 100, height: 28)
+        static let expectedImageHeigth: CGFloat = 28
+    }
+    
     let presenter: StationDetailPresenter
     weak var flowDelegate: StationDetailViewFlowDelegate?
     
@@ -58,16 +63,16 @@ class StationDetailViewController: UIViewController, PresentableView {
     private func configureLayout() {
         view.addSubViews([containerView, backButton])
         containerView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, bottomConstant: -Theme.Offset.large)
-        containerView.anchorSize(height: (Utils.screenHeight * 0.7) + Theme.Offset.large) // TODO
+        containerView.anchorSize(height: (Utils.screenHeight * Theme.ContainerPropotion.porcent70) + Theme.Offset.large)
         
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
-        backButton.anchorSize(width: 25, height: 25) // TODO
+        backButton.anchorSquare(size: Theme.IconSize.button)
         
         containerView.addSubViews([stationLabel, stationNameImage, locationButton, detailsTableView])
         
         stationLabel.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, topConstant: Theme.Offset.large, leftConstant: Theme.Offset.large)
         stationNameImage.anchor(top: stationLabel.bottomAnchor, left: containerView.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
-        let sacleSize = scaleImage(actualSize: stationNameImage.image?.size ?? CGSize(width: 100, height: 28), withHeight: 28) // TODO
+        let sacleSize = scaleImage(actualSize: stationNameImage.image?.size ?? Constant.deafiltImageSize, withHeight: Constant.expectedImageHeigth)
         stationNameImage.anchorSize(width: sacleSize.width, height: sacleSize.height)
         
         locationButton.anchor(top: stationLabel.topAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.small, rightConstant: Theme.Offset.large)

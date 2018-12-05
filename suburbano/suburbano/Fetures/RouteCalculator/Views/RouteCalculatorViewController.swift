@@ -10,6 +10,12 @@ import UIKit
 
 class RouteCalculatorViewController: UIViewController, PresentableView {
     
+    struct Constants {
+        static let DeparturePickerTag = 0
+        static let ArrivalPickerTag = 1
+        static let PickerHeigth: CGFloat = 110
+    }
+    
     var inTransition: UIViewControllerAnimatedTransitioning? = RouteCalculatorTransitionIn()
     var outTransition: UIViewControllerAnimatedTransitioning? = RouteCalculatorTransitionOut()
     
@@ -26,8 +32,6 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
     private let backView = UIView()
     private let arrivalLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoTitle)
     private let routeInfoView = RouteInfoView()
-//    private let daySelector = DaySelectorView()
-//    private let waitTimeDetail = WaitTimeDetail()
     
     weak var routeCameraDelegate: RouteCameraDelegate?
     
@@ -50,16 +54,18 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         
         departurePicker.delegate = self
         departurePicker.dataSource = self
-        departurePicker.tag = 0
+        departurePicker.tag = Constants.DeparturePickerTag
         departurePicker.backgroundColor = .white
         arrivalPicker.delegate = self
         arrivalPicker.dataSource = self
-        arrivalPicker.tag = 1
+        arrivalPicker.tag = Constants.ArrivalPickerTag
         arrivalPicker.backgroundColor = .white
+        routeInfoView.roundCorners()
         
         departurePicker.reloadAllComponents()
         arrivalPicker.reloadAllComponents()
-    
+        
+        backButton.set(image: #imageLiteral(resourceName: "down-arrow"), color: Theme.Pallete.darkGray)
         backButton.addTarget(self, action: #selector(StationDetailViewController.close), for: .touchUpInside)
         backView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(StationDetailViewController.close)))
     }
@@ -69,24 +75,22 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         backView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: containerView.topAnchor, right: view.rightAnchor)
 
         containerView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, bottomConstant: -Theme.Offset.large)
-        containerView.anchorSize(height: (Utils.screenHeight * 0.7) + Theme.Offset.large) // TODO
         
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
-        backButton.anchorSquare(size: 25) // TODO
+        backButton.anchorSquare(size: Theme.IconSize.button)
         
         containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel, routeInfoView])
         
-        departureLabel.anchor(top: containerView.topAnchor, bottom: departurePicker.topAnchor, topConstant: Theme.Offset.normal, bottomConstant: -Theme.Offset.normal)
-        departureLabel.center(x: departurePicker.centerXAnchor, y: nil)
+        routeInfoView.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor)
         
+        departureLabel.anchor(top: routeInfoView.bottomAnchor, topConstant: Theme.Offset.large)
+        departureLabel.center(x: departurePicker.centerXAnchor, y: nil)
         arrivalLabel.anchor(top: departureLabel.topAnchor, bottom: departureLabel.bottomAnchor)
         arrivalLabel.center(x: arrivalPicker.centerXAnchor, y: nil)
         
-        departurePicker.anchor(left: containerView.leftAnchor, right: view.centerXAnchor, bottomConstant: Theme.Offset.large)
-        departurePicker.anchorSize(height: 90) // TODO
+        departurePicker.anchor(top: departureLabel.bottomAnchor, left: containerView.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.centerXAnchor, topConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.large)
+        departurePicker.anchorSize(height: Constants.PickerHeigth)
         arrivalPicker.anchor(top: departurePicker.topAnchor, left: view.centerXAnchor, bottom: departurePicker.bottomAnchor, right: containerView.rightAnchor)
-        
-        routeInfoView.anchor(top: arrivalPicker.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor)
     }
     
     private func setSelectedStations() {

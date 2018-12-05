@@ -68,7 +68,7 @@ class CardUseCaseImpl: CardUseCase {
     
     func get(card: Card, complition: @escaping (GetCardResult) -> Void) {
         guard cardRepository.get(forKey: card.id) == nil else {
-            let error = ErrorResponse(code: .unknownCode, header: "", body: "Esta tarjeta ya esta registrada", tecnicalDescription: "")
+            let error = ErrorResponse(code: .unknownCode, header: "", body: "Esta tarjeta ya esta registrada", tecnicalDescription: "") // Localize
             complition(.failure(error: error))
             return
         }
@@ -81,7 +81,7 @@ class CardUseCaseImpl: CardUseCase {
                 strongSelf.notifiCardsUpdate()
                 complition(.succes(card: card))
             case .failure:
-                let error = ErrorResponse(code: .unknownCode, header: "", body: "Numero de tarjeta no valido. Pudes encontrar el numero al frente de tu tarjeta en la parte inferior", tecnicalDescription: "")
+                let error = ErrorResponse(code: .unknownCode, header: "", body: "Número de tarjeta no valido. Puedes encontrar el numero al frente en la parte inferior de tu tarjeta", tecnicalDescription: "") // Localize
                 complition(.failure(error: error))
             }
         }

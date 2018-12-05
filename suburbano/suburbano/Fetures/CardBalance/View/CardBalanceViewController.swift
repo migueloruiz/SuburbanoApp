@@ -57,6 +57,11 @@ class CardBalanceViewController: UIViewController, PresentableView {
         }
     }
     
+    private func focusFirstFieldIfNeeded() {
+        guard card == nil else { return }
+         _ = cardBalanceIconView.becomeFirstResponder()
+    }
+    
     // MARK: configureUI
     
     private func configureUI() {

@@ -44,6 +44,11 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         presenter.load()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        waitTimeDetail.reload()
+    }
+    
     private func configureUI() {
         departureLabel.text = "SALIDA" //Localize
         arrivalLabel.text = "LLEGADA" //Localize

@@ -1,5 +1,5 @@
 //
-//  WaitTaimeDetail.swift
+//  WaitTimeDetail.swift
 //  suburbano
 //
 //  Created by Miguel Ruiz on 9/25/18.
@@ -41,6 +41,7 @@ class WaitTimeDetailCell: UICollectionViewCell, ReusableIdentifier {
     }
     
     private func configureLayout() {
+        // TODO remove hardcoded numbers
         addSubViews([spaceView, timeLabel, waitTimeLabel, peopleImage])
         spaceView.addSubview(barView)
         
@@ -62,8 +63,8 @@ class WaitTimeDetailCell: UICollectionViewCell, ReusableIdentifier {
         barHeigthConstraint?.constant = ((bounds.height - 35 - 20) / 10) * CGFloat(model.concurrence)
         UIView.animate(withDuration: 0.5) { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.spaceView.backgroundColor = strongSelf.getColorFor(waitTime: model.waitTime)
-            strongSelf.waitTimeLabel.backgroundColor = strongSelf.spaceView.backgroundColor
+            strongSelf.spaceView.backgroundColor = Theme.Pallete.ligthGray
+            strongSelf.waitTimeLabel.backgroundColor = strongSelf.getColorFor(waitTime: model.waitTime)
         }
     }
     
@@ -128,6 +129,10 @@ class WaitTimeDetail: UIView {
     
     func configure(items: [WaitTimeDetailModel]) {
         self.items = items
+        collectionView.reloadData()
+    }
+    
+    func reload() {
         collectionView.reloadData()
     }
 }

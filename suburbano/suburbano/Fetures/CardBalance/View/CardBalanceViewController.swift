@@ -52,9 +52,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if card == nil {
-            _ = cardBalanceIconView.becomeFirstResponder()
-        }
+        focusFirstFieldIfNeeded()
     }
     
     private func focusFirstFieldIfNeeded() {
@@ -75,7 +73,11 @@ class CardBalanceViewController: UIViewController, PresentableView {
         setUIwithCard()
         loadingView.configure()
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CardBalanceViewController.closeKeyboard))
+        formContinerView.addGestureRecognizer(tapGesture)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CardBalanceViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
@@ -133,7 +135,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
         titleLabel.anchorCenterXToSuperview()
         
         formContinerView.anchor(top: titleLabel.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: verticalOffset, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
-        let constraints = formContinerView.anchor(bottom: view.bottomAnchor, bottomConstant: Theme.Offset.normal)
+        let constraints = formContinerView.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, bottomConstant: Theme.Offset.normal)
         bottomButtonsConstraint = constraints.first
         
         formContinerView.addSubViews([cardBalanceIconView, cardNumberInput, useDisclaimerView, buttonsContainer])
@@ -164,8 +166,13 @@ class CardBalanceViewController: UIViewController, PresentableView {
 // MARK: Actions
 
 extension CardBalanceViewController {
-    @objc func close() {
+    
+    @objc func closeKeyboard() {
         view.endEditing(true)
+    }
+    
+    @objc func close() {
+        closeKeyboard()
         dismiss(animated: true, completion: nil)
     }
     
@@ -188,7 +195,7 @@ extension CardBalanceViewController {
     
     @objc func keyboardWillShow(notification: Notification) {
         guard let keyboard = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        bottomButtonsConstraint?.constant = -(keyboard.cgRectValue.height + Theme.Offset.normal)
+        bottomButtonsConstraint?.constant = -(keyboard.cgRectValue.height)
         view.layoutIfNeeded()
     }
     

@@ -14,41 +14,16 @@ protocol RouteCalculatorPresenter: class {
     func elementsFor(pickerId: Int) -> Int
     func getImage(forPicker pickerId: Int, at row: Int) -> String
     func didChange(selcteItem: Int, atPicker pickerId: Int)
-    func getWeekDays() -> [String]
-    func didChange(daySelected: Int)
 }
 
 protocol RouteCalculatorViewDelegate: class {
     func update(route: Route)
-    func update(waitTimes: [WaitTimeDetailModel])
 }
 
 struct Route {
     let departure: Station
     let arraival: Station
     let information: DisplayRouteInformation
-}
-
-enum WeekDays: Int, CaseIterable {
-    case sunday = 0
-    case monday = 1
-    case tuesday = 2
-    case wednesday = 3
-    case thursday = 4
-    case friday = 5
-    case saturday = 6
-    
-    var title: String {
-        switch self {
-        case .sunday: return "Domingo" // Localize
-        case .monday: return "Lunes" // Localize
-        case .tuesday: return "Martes" // Localize
-        case .wednesday: return "Miercoles" // Localize
-        case .thursday: return "Jueves" // Localize
-        case .friday: return "Viernes" // Localize
-        case .saturday: return "Sabado" // Localize
-        }
-    }
 }
 
 class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
@@ -58,9 +33,6 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
     private var filterStations: [Station]
     private var departure: Station
     private var arraival: Station
-    private var selectedDay: TripDay = .normal
-    private var selctedWaitDay: Int = 0
-    private var waitDaysDetals: [Int: [WaitTimeDetailModel]] = [:]
     
     private lazy var distanceFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -83,7 +55,6 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.getInformation(from: strongSelf.departure, to: strongSelf.arraival)
-            strongSelf.getWaitTime(for: strongSelf.departure)
         }
     }
     
@@ -124,29 +95,18 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
             }
             
             strongSelf.getInformation(from: strongSelf.departure, to: strongSelf.arraival)
-            strongSelf.getWaitTime(for: strongSelf.departure)
         }
-    }
-    
-    func getWeekDays() -> [String] {
-        return WeekDays.allCases.map { $0.title }
-    }
-    
-    func didChange(daySelected: Int) {
-        guard let displayItems = waitDaysDetals[daySelected] else { return }
-        selctedWaitDay = daySelected
-        viewDelegate?.update(waitTimes: displayItems)
     }
 }
 
 extension RouteCalculatorPresenterImpl {
     private func preperForDisplay(info: RouteInformation) -> DisplayRouteInformation {
         var distance = distanceFormatter.string(from: info.distance as NSNumber) ?? ""
-        distance = distance.isEmpty ? "-" : distance + "Km"
+        distance = distance.isEmpty ? "-" : distance + "Km" // TODO
         
-        return DisplayRouteInformation(time: String(info.time) + "min",
+        return DisplayRouteInformation(time: String(info.time) + "min", // TODO
                                        distance: distance,
-                                       price: String(format: "$%.02f", info.price))
+                                       price: String(format: "$%.02f", info.price)) // TODO
     }
     
     private func getInformation(from departure: StationEntity, to arraival: StationEntity) {
@@ -157,26 +117,6 @@ extension RouteCalculatorPresenterImpl {
                 arraival: strongSelf.arraival,
                 information: strongSelf.preperForDisplay(info: routeInfo))
                 strongSelf.viewDelegate?.update(route: route)
-            }
-        }
-    }
-    
-    private func getWaitTime(for station: StationEntity) {
-        routeUseCase?.getWaitTime(inStation: station.name) { [weak self] waitTimes in
-            guard let strongSelf = self else { return }
-            strongSelf.waitDaysDetals = [:]
-            for item in waitTimes {
-                let model = WaitTimeDetailModel(concurrence: item.concurrence, waitTime: item.waitTime, displayTime: item.displayTime)
-                if strongSelf.waitDaysDetals[item.day] == nil {
-                    strongSelf.waitDaysDetals[item.day] = [model]
-                } else {
-                    strongSelf.waitDaysDetals[item.day]?.append(model)
-                }
-            }
-            guard let displayItems = strongSelf.waitDaysDetals[strongSelf.selctedWaitDay] else { return }
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.viewDelegate?.update(waitTimes: displayItems)
             }
         }
     }

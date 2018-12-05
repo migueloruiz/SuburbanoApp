@@ -44,7 +44,22 @@ enum TripDay: String, CaseIterable {
         switch self {
         case .sundayAndHolidays: return "Domingos y Festivos" // Localize
         case .normal: return "Lunes a Viernes" // Localize
-        case .saturday: return "Sabados"
+        case .saturday: return "Sabados" // Localize
+        }
+    }
+    
+    var openTime: String {
+        switch self {
+        case .sundayAndHolidays: return "7:00" // Localize
+        case .normal: return "5:00" // Localize
+        case .saturday: return "6:00" // Localize
+        }
+    }
+    
+    var closeTime: String {
+        switch self {
+        case .sundayAndHolidays, .normal, .saturday:
+            return "00:30" // Localize
         }
     }
 }

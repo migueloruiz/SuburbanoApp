@@ -26,8 +26,8 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
     private let backView = UIView()
     private let arrivalLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoTitle)
     private let routeInfoView = RouteInfoView()
-    private let daySelector = DaySelectorView()
-    private let waitTimeDetail = WaitTimeDetail()
+//    private let daySelector = DaySelectorView()
+//    private let waitTimeDetail = WaitTimeDetail()
     
     weak var routeCameraDelegate: RouteCameraDelegate?
     
@@ -44,11 +44,6 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         presenter.load()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        waitTimeDetail.reload()
-    }
-    
     private func configureUI() {
         departureLabel.text = "SALIDA" //Localize
         arrivalLabel.text = "LLEGADA" //Localize
@@ -61,9 +56,6 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         arrivalPicker.dataSource = self
         arrivalPicker.tag = 1
         arrivalPicker.backgroundColor = .white
-        
-        daySelector.configure(items: presenter.getWeekDays())
-        daySelector.delegate = self
         
         departurePicker.reloadAllComponents()
         arrivalPicker.reloadAllComponents()
@@ -82,7 +74,7 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
         backButton.anchorSquare(size: 25) // TODO
         
-        containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel, routeInfoView, daySelector, waitTimeDetail])
+        containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel, routeInfoView])
         
         departureLabel.anchor(top: containerView.topAnchor, bottom: departurePicker.topAnchor, topConstant: Theme.Offset.normal, bottomConstant: -Theme.Offset.normal)
         departureLabel.center(x: departurePicker.centerXAnchor, y: nil)
@@ -95,9 +87,6 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         arrivalPicker.anchor(top: departurePicker.topAnchor, left: view.centerXAnchor, bottom: departurePicker.bottomAnchor, right: containerView.rightAnchor)
         
         routeInfoView.anchor(top: arrivalPicker.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor)
-        
-        daySelector.anchor(top: routeInfoView.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.small)
-        waitTimeDetail.anchor(top: daySelector.bottomAnchor, left: containerView.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
     }
     
     private func setSelectedStations() {
@@ -119,10 +108,6 @@ extension RouteCalculatorViewController: RouteCalculatorViewDelegate {
         routeCameraDelegate?.setRouteCamera(departure: route.departure, arraival: route.arraival)
         routeInfoView.update(with: route.information)
     }
-    
-    func update(waitTimes: [WaitTimeDetailModel]) {
-        waitTimeDetail.configure(items: waitTimes)
-    }
 }
 
 extension RouteCalculatorViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -141,11 +126,5 @@ extension RouteCalculatorViewController: UIPickerViewDelegate, UIPickerViewDataS
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         presenter.didChange(selcteItem: row, atPicker: pickerView.tag)
-    }
-}
-
-extension RouteCalculatorViewController: DaySelectorDelegate {
-    func didChange(daySelected: Int) {
-        presenter.didChange(daySelected: daySelected)
     }
 }

@@ -37,9 +37,9 @@ class DetailScheduleCell: UITableViewCell, DetailCell, ReusableIdentifier {
     
     func configure(with item: DetailItem) {
         switch item {
-        case .schedule(let dias, let open, let close):
-            daysLabel.text = dias
-            scheduleLabel.text = "\(open) - \(close)"
+        case .schedule(let dia):
+            daysLabel.text = dia.selectionText
+            scheduleLabel.text = "\(dia.openTime) - \(dia.closeTime)"
         default: break
         }
     }

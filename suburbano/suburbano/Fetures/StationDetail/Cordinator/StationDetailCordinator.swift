@@ -20,8 +20,10 @@ class StationDetailCordinator: NSObject, Coordinator {
     init(rootViewController: MapStationsViewController, station: Station) {
         self.rootViewController = rootViewController
         self.station = station
-        let presenter = StationDetailPresenterImpl(station: station)
+        let presenter = StationDetailPresenterImpl(station: station,
+                                                   routeUseCase: UseCaseLocator.getUseCase(ofType: RouteUseCase.self))
         self.controller = StationDetailViewController(presenter: presenter)
+        presenter.viewDelegate = self.controller
     }
     
     func start() {

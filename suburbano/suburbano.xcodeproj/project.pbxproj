@@ -111,6 +111,8 @@
 		869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCC2125380600B2FA9F /* UIButton.swift */; };
 		869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */; };
 		869E40E121371CC900EB133F /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 869E40E021371CC900EB133F /* loading.json */; };
+		86A4939B21B84C7600490820 /* DetailWaitTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939A21B84C7600490820 /* DetailWaitTimeCell.swift */; };
+		86A4939E21B850A100490820 /* WeekDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939D21B850A100490820 /* WeekDays.swift */; };
 		86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */; };
 		86B830DC2137422A0063AC75 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DB2137422A0063AC75 /* LoadingView.swift */; };
 		86B830DE213765A80063AC75 /* AlertContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DD213765A80063AC75 /* AlertContext.swift */; };
@@ -298,6 +300,8 @@
 		869E2CCC2125380600B2FA9F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationMapAnnotation.swift; sourceTree = "<group>"; };
 		869E40E021371CC900EB133F /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		86A4939A21B84C7600490820 /* DetailWaitTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWaitTimeCell.swift; sourceTree = "<group>"; };
+		86A4939D21B850A100490820 /* WeekDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDays.swift; sourceTree = "<group>"; };
 		86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
 		86B830DB2137422A0063AC75 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		86B830DD213765A80063AC75 /* AlertContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContext.swift; sourceTree = "<group>"; };
@@ -842,8 +846,6 @@
 				868D2615214B362500700DE7 /* RouteCalculatorViewController.swift */,
 				868D2617214B3AD000700DE7 /* RouteCalculatorTransition.swift */,
 				86593C3F21505CB500383445 /* RouteInfoView.swift */,
-				86BD985E2159D7660022DC6F /* DaySelectorView.swift */,
-				86BD9860215AE6640022DC6F /* WaitTimeDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -948,6 +950,15 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		86A4939C21B84C9C00490820 /* WaitTime */ = {
+			isa = PBXGroup;
+			children = (
+				86BD985E2159D7660022DC6F /* DaySelectorView.swift */,
+				86BD9860215AE6640022DC6F /* WaitTimeDetail.swift */,
+			);
+			path = WaitTime;
+			sourceTree = "<group>";
+		};
 		86B830D9213742030063AC75 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -1048,6 +1059,7 @@
 			isa = PBXGroup;
 			children = (
 				86B83110213DAEBA0063AC75 /* StationDetailPresenter.swift */,
+				86A4939D21B850A100490820 /* WeekDays.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1055,11 +1067,13 @@
 		86B83112213DBF2C0063AC75 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				86A4939C21B84C9C00490820 /* WaitTime */,
 				86B83113213DBF350063AC75 /* DetailHeaderView.swift */,
 				86B83115213DC4F30063AC75 /* DetailCell.swift */,
 				86B83117213DC5140063AC75 /* DetailAddressCell.swift */,
 				86B83119213DC6230063AC75 /* DetailScheduleCell.swift */,
 				86B8311B213DF3AA0063AC75 /* DeatilConectionsCell.swift */,
+				86A4939A21B84C7600490820 /* DetailWaitTimeCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1477,6 +1491,7 @@
 				86385C8421337437002EA9DF /* CardBalanceWebService.swift in Sources */,
 				8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */,
 				862517D820FD70D9002F2048 /* ActivitiesUseCase.swift in Sources */,
+				86A4939E21B850A100490820 /* WeekDays.swift in Sources */,
 				861FC581211010480024783A /* UIEdgeInsets.swift in Sources */,
 				86B83114213DBF350063AC75 /* DetailHeaderView.swift in Sources */,
 				86B830EA21385FBB0063AC75 /* PromptView.swift in Sources */,
@@ -1502,6 +1517,7 @@
 				86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */,
 				8621A2D020F6FE0A00A2D8B1 /* MapStationsViewController.swift in Sources */,
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,
+				86A4939B21B84C7600490820 /* DetailWaitTimeCell.swift in Sources */,
 				86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */,
 				868D2618214B3AD000700DE7 /* RouteCalculatorTransition.swift in Sources */,
 				8641325520FFFFD00031F4F4 /* AcvtivityCell.swift in Sources */,

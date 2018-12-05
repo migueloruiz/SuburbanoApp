@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol  StationDetailViewDelegate: class {
+    func update()
+}
+
 class StationDetailViewController: UIViewController, PresentableView {
     
     let presenter: StationDetailPresenter
@@ -34,10 +38,11 @@ class StationDetailViewController: UIViewController, PresentableView {
     override func viewDidLoad() {
         configureUI()
         configureLayout()
+        presenter.load()
     }
     
     private func configureUI() {
-        stationLabel.text = "ESTACION"
+        stationLabel.text = "ESTACION" // Localize
         stationNameImage.image = UIImage(named: presenter.titleImageName)
         stationNameImage.contentMode = .scaleAspectFit
         
@@ -76,6 +81,15 @@ class StationDetailViewController: UIViewController, PresentableView {
     
     @objc func showLocation() {
         flowDelegate?.showDirectionsDetails(for: presenter.station)
+    }
+}
+
+extension StationDetailViewController: StationDetailViewDelegate {
+    func update() {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.detailsTableView.reloadData()
+        }
     }
 }
 

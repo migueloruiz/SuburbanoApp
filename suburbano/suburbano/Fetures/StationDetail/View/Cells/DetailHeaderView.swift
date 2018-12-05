@@ -36,7 +36,7 @@ class DetailHeaderView: UITableViewHeaderFooterView, ReusableIdentifier {
     private func configureLayout() {
         addSubViews([addressLabel])
         addressLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: Theme.Offset.small, bottomConstant: Theme.Offset.small)
-        addressLabel.anchorSize(height: 20)
+        addressLabel.anchorSize(height: 20) // TODO
     }
     
     func configure(with detail: DetailSection) {

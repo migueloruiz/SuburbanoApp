@@ -41,6 +41,10 @@ class PopUpViewController: UIViewController {
         configureUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     private func configureUI() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PopUpViewController.primaryAction)))

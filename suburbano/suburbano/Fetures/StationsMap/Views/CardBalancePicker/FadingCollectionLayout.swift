@@ -12,6 +12,7 @@ class FadingCollectionLayout: UICollectionViewFlowLayout, UICollectionViewDelega
     
     private var previousOffset: CGFloat = 0
     private var currentPage = 0
+    private let selectionFeedback = UISelectionFeedbackGenerator()
     
     override func prepare() {
         scrollDirection = .horizontal
@@ -56,6 +57,7 @@ class FadingCollectionLayout: UICollectionViewFlowLayout, UICollectionViewDelega
         let itemEdgeOffset = (collectionView.frame.width - itemSize.width -  minimumLineSpacing * 2) / 2
         let updatedOffset = (itemSize.width + minimumLineSpacing) * CGFloat(currentPage) - (itemEdgeOffset + minimumLineSpacing)
         previousOffset = updatedOffset
+        selectionFeedback.selectionChanged()
         return CGPoint(x: updatedOffset, y: proposedContentOffset.y)
     }
 }

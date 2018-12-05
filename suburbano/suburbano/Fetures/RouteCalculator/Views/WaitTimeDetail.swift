@@ -75,7 +75,6 @@ class WaitTimeDetailCell: UICollectionViewCell, ReusableIdentifier {
         case 10: return UIColor(named: "wait-high") ?? Theme.Pallete.ligthGray
         default: return UIColor(named: "wait-veryhigh") ?? Theme.Pallete.ligthGray
         }
-        
     }
 }
 

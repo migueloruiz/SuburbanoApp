@@ -68,7 +68,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
         cardNumberInput.title = "No. de trajeta"
         cardNumberInput.placeholder = "XXXXXXXXX"
         cardNumberInput.disclaimer = "Pudes encontrar el numero al frente de tu tarjeta en la parte inferior"
-        useDisclaimerView.configure(disclaimer: "El saldo de recargas a tu tarjeta, podrá verse reflejado en 15 min aproximadamente.")
+        useDisclaimerView.configure(disclaimer: "Los cambios en tu saldo, podrá verse reflejado en 15 min aprox.")
         
         setUIwithCard()
         loadingView.configure()

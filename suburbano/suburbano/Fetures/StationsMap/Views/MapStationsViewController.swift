@@ -38,6 +38,7 @@ class MapStationsViewController: NavigationalViewController {
     private let mapBounds: MGLCoordinateBounds
     private let mapConfiguration: MapInitialConfiguration
     private let presenter: StationsMapPresenterProtocol
+    private let impactFeedback = UIImpactFeedbackGenerator()
     private lazy var defaultCamera = mapView.camera
     
     fileprivate lazy var mapView: MGLMapView = MapViewFactory.create(frame: view.frame, initilConfiguration: mapConfiguration)
@@ -206,6 +207,7 @@ extension MapStationsViewController: MGLMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, didSelect annotationView: MGLAnnotationView) {
+        impactFeedback.impactOccurred()
         setDetailCamera(annotationView: annotationView)
     }
 }

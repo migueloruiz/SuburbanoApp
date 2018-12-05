@@ -41,6 +41,7 @@ class DaySelectorView: UIView {
     
     private let leftButton = UIFactory.createCircularButton(image: UIImage(named: "left-arrow"), tintColor: Theme.Pallete.darkGray, backgroundColor: .white, addShadow: false)
     private let rightButton = UIFactory.createCircularButton(image: UIImage(named: "rigth-arrow"), tintColor: Theme.Pallete.darkGray, backgroundColor: .white, addShadow: false)
+    private let selectionFeedback = UISelectionFeedbackGenerator()
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
@@ -92,6 +93,7 @@ class DaySelectorView: UIView {
         let next = (selectedIndex.row - 1) >= 0 ? (selectedIndex.row - 1) : (items.count - 1)
         delegate?.didChange(daySelected: next)
         collectionView.scrollToItem(at: IndexPath(row: next, section: 0), at: .left, animated: true)
+        selectionFeedback.selectionChanged()
     }
     
     @objc func moveRight() {
@@ -99,6 +101,7 @@ class DaySelectorView: UIView {
         let next = (selectedIndex.row + 1) < items.count ? (selectedIndex.row + 1) : 0
         delegate?.didChange(daySelected: next)
         collectionView.scrollToItem(at: IndexPath(row: next, section: 0), at: .left, animated: true)
+        selectionFeedback.selectionChanged()
     }
 }
 

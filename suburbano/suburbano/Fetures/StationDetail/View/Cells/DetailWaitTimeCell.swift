@@ -10,6 +10,10 @@ import UIKit
 
 class DetailWaitTimeCell: UITableViewCell, DetailCell, ReusableIdentifier {
     
+    struct Constants {
+        static let waitTimeDetailCarrouselHeigth: CGFloat = 200
+    }
+    
     private let daySelector = DaySelectorView()
     private let waitTimeDetail = WaitTimeDetail()
     
@@ -34,7 +38,7 @@ class DetailWaitTimeCell: UITableViewCell, DetailCell, ReusableIdentifier {
         addSubViews([daySelector, waitTimeDetail])
         daySelector.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor)
         waitTimeDetail.anchor(top: daySelector.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: Theme.Offset.small, bottomConstant: Theme.Offset.large)
-        waitTimeDetail.anchorSize(height: 200) // TODO
+        waitTimeDetail.anchorSize(height: Constants.waitTimeDetailCarrouselHeigth)
     }
     
     func configure(with item: DetailItem) {

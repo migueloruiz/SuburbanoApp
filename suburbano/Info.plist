@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BaseUrls</key>
+	<dict>
+		<key>FsuburbanoHost</key>
+		<string>$(FSUBURBANOS_HOST)</string>
+		<key>MainHost</key>
+		<string>$(MAIN_HOST)</string>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -20,15 +27,14 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>waze</string>
+		<string>comgooglemaps</string>
+		<string>uber</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>BaseUrls</key>
-	<dict>
-		<key>FsuburbanoHost</key>
-		<string>$(FSUBURBANOS_HOST)</string>
-		<key>MainHost</key>
-		<string>$(MAIN_HOST)</string>
-	</dict>
 	<key>MGLMapboxAccessToken</key>
 	<string>${MAPBOX_ACCESS_TOKEN}</string>
 	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
@@ -60,12 +66,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>waze</string>
-		<string>comgooglemaps</string>
-		<string>uber</string>
 	</array>
 </dict>
 </plist>

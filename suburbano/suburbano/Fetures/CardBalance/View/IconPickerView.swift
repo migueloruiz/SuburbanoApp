@@ -50,6 +50,7 @@ class IconPickerView: UIView {
         let inputView = IconInputView()
         inputView.delegate = self
         field.inputView = inputView
+        field.inputView?.autoresizingMask = .flexibleHeight
         field.textAlignment = .center
         field.addTarget(self, action: #selector(IconPickerView.editingDidBegin), for: .editingDidBegin)
         field.addTarget(self, action: #selector(IconPickerView.endEditingChanged), for: .editingDidEnd)

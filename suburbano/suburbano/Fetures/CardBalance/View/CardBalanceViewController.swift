@@ -135,7 +135,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
         titleLabel.anchorCenterXToSuperview()
         
         formContinerView.anchor(top: titleLabel.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: verticalOffset, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
-        let constraints = formContinerView.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, bottomConstant: Theme.Offset.normal)
+        let constraints = formContinerView.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, bottomConstant: Theme.Offset.small)
         bottomButtonsConstraint = constraints.first
         
         formContinerView.addSubViews([cardBalanceIconView, cardNumberInput, useDisclaimerView, buttonsContainer])
@@ -195,7 +195,7 @@ extension CardBalanceViewController {
     
     @objc func keyboardWillShow(notification: Notification) {
         guard let keyboard = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        bottomButtonsConstraint?.constant = -(keyboard.cgRectValue.height)
+        bottomButtonsConstraint?.constant = -(keyboard.cgRectValue.height + Theme.Offset.small)
         view.layoutIfNeeded()
     }
     

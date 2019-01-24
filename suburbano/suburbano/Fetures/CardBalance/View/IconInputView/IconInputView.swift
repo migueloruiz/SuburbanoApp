@@ -77,7 +77,7 @@ class IconInputView: UIInputView {
         colorsCollection.anchorSize(height: Theme.IconSize.normal)
         colorsCollection.roundCorners(withRadius: Theme.IconSize.normal / 2)
         
-        iconsCollection.anchor(top: colorsCollection.bottomAnchor, left: colorsCollection.leftAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, right: colorsCollection.rightAnchor, topConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.large)
+        iconsCollection.anchor(top: colorsCollection.bottomAnchor, left: colorsCollection.leftAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, right: colorsCollection.rightAnchor, topConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.small)
         
         pageControl.anchor(top: iconsCollection.bottomAnchor)
         pageControl.anchorSize(height: Theme.Offset.large)

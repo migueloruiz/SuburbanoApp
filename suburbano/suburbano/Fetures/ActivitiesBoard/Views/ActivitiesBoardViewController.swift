@@ -24,6 +24,8 @@ class ActivitiesBoardViewController: NavigationalViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     override var navgationIcon: String { return "NewspaperIcon" }
     
+    private var isFirstLoad = true
+    
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     init(activitiesBoardPresenter: ActivitiesBoardPresenter) {
@@ -37,8 +39,15 @@ class ActivitiesBoardViewController: NavigationalViewController {
         configureLayout()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard isFirstLoad else { return }
         loadingView.show(hiddingView: activitiesTable)
+        isFirstLoad = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         presenter.loadData { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.activitiesTable.reloadData()

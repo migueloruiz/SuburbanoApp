@@ -35,10 +35,10 @@ class ActivitiesBoardViewController: NavigationalViewController {
         super.viewDidLoad()
         configureUI()
         configureLayout()
-        loadingView.showNow(hiddingView: activitiesTable)
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        loadingView.show(hiddingView: activitiesTable)
         presenter.loadData { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.activitiesTable.reloadData()

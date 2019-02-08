@@ -21,18 +21,16 @@ protocol RouteCameraDelegate: class {
     func setRouteCamera(departure: Station, arraival: Station)
 }
 
-class MapStationsViewController: NavigationalViewController {
+class MapStationsViewController: UIViewController {
     
     struct Constants {
         static let railRoadColor: UIColor = Theme.Pallete.softGray
         static let railRoadWith: CGFloat = 7 // TODO
-        static let defaultEdges = UIEdgeInsets(top: 75, left: 0, bottom: 70, right: 0)
-        static let detailEdges = UIEdgeInsets(top: 75, left: 0, bottom: Utils.screenHeight * 0.65, right: 0)
+        static let defaultEdges = UIEdgeInsets(top: 80, left: 0, bottom: 100, right: 0) // TODO suport notch
+        static let detailEdges = UIEdgeInsets(top: 80, left: 0, bottom: Utils.screenHeight * 0.65, right: 0)
         static let detailZoomLevel = 11000.0
     }
-    
-    override var navgationIcon: String { return "TrainIcon" }
-    
+
     private weak var flowDelegate: StationsMapFlowDelegate?
     
     private let mapBounds: MGLCoordinateBounds
@@ -93,13 +91,12 @@ class MapStationsViewController: NavigationalViewController {
         if Utils.isIphoneX {
             gradientView.anchor(bottom: view.safeAreaLayoutGuide.topAnchor)
         } else {
-            gradientView.anchorSize(height: 20)
+            gradientView.anchorSize(height: 20) // TODO
         }
         
         mapView.fillSuperview()
-        cardBalanceView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
+        cardBalanceView.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
         buttonsContiner.anchor(top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, topConstant: Theme.Offset.small, rightConstant: Theme.Offset.normal)
-        
         buttonsContiner.addArranged(subViews: [pricesButton, centerMapButton])
     }
     

@@ -11,7 +11,6 @@ import UIKit
 final class ResourceSynchronizerAppDelegate: NSObject, UIApplicationDelegate {
     
     static let shared = ResourceSynchronizerAppDelegate()
-    let activitiesUseCase = UseCaseLocator.getUseCase(ofType: UpdateActivitiesUseCase.self)
     let cardsUseCase = UseCaseLocator.getUseCase(ofType: UpdateCardsBalanceUseCase.self)
     
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -24,7 +23,6 @@ extension ResourceSynchronizerAppDelegate {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.cardsUseCase?.updateCards()
-            strongSelf.activitiesUseCase?.updateActivities()
         }
     }
 }

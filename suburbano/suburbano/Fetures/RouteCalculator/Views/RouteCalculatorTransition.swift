@@ -17,8 +17,7 @@ class RouteCalculatorTransitionIn: NSObject, UIViewControllerAnimatedTransitioni
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         guard let toViewController = transitionContext.viewController(forKey: .to) as? RouteCalculatorViewController,
-            let fromViewController = transitionContext.viewController(forKey: .from) as? MainNavigationViewController,
-            let selectedViewCpntroller = fromViewController.selectedViewController() as? MapStationsViewController else {
+            let fromViewController = transitionContext.viewController(forKey: .from) as? MapStationsViewController else {
                 transitionContext.cancelInteractiveTransition()
                 return
         }
@@ -36,8 +35,8 @@ class RouteCalculatorTransitionIn: NSObject, UIViewControllerAnimatedTransitioni
             toViewController.backButton.alpha = 1
             toViewController.containerView.transform = finalScalePickerContainer
             toViewController.containerView.alpha = 1
-            selectedViewCpntroller.buttonsContiner.transform = selectedViewCpntroller.buttonsContiner.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
-            selectedViewCpntroller.buttonsContiner.alpha = 0
+            fromViewController.buttonsContiner.transform = fromViewController.buttonsContiner.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
+            fromViewController.buttonsContiner.alpha = 0
         }, completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
@@ -52,13 +51,12 @@ class RouteCalculatorTransitionOut: NSObject, UIViewControllerAnimatedTransition
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromViewController = transitionContext.viewController(forKey: .from) as? RouteCalculatorViewController,
-            let toViewController = transitionContext.viewController(forKey: .to) as? MainNavigationViewController,
-            let selectedViewCpntroller = toViewController.selectedViewController() as? MapStationsViewController else {
+            let toViewController = transitionContext.viewController(forKey: .to) as? MapStationsViewController else {
                 transitionContext.cancelInteractiveTransition()
                 return
         }
         
-        selectedViewCpntroller.backFromDetailCamera()
+        toViewController.backFromDetailCamera()
         let finalFrameBack = fromViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
@@ -66,8 +64,8 @@ class RouteCalculatorTransitionOut: NSObject, UIViewControllerAnimatedTransition
             fromViewController.backButton.alpha = 0
             fromViewController.containerView.transform = fromViewController.containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
             fromViewController.containerView.alpha = 0
-            selectedViewCpntroller.buttonsContiner.transform = selectedViewCpntroller.buttonsContiner.transform.translatedBy(x: 0, y: Theme.Offset.extralarge)
-            selectedViewCpntroller.buttonsContiner.alpha = 1
+            toViewController.buttonsContiner.transform = toViewController.buttonsContiner.transform.translatedBy(x: 0, y: Theme.Offset.extralarge)
+            toViewController.buttonsContiner.alpha = 1
         }, completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })

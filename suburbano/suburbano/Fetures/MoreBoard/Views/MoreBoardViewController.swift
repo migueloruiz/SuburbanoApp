@@ -8,10 +8,7 @@
 
 import UIKit
 
-class MoreBoardViewController: NavigationalViewController {
-    
-    override var navgationIcon: String { return "MoreIcon" }
-    
+class MoreBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green

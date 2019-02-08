@@ -10,22 +10,20 @@ import UIKit
 
 class MainCordinator: NSObject, Coordinator {
     private let window: UIWindow
-    private let rootViewController = MainNavigationViewController()
     private var detailCordinator: Coordinator?
+    private lazy var rootViewController: MapStationsViewController = {
+        let stationsMapPresenter = StationsMapPresenter(
+            getCardUseCase: UseCaseLocator.getUseCase(ofType: GetCardUseCase.self),
+            getStationsUseCase: UseCaseLocator.getUseCase(ofType: GetStationsUseCase.self)
+        )
+        return MapStationsViewController(presenter: stationsMapPresenter, mapConfiguration: StationsMap(), delegate: self)
+    }()
     
     init(window: UIWindow) {
         self.window = window
     }
     
     func start() {
-        let stationsMapPresenter = StationsMapPresenter(getCardUseCase: UseCaseLocator.getUseCase(ofType: GetCardUseCase.self),
-                                                        getStationsUseCase: UseCaseLocator.getUseCase(ofType: GetStationsUseCase.self))
-        let stationsMapViewController = MapStationsViewController(presenter: stationsMapPresenter, mapConfiguration: StationsMap(), delegate: self)
-        stationsMapPresenter.viewDelegate = stationsMapViewController
-        let activitiesBoardViewController = ActivitiesBoardViewController(activitiesBoardPresenter: ActivitiesBoardPresenter())
-        let moreBoardViewController = MoreBoardViewController()
-        
-        rootViewController.setNavigation(viewControllers: [activitiesBoardViewController, stationsMapViewController, moreBoardViewController], startIndex: 1)
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
@@ -38,8 +36,7 @@ extension MainCordinator: StationsMapFlowDelegate {
     }
 
     func stationSelected(station: Station) {
-        guard let stationsViewController = rootViewController.selectedViewController() as? MapStationsViewController else { return }
-        detailCordinator = StationDetailCordinator(rootViewController: stationsViewController, station: station)
+        detailCordinator = StationDetailCordinator(rootViewController: rootViewController, station: station)
         detailCordinator?.start()
     }
     
@@ -48,14 +45,12 @@ extension MainCordinator: StationsMapFlowDelegate {
     func open(card: Card) { openCardBalance(card: card) }
     
     func openRouteCalculator(stations: [Station], departure: Station, arraival: Station) {
-        guard let stationsViewController = rootViewController.selectedViewController() as? MapStationsViewController else { return }
-        let routeCalculatorCordinator = RouteCalculatorCordinator(rootViewController: stationsViewController, stations: stations, departure: departure, arraival: arraival)
+        let routeCalculatorCordinator = RouteCalculatorCordinator(rootViewController: rootViewController, stations: stations, departure: departure, arraival: arraival)
         routeCalculatorCordinator.start()
     }
     
     private func openCardBalance(card: Card?) {
-        guard let stationsViewController = rootViewController.selectedViewController() as? MapStationsViewController else { return }
-        let cardBalanceCordinator = CardBalanceCordinator(rootViewController: stationsViewController, card: card)
+        let cardBalanceCordinator = CardBalanceCordinator(rootViewController: rootViewController, card: card)
         cardBalanceCordinator.start()
     }
 }

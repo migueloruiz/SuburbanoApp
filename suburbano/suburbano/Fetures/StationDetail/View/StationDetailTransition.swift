@@ -17,8 +17,7 @@ class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         guard let toViewController = transitionContext.viewController(forKey: .to) as? StationDetailViewController,
-            let fromViewController = transitionContext.viewController(forKey: .from) as? MainNavigationViewController,
-            let selectedViewCpntroller = fromViewController.selectedViewController() as? MapStationsViewController else {
+            let fromViewController = transitionContext.viewController(forKey: .from) as? MapStationsViewController else {
             transitionContext.cancelInteractiveTransition()
             return
         }
@@ -36,8 +35,8 @@ class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning
             containerView.transform = finalScale
             toViewController.backButton.transform = finalFrameBack
             toViewController.backButton.alpha = 1
-            selectedViewCpntroller.buttonsContiner.transform = selectedViewCpntroller.buttonsContiner.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
-            selectedViewCpntroller.buttonsContiner.alpha = 0
+            fromViewController.buttonsContiner.transform = fromViewController.buttonsContiner.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
+            fromViewController.buttonsContiner.alpha = 0
         }, completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
@@ -52,8 +51,7 @@ class StationDetailTransitionOut: NSObject, UIViewControllerAnimatedTransitionin
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromViewController = transitionContext.viewController(forKey: .from) as? StationDetailViewController,
-            let toViewController = transitionContext.viewController(forKey: .to) as? MainNavigationViewController,
-            let selectedViewCpntroller = toViewController.selectedViewController() as? MapStationsViewController else {
+            let toViewController = transitionContext.viewController(forKey: .to) as? MapStationsViewController else {
             transitionContext.cancelInteractiveTransition()
             return
         }
@@ -61,14 +59,14 @@ class StationDetailTransitionOut: NSObject, UIViewControllerAnimatedTransitionin
         let containerView = fromViewController.containerView
         let finalScale = containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
         let finalFrameBack = fromViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
-        selectedViewCpntroller.backFromDetailCamera()
+        toViewController.backFromDetailCamera()
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             containerView.transform = finalScale
             fromViewController.backButton.transform = finalFrameBack
             fromViewController.backButton.alpha = 0
-            selectedViewCpntroller.buttonsContiner.transform = selectedViewCpntroller.buttonsContiner.transform.translatedBy(x: 0, y: Theme.Offset.extralarge)
-            selectedViewCpntroller.buttonsContiner.alpha = 1
+            toViewController.buttonsContiner.transform = toViewController.buttonsContiner.transform.translatedBy(x: 0, y: Theme.Offset.extralarge)
+            toViewController.buttonsContiner.alpha = 1
         }, completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })

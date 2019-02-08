@@ -12,13 +12,6 @@ class UseCaseLocator {
     
     static func getUseCase<UseCase>(ofType type: UseCase.Type) -> UseCase? {
         switch String(describing: type) {
-        case String(describing: UpdateActivitiesUseCase.self),
-             String(describing: GetActivitiesUseCase.self),
-             String(describing: ActivitiesUseCase.self):
-            return ActivitiesUseCaseImpl(
-                activitiesWebService: ActivitiesWebServiceImpl(),
-                activitiesRepository: ActivitiesRepository(realmHandler: RealmHandler.shared)
-            ) as? UseCase
 
         case String(describing: UpdateCardsBalanceUseCase.self),
              String(describing: GetCardBalanceUseCase.self),

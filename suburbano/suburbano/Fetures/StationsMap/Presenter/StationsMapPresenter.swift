@@ -16,11 +16,11 @@ struct StationMarker {
     let markerImage: String
     let markerTitleImage: String
     let titleSide: Bool
-    
+
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
-    
+
     var markerIdentifier: String {
         return "StationMarker-\(titleSide ? "right" : "left")"
     }
@@ -29,7 +29,7 @@ struct StationMarker {
 enum TripDirection {
     case buenavistaToCuautitlan
     case cuautitlanToBuenavista
-    
+
     var direction: Double {
         switch self {
         case .buenavistaToCuautitlan: return -90
@@ -55,26 +55,26 @@ class StationsMapPresenter: StationsMapPresenterProtocol {
 
     private let getCardUseCase: GetCardUseCase?
     private let getStationsUseCase: GetStationsUseCase?
-    
+
     weak var viewDelegate: StationsViewDelegate?
     private var stationsMarkers: [String: StationMarker] = [:]
     private var stations: [String: Station] = [:]
-    
+
     init(getCardUseCase: GetCardUseCase?, getStationsUseCase: GetStationsUseCase?) {
         self.getCardUseCase = getCardUseCase
         self.getStationsUseCase = getStationsUseCase
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(StationsMapPresenter.updateCards), name: .UpdateCards, object: nil)
     }
-    
+
     func getStations() -> [Station] {
         return Array(stations.values).sorted(by: { $0.id > $1.id })
     }
-    
+
     func getMarkers() -> [StationMarker] {
         guard stationsMarkers.isEmpty else { return Array(stationsMarkers.values) }
         guard let rawStation = getStationsUseCase?.getStations() else { return [] }
-        
+
         for station in rawStation {
             let stationMarker = StationMarker(name: station.name,
                                               latitude: station.railLocation.latitude,
@@ -85,26 +85,26 @@ class StationsMapPresenter: StationsMapPresenterProtocol {
             stationsMarkers[station.name] = stationMarker
             stations[station.name] = station
         }
-    
+
         return Array(stationsMarkers.values)
     }
-    
+
     func getStationMarker(withName name: String) -> StationMarker? {
         return stationsMarkers[name]
     }
-    
+
     func getStation(withName name: String) -> Station? {
         return stations[name]
     }
-    
+
     func getCards() -> [Card] {
         return getCardUseCase?.get() ?? []
     }
-    
+
     func tripDirection(from departure: Station, to arrival: Station) -> TripDirection {
         return departure.id < arrival.id ? .cuautitlanToBuenavista : .buenavistaToCuautitlan
     }
-    
+
     @objc func updateCards() {
         viewDelegate?.update(cards: getCards())
     }

@@ -31,7 +31,7 @@ extension NSLayoutDimension {
         constraint.identifier = identifier.rawValue
         return constraint
     }
-    
+
     func constraint(equalTo dimesion: NSLayoutDimension, multiplier: CGFloat = 1, identifier: ConstraintIdentifire) -> NSLayoutConstraint {
         let constraint = self.constraint(equalTo: dimesion, multiplier: multiplier)
         constraint.identifier = identifier.rawValue

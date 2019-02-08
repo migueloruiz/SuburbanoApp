@@ -25,54 +25,54 @@ protocol CardBalancePickerDelegate: class {
 }
 
 class CardBalancePicker: UIView {
-    
+
     struct Constants {
         static let addButtonDiameter: CGFloat = Theme.IconSize.normal
     }
-    
+
     private let containerView = UIView()
     private let addButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "plus"), tintColor: .white, backgroundColor: Theme.Pallete.softGray)
     private let cardsCollection = FadingCollectionView()
     private let emptyMessageView = BalanceEmptyMessageView()
-    
+
     private weak var delegate: CardBalancePickerDelegate?
     private var cards: [Card] = []
-    
+
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
     init(delegate: CardBalancePickerDelegate) {
         self.delegate = delegate
         super.init(frame: .zero)
         configureUI()
         configureLayout()
     }
-    
+
     private func configureUI() {
         addButton.addTarget(self, action: #selector(CardBalancePicker.addCard), for: .touchUpInside)
         let addCardGesture = UITapGestureRecognizer(target: self, action: #selector(CardBalancePicker.addCard))
         emptyMessageView.addGestureRecognizer(addCardGesture)
         emptyMessageView.isUserInteractionEnabled = true
-        
+
         addButton.isHidden = false
         emptyMessageView.isHidden = true
-        
+
         configureCollection()
         containerView.clipsToBounds = false
     }
-    
+
     private func configureLayout() {
         addSubViews([containerView, emptyMessageView])
-        
+
         containerView.fillSuperview()
         emptyMessageView.fillSuperview()
-        
+
         containerView.addSubViews([cardsCollection, addButton])
         addButton.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor)
         cardsCollection.anchor(top: containerView.topAnchor, bottom: containerView.bottomAnchor)
         cardsCollection.anchorSize(width: CardBalancePikerConstas.collectionWidth)
         cardsCollection.anchorCenterSuperview()
     }
-    
+
     func display(cards newCards: [Card]) {
         cards = newCards
         if cards.isEmpty {
@@ -87,7 +87,7 @@ class CardBalancePicker: UIView {
         cardsCollection.reloadData()
         cardsCollection.collectionViewLayout.finalizeCollectionViewUpdates()
     }
-    
+
     @objc func addCard() {
         delegate?.addCard()
     }
@@ -104,16 +104,16 @@ extension CardBalancePicker: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cards.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.reuseIdentifier, for: indexPath)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cardCell = cell as? CardCell else { return }
         cardCell.configure(withCard: cards[indexPath.row])
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.open(card: cards[indexPath.row])
     }

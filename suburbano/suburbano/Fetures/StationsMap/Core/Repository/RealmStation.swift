@@ -21,14 +21,14 @@ class RealmStation: Object, StationEntity {
     @objc dynamic var distance: Float = 0
     @objc dynamic var safeRailLocation: RealmLocation?
     @objc dynamic var safeAccessLocation: RealmLocation?
-    
+
     override class func primaryKey() -> String? { return "name" }
-    
+
     var railLocation: Location {
         get {
             return Location(latitude: safeRailLocation?.latitude ?? 0, longitude: safeRailLocation?.longitude ?? 0)
         }
-        
+
         set(value) {
             let objectLocation = RealmLocation()
             objectLocation.latitude = value.latitude
@@ -36,12 +36,12 @@ class RealmStation: Object, StationEntity {
             safeRailLocation = objectLocation
         }
     }
-    
+
     var accessLocation: Location {
         get {
             return Location(latitude: safeAccessLocation?.latitude ?? 0, longitude: safeAccessLocation?.longitude ?? 0)
         }
-        
+
         set(value) {
             let objectLocation = RealmLocation()
             objectLocation.latitude = value.latitude

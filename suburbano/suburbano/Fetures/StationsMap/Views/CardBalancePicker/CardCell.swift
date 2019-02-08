@@ -9,23 +9,23 @@
 import UIKit
 
 class CardCell: UICollectionViewCell, ReusableIdentifier {
-    
+
     struct Constants {
         static let heigth: CGFloat = Theme.IconSize.normal
     }
-    
+
     private let containerView = UIFactory.createCardView()
     private let iconView = UIFactory.createLable(withTheme: UIThemes.Label.CardPickerIcon)
     private let balanceLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardPickerTitle)
-    
+
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
         configureLayout()
     }
-    
+
     private func configureUI() {
         iconView.roundCorners(withDiameter: Constants.heigth)
         iconView.clipsToBounds = true
@@ -34,20 +34,20 @@ class CardCell: UICollectionViewCell, ReusableIdentifier {
         balanceLabel.backgroundColor = .clear
         containerView.roundCorners(withDiameter: Constants.heigth)
     }
-    
+
     private func configureLayout() {
         addSubViews([containerView])
         containerView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, leftConstant: Theme.Offset.small, rightConstant: Theme.Offset.small)
-        
+
         containerView.addSubViews([iconView, balanceLabel])
-        
+
         iconView.anchorSquare(size: Constants.heigth)
         iconView.anchor(left: containerView.leftAnchor)
         iconView.center(x: nil, y: containerView.centerYAnchor)
-        
+
         balanceLabel.anchor(top: containerView.topAnchor, left: iconView.rightAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, rightConstant: Theme.Offset.small)
     }
-    
+
     func configure(withCard card: Card) {
         iconView.backgroundColor = card.displayColor
         iconView.text = card.icon

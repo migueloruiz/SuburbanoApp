@@ -12,7 +12,7 @@ class Utils {
     static func bundleUrl(forResource resource: AppResource) -> URL? {
         return Bundle.main.url(forResource: resource.fileName, withExtension: resource.extention)
     }
-    
+
     static func bundlePath(forResource resource: AppResource) -> String? {
         return Bundle.main.path(forResource: resource.fileName, ofType: resource.extention)
     }

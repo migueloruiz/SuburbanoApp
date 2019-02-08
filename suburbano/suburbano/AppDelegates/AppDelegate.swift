@@ -10,11 +10,11 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: PluggableApplicationDelegate {
-    
+
     static var shared: AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
     }
-    
+
     override var services: [UIApplicationDelegate] {
         return [
             RealmAppDelegate.shared,

@@ -9,27 +9,27 @@
 import UIKit
 
 class RouteCalculatorTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
-    
+
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return Theme.AnimationInterval.defaultInterval
     }
-    
+
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
+
         guard let toViewController = transitionContext.viewController(forKey: .to) as? RouteCalculatorViewController,
             let fromViewController = transitionContext.viewController(forKey: .from) as? MapStationsViewController else {
                 transitionContext.cancelInteractiveTransition()
                 return
         }
-        
+
         transitionContext.containerView.addSubview(toViewController.view)
-        
+
         let finalScalePickerContainer = toViewController.containerView.transform
         toViewController.containerView.transform = finalScalePickerContainer.translatedBy(x: 0, y: Utils.screenHeight)
         toViewController.containerView.alpha = 0
         let finalFrameBack = toViewController.backButton.transform
         toViewController.backButton.transform = toViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
-        
+
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             toViewController.backButton.transform = finalFrameBack
             toViewController.backButton.alpha = 1
@@ -44,18 +44,18 @@ class RouteCalculatorTransitionIn: NSObject, UIViewControllerAnimatedTransitioni
 }
 
 class RouteCalculatorTransitionOut: NSObject, UIViewControllerAnimatedTransitioning {
-    
+
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return Theme.AnimationInterval.defaultInterval
     }
-    
+
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromViewController = transitionContext.viewController(forKey: .from) as? RouteCalculatorViewController,
             let toViewController = transitionContext.viewController(forKey: .to) as? MapStationsViewController else {
                 transitionContext.cancelInteractiveTransition()
                 return
         }
-        
+
         toViewController.backFromDetailCamera()
         let finalFrameBack = fromViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
 

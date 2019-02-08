@@ -9,13 +9,13 @@
 import UIKit
 
 class PopUpTransition: NSObject, UIViewControllerAnimatedTransitioning {
-    
+
     private let notificationFeedback = UINotificationFeedbackGenerator()
-    
+
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return Theme.AnimationInterval.defaultInterval
     }
-    
+
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromViewController = transitionContext.viewController(forKey: .from),
             let toViewController = transitionContext.viewController(forKey: .to) as? PopUpViewController else {
@@ -29,7 +29,7 @@ class PopUpTransition: NSObject, UIViewControllerAnimatedTransitioning {
         toViewController.view.backgroundColor = .clear
         messageContiner.transform = messageContiner.transform.translatedBy(x: 0, y: Utils.screenHeight / 2)
         messageContiner.alpha = 0
-        
+
         notificationFeedback.notificationOccurred(.warning)
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: Theme.AnimationInterval.springWithDamping, initialSpringVelocity: Theme.AnimationInterval.springWithDamping, options: .curveEaseInOut, animations: {

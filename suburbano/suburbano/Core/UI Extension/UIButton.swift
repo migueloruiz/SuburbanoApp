@@ -9,12 +9,12 @@
 import UIKit
 
 extension UIButton {
-    
+
     func set(title: String) {
         setTitle(title, for: .normal)
         setTitle(title, for: .focused)
     }
-    
+
     func set(image: UIImage?, color: UIColor) {
         setImage(image, for: .normal)
         setImage(image, for: .focused)

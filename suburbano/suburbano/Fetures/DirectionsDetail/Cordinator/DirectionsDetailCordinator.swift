@@ -11,12 +11,12 @@ import Foundation
 class DirectionsDetailCordinator: NSObject, Coordinator {
     fileprivate let rootViewController: StationDetailViewController
     fileprivate let station: Station
-    
+
     init(rootViewController: StationDetailViewController, station: Station) {
         self.rootViewController = rootViewController
         self.station = station
     }
-    
+
     func start() {
         let presenter = DirectionsDetailPresenterImpl(station: station)
         let controller = DirectionsDetailViewController(presenter: presenter)

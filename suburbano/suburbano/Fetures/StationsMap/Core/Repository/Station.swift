@@ -23,7 +23,7 @@ protocol StationEntity {
 }
 
 struct Station: StationEntity, Codable {
-    
+
     let id: Int
     let name: String
     let address: String
@@ -35,7 +35,7 @@ struct Station: StationEntity, Codable {
     let distance: Float
     let railLocation: Location
     let accessLocation: Location
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "name"
@@ -49,7 +49,7 @@ struct Station: StationEntity, Codable {
         case railLocation = "rail_location"
         case accessLocation = "access_location"
     }
-    
+
     init(from decoder: Decoder) throws {
         do {
             let values = try decoder.container(keyedBy: CodingKeys.self)

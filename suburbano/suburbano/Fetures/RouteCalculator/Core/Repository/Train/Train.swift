@@ -28,7 +28,7 @@ protocol TrainEntity {
 enum TrainDirection: String {
     case north = "North"
     case south = "South"
-    
+
     // Refactor
     static func get(from departure: StationEntity, to arraival: StationEntity) -> TrainDirection {
         return (departure.distance - arraival.distance) > 0 ? .south : .north
@@ -39,7 +39,7 @@ enum TripDay: String, CaseIterable {
     case normal = "Normal"
     case saturday = "Saturday"
     case sundayAndHolidays = "SundayAndHolidays"
-    
+
     var selectionText: String {
         switch self {
         case .sundayAndHolidays: return "Domingos y Festivos" // Localize
@@ -47,7 +47,7 @@ enum TripDay: String, CaseIterable {
         case .saturday: return "Sabados" // Localize
         }
     }
-    
+
     var openTime: String {
         switch self {
         case .sundayAndHolidays: return "7:00" // Localize
@@ -55,7 +55,7 @@ enum TripDay: String, CaseIterable {
         case .saturday: return "6:00" // Localize
         }
     }
-    
+
     var closeTime: String {
         switch self {
         case .sundayAndHolidays, .normal, .saturday:
@@ -76,7 +76,7 @@ struct Train: TrainEntity, Codable {
     let lecheria: TrainStop
     let tultitlan: TrainStop
     let cuautitlan: TrainStop
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case day = "day"
@@ -90,7 +90,7 @@ struct Train: TrainEntity, Codable {
         case tultitlan = "Tultitlan"
         case cuautitlan = "Cuautitlan"
     }
-    
+
     init(from decoder: Decoder) throws {
         do {
             let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -109,7 +109,7 @@ struct Train: TrainEntity, Codable {
             throw jsonError
         }
     }
-    
+
     init(entity: TrainEntity) {
         self.id = entity.id
         self.day = entity.day
@@ -138,9 +138,9 @@ class RealmTrain: Object, TrainEntity {
     @objc dynamic var rawLecheria: RealmTrainStop? = RealmTrainStop()
     @objc dynamic var rawTultitlan: RealmTrainStop? = RealmTrainStop()
     @objc dynamic var rawCuautitlan: RealmTrainStop? = RealmTrainStop()
-    
+
     override class func primaryKey() -> String? { return "id" }
-    
+
     convenience init(entity: TrainEntity) {
         self.init()
         self.id = entity.id
@@ -155,7 +155,7 @@ class RealmTrain: Object, TrainEntity {
         self.tultitlan = entity.tultitlan
         self.cuautitlan = entity.cuautitlan
     }
-    
+
     var buenavista: TrainStop {
         get {
             guard let safeEntity = rawBuenavista else { return TrainStop(id: "") }
@@ -165,7 +165,7 @@ class RealmTrain: Object, TrainEntity {
             rawBuenavista = RealmTrainStop(entity: newValue)
         }
     }
-    
+
     var fortuna: TrainStop {
         get {
             guard let safeEntity = rawFortuna else { return TrainStop(id: "") }
@@ -175,7 +175,7 @@ class RealmTrain: Object, TrainEntity {
             rawFortuna = RealmTrainStop(entity: newValue)
         }
     }
-    
+
     var talnepantla: TrainStop {
         get {
             guard let safeEntity = rawTalnepantla else { return TrainStop(id: "") }
@@ -185,7 +185,7 @@ class RealmTrain: Object, TrainEntity {
             rawTalnepantla = RealmTrainStop(entity: newValue)
         }
     }
-    
+
     var sanRafale: TrainStop {
         get {
             guard let safeEntity = rawSanRafale else { return TrainStop(id: "") }
@@ -195,7 +195,7 @@ class RealmTrain: Object, TrainEntity {
             rawSanRafale = RealmTrainStop(entity: newValue)
         }
     }
-    
+
     var lecheria: TrainStop {
         get {
             guard let safeEntity = rawLecheria else { return TrainStop(id: "") }
@@ -205,7 +205,7 @@ class RealmTrain: Object, TrainEntity {
             rawLecheria = RealmTrainStop(entity: newValue)
         }
     }
-    
+
     var tultitlan: TrainStop {
         get {
             guard let safeEntity = rawTultitlan else { return TrainStop(id: "") }
@@ -215,7 +215,7 @@ class RealmTrain: Object, TrainEntity {
             rawTultitlan = RealmTrainStop(entity: newValue)
         }
     }
-    
+
     var cuautitlan: TrainStop {
         get {
             guard let safeEntity = rawCuautitlan else { return TrainStop(id: "") }

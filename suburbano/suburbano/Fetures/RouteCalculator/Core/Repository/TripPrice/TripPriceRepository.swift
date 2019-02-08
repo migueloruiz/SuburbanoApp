@@ -17,21 +17,21 @@ protocol TripPriceRepository {
 class TripPriceRepositoryRealmImpl: TripPriceRepository {
 
     let realmHandler: RealmHandler
-    
+
     init(realmHandler: RealmHandler) {
         self.realmHandler = realmHandler
     }
-    
+
     func get(predicateFormat: NSPredicate? = nil) -> [TripPrice]? {
         guard let realmActivities = realmHandler.get(type: RealmTripPrice.self, predicateFormat: predicateFormat) else { return nil }
         return realmActivities.map { TripPrice(realmObject: $0) }
     }
-    
+
     func add(objects: [TripPrice], update: Bool) {
         let realmTripPrice = objects.map { RealmTripPrice.make(from: $0) }
         realmHandler.add(objects: realmTripPrice)
     }
-    
+
     func deleteAll() {
         realmHandler.deleteAll(forType: RealmTripPrice.self)
     }

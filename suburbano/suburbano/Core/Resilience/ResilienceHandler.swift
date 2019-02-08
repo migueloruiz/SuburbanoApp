@@ -13,11 +13,11 @@ protocol ResilienceFileHandler {
 }
 
 class ResilienceFileHandlerImpl: ResilienceFileHandler {
-    
+
     struct Constants {
         static let fileExtention = "json"
     }
-    
+
     func loadLocalJSON(from fileName: String) -> Data? {
         guard let path = Bundle.main.path(forResource: fileName, ofType: Constants.fileExtention) else { return nil }
         return try? Data(contentsOf: URL(fileURLWithPath: path))

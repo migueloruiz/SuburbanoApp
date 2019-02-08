@@ -15,7 +15,7 @@ protocol CardBalanceWebService {
 class CardBalanceWebServiceImpl: BaseService<Card>, CardBalanceWebService {
 
     private let cardParser = CardParser()
-    
+
     func getBalace(for card: Card, success: @escaping SuccessResponse<Card>, failure: @escaping ErrorResponse) {
         do {
             let request = try RequestFactory.make(.get, endoint: Endpoints.CardBalance(cardId: card.id))

@@ -23,21 +23,21 @@ struct TripPrice: TripPriceEntity, Codable {
     let price: Float
     let lowLimit: Float
     let topLimit: Float
-    
+
     enum CodingKeys: String, CodingKey {
         case type = "type"
         case price = "price"
         case lowLimit = "low_limit"
         case topLimit = "top_limit"
     }
-    
+
     init(realmObject: RealmTripPrice) {
         self.type = realmObject.type
         self.price = realmObject.price
         self.lowLimit = realmObject.lowLimit
         self.topLimit = realmObject.topLimit
     }
-    
+
     init(from decoder: Decoder) throws {
         do {
             let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -57,7 +57,7 @@ class RealmTripPrice: Object, TripPriceEntity {
     @objc dynamic var price: Float = 0
     @objc dynamic var lowLimit: Float = 0
     @objc dynamic var topLimit: Float = 0
-    
+
     override class func primaryKey() -> String? { return "type" }
 }
 

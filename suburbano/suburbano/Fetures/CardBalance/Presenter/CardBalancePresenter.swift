@@ -26,25 +26,25 @@ enum CardBalanceForm {
 }
 
 class CardBalancePresenterImpl: CardBalancePresenter {
-    
+
     private let cardUseCase: CardUseCase?
     weak var viewDelegate: CardBalanceViewDelegate?
-    
+
     init(cardUseCase: CardUseCase?) {
         self.cardUseCase = cardUseCase
     }
-    
+
     func addCard(withIcon icon: CardBalanceIcon, number: String) {
         guard isIconValid(icon: icon) else {
             viewDelegate?.setInvalid(form: .icon)
             return
         }
-        
+
         guard isCardNumberValid(number: number) else {
             viewDelegate?.setInvalid(form: .number)
             return
         }
-        
+
         let iconValues = icon.values
         let tempCard = Card(id: number,
                             balance: "",
@@ -57,7 +57,7 @@ class CardBalancePresenterImpl: CardBalancePresenter {
             viewDelegate?.addCardFailure(error: "Esta tarjeta ya esta registrada")
             return
         }
-        
+
         viewDelegate?.showAnimation()
         cardUseCase?.add(card: tempCard, success: { [weak self] card in
             guard let strongSelf = self else { return }
@@ -67,7 +67,7 @@ class CardBalancePresenterImpl: CardBalancePresenter {
             strongSelf.viewDelegate?.addCardFailure(error: "Número de tarjeta no valido. Puedes encontrar el numero al frente en la parte inferior de tu tarjeta")
         })
     }
-    
+
     func deleteCard(withId id: String) {
         cardUseCase?.delate(withId: id)
     }
@@ -80,7 +80,7 @@ extension CardBalancePresenterImpl {
         case .custome: return true
         }
     }
-    
+
     private func isCardNumberValid(number: String) -> Bool {
         return number.matchesPattern(pattern: "^[0-9]+$")
     }

@@ -9,19 +9,19 @@
 import UIKit
 
 class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
-    
+
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return Theme.AnimationInterval.defaultInterval
     }
-    
+
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
+
         guard let toViewController = transitionContext.viewController(forKey: .to) as? StationDetailViewController,
             let fromViewController = transitionContext.viewController(forKey: .from) as? MapStationsViewController else {
             transitionContext.cancelInteractiveTransition()
             return
         }
-        
+
         let containerView = toViewController.containerView
         toViewController.backButton.alpha = 0
         let finalScale = containerView.transform
@@ -30,7 +30,7 @@ class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning
         containerView.transform = containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
         let finalFrameBack = toViewController.backButton.transform
         toViewController.backButton.transform = toViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
-        
+
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             containerView.transform = finalScale
             toViewController.backButton.transform = finalFrameBack
@@ -44,23 +44,23 @@ class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning
 }
 
 class StationDetailTransitionOut: NSObject, UIViewControllerAnimatedTransitioning {
-    
+
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return Theme.AnimationInterval.defaultInterval
     }
-    
+
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromViewController = transitionContext.viewController(forKey: .from) as? StationDetailViewController,
             let toViewController = transitionContext.viewController(forKey: .to) as? MapStationsViewController else {
             transitionContext.cancelInteractiveTransition()
             return
         }
-        
+
         let containerView = fromViewController.containerView
         let finalScale = containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
         let finalFrameBack = fromViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
         toViewController.backFromDetailCamera()
-        
+
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             containerView.transform = finalScale
             fromViewController.backButton.transform = finalFrameBack

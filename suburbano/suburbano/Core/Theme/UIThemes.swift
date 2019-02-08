@@ -61,7 +61,7 @@ struct FieldTheme: FieldStyle {
 }
 
 struct UIThemes {
-    
+
     // MARK: - Field Themes
     struct Field {
         static let CardNumberField = FieldTheme(textColor: Theme.Pallete.darkGray,
@@ -70,7 +70,7 @@ struct UIThemes {
                                              font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
                                              autocorrectionType: .no,
                                              keyboardType: .numberPad)
-        
+
         // MARK: - Icon Picker Label Themes
         static let IconPickerField = FieldTheme(textColor: .white,
                                                   tintColor: .clear,
@@ -79,7 +79,7 @@ struct UIThemes {
                                                   autocorrectionType: .no,
                                                   keyboardType: .numberPad)
     }
-    
+
     // MARK: - Label Themes
     struct Label {
         // MARK: - General Label Themes
@@ -88,13 +88,13 @@ struct UIThemes {
                                          textColor: .white,
                                          backgroundColor: Theme.Pallete.softRed,
                                          font: FontStyle(size: .h1, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
-        
+
         static let CardBalanceNavTitle = LabelTheme(numberOfLines: 1,
                                                       textAlignment: .center,
                                                       textColor: Theme.Pallete.darkGray,
                                                       backgroundColor: .white,
                                                       font: FontStyle(size: .h1, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
-        
+
         // MARK: - ActivityCard Label Themes
         static let ActivityCardTitle = LabelTheme(numberOfLines: 0,
                                                   textAlignment: .left,
@@ -111,7 +111,7 @@ struct UIThemes {
                                                  textColor: Theme.Pallete.softGray,
                                                  backgroundColor: .white,
                                                  font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
-        
+
         // MARK: - Popup Label Themes
         static let PopupTitle = LabelTheme(numberOfLines: 0,
                                                   textAlignment: .center,
@@ -123,42 +123,42 @@ struct UIThemes {
                                                  textColor: Theme.Pallete.darkGray,
                                                  backgroundColor: .white,
                                                  font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
-        
+
         // MARK: - Map Label Themes
         static let StationMarkerTitle = LabelTheme(numberOfLines: 0,
                                            textAlignment: .center,
                                            textColor: Theme.Pallete.darkGray,
                                            backgroundColor: .clear,
                                            font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .bold))
-        
+
         // MARK: - Icon Picker Label Themes
         static let IconPicker = LabelTheme(numberOfLines: 0,
                                            textAlignment: .center,
                                            textColor: Theme.Pallete.softGray,
                                            backgroundColor: .white,
                                            font: FontStyle(size: .icon, largeFactor: Theme.FontFactor.large, name: .icons, style: .none))
-        
+
         // MARK: - Card Picker Label Themes
         static let CardPickerIcon = LabelTheme(numberOfLines: 0,
                                            textAlignment: .center,
                                            textColor: .white,
                                            backgroundColor: .white,
                                            font: FontStyle(size: .smallIcon, largeFactor: Theme.FontFactor.large, name: .icons, style: .none))
-        
+
         static let CardPickerTitle = LabelTheme(numberOfLines: 0,
                                                   textAlignment: .right,
                                                   textColor: Theme.Pallete.darkGray,
                                                   backgroundColor: .clear,
                                                   font: FontStyle(size: .h3, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .bold))
-        
+
         // MARK: - Staion Detail Label Themes
-        
+
         static let StaionDetailStation = LabelTheme(numberOfLines: 1,
                                                     textAlignment: .left,
                                                     textColor: Theme.Pallete.softGray,
                                                     backgroundColor: .white,
                                                     font: FontStyle(size: .h3, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
-        
+
         // MARK: - Directions discraimer Label Themes
         static let DirectionsDisclainer = LabelTheme(numberOfLines: 0,
                                                  textAlignment: .left,
@@ -177,7 +177,7 @@ struct UIThemes {
                                           backgroundColor: Theme.Pallete.ligthGray,
                                           font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
     }
-    
+
     // MARK: - Button Themes
     struct Button {
         // MARK: - ActivityCard Button Themes
@@ -185,13 +185,13 @@ struct UIThemes {
                                               backgroundColor: .white,
                                               font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
                                               rounded: nil)
-        
+
         // MARK: - Popup Button Themes
         static let PrimaryButton = ButtonTheme(textColor: .white,
                                               backgroundColor: Theme.Pallete.primaryAction,
                                               font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
                                               rounded: RoundedStyle(radius: Theme.Rounded.button))
-        
+
         static let SecondayButton = ButtonTheme(textColor: .white,
                                                 backgroundColor: Theme.Pallete.softRed,
                                                 font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),

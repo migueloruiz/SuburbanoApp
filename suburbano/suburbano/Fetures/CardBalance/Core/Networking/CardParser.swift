@@ -13,9 +13,9 @@ enum CardBalanceParser: Error {
 }
 
 class CardParser {
-    
+
     private let dateFormatter = DateFormatter()
-    
+
     init() {
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
@@ -40,7 +40,7 @@ class CardParser {
         }
 
     }
-    
+
     func getDate() -> (timestamp: Double, display: String) {
         let now = Date()
         return (timestamp: now.timeIntervalSince1970, display: dateFormatter.string(from: now))

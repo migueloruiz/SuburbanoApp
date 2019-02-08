@@ -25,7 +25,7 @@ struct TrainStop: TrainStopEntity, Codable {
     let arraivalTimestamp: Int?
     let departure: String?
     let departureTimestamp: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case arraival = "arraival"
@@ -33,7 +33,7 @@ struct TrainStop: TrainStopEntity, Codable {
         case departure = "departure"
         case departureTimestamp = "departure_timestamp"
     }
-    
+
     init(id: String) {
         self.id = id
         self.arraival = nil
@@ -41,7 +41,7 @@ struct TrainStop: TrainStopEntity, Codable {
         self.departure = nil
         self.departureTimestamp = nil
     }
-    
+
     init(entity: TrainStopEntity) {
         self.id = entity.id
         self.arraival = entity.arraival
@@ -49,7 +49,7 @@ struct TrainStop: TrainStopEntity, Codable {
         self.departure = entity.departure
         self.departureTimestamp = entity.departureTimestamp
     }
-    
+
     init(from decoder: Decoder) throws {
         do {
             let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -71,7 +71,7 @@ class RealmTrainStop: Object, TrainStopEntity {
     @objc dynamic var rawArraivalTimestamp: NSNumber? = 0
     @objc dynamic var departure: String?
     @objc dynamic var rawDepartureTimestamp: NSNumber? = 0
-    
+
     var arraivalTimestamp: Int? {
         get {
             return rawArraivalTimestamp as? Int
@@ -80,7 +80,7 @@ class RealmTrainStop: Object, TrainStopEntity {
             rawArraivalTimestamp = newValue as NSNumber?
         }
     }
-    
+
     var departureTimestamp: Int? {
         get {
             return rawDepartureTimestamp as? Int
@@ -89,9 +89,9 @@ class RealmTrainStop: Object, TrainStopEntity {
             rawDepartureTimestamp = newValue as NSNumber?
         }
     }
-    
+
     override class func primaryKey() -> String? { return "id" }
-    
+
     convenience init(entity: TrainStopEntity? = nil) {
         self.init()
         guard let safeEntity = entity else { return }

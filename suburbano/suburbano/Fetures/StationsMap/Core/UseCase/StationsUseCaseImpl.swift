@@ -9,17 +9,17 @@
 import Foundation
 
 class StationsUseCaseImpl: StationsUseCase {
-    
+
     struct Constants {
         static let fileName = "stations"
     }
-    
+
     let resilienceHandler: ResilienceFileHandler
-    
+
     init(resilienceHandler: ResilienceFileHandler) {
         self.resilienceHandler = resilienceHandler
     }
-    
+
     func getStations() -> [Station] {
         guard let rawSattions = resilienceHandler.loadLocalJSON(from: Constants.fileName) else { return [] }
         do {
@@ -30,6 +30,6 @@ class StationsUseCaseImpl: StationsUseCase {
             return []
         }
     }
-    
+
     func loadStations() {}
 }

@@ -12,10 +12,10 @@ enum CardBalanceIcon {
     struct Constants {
         static let defaultIcon = "\u{e91b}"
     }
-    
+
     case initial
     case custome(iconCode: String, color: UIColor)
-    
+
     var values: (icon: String, color: Data) {
         switch self {
         case .initial: return (Constants.defaultIcon, NSKeyedArchiver.archivedData(withRootObject: Theme.Pallete.softGray))
@@ -25,27 +25,27 @@ enum CardBalanceIcon {
 }
 
 class IconPickerView: UIView {
-    
+
     struct Constants {
         static let iconDiameter: CGFloat = Theme.IconSize.large
         static let defaultIcon = "\u{e91b}"
     }
-    
+
     private let field = UIFactory.createTextField(withTheme: UIThemes.Field.IconPickerField)
-    
+
     var icon: CardBalanceIcon {
         guard backgroundColor != Theme.Pallete.softGray && field.text != Constants.defaultIcon else { return .initial }
         return .custome(iconCode: field.text ?? "", color: backgroundColor ?? Theme.Pallete.softRed)
     }
-    
+
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
     init() {
         super.init(frame: .zero)
         configureUI()
         configureLayout()
     }
-    
+
     private func configureUI() {
         let inputView = IconInputView()
         inputView.delegate = self
@@ -59,13 +59,13 @@ class IconPickerView: UIView {
         layer.borderColor = Theme.Pallete.softRed.cgColor
         set(icon: .initial)
     }
-    
+
     private func configureLayout() {
         anchorSquare(size: Constants.iconDiameter)
         addSubview(field)
         field.fillSuperview()
     }
-    
+
     func set(icon: CardBalanceIcon) {
         switch icon {
         case .initial:
@@ -76,15 +76,15 @@ class IconPickerView: UIView {
             backgroundColor = color
         }
     }
-    
+
     override func becomeFirstResponder() -> Bool {
         return field.becomeFirstResponder()
     }
-    
+
     @objc func editingDidBegin() {
         layer.borderWidth = 3
     }
-    
+
     @objc func endEditingChanged() {
         layer.borderWidth = 0
     }

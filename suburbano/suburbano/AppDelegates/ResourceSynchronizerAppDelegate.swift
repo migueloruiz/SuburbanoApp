@@ -9,10 +9,10 @@
 import UIKit
 
 final class ResourceSynchronizerAppDelegate: NSObject, UIApplicationDelegate {
-    
+
     static let shared = ResourceSynchronizerAppDelegate()
     let cardsUseCase = UseCaseLocator.getUseCase(ofType: UpdateCardsBalanceUseCase.self)
-    
+
     func applicationDidBecomeActive(_ application: UIApplication) {
         syncResourse()
     }

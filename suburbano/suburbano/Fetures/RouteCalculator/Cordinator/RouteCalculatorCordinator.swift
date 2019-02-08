@@ -11,7 +11,7 @@ import Foundation
 class RouteCalculatorCordinator: NSObject, Coordinator {
     fileprivate let rootViewController: MapStationsViewController
     fileprivate var controller: RouteCalculatorViewController
-    
+
     init(rootViewController: MapStationsViewController, stations: [Station], departure: Station, arraival: Station) {
         self.rootViewController = rootViewController
         let presenter = RouteCalculatorPresenterImpl(routeUseCase: UseCaseLocator.getUseCase(ofType: RouteUseCase.self),
@@ -22,7 +22,7 @@ class RouteCalculatorCordinator: NSObject, Coordinator {
         presenter.viewDelegate = self.controller
         self.controller.routeCameraDelegate = rootViewController
     }
-    
+
     func start() {
         controller.transitioningDelegate = rootViewController
         rootViewController.present(controller, animated: true, completion: nil)

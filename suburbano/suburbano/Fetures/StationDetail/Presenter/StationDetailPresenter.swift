@@ -13,7 +13,7 @@ enum DetailSection: Int {
     case schedule = 1
     case conactions = 2
     case waitTime = 3
-    
+
     var title: String {
         switch self {
         case .location: return "UBICACION" // Localize
@@ -29,7 +29,7 @@ enum DetailItem {
     case schedule(dias: TripDay)
     case conactions(images: [String])
     case waitTime(days: [String], waitTimes: [Int: [WaitTimeDetailModel]])
-    
+
     var cellIdentifier: String {
         switch self {
         case .location: return DetailAddressCell.reuseIdentifier
@@ -52,48 +52,48 @@ protocol StationDetailPresenter: class {
 }
 
 class StationDetailPresenterImpl: StationDetailPresenter {
-    
+
     let station: Station
     private let routeUseCase: RouteUseCase?
     fileprivate var stationDetails: [[DetailItem]] = []
-    
+
     weak var viewDelegate: StationDetailViewController?
-    
+
     init(station: Station, routeUseCase: RouteUseCase?) {
         self.station = station
         self.routeUseCase = routeUseCase
     }
-    
+
     func load() {
         stationDetails = configureStationDetails(station: station)
         viewDelegate?.update()
         getWaitTime(for: station)
     }
-    
+
     var titleImageName: String {
         return station.markerTitleImage
     }
-    
+
     func numberOfSections() -> Int {
         return stationDetails.count
     }
-    
+
     func numberOfItems(atSection section: Int) -> Int {
         return stationDetails[section].count
     }
-    
+
     func section(atIndex index: Int) -> DetailSection {
         return DetailSection.init(rawValue: index) ?? .location
     }
-    
+
     func item(atIndex index: IndexPath) -> DetailItem {
         return stationDetails[index.section][index.row]
     }
-    
+
     func getWeekDays() -> [String] {
         return WeekDays.allCases.map { $0.title }
     }
-    
+
     private func getWaitTime(for station: StationEntity) {
         routeUseCase?.getWaitTime(inStation: station.name) { [weak self] waitTimes in
             guard let strongSelf = self else { return }
@@ -115,7 +115,7 @@ class StationDetailPresenterImpl: StationDetailPresenter {
 extension StationDetailPresenterImpl {
     private func configureStationDetails(station: Station) -> [[DetailItem]] {
         var details: [[DetailItem]] = []
-        
+
         details.append([.location(address: station.address)])
         details.append([
             .schedule(dias: .normal),

@@ -16,7 +16,7 @@ class StationDetailCordinator: NSObject, Coordinator {
     fileprivate let rootViewController: MapStationsViewController
     fileprivate let station: Station
     fileprivate var controller: StationDetailViewController
-    
+
     init(rootViewController: MapStationsViewController, station: Station) {
         self.rootViewController = rootViewController
         self.station = station
@@ -25,7 +25,7 @@ class StationDetailCordinator: NSObject, Coordinator {
         self.controller = StationDetailViewController(presenter: presenter)
         presenter.viewDelegate = self.controller
     }
-    
+
     func start() {
         controller.flowDelegate = self
         controller.transitioningDelegate = rootViewController

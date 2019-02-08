@@ -17,11 +17,11 @@ protocol TrainRepository {
 class TrainRepositoryRealmImpl: TrainRepository {
 
     let realmHandler: RealmHandler
-    
+
     init(realmHandler: RealmHandler) {
         self.realmHandler = realmHandler
     }
-    
+
     func get(withDirection direction: String, day: String) -> [TrainEntity] {
         let predicate = NSPredicate(format: "direction == %@ && day == %@", argumentArray: [direction, day])
         guard let realmActivities = realmHandler.get(type: RealmTrain.self, predicateFormat: predicate) else { return [] }

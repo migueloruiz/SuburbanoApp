@@ -16,23 +16,23 @@ protocol DirectionsDetailPresenter: class {
 }
 
 class DirectionsDetailPresenterImpl: DirectionsDetailPresenter {
-    
+
     var availableApps: [DirectionsApp]
     var disclaimer: String?
-    
+
     private let station: Station
-    
+
     init(station: Station) {
         self.station = station
         let availableApps = DirectionsAppsFactory.getAvailableApps()
         self.availableApps = availableApps.apps
         disclaimer = availableApps.disclaimer
     }
-    
+
     var stationName: String {
         return station.name
     }
-    
+
     func openDirections(app: DirectionsApp) {
         guard let url = app.getLink(withStation: station) else { return }
         UIApplication.shared.open(url, options: [:]) { succes in

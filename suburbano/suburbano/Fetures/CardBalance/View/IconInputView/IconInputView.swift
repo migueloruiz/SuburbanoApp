@@ -13,12 +13,12 @@ protocol IconInputViewDelegate: class {
 }
 
 class IconInputView: UIInputView {
-    
+
     struct Constants {
         static let iconsCollectionTag = 10
         static let defaultIcon = "\u{e91b}"
     }
-    
+
     private let colors = [Theme.Pallete.concert, Theme.Pallete.workshop, Theme.Pallete.fair, Theme.Pallete.exhibition, Theme.Pallete.special, Theme.Pallete.softRed]
     private let icons = [
         ["\u{e901}", "\u{e902}", "\u{e904}", "\u{e905}", "\u{e906}", "\u{e900}", "\u{e903}", "\u{e907}", "\u{e908}", "\u{e909}"],
@@ -28,7 +28,7 @@ class IconInputView: UIInputView {
         ["\u{e9db}", "\u{e9dc}", "\u{e9dd}", "\u{e9df}", "\u{e9e1}", "\u{e9e3}", "\u{e9e5}", "\u{e9e7}", "\u{e9e9}", "\u{e9eb}"],
         ["\u{e9ed}", "\u{e9ef}", "\u{e9f1}", "\u{e9f3}", "\u{e9f5}", "\u{e9f7}", "\u{e9f9}", "\u{e9fb}", "\u{e9fd}", "\u{e9ff}"]
     ]
-    
+
     weak var delegate: IconInputViewDelegate?
     private var selectedColor: UIColor?
     private var selectedIcon: String?
@@ -43,7 +43,7 @@ class IconInputView: UIInputView {
         collection.showsHorizontalScrollIndicator = false
         return collection
     }()
-    
+
     private let iconsCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -56,29 +56,29 @@ class IconInputView: UIInputView {
         collection.roundCorners()
         return collection
     }()
-    
+
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
     init() {
         super.init(frame: .zero, inputViewStyle: .keyboard)
         configureUI()
         configureLayout()
     }
-    
+
     private func configureUI() {
         configureMenu()
     }
-    
+
     private func configureLayout() {
         anchorSize(width: Utils.screenWidth)
         addSubViews([colorsCollection, iconsCollection, pageControl])
-        
+
         colorsCollection.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.small, rightConstant: Theme.Offset.small)
         colorsCollection.anchorSize(height: Theme.IconSize.normal)
         colorsCollection.roundCorners(withRadius: Theme.IconSize.normal / 2)
-        
+
         iconsCollection.anchor(top: colorsCollection.bottomAnchor, left: colorsCollection.leftAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, right: colorsCollection.rightAnchor, topConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.small)
-        
+
         pageControl.anchor(top: iconsCollection.bottomAnchor)
         pageControl.anchorSize(height: Theme.Offset.large)
         pageControl.anchorCenterXToSuperview()
@@ -94,17 +94,17 @@ extension IconInputView: UICollectionViewDataSource, UICollectionViewDelegate, U
         iconsCollection.register(IconCell.self, forCellWithReuseIdentifier: IconCell.reuseIdentifier)
         iconsCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
         iconsCollection.tag = Constants.iconsCollectionTag
-        
+
         colorsCollection.dataSource = self
         colorsCollection.delegate = self
         colorsCollection.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.reuseIdentifier)
         colorsCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
         colorsCollection.backgroundColor = .white
-        
+
         iconsCollection.reloadData()
         colorsCollection.reloadData()
     }
-    
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         switch collectionView.tag {
         case Constants.iconsCollectionTag:
@@ -114,7 +114,7 @@ extension IconInputView: UICollectionViewDataSource, UICollectionViewDelegate, U
             return 1
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView.tag {
         case Constants.iconsCollectionTag:
@@ -123,7 +123,7 @@ extension IconInputView: UICollectionViewDataSource, UICollectionViewDelegate, U
             return colors.count
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView.tag {
         case Constants.iconsCollectionTag:
@@ -138,7 +138,7 @@ extension IconInputView: UICollectionViewDataSource, UICollectionViewDelegate, U
             return cell
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView.tag {
         case Constants.iconsCollectionTag:
@@ -147,7 +147,7 @@ extension IconInputView: UICollectionViewDataSource, UICollectionViewDelegate, U
             return CGSize(width: (Utils.screenWidth - (Theme.Offset.small * 2)) / 6, height: Theme.IconSize.normal)
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView.tag {
         case Constants.iconsCollectionTag:
@@ -155,11 +155,11 @@ extension IconInputView: UICollectionViewDataSource, UICollectionViewDelegate, U
         default:
             selectedColor = colors[indexPath.row]
         }
-        
+
         let icon = CardBalanceIcon.custome(iconCode: selectedIcon ?? Constants.defaultIcon, color: selectedColor ?? Theme.Pallete.softGray)
         delegate?.update(icon: icon)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard collectionView.tag == Constants.iconsCollectionTag else { return }
         pageControl.currentPage = indexPath.section

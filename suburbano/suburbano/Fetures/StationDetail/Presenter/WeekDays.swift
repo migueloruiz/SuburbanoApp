@@ -14,7 +14,7 @@ enum WeekDays: Int, CaseIterable {
     case thursday = 4
     case friday = 5
     case saturday = 6
-    
+
     var title: String {
         switch self {
         case .sunday: return "Domingo" // Localize

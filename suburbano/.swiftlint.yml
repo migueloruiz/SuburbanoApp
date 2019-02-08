@@ -11,10 +11,5 @@ identifier_name:
   excluded:
     - N
 
-disabled_rules:
- - trailing_whitespace
- - todo
- - unused_optional_binding
-
 excluded:
  - Carthage

@@ -26,34 +26,34 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
         detailsTableView.register(DetailHeaderView.self, forHeaderFooterViewReuseIdentifier: DetailHeaderView.reuseIdentifier)
         detailsTableView.reloadData()
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return presenter.numberOfSections()
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.numberOfItems(atSection: section)
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = presenter.item(atIndex: indexPath).cellIdentifier
         return tableView.dequeueReusableCell(withIdentifier: identifier) ?? UITableViewCell()
     }
-    
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let detailCell = cell as? DetailCell else { return }
         detailCell.configure(with: presenter.item(atIndex: indexPath))
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return tableView.dequeueReusableHeaderFooterView(withIdentifier: DetailHeaderView.reuseIdentifier)
     }
-    
+
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? DetailHeaderView else { return }
         header.configure(with: presenter.section(atIndex: section))
     }
-    
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return DetailHeaderView.cellHeight
     }

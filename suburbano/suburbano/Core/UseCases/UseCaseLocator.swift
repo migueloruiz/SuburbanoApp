@@ -9,7 +9,7 @@
 import Foundation
 
 class UseCaseLocator {
-    
+
     static func getUseCase<UseCase>(ofType type: UseCase.Type) -> UseCase? {
         switch String(describing: type) {
 
@@ -22,12 +22,12 @@ class UseCaseLocator {
                 cardBalanceWebService: CardBalanceWebServiceImpl(),
                 cardRepository: CardRepository(realmHandler: RealmHandler.shared)
             ) as? UseCase
-            
+
         case String(describing: GetStationsUseCase.self),
              String(describing: LoadStationsUseCase.self),
              String(describing: StationsUseCase.self):
             return StationsUseCaseImpl(resilienceHandler: ResilienceFileHandlerImpl()) as? UseCase
-            
+
         case String(describing: GetRouteInformationUseCase.self),
              String(describing: GetRouteScheduleUseCase.self),
              String(describing: GetRouteWaitTimeUseCase.self),

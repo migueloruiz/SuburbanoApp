@@ -11,41 +11,41 @@ import Foundation
 class CardBalanceRepository: RepositoryRealm {
     typealias RealElement = RealmActivity
     typealias Element = Activity
-    
+
     var realmHandler: RealmHandler = RealmHandler()
-    
+
     func get(forKey key: String) -> Activity? {
         guard let realmActivity = realmHandler.get(ofType: RealmActivity.self, forKey: key) else { return nil }
         return map(object: realmActivity)
     }
-    
+
     func get(predicateFormat: NSPredicate? = nil) -> [Activity]? {
         guard let realmActivities = realmHandler.get(type: RealmActivity.self, predicateFormat: predicateFormat) else { return nil }
         return realmActivities.map { map(object: $0)}
     }
-    
+
     func add(object: Activity, update: Bool = true) {
         realmHandler.add(object: map(object: object))
     }
-    
+
     func add(objects: [Activity], update: Bool = true) {
         let realmActivities = objects.map { map(object: $0) }
         realmHandler.add(objects: realmActivities)
     }
-    
+
     func delete(object: Activity) {
         realmHandler.delete(object: map(object: object))
     }
-    
+
     func delete(objects: [Activity]) {
         let realmActivities = objects.map { map(object: $0) }
         realmHandler.delete(objects: realmActivities)
     }
-    
+
     func deleteAll() {
         realmHandler.deleteAll(forType: RealmActivity.self)
     }
-    
+
     func map(object: RealmActivity) -> Activity {
         return Activity(id: object.id,
                         title: object.title,
@@ -59,7 +59,7 @@ class CardBalanceRepository: RepositoryRealm {
                         endDate: object.endDate,
                         repeatEvent: object.repeatEvent)
     }
-    
+
     func map(object: Activity) -> RealmActivity {
         let realmActivity = RealmActivity()
         realmActivity.id = object.id

@@ -18,11 +18,11 @@ class MainCordinator: NSObject, Coordinator {
         )
         return MapStationsViewController(presenter: stationsMapPresenter, mapConfiguration: StationsMap(), delegate: self)
     }()
-    
+
     init(window: UIWindow) {
         self.window = window
     }
-    
+
     func start() {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
@@ -39,16 +39,16 @@ extension MainCordinator: StationsMapFlowDelegate {
         detailCordinator = StationDetailCordinator(rootViewController: rootViewController, station: station)
         detailCordinator?.start()
     }
-    
+
     func openAddCard() { openCardBalance(card: nil) }
-    
+
     func open(card: Card) { openCardBalance(card: card) }
-    
+
     func openRouteCalculator(stations: [Station], departure: Station, arraival: Station) {
         let routeCalculatorCordinator = RouteCalculatorCordinator(rootViewController: rootViewController, stations: stations, departure: departure, arraival: arraival)
         routeCalculatorCordinator.start()
     }
-    
+
     private func openCardBalance(card: Card?) {
         let cardBalanceCordinator = CardBalanceCordinator(rootViewController: rootViewController, card: card)
         cardBalanceCordinator.start()

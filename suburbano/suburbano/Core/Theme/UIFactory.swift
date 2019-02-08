@@ -22,7 +22,7 @@ class UIFactory {
         if !text.isEmpty { lable.text = text }
         return lable
     }
-    
+
     static func createButton(withTheme theme: ButtonStyle, title: String = "") -> UIButton {
         let button = UIButton()
         button.set(title: title)
@@ -33,14 +33,14 @@ class UIFactory {
         button.titleLabel?.font = theme.font.getScaledFont()
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.adjustsFontForContentSizeCategory = true
-        
+
         guard let roundedTheme = theme.rounded else { return button }
         button.roundCorners(withRadius: roundedTheme.radius)
         button.anchorSize(height: roundedTheme.radius * 2)
         button.clipsToBounds = true
         return button
     }
-    
+
     static func createCircularButton(image: UIImage?, tintColor: UIColor, backgroundColor: UIColor, addShadow: Bool = true) -> UIButton {
         let button = UIButton()
         button.set(image: image, color: tintColor)
@@ -50,7 +50,7 @@ class UIFactory {
         if addShadow { button.addDropShadow()}
         return button
     }
-    
+
     static func createTextField(withTheme theme: FieldStyle) -> UITextField {
         let field = UITextField()
         field.textColor = theme.textColor
@@ -61,7 +61,7 @@ class UIFactory {
         field.autocorrectionType = theme.autocorrectionType
         return field
     }
-    
+
     static func createCardView() -> UIView {
         let vw = UIView()
         vw.backgroundColor = .white
@@ -69,7 +69,7 @@ class UIFactory {
         vw.addDropShadow()
         return vw
     }
-    
+
     static func createContainerView() -> UIView {
         let vw = UIView()
         vw.backgroundColor = .white
@@ -77,14 +77,14 @@ class UIFactory {
         vw.addDropShadow()
         return vw
     }
-    
+
     static func createSquare(image: UIImage?, size: CGFloat, color: UIColor = Theme.Pallete.darkGray) -> UIImageView {
         let view = UIImageView(image: image)
         view.tintColor = color
         view.anchorSquare(size: size)
         return view
     }
-    
+
     static func createImageView(image: UIImage?, color: UIColor) -> UIImageView {
         let view = UIImageView(image: image)
         view.tintColor = color

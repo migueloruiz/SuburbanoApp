@@ -9,9 +9,9 @@
 import UIKit
 
 class FadingCollectionView: UICollectionView {
-    
+
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
     init() {
         super.init(frame: .zero, collectionViewLayout: FadingCollectionLayout())
         showsHorizontalScrollIndicator = false

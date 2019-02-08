@@ -13,20 +13,20 @@ protocol MenuCell {
 }
 
 class MenuIconCell: UICollectionViewCell, ReusableIdentifier, MenuCell {
-    
+
     struct Constants {
         static let size: CGFloat = Theme.IconSize.small
     }
-    
+
     private lazy var iconView = UIImageView()
-    
+
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureLayout()
     }
-    
+
     private func configureLayout() {
         backgroundColor = .white
         addSubview(iconView)
@@ -35,11 +35,11 @@ class MenuIconCell: UICollectionViewCell, ReusableIdentifier, MenuCell {
         iconView.contentMode = .scaleAspectFit
         iconView.tintColor = Theme.Pallete.softGray
     }
-    
+
     func configure(withValue value: String) {
         iconView.image = UIImage(named: value)
     }
-    
+
     override var isSelected: Bool {
         didSet {
             iconView.tintColor = isSelected ? Theme.Pallete.softRed : Theme.Pallete.softGray

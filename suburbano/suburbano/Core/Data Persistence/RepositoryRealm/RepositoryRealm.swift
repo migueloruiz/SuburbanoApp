@@ -11,9 +11,9 @@ import Foundation
 protocol RepositoryRealm {
     associatedtype RealElement
     associatedtype Element
-    
+
     var realmHandler: RealmHandler { get }
-    
+
     func get(forKey key: String) -> Element?
     func get(predicateFormat: NSPredicate?) -> [Element]?
     func add(object: Element, update: Bool)

@@ -33,16 +33,16 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
     private var filterStations: [Station]
     private var departure: Station
     private var arraival: Station
-    
+
     private lazy var distanceFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 1
         return formatter
     }()
-    
+
     weak var viewDelegate: RouteCalculatorViewDelegate?
-    
+
     init(routeUseCase: RouteUseCase?, stations: [Station], departure: Station, arraival: Station) {
         self.routeUseCase = routeUseCase
         self.stations = stations
@@ -50,34 +50,34 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
         self.arraival = arraival
         self.filterStations = stations.filter { $0.name != departure.name }
     }
-    
+
     func load() {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.getInformation(from: strongSelf.departure, to: strongSelf.arraival)
         }
     }
-    
+
     func elementsFor(pickerId: Int) -> Int {
         switch pickerId {
         case 0: return stations.count
         default: return filterStations.count
         }
     }
-    
+
     func getImage(forPicker pickerId: Int, at row: Int) -> String {
         switch pickerId {
         case 0: return stations[row].markerTitleImage
         default: return filterStations[row].markerTitleImage
         }
     }
-    
+
     func selectedElements() -> (departureItem: Int, arraivalItem: Int) {
         let departureItem = stations.index { $0.name == departure.name } ?? 0
         let arrailvalItem = filterStations.index { $0.name == arraival.name } ?? 0
         return (departureItem: departureItem, arraivalItem: arrailvalItem)
     }
-    
+
     func didChange(selcteItem: Int, atPicker pickerId: Int) {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let strongSelf = self else { return }
@@ -93,7 +93,7 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
                 guard strongSelf.filterStations[selcteItem] != strongSelf.arraival else { return }
                 strongSelf.arraival = strongSelf.filterStations[selcteItem]
             }
-            
+
             strongSelf.getInformation(from: strongSelf.departure, to: strongSelf.arraival)
         }
     }
@@ -103,12 +103,12 @@ extension RouteCalculatorPresenterImpl {
     private func preperForDisplay(info: RouteInformation) -> DisplayRouteInformation {
         var distance = distanceFormatter.string(from: info.distance as NSNumber) ?? ""
         distance = distance.isEmpty ? "-" : distance + "Km" // TODO
-        
+
         return DisplayRouteInformation(time: String(info.time) + "min", // TODO
                                        distance: distance,
                                        price: String(format: "$%.02f", info.price)) // TODO
     }
-    
+
     private func getInformation(from departure: StationEntity, to arraival: StationEntity) {
         routeUseCase?.getInformation(from: departure, to: arraival) { routeInfo in
             DispatchQueue.main.async { [weak self] in
@@ -120,7 +120,7 @@ extension RouteCalculatorPresenterImpl {
             }
         }
     }
-    
+
     func getStop(from train: TrainEntity, at station: StationEntity) -> TrainStopEntity? {
         switch station.name {
         case "Buenavista": return train.buenavista

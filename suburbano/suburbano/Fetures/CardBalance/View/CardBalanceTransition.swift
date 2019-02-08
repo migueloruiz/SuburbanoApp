@@ -9,18 +9,18 @@
 import UIKit
 
 class CardBalanceTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
-    
+
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return Theme.AnimationInterval.defaultInterval
     }
-    
+
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
+
         guard let toViewController = transitionContext.viewController(forKey: .to) as? CardBalanceViewController else {
                 transitionContext.cancelInteractiveTransition()
                 return
         }
-        
+
         let containerView = toViewController.containerView
         let finalScale = containerView.transform
         transitionContext.containerView.addSubview(toViewController.view)
@@ -37,21 +37,21 @@ class CardBalanceTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
 }
 
 class CardBalanceTransitionOut: NSObject, UIViewControllerAnimatedTransitioning {
-    
+
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return Theme.AnimationInterval.defaultInterval
     }
-    
+
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromViewController = transitionContext.viewController(forKey: .from) as? CardBalanceViewController else {
                 transitionContext.cancelInteractiveTransition()
                 return
         }
-        
+
         let containerView = fromViewController.containerView
         let finalScale = containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
         transitionContext.containerView.backgroundColor = .clear
-        
+
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             fromViewController.view.backgroundColor = .clear
             containerView.transform = finalScale

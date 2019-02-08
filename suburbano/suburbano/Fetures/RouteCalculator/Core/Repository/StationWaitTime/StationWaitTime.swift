@@ -21,14 +21,14 @@ protocol StationWaitTimeEntity {
 
 // MARK: Struct
 struct StationWaitTime: StationWaitTimeEntity, Codable {
-    
+
     let station: String
     let day: Int
     let concurrence: Int
     let displayTime: String
     let timestamp: Int
     let waitTime: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case station = "station"
         case day = "day"
@@ -37,7 +37,7 @@ struct StationWaitTime: StationWaitTimeEntity, Codable {
         case timestamp = "houre"
         case waitTime = "wait_time"
     }
-    
+
     init(entity: StationWaitTimeEntity) {
         self.station = entity.station
         self.day = entity.day
@@ -46,7 +46,7 @@ struct StationWaitTime: StationWaitTimeEntity, Codable {
         self.timestamp = entity.timestamp
         self.waitTime = entity.waitTime
     }
-    
+
     init(from decoder: Decoder) throws {
         do {
             let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -72,12 +72,12 @@ class RealmStationWaitTime: Object, StationWaitTimeEntity {
     @objc dynamic var station: String = ""
     @objc dynamic var day: Int = 0
     @objc dynamic var timestamp: Int = 0
-    
+
     override class func primaryKey() -> String? { return "id" }
     override static func indexedProperties() -> [String] {
         return ["station", "day", "timestamp"]
     }
-    
+
     convenience init(entity: StationWaitTimeEntity) {
         self.init()
         self.id = "\(entity.station)-\(entity.day)-\(entity.timestamp)"

@@ -13,13 +13,13 @@ extension String {
         guard let first = first else { return "" }
         return String(first).uppercased() + dropFirst()
     }
-    
+
     func matchesPattern(pattern: String) -> Bool {
         guard !isEmpty || !pattern.isEmpty else { return false }
         guard range(of: pattern, options: .regularExpression) != nil else { return false }
         return true
     }
-    
+
     func matches(forPattern pattern: String) -> [String] {
         do {
             let regex = try NSRegularExpression(pattern: pattern)

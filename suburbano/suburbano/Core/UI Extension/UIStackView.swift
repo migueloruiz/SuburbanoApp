@@ -12,14 +12,14 @@ extension UIStackView {
     func addArranged(subViews: [UIView]) {
         for view in subViews { addArrangedSubview(view) }
     }
-    
+
     func removeAllArrangedViews() {
         for view in arrangedSubviews {
             removeArrangedSubview(view)
             view.removeFromSuperview()
         }
     }
-    
+
     static func with(axis: NSLayoutConstraint.Axis = .horizontal,
                      distribution: UIStackView.Distribution = .fillProportionally,
                      alignment: UIStackView.Alignment = .fill,

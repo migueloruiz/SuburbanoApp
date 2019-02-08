@@ -25,7 +25,7 @@ struct Card: CardEntity, Codable {
     var color: Data
     var displayDate: String
     var date: Double
-    
+
     var displayColor: UIColor {
         return NSKeyedUnarchiver.unarchiveObject(with: color) as? UIColor ?? Theme.Pallete.darkGray
     }

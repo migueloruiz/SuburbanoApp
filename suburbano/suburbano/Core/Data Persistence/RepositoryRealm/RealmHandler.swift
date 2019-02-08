@@ -10,9 +10,9 @@ import Foundation
 import RealmSwift
 
 class RealmHandler: NSObject {
-    
+
     static let shared = RealmHandler()
-    
+
     private var realmInstance: Realm? {
         guard let realmInstance = try? Realm() else {
             RealmAppDelegate.shared.handleMigrationFail()
@@ -20,9 +20,9 @@ class RealmHandler: NSObject {
         }
         return realmInstance
     }
-    
+
     // MARK: Operations
-    
+
     func add(object: Object, update: Bool = true) {
         guard let realm = realmInstance else { return }
         if realm.isInWriteTransaction {
@@ -35,7 +35,7 @@ class RealmHandler: NSObject {
             }
         }
     }
-    
+
     func add(objects: [Object], update: Bool = true) {
         guard let realm = realmInstance else { return }
         if realm.isInWriteTransaction {
@@ -48,7 +48,7 @@ class RealmHandler: NSObject {
             }
         }
     }
-    
+
     func get<Element>(ofType type: Element.Type, forKey key: String) -> Element? where Element: RealmSwift.Object {
         guard let realm = realmInstance, !key.isEmpty else { return nil }
         return realm.object(ofType: type, forPrimaryKey: key)
@@ -65,7 +65,7 @@ class RealmHandler: NSObject {
         }
         return Array(result)
     }
-    
+
     func delete(object: Object) {
         guard let realm = realmInstance else { return }
         do {
@@ -76,7 +76,7 @@ class RealmHandler: NSObject {
             assertionFailure("Somethig went wrong with Realm (Delete), error = \(error.description)")
         }
     }
-    
+
     func delete<Element>(objects: [Element]) where Element: RealmSwift.Object {
         guard let realm = realmInstance else { return }
         do {
@@ -87,7 +87,7 @@ class RealmHandler: NSObject {
             assertionFailure("Somethig went wrong with Realm (Delete), error = \(error.description)")
         }
     }
-    
+
     func deleteAll<Element>(forType type: Element.Type) where Element: RealmSwift.Object {
         guard let realm = realmInstance else { return }
         let allObjects = realm.objects(type)
@@ -99,7 +99,7 @@ class RealmHandler: NSObject {
             assertionFailure("Somethig went wrong with Realm (DeleteAllForType), error = \(error.description)")
         }
     }
-    
+
     func clearData() {
         guard let realm = realmInstance else { return }
         do {

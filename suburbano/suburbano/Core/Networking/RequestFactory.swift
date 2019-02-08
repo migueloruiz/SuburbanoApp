@@ -24,7 +24,7 @@ class RequestFactory {
         static let defaultTimeout: Double = 30
         static let defaulHeaders: [String: String] = ["Content-Type": "application/json"]
     }
-    
+
     static func make(_ method: HTTPMethod,
                      headers: [String: String]? = nil,
                      endoint: Endpoint,

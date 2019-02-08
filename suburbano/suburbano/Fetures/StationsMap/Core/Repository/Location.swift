@@ -14,20 +14,20 @@ protocol LocationEntity {
 }
 
 struct Location: LocationEntity, Codable {
-    
+
     let latitude: Double
     let longitude: Double
-    
+
     enum CodingKeys: String, CodingKey {
         case latitude
         case longitude
     }
-    
+
     init(latitude: Double, longitude: Double) {
         self.latitude = latitude
         self.longitude = longitude
     }
-    
+
     init(from decoder: Decoder) throws {
         do {
             let values = try decoder.container(keyedBy: CodingKeys.self)

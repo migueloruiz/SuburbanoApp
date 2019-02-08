@@ -19,30 +19,30 @@ struct Theme {
         static let darkBackground: UIColor = UIColor.black.withAlphaComponent(0.8)
         static let primaryAction: UIColor = UIColor(named: "concertColor") ?? .purple
         static let blue: UIColor = UIColor(named: "blue") ?? .purple
-        
+
         static let concert: UIColor = UIColor(named: "concertColor") ?? .purple
         static let workshop: UIColor = UIColor(named: "workshopColor") ?? .purple
         static let fair: UIColor = UIColor(named: "fairColor") ?? .purple
         static let exhibition: UIColor = UIColor(named: "exhibitionColor") ?? .purple
         static let special: UIColor = UIColor(named: "specialColor") ?? .purple
     }
-    
+
     struct Animations {
         static let loading = "loading"
         static let tableLoading = "table-loading"
     }
-    
+
     struct AnimationInterval {
         static let defaultInterval: TimeInterval = 0.5
-        
+
         static let springWithDamping: CGFloat = 0.7
         static let initialSpringVelocity: CGFloat = 0.3
     }
-    
+
     struct ContainerPropotion {
         static let porcent70: CGFloat = 0.7
     }
-    
+
     struct IconSize {
         static let extraSmall: CGFloat = 15
         static let button: CGFloat = 25
@@ -51,12 +51,12 @@ struct Theme {
         static let large: CGFloat = 50
         static let extraLarge: CGFloat = 100
     }
-    
+
     struct Rounded {
         static let controller: CGFloat = 10
         static let button: CGFloat = 20
     }
-    
+
     struct Offset {
         static let extralarge: CGFloat = 40
         static let large: CGFloat = 20
@@ -65,19 +65,19 @@ struct Theme {
         static let selector: CGFloat = 2
         static let separator: CGFloat = 1
     }
-    
+
     enum FontName: String {
         case montserrat = "Montserrat"
         case openSansCondensed = "OpenSansCondensed"
         case icons = "IconsCataloge"
     }
-    
+
     enum FontStyle: String {
         case none = ""
         case medium = "Medium"
         case bold = "Bold"
     }
-    
+
     enum FontSize: CGFloat {
         case icon = 40
         case smallIcon = 30
@@ -87,7 +87,7 @@ struct Theme {
         case general = 14
         case p = 12
     }
-    
+
     struct FontFactor {
         static let large: CGFloat = 2
     }

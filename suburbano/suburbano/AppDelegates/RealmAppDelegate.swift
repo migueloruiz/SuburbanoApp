@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 final class RealmAppDelegate: NSObject, UIApplicationDelegate {
-    
+
     static let shared = RealmAppDelegate()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
@@ -29,28 +29,28 @@ extension RealmAppDelegate {
             handleMigrationFail()
         }
     }
-    
+
     func configure(schemaVersion: Int, realmFileURL: URL) throws {
         var config = Realm.Configuration(
             schemaVersion: UInt64(schemaVersion),
             migrationBlock: { _, oldSchemaVersion in
                 guard oldSchemaVersion < UInt64(schemaVersion) else { return }
         }, deleteRealmIfMigrationNeeded: false)
-        
+
         config.fileURL = realmFileURL
         Realm.Configuration.defaultConfiguration = config
     }
-    
+
     func handleMigrationFail() {
         deleteBrokenFile()
         realmSetup()
     }
-    
+
     func deleteBrokenFile() {
         guard let realmURL = getRealmURL() else { return }
         deleteFileIfExists(path: realmURL.path)
     }
-    
+
     // TODO
     func getRealmURL() -> URL? {
         guard let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.migueloruiz.subur") else { return nil }
@@ -58,7 +58,7 @@ extension RealmAppDelegate {
         createFoldersIfNecesary(forPath: realmURL.path)
         return realmURL.appendingPathComponent("default.realm")
     }
-    
+
     // TODO
     func createFoldersIfNecesary(forPath path: String) {
         guard !FileManager.default.fileExists(atPath: path) else { return }
@@ -68,7 +68,7 @@ extension RealmAppDelegate {
             print(error)
         }
     }
-    
+
     func deleteFileIfExists(path: String) {
         guard FileManager.default.fileExists(atPath: path) else { return }
         do {
@@ -77,7 +77,7 @@ extension RealmAppDelegate {
             print(error)
         }
     }
-    
+
     // TODO
     func getBundleVersion() -> Int? {
         guard let envVariables = Bundle.main.infoDictionary,

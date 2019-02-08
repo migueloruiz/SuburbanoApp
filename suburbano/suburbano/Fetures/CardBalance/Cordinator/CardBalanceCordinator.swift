@@ -11,14 +11,14 @@ import UIKit
 class CardBalanceCordinator: NSObject, Coordinator {
     fileprivate let rootViewController: MapStationsViewController
     fileprivate let controller: CardBalanceViewController
-    
+
     init(rootViewController: MapStationsViewController, card: Card? = nil) {
         self.rootViewController = rootViewController
         let cardBalancePresenter = CardBalancePresenterImpl(cardUseCase: UseCaseLocator.getUseCase(ofType: CardUseCase.self)!)
         self.controller = CardBalanceViewController(presenter: cardBalancePresenter, card: card)
         cardBalancePresenter.viewDelegate = controller
     }
-    
+
     func start() {
         controller.transitioningDelegate = rootViewController
         rootViewController.present(controller, animated: true, completion: nil)

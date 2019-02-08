@@ -16,7 +16,7 @@ protocol CardBalancePresenter: class {
 protocol CardBalanceViewDelegate: class {
     func setInvalid(form: CardBalanceForm)
     func addCardSuccess(card: Card)
-    func addCardFailure(error: ErrorResponse)
+    func addCardFailure(error: InlineError)
     func showAnimation()
 }
 
@@ -54,21 +54,17 @@ class CardBalancePresenterImpl: CardBalancePresenter {
                             date: 0)
 
         guard let isRegistered = cardUseCase?.isAlreadyRegister(card: tempCard), !isRegistered else {
-            let error = ErrorResponse(code: .unknownCode, header: "", body: "Esta tarjeta ya esta registrada", tecnicalDescription: "")
-            viewDelegate?.addCardFailure(error: error)
+            viewDelegate?.addCardFailure(error: "Esta tarjeta ya esta registrada")
             return
         }
         
         viewDelegate?.showAnimation()
-        
-        cardUseCase?.get(card: tempCard, complition: { [weak self] result in
+        cardUseCase?.add(card: tempCard, success: { [weak self] card in
             guard let strongSelf = self else { return }
-            switch result {
-            case .succes(let card):
-                strongSelf.viewDelegate?.addCardSuccess(card: card)
-            case .failure(let error):
-                strongSelf.viewDelegate?.addCardFailure(error: error)
-            }
+            strongSelf.viewDelegate?.addCardSuccess(card: card)
+        }, failure: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.viewDelegate?.addCardFailure(error: "Número de tarjeta no valido. Puedes encontrar el numero al frente en la parte inferior de tu tarjeta")
         })
     }
     

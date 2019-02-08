@@ -8,18 +8,13 @@
 
 import Foundation
 
-enum GetCardResult {
-    case succes(card: Card)
-    case failure(error: ErrorResponse)
-}
-
 protocol UpdateCardsBalanceUseCase {
     func updateCards()
 }
 
 protocol GetCardBalanceUseCase {
     func isAlreadyRegister(card: Card) -> Bool
-    func get(card: Card, complition: @escaping (GetCardResult) -> Void)
+    func add(card: Card, success: @escaping SuccessResponse<Card>, failure: @escaping ErrorResponse)
 }
 
 protocol DeleteCardUseCase {

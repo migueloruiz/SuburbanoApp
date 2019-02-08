@@ -9,15 +9,16 @@
 import Foundation
 
 protocol StationWaitTimeWebService {
-    func getWaitTimes(completion: @escaping (ServiceResponse<[StationWaitTime]>) -> Void)
+    func getWaitTimes(success: @escaping SuccessResponse<[StationWaitTime]>, failure: @escaping ErrorResponse)
 }
 
 class StationWaitTimeWebServiceImpl: BaseService<[StationWaitTime]>, StationWaitTimeWebService {
-    func getWaitTimes(completion: @escaping (ServiceResponse<[StationWaitTime]>) -> Void) {
-        guard let request = try? RequestFactory.make(.get, endoint: Endpoints.GeneralResource(resource: WebResources.WaitTime)) else {
-            completion(.failure(error: ErrorResponse.general()))
-            return
+    func getWaitTimes(success: @escaping SuccessResponse<[StationWaitTime]>, failure: @escaping ErrorResponse) {
+        do {
+            let request = try RequestFactory.make(.get, endoint: Endpoints.GeneralResource(resource: WebResources.WaitTime))
+            make(request: request, success: success, failure: failure)
+        } catch let error {
+            failure(error)
         }
-        make(request: request, completion: completion)
     }
 }

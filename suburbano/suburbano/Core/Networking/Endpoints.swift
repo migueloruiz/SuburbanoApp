@@ -12,8 +12,8 @@ enum Host: String {
     case main = "MainHost"
     case fsuburbanos = "FsuburbanoHost"
     
-    func getURL() -> URL? {
-        guard let envVariables = Bundle.main.infoDictionary,
+    func getURL(infoDictionary: [String: Any]? = Bundle.main.infoDictionary) -> URL? {
+        guard let envVariables = infoDictionary,
             let hosts = envVariables[AppConstants.App.BaseUrls] as? [String: String],
             let host = hosts[self.rawValue] else { return nil }
         return URL(string: host)
@@ -23,7 +23,7 @@ enum Host: String {
 protocol Endpoint {
     var host: Host { get }
     var path: String { get }
-    var params: [String: String] { get }
+    var params: [String: String]? { get }
 }
 
 struct Endpoints {
@@ -38,7 +38,7 @@ struct Endpoints {
             return String(format: pathTemplate, resource.fileName, resource.extention)
         }
         
-        var params: [String: String] { return [:] }
+        var params: [String: String]?
     }
     
     struct CardBalance: Endpoint {
@@ -49,7 +49,7 @@ struct Endpoints {
         
         var path: String { return "/suburbano/mobileMethods/Saldo.php" }
         
-        var params: [String: String] {
+        var params: [String: String]? {
             return [ "usr": "subu",
                      "tarjeta": cardId ]
         }

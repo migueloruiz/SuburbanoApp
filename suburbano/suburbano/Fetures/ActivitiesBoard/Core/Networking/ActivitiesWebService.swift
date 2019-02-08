@@ -9,15 +9,16 @@
 import Foundation
 
 protocol ActivitiesWebService {
-     func getActivities(completion: @escaping (ServiceResponse<[Activity]>) -> Void)
+     func getActivities(success: @escaping SuccessResponse<[Activity]>, failure: @escaping ErrorResponse)
 }
 
 class ActivitiesWebServiceImpl: BaseService<[Activity]>, ActivitiesWebService {
-    func getActivities(completion: @escaping (ServiceResponse<[Activity]>) -> Void) {
-        guard let request = try? RequestFactory.make(.get, endoint: Endpoints.GeneralResource(resource: WebResources.Events)) else {
-            completion(.failure(error: ErrorResponse.general()))
-            return
+    func getActivities(success: @escaping SuccessResponse<[Activity]>, failure: @escaping ErrorResponse) {
+        do {
+            let request = try RequestFactory.make(.get, endoint: Endpoints.GeneralResource(resource: WebResources.Events))
+            make(request: request, success: success, failure: failure)
+        } catch let error {
+            failure(error)
         }
-        make(request: request, completion: completion)
     }
 }

@@ -46,12 +46,10 @@
 		8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30620F70C2E00A2D8B1 /* BaseService.swift */; };
 		8621A30C20F70DDB00A2D8B1 /* ActivitiesWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30B20F70DDB00A2D8B1 /* ActivitiesWebService.swift */; };
 		8621A30E20F70DF900A2D8B1 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30D20F70DF900A2D8B1 /* Activity.swift */; };
-		8621A31020F7107000A2D8B1 /* DecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30F20F7107000A2D8B1 /* DecodingError.swift */; };
 		862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517CB20F84D2F002F2048 /* RealmHandler.swift */; };
 		862517D120FD6ED0002F2048 /* UseCaseLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D020FD6ED0002F2048 /* UseCaseLocator.swift */; };
 		862517D420FD7071002F2048 /* ActivitiesUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D320FD7071002F2048 /* ActivitiesUseCaseImpl.swift */; };
 		862517D820FD70D9002F2048 /* ActivitiesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D720FD70D9002F2048 /* ActivitiesUseCase.swift */; };
-		862517DA20FD7851002F2048 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D920FD7851002F2048 /* ErrorResponse.swift */; };
 		862517E220FD7A32002F2048 /* RepositoryRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E120FD7A32002F2048 /* RepositoryRealm.swift */; };
 		862517E420FD7FB6002F2048 /* ActivitiesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E320FD7FB6002F2048 /* ActivitiesRepository.swift */; };
 		86385C7521335D91002EA9DF /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7421335D91002EA9DF /* ColorCell.swift */; };
@@ -156,6 +154,7 @@
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
 		86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75EB212B9F8800DBDB98 /* IconInputView.swift */; };
+		86FC7454220D024D006311B3 /* ResponseAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7453220D024D006311B3 /* ResponseAlias.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,12 +217,10 @@
 		8621A30620F70C2E00A2D8B1 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		8621A30B20F70DDB00A2D8B1 /* ActivitiesWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesWebService.swift; sourceTree = "<group>"; };
 		8621A30D20F70DF900A2D8B1 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
-		8621A30F20F7107000A2D8B1 /* DecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingError.swift; sourceTree = "<group>"; };
 		862517CB20F84D2F002F2048 /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
 		862517D020FD6ED0002F2048 /* UseCaseLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseLocator.swift; sourceTree = "<group>"; };
 		862517D320FD7071002F2048 /* ActivitiesUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesUseCaseImpl.swift; sourceTree = "<group>"; };
 		862517D720FD70D9002F2048 /* ActivitiesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesUseCase.swift; sourceTree = "<group>"; };
-		862517D920FD7851002F2048 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		862517E120FD7A32002F2048 /* RepositoryRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRealm.swift; sourceTree = "<group>"; };
 		862517E320FD7FB6002F2048 /* ActivitiesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesRepository.swift; sourceTree = "<group>"; };
 		86385C7421335D91002EA9DF /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
@@ -360,6 +357,7 @@
 		86F14E5120F4550200D1CF7D /* MapViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewFactory.swift; sourceTree = "<group>"; };
 		86F14E5320F45D3600D1CF7D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		86F14E5620F4662800D1CF7D /* StationsMapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsMapPresenter.swift; sourceTree = "<group>"; };
+		86FC7453220D024D006311B3 /* ResponseAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseAlias.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -685,11 +683,10 @@
 			isa = PBXGroup;
 			children = (
 				8621A30620F70C2E00A2D8B1 /* BaseService.swift */,
-				8621A30F20F7107000A2D8B1 /* DecodingError.swift */,
 				86695E1E20F6D50600F74150 /* Endpoints.swift */,
-				862517D920FD7851002F2048 /* ErrorResponse.swift */,
 				86695E2020F6E65900F74150 /* RequestFactory.swift */,
 				86695E2220F6E67C00F74150 /* WebResources.swift */,
+				86FC7453220D024D006311B3 /* ResponseAlias.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1518,6 +1515,7 @@
 				8621A2D020F6FE0A00A2D8B1 /* MapStationsViewController.swift in Sources */,
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,
 				86A4939B21B84C7600490820 /* DetailWaitTimeCell.swift in Sources */,
+				86FC7454220D024D006311B3 /* ResponseAlias.swift in Sources */,
 				86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */,
 				868D2618214B3AD000700DE7 /* RouteCalculatorTransition.swift in Sources */,
 				8641325520FFFFD00031F4F4 /* AcvtivityCell.swift in Sources */,
@@ -1602,9 +1600,7 @@
 				86B831012138C1920063AC75 /* StationDetailCordinator.swift in Sources */,
 				86BD98572159C7170022DC6F /* StationWaitTime.swift in Sources */,
 				8614723E2151A7320042BBB8 /* MenuTextCell.swift in Sources */,
-				8621A31020F7107000A2D8B1 /* DecodingError.swift in Sources */,
 				86385C8C2133840E002EA9DF /* CardUseCaseImpl.swift in Sources */,
-				862517DA20FD7851002F2048 /* ErrorResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

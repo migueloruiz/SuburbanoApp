@@ -8,93 +8,75 @@
 
 import Foundation
 
-enum ServiceResponse<Model> {
-    case success(response: Model, headers: [String: String])
-    case failure(error: ErrorResponse)
+enum ResponseStatusCodes: Int {
+    case successCode = 200
+    case badRequest = 400
+    case internalServerError = 500
+    case networkConection = -1009
+    case unknownCode = 0
+
+    static func getStatusForCode(_ rawValue: Int) -> ResponseStatusCodes {
+        switch rawValue {
+        case 200: return .successCode
+        case 400: return .badRequest
+        case 500: return .internalServerError
+        case -1009: return .networkConection
+        default: return .unknownCode
+        }
+    }
 }
 
-// TODO: Add targetVariable to print requests
+enum ServiceError: Error {
+    case badRequest
+}
 
-open class BaseService<Model: Codable> {
-    
-    func make(request: URLRequest, parsingData: Any? = nil, completion: @escaping (ServiceResponse<Model>) -> Void) {
-        DispatchQueue.global(qos: .background).async {
-            let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
-            let task = session.dataTask(with: request) { [weak self] (body, response, error) in
-                guard let strongSelf = self else { return }
-                guard let urlResponse = response as? HTTPURLResponse else {
-                    strongSelf.handle(error: error, completion: completion)
-                    return
-                }
-                print(body!)
-                print(urlResponse)
-                strongSelf.processResponse(json: body, urlResponse: urlResponse, parsingData: parsingData, completion: completion)
+enum ParsingError: Error {
+    case noExistingBody
+}
+
+typealias ParserMethod<Model> = (Data?) throws -> Model
+
+// TODO: Add targetVariable to print requests
+class BaseService<Model: Codable> {
+
+    func make(request: URLRequest,
+              success: @escaping SuccessResponse<Model>,
+              failure: @escaping ErrorResponse,
+              parser: ParserMethod<Model>? = nil) {
+
+        let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
+        let task = session.dataTask(with: request) { [weak self] (body, response, error) in
+            guard let strongSelf = self, let urlResponse = response as? HTTPURLResponse else {
+                failure(error ?? ServiceError.badRequest)
+                return
             }
-            task.resume()
+            let parserMethod = parser ?? strongSelf.genericParser
+            strongSelf.processResponse(body: body, urlResponse: urlResponse, success: success, failure: failure, parser: parserMethod)
         }
+        task.resume()
     }
-    
-    private func processResponse(json: Data?,
+
+    private func processResponse(body: Data?,
                                  urlResponse: HTTPURLResponse,
-                                 parsingData: Any?,
-                                 completion: @escaping (ServiceResponse<Model>) -> Void) {
-        
-        guard let jsonResponse = json else {
-            failure(error: .general(), completion: completion)
-            return
-        }
-        
-        switch urlResponse.statusCode {
-        case ResponseStatusCodes.successCode.rawValue:
+                                 success: @escaping SuccessResponse<Model>,
+                                 failure: @escaping ErrorResponse,
+                                 parser: @escaping ParserMethod<Model>) {
+        switch ResponseStatusCodes.getStatusForCode(urlResponse.statusCode) {
+        case .successCode:
             do {
-                let responseModel = try parse(json: jsonResponse, parsingData: parsingData)
-                let headers = urlResponse.allHeaderFields as? [String: String] ?? [:]
-                success(result: responseModel, headers: headers, completion: completion)
+                success(try parser(body))
             } catch let error {
-                handleDecodingError(error: error, completion: completion)
+                failure(error)
             }
-        case ResponseStatusCodes.badRequest.rawValue,
-             ResponseStatusCodes.internalServerError.rawValue,
-             NSURLErrorNotConnectedToInternet:
-            handleFailure(code: urlResponse.statusCode, completion: completion)
         default:
-            handleFailure(code: urlResponse.statusCode, completion: completion)
+            failure(ServiceError.badRequest)
         }
     }
-    
-    open func parse(json: Data, parsingData: Any?) throws -> Model {
+
+    // MARK: Default Parser
+
+    private var genericParser: ParserMethod<Model> = { body in
+        guard let json = body else { throw ParsingError.noExistingBody }
         return try JSONDecoder().decode(Model.self, from: json)
-    }
-    
-    private func handle(error: Error?, completion: @escaping (ServiceResponse<Model>) -> Void) {
-        guard let responseError = error as NSError? else { return }
-        let errorResponse: ErrorResponse = responseError.code == NSURLErrorNotConnectedToInternet ? .networkConection() : .general()
-        failure(error: errorResponse, completion: completion)
-    }
-    
-    private func handleDecodingError(error: Error, completion: @escaping (ServiceResponse<Model>) -> Void) {
-        guard let decodingError = error as? DecodingError else {
-            failure(error: .general(), completion: completion)
-            return
-        }
-        failure(error: ErrorResponse.general(code: .jsonParsing, tecnicalDescription: decodingError.debugDescription), completion: completion)
-    }
-    
-    private func handleFailure(code: Int, completion: @escaping (ServiceResponse<Model>) -> Void) {
-        let errorResponse = ErrorResponse.general(code: ResponseStatusCodes.getStatusForCode(code),
-                                                       tecnicalDescription: "")
-        failure(error: errorResponse, completion: completion)
-    }
-    
-    private func failure(error: ErrorResponse, completion: @escaping (ServiceResponse<Model>) -> Void) {
-        print(error.code)
-        print(error.tecnicalDescription)
-        completion(.failure(error: error))
-    }
-    
-    private func success(result: Model,
-                         headers: [String: String],
-                         completion: @escaping (ServiceResponse<Model>) -> Void) {
-        completion(ServiceResponse<Model>.success(response: result, headers: headers))
     }
 }

@@ -14,21 +14,16 @@ struct RouteInformation {
     let price: Float
 }
 
-typealias RouteInformationResponse = (RouteInformation) -> Void
-typealias TripPriceResponse = ([TripPriceEntity]) -> Void
-typealias TrainResponse = ([TrainEntity]) -> Void
-typealias WaitTimeResponse = ([StationWaitTimeEntity]) -> Void
-
 protocol GetRouteInformationUseCase {
-    func getInformation(from departure: StationEntity, to arraival: StationEntity, complition: @escaping RouteInformationResponse)
+    func getInformation(from departure: StationEntity, to arraival: StationEntity, complition:  @escaping SuccessResponse<RouteInformation>)
 }
 
 protocol GetRouteScheduleUseCase {
-    func getSchedule(from departure: StationEntity, to arraival: StationEntity, day: TripDay, complition: @escaping TrainResponse)
+    func getSchedule(from departure: StationEntity, to arraival: StationEntity, day: TripDay, complition: @escaping SuccessResponse<[TrainEntity]>)
 }
 
 protocol GetRouteWaitTimeUseCase {
-    func getWaitTime(inStation station: String, complition: @escaping WaitTimeResponse)
+    func getWaitTime(inStation station: String, complition: @escaping SuccessResponse<[StationWaitTimeEntity]>)
 }
 
 protocol RouteUseCase: GetRouteInformationUseCase, GetRouteScheduleUseCase, GetRouteWaitTimeUseCase { }
@@ -63,7 +58,7 @@ class RouteUseCaseImpl: RouteUseCase {
         self.resilienceHandler = resilienceHandler
     }
     
-    func getInformation(from departure: StationEntity, to arraival: StationEntity, complition: @escaping RouteInformationResponse) {
+    func getInformation(from departure: StationEntity, to arraival: StationEntity, complition: @escaping SuccessResponse<RouteInformation>) {
         let time = abs(departure.time - arraival.time)
         let distance = abs(departure.distance - arraival.distance)
         
@@ -73,49 +68,41 @@ class RouteUseCaseImpl: RouteUseCase {
         }
     }
     
-    func getWaitTime(inStation station: String, complition: @escaping WaitTimeResponse) {
+    func getWaitTime(inStation station: String, complition: @escaping SuccessResponse<[StationWaitTimeEntity]>) {
         let waitTime = stationWaitTimeRepository.get(inStation: station)
         guard waitTime.isEmpty else {
             complition(waitTime)
             return
         }
-        stationWaitTimeService.getWaitTimes { [weak self] response in
+
+        stationWaitTimeService.getWaitTimes(success: { [weak self] waitTimes in
             guard let strongSelf = self else { return }
-            switch response {
-            case .success(let response, _):
-                strongSelf.stationWaitTimeRepository.add(objects: response)
-                let waitTimeReponse = strongSelf.stationWaitTimeRepository.get(inStation: station)
-                complition(waitTimeReponse)
-            case .failure:
-                complition([])
-            }
-        }
+            strongSelf.stationWaitTimeRepository.add(objects: waitTimes)
+            let waitTimeReponse = strongSelf.stationWaitTimeRepository.get(inStation: station)
+            complition(waitTimeReponse)
+        }, failure: {_  in complition([])})
     }
     
-    func getSchedule(from departure: StationEntity, to arraival: StationEntity, day: TripDay, complition: @escaping TrainResponse) {
+    func getSchedule(from departure: StationEntity, to arraival: StationEntity, day: TripDay, complition: @escaping SuccessResponse<[TrainEntity]>) {
         let direction = TrainDirection.get(from: departure, to: arraival)
+        let trains = trainsRepository.get(withDirection: direction.rawValue, day: day.rawValue)
 
-        guard let trains = trainsRepository.get(withDirection: direction.rawValue, day: day.rawValue) as? [Train],
-            !trains.isEmpty else {
-                trainsService.getTrains { [weak self] (response) in
-                    guard let strongSelf = self else { return }
-                    switch response {
-                    case .success(let trains, _):
-                        strongSelf.trainsRepository.add(objects: trains, update: true)
-                        let result = strongSelf.trainsRepository.get(withDirection: "North", day: "Normal") as? [Train]
-                        complition(result ?? [])
-                    case .failure:
-                        complition([])
-                    }
-                }
+        guard trains.isEmpty else {
+            complition(trains)
             return
         }
-        complition(trains)
+
+        trainsService.getTrains(success: { [weak self] trains in
+            guard let strongSelf = self else { return }
+            strongSelf.trainsRepository.add(objects: trains, update: true)
+            let result = strongSelf.trainsRepository.get(withDirection: "North", day: "Normal") as? [Train]
+            complition(result ?? [])
+        }, failure: { _ in complition([]) })
     }
 }
 
 extension RouteUseCaseImpl {
-    func getPrices(complition: @escaping TripPriceResponse) {
+    func getPrices(complition: @escaping SuccessResponse<[TripPrice]>) {
         guard let cachedPrices = pricesRepository.get(predicateFormat: nil), !cachedPrices.isEmpty else {
             getPricesFromService(complition: complition)
             return
@@ -123,22 +110,20 @@ extension RouteUseCaseImpl {
         complition(cachedPrices)
     }
     
-    private func getPricesFromService(complition: @escaping TripPriceResponse) {
-        pricesService.getPrices { [weak self] response in
+    private func getPricesFromService(complition: @escaping SuccessResponse<[TripPrice]>) {
+        pricesService.getPrices(success: { [weak self] prices in
             guard let strongSelf = self else { return }
-            switch response {
-            case .success(let prices, _):
-                strongSelf.pricesRepository.add(objects: prices, update: true)
-                complition(prices)
-            case .failure:
-                strongSelf.getPricesFromResilienceFile(complition: complition)
-            }
-        }
+            strongSelf.pricesRepository.add(objects: prices, update: true)
+            complition(prices)
+        }, failure: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.getPricesFromResilienceFile(complition: complition)
+        })
     }
     
-    private func getPricesFromResilienceFile(complition: @escaping TripPriceResponse) {
-        guard let rawSattions = resilienceHandler.loadLocalJSON(from: Constants.fileName),
-            let reciliencePrices = try? JSONDecoder().decode([TripPrice].self, from: rawSattions) else {
+    private func getPricesFromResilienceFile(complition: @escaping SuccessResponse<[TripPrice]>) {
+        guard let rawPrices = resilienceHandler.loadLocalJSON(from: Constants.fileName),
+            let reciliencePrices = try? JSONDecoder().decode([TripPrice].self, from: rawPrices) else {
             complition([])
             return
         }

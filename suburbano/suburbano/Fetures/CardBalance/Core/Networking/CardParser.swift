@@ -8,9 +8,11 @@
 
 import Foundation
 
+enum CardBalanceParser: Error {
+    case valueNorFound
+}
+
 class CardParser {
-    
-    static let shared = CardParser()
     
     private let dateFormatter = DateFormatter()
     
@@ -18,20 +20,25 @@ class CardParser {
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
     }
-    
-    func parse(response: Data, card: Card) throws -> Card {
-        let balance = String(data: response, encoding: String.Encoding.utf8) ?? ""
-        let matches = balance.matches(forPattern: "\\$[0-9]{1,5}\\.[0-9]{2}")
-        guard let match = matches.first else {
-            throw DecodingError.valueNotFound(Card.self, DecodingError.Context(codingPath: [], debugDescription: "Value balance not found"))
+
+    func getParserMethod(card: Card) -> ParserMethod<Card> {
+        return { [weak self] body in
+            guard let strongSelf = self,
+                let data = body,
+                let balance = String(data: data, encoding: .utf8) else { throw ParsingError.noExistingBody }
+
+            let matches = balance.matches(forPattern: "\\$[0-9]{1,5}\\.[0-9]{2}")
+            guard let match = matches.first else { throw CardBalanceParser.valueNorFound }
+
+            let date = strongSelf.getDate()
+            return Card(id: card.id,
+                        balance: match,
+                        icon: card.icon,
+                        color: card.color,
+                        displayDate: date.display,
+                        date: date.timestamp)
         }
-        let date = getDate()
-        return Card(id: card.id,
-                    balance: match,
-                    icon: card.icon,
-                    color: card.color,
-                    displayDate: date.display,
-                    date: date.timestamp)
+
     }
     
     func getDate() -> (timestamp: Double, display: String) {

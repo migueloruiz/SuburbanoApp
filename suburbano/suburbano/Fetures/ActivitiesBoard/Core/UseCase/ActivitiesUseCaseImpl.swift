@@ -20,15 +20,11 @@ class ActivitiesUseCaseImpl: ActivitiesUseCase {
     }
     
     func updateActivities() {
-        activitiesWebService.getActivities { [weak self] response in
+        activitiesWebService.getActivities(success: { [weak self] activities in
             guard let strongSelf = self else { return }
-            switch response {
-            case .success(let activities, _):
-                strongSelf.activitiesRepository.deleteAll()
-                strongSelf.activitiesRepository.add(objects: activities)
-            default: break
-            }
-        }
+            strongSelf.activitiesRepository.deleteAll()
+            strongSelf.activitiesRepository.add(objects: activities)
+        }, failure: {_ in })
     }
     
     func get(byDate date: Int) -> [Activity] {

@@ -225,13 +225,13 @@ extension CardBalanceViewController: CardBalanceViewDelegate {
         }
     }
     
-    func addCardFailure(error: ErrorResponse) {
+    func addCardFailure(error: InlineError) {
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.loadingView.dismiss(hiddingView: strongSelf.formContinerView) { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.cardNumberInput.shake()
-                strongSelf.cardNumberInput.error = error.body
+                strongSelf.cardNumberInput.error = error
                 _ = strongSelf.cardNumberInput.becomeFirstResponder()
             }
         }

@@ -9,15 +9,16 @@
 import Foundation
 
 protocol PricesWebService {
-    func getPrices(completion: @escaping (ServiceResponse<[TripPrice]>) -> Void)
+    func getPrices(success: @escaping SuccessResponse<[TripPrice]>, failure: @escaping ErrorResponse)
 }
 
 class PricesWebServiceImpl: BaseService<[TripPrice]>, PricesWebService {
-    func getPrices(completion: @escaping (ServiceResponse<[TripPrice]>) -> Void) {
-        guard let request = try? RequestFactory.make(.get, endoint: Endpoints.GeneralResource(resource: WebResources.Prices)) else {
-            completion(.failure(error: ErrorResponse.general()))
-            return
+    func getPrices(success: @escaping SuccessResponse<[TripPrice]>, failure: @escaping ErrorResponse) {
+        do {
+            let request = try RequestFactory.make(.get, endoint: Endpoints.GeneralResource(resource: WebResources.Prices))
+            make(request: request, success: success, failure: failure)
+        } catch let error {
+            failure(error)
         }
-        make(request: request, completion: completion)
     }
 }

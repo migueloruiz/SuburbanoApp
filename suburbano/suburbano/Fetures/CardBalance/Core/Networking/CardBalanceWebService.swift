@@ -9,24 +9,19 @@
 import Foundation
 
 protocol CardBalanceWebService {
-    func getBalace(for: Card, completion: @escaping (ServiceResponse<Card>) -> Void)
+    func getBalace(for: Card, success: @escaping SuccessResponse<Card>, failure: @escaping ErrorResponse)
 }
 
 class CardBalanceWebServiceImpl: BaseService<Card>, CardBalanceWebService {
+
+    private let cardParser = CardParser()
     
-    func getBalace(for card: Card, completion: @escaping (ServiceResponse<Card>) -> Void) {
-        guard let request = try? RequestFactory.make(.get, endoint: Endpoints.CardBalance(cardId: card.id)) else {
-            completion(.failure(error: ErrorResponse.general()))
-            return
+    func getBalace(for card: Card, success: @escaping SuccessResponse<Card>, failure: @escaping ErrorResponse) {
+        do {
+            let request = try RequestFactory.make(.get, endoint: Endpoints.CardBalance(cardId: card.id))
+            make(request: request, success: success, failure: failure, parser: cardParser.getParserMethod(card: card))
+        } catch let error {
+            failure(error)
         }
-        make(request: request, parsingData: card, completion: completion)
-    }
-    
-    // TODO
-    override func parse(json: Data, parsingData: Any?) throws -> Card {
-        guard let card = parsingData as? Card else {
-            throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: [], debugDescription: "TODO ERROR", underlyingError: nil))
-        }
-        return try CardParser.shared.parse(response: json, card: card)
     }
 }

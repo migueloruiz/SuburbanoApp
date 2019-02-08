@@ -36,17 +36,12 @@ class CardUseCaseImpl: CardUseCase {
                 continue
             }
             
-            DispatchQueue.global(qos: .background).async {
-                [weak self] in
+            DispatchQueue.global(qos: .background).async { [weak self] in
                 guard let strongSelf = self else { return }
-                strongSelf.cardBalanceWebService.getBalace(for: card) { response in
-                    switch response {
-                    case .success(let card, _):
-                        updatedCards.append(card)
-                    default: break
-                    }
+                strongSelf.cardBalanceWebService.getBalace(for: card, success: { card in
+                    updatedCards.append(card)
                     dispatchGroup.leave()
-                }
+                }, failure: {_ in })
             }
         }
         
@@ -66,25 +61,13 @@ class CardUseCaseImpl: CardUseCase {
         notifiCardsUpdate()
     }
     
-    func get(card: Card, complition: @escaping (GetCardResult) -> Void) {
-        guard cardRepository.get(forKey: card.id) == nil else {
-            let error = ErrorResponse(code: .unknownCode, header: "", body: "Esta tarjeta ya esta registrada", tecnicalDescription: "") // Localize
-            complition(.failure(error: error))
-            return
-        }
-        
-        cardBalanceWebService.getBalace(for: card) { [weak self] response in
+    func add(card: Card, success: @escaping SuccessResponse<Card>, failure: @escaping ErrorResponse) {
+        cardBalanceWebService.getBalace(for: card, success: { [weak self] card in
             guard let strongSelf = self else { return }
-            switch response {
-            case .success(let card, _):
                 strongSelf.cardRepository.add(object: card)
                 strongSelf.notifiCardsUpdate()
-                complition(.succes(card: card))
-            case .failure:
-                let error = ErrorResponse(code: .unknownCode, header: "", body: "Número de tarjeta no valido. Puedes encontrar el numero al frente en la parte inferior de tu tarjeta", tecnicalDescription: "") // Localize
-                complition(.failure(error: error))
-            }
-        }
+                success(card)
+        }, failure: failure)
     }
 }
 

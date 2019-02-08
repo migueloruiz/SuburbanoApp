@@ -11,7 +11,7 @@ import UIKit
 class CardBalanceTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.AnimationInterval.defaultInterval
+        return Theme.Animation.defaultInterval
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -25,7 +25,7 @@ class CardBalanceTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
         let finalScale = containerView.transform
         transitionContext.containerView.addSubview(toViewController.view)
         toViewController.view.backgroundColor = .clear
-        containerView.transform = containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
+        containerView.transform = containerView.transform.translatedBy(x: 0, y: UIDevice.screenHeight)
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             toViewController.view.backgroundColor = Theme.Pallete.darkBackground
@@ -39,7 +39,7 @@ class CardBalanceTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
 class CardBalanceTransitionOut: NSObject, UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.AnimationInterval.defaultInterval
+        return Theme.Animation.defaultInterval
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -49,7 +49,7 @@ class CardBalanceTransitionOut: NSObject, UIViewControllerAnimatedTransitioning 
         }
 
         let containerView = fromViewController.containerView
-        let finalScale = containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
+        let finalScale = containerView.transform.translatedBy(x: 0, y: UIDevice.screenHeight)
         transitionContext.containerView.backgroundColor = .clear
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {

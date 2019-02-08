@@ -68,6 +68,7 @@ class WaitTimeDetailCell: UICollectionViewCell, ReusableIdentifier {
         }
     }
 
+    // TODO
     fileprivate func getColorFor(waitTime: Int) -> UIColor {
         switch waitTime {
         case 6: return UIColor(named: "wait-low") ?? Theme.Pallete.ligthGray
@@ -91,6 +92,7 @@ class WaitTimeDetail: UIView {
         return collection
     }()
 
+    // TODO
     private let fullIndicator = UIImageView(image: UIImage(named: "people-full"))
     private let midndicator = UIImageView(image: UIImage(named: "people-mid"))
     private let lowIndicator = UIImageView(image: UIImage(named: "people-low"))

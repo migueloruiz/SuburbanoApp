@@ -25,9 +25,10 @@ class MapStationsViewController: UIViewController {
 
     struct Constants {
         static let railRoadColor: UIColor = Theme.Pallete.softGray
-        static let railRoadWith: CGFloat = 7 // TODO
+        static let railRoadWith: CGFloat = 7
         static let defaultEdges = UIEdgeInsets(top: 80, left: 0, bottom: 100, right: 0) // TODO suport notch
-        static let detailEdges = UIEdgeInsets(top: 80, left: 0, bottom: Utils.screenHeight * 0.65, right: 0)
+        static let detailEdges = UIEdgeInsets(top: 80, left: 0, bottom: UIDevice.screenHeight * 0.65, right: 0)
+        static let routeEdges = UIEdgeInsets(top: 0, left: 40, bottom: 40, right: 40)
         static let detailZoomLevel = 11000.0
     }
 
@@ -88,10 +89,10 @@ class MapStationsViewController: UIViewController {
         view.addSubViews([mapView, cardBalanceView, gradientView, buttonsContiner])
 
         gradientView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor)
-        if Utils.isIphoneX {
+        if UIDevice.hasNotch {
             gradientView.anchor(bottom: view.safeAreaLayoutGuide.topAnchor)
         } else {
-            gradientView.anchorSize(height: 20) // TODO
+            gradientView.anchorSize(height: AppConstants.Device.normalStatusbarHeigth)
         }
 
         mapView.fillSuperview()
@@ -108,7 +109,9 @@ class MapStationsViewController: UIViewController {
 
     @objc func centerMap() {
         mapView.setContentInset(Constants.defaultEdges, animated: true)
-        mapView.setCamera(defaultCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn)) // TODO
+        mapView.setCamera(defaultCamera,
+                          withDuration: Theme.Animation.defaultInterval,
+                          animationTimingFunction: CAMediaTimingFunction(name: .easeIn))
         centerMapButton.isHidden = true
     }
 }
@@ -253,18 +256,20 @@ extension MapStationsViewController: UIViewControllerTransitioningDelegate {
             let station = presenter.getStation(withName: title ?? "") else { return }
         selectedAnotation = marker
         mapView.setContentInset(Constants.detailEdges, animated: true)
-
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1000)) { [weak self] in // TODO
+        // TODO
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1000)) { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.flowDelegate?.stationSelected(station: station)
             let tempCamera = strongSelf.mapView.camera
             tempCamera.centerCoordinate = anotation.coordinate
-            // TODO
-            strongSelf.mapView.setCamera(tempCamera, withDuration: 0.3, animationTimingFunction: CAMediaTimingFunction(name: .easeIn)) {
+
+            strongSelf.mapView.setCamera(tempCamera, withDuration: Theme.Animation.smallInterval, animationTimingFunction: CAMediaTimingFunction(name: .easeIn)) {
                 marker.diaplayStyle = .detail
                 let endCamera = strongSelf.mapView.camera
                 endCamera.altitude = Constants.detailZoomLevel
-                strongSelf.mapView.setCamera(endCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn)) // TODO
+                strongSelf.mapView.setCamera(endCamera,
+                                             withDuration: Theme.Animation.defaultInterval,
+                                             animationTimingFunction: CAMediaTimingFunction(name: .easeIn)) // TODO
             }
         }
     }
@@ -330,12 +335,12 @@ extension MapStationsViewController: RouteCameraDelegate {
                     guard let marker = strongSelf.mapView.view(for: anomtation) as? StationMapAnnotation else { continue }
                     marker.diaplayStyle = .trip(active: marker.id == departure.name || marker.id == arraival.name)
                 }
-
-                let menuOffset = Utils.screenHeight - strongSelf.mapView.frame.height
                 let tempCamera = strongSelf.mapView.cameraThatFitsShape(tripLine,
                                                              direction: tripDirection.direction,
-                                                             edgePadding: UIEdgeInsets(top: 0, left: 20, bottom: menuOffset, right: 20)) // TODO
-                strongSelf.mapView.setCamera(tempCamera, withDuration: 0.5, animationTimingFunction: CAMediaTimingFunction(name: .easeIn)) // TODO
+                                                             edgePadding: Constants.routeEdges)
+                strongSelf.mapView.setCamera(tempCamera,
+                                             withDuration: Theme.Animation.defaultInterval,
+                                             animationTimingFunction: CAMediaTimingFunction(name: .easeIn))
             }
         }
     }

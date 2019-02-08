@@ -11,7 +11,7 @@ import UIKit
 class RouteCalculatorTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.AnimationInterval.defaultInterval
+        return Theme.Animation.defaultInterval
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -25,7 +25,7 @@ class RouteCalculatorTransitionIn: NSObject, UIViewControllerAnimatedTransitioni
         transitionContext.containerView.addSubview(toViewController.view)
 
         let finalScalePickerContainer = toViewController.containerView.transform
-        toViewController.containerView.transform = finalScalePickerContainer.translatedBy(x: 0, y: Utils.screenHeight)
+        toViewController.containerView.transform = finalScalePickerContainer.translatedBy(x: 0, y: UIDevice.screenHeight)
         toViewController.containerView.alpha = 0
         let finalFrameBack = toViewController.backButton.transform
         toViewController.backButton.transform = toViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
@@ -46,7 +46,7 @@ class RouteCalculatorTransitionIn: NSObject, UIViewControllerAnimatedTransitioni
 class RouteCalculatorTransitionOut: NSObject, UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.AnimationInterval.defaultInterval
+        return Theme.Animation.defaultInterval
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -62,7 +62,7 @@ class RouteCalculatorTransitionOut: NSObject, UIViewControllerAnimatedTransition
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             fromViewController.backButton.transform = finalFrameBack
             fromViewController.backButton.alpha = 0
-            fromViewController.containerView.transform = fromViewController.containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
+            fromViewController.containerView.transform = fromViewController.containerView.transform.translatedBy(x: 0, y: UIDevice.screenHeight)
             fromViewController.containerView.alpha = 0
             toViewController.buttonsContiner.transform = toViewController.buttonsContiner.transform.translatedBy(x: 0, y: Theme.Offset.extralarge)
             toViewController.buttonsContiner.alpha = 1

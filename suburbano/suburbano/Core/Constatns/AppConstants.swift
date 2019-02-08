@@ -6,10 +6,19 @@
 //  Copyright © 2018 chimichanga studio. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct AppConstants {
     struct App {
-        static let BaseUrls: String = "BaseUrls"
+        static let BaseUrls = "BaseUrls"
+        static let bundleVersion = "CFBundleVersion"
+    }
+
+    struct Animations {
+        static let loading = "loading"
+    }
+
+    struct Device {
+        static let normalStatusbarHeigth: CGFloat = 20
     }
 }

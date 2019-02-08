@@ -141,7 +141,7 @@
 		86BD9861215AE6640022DC6F /* WaitTimeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD9860215AE6640022DC6F /* WaitTimeDetail.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
-		86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* Utils+Screen.swift */; };
+		86CB75E8212B834200DBDB98 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* UIDevice.swift */; };
 		86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75EB212B9F8800DBDB98 /* IconInputView.swift */; };
 		86FC7454220D024D006311B3 /* ResponseAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7453220D024D006311B3 /* ResponseAlias.swift */; };
 		86FC7456220D1DE8006311B3 /* AppLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7455220D1DE8006311B3 /* AppLaunchArguments.swift */; };
@@ -328,7 +328,7 @@
 		86C0682720F4227900A6B17A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		86CB75E3212B607200DBDB98 /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeTextField.swift; sourceTree = "<group>"; };
-		86CB75E7212B834200DBDB98 /* Utils+Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utils+Screen.swift"; sourceTree = "<group>"; };
+		86CB75E7212B834200DBDB98 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		86CB75EB212B9F8800DBDB98 /* IconInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInputView.swift; sourceTree = "<group>"; };
 		86F14E4820F43F6D00D1CF7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86F14E4A20F43FE300D1CF7D /* UITabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBar.swift; sourceTree = "<group>"; };
@@ -1107,7 +1107,6 @@
 			children = (
 				86FC7455220D1DE8006311B3 /* AppLaunchArguments.swift */,
 				86F14E4C20F4500E00D1CF7D /* Utils.swift */,
-				86CB75E7212B834200DBDB98 /* Utils+Screen.swift */,
 				86FC7457220D2257006311B3 /* DebugManager.swift */,
 			);
 			path = Utils;
@@ -1116,6 +1115,7 @@
 		86C0681D20F4162F00A6B17A /* UI Extension */ = {
 			isa = PBXGroup;
 			children = (
+				86CB75E7212B834200DBDB98 /* UIDevice.swift */,
 				868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */,
 				86F14E5320F45D3600D1CF7D /* UIColor.swift */,
 				861FC580211010480024783A /* UIEdgeInsets.swift */,
@@ -1425,7 +1425,7 @@
 				86B83118213DC5140063AC75 /* DetailAddressCell.swift in Sources */,
 				86B830E8213857EA0063AC75 /* Notifications.swift in Sources */,
 				8611C836214ED5B400FFBC23 /* RouteCalculatorPresenter.swift in Sources */,
-				86CB75E8212B834200DBDB98 /* Utils+Screen.swift in Sources */,
+				86CB75E8212B834200DBDB98 /* UIDevice.swift in Sources */,
 				8621A2D020F6FE0A00A2D8B1 /* MapStationsViewController.swift in Sources */,
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,
 				86A4939B21B84C7600490820 /* DetailWaitTimeCell.swift in Sources */,

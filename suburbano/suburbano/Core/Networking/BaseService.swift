@@ -36,7 +36,6 @@ enum ParsingError: Error {
 
 typealias ParserMethod<Model> = (Data?) throws -> Model
 
-// TODO: Add targetVariable to print requests
 class BaseService<Model: Codable> {
 
     func make(request: URLRequest,

@@ -59,29 +59,20 @@ extension RealmAppDelegate {
         return realmURL.appendingPathComponent("default.realm")
     }
 
-    // TODO
     func createFoldersIfNecesary(forPath path: String) {
         guard !FileManager.default.fileExists(atPath: path) else { return }
-        do {
-            try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
-        } catch let error as NSError {
-            print(error)
-        }
+        try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
     }
 
     func deleteFileIfExists(path: String) {
         guard FileManager.default.fileExists(atPath: path) else { return }
-        do {
-            try FileManager.default.removeItem(atPath: path)
-        } catch let error as NSError {
-            print(error)
-        }
+        try? FileManager.default.removeItem(atPath: path)
     }
 
     // TODO
     func getBundleVersion() -> Int? {
         guard let envVariables = Bundle.main.infoDictionary,
-            let rawBundleVersion = envVariables["CFBundleVersion"] as? String,
+            let rawBundleVersion = envVariables[AppConstants.App.bundleVersion] as? String,
             let bundleVersion = Int(rawBundleVersion) else { return nil }
         return bundleVersion
     }

@@ -11,7 +11,7 @@ import UIKit
 class DirectionDetailsTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.AnimationInterval.defaultInterval
+        return Theme.Animation.defaultInterval
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -27,7 +27,7 @@ class DirectionDetailsTransitionIn: NSObject, UIViewControllerAnimatedTransition
         let titlefinalScale = title.transform
         transitionContext.containerView.addSubview(toViewController.view)
         toViewController.view.backgroundColor = .clear
-        containerView.transform = containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
+        containerView.transform = containerView.transform.translatedBy(x: 0, y: UIDevice.screenHeight)
 
         title.transform = title.transform.translatedBy(x: 0, y: -200)
 
@@ -44,7 +44,7 @@ class DirectionDetailsTransitionIn: NSObject, UIViewControllerAnimatedTransition
 class DirectionDetailsTransitionOut: NSObject, UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.AnimationInterval.defaultInterval
+        return Theme.Animation.defaultInterval
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -55,7 +55,7 @@ class DirectionDetailsTransitionOut: NSObject, UIViewControllerAnimatedTransitio
 
         let containerView = fromViewController.containerView
         let title = fromViewController.titleLabel
-        let finalScale = containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
+        let finalScale = containerView.transform.translatedBy(x: 0, y: UIDevice.screenHeight)
         let titlefinalScale = title.transform.translatedBy(x: 0, y: -200)
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {

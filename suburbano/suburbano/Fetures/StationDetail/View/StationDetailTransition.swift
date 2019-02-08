@@ -11,7 +11,7 @@ import UIKit
 class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.AnimationInterval.defaultInterval
+        return Theme.Animation.defaultInterval
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -27,7 +27,7 @@ class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning
         let finalScale = containerView.transform
         transitionContext.containerView.addSubview(toViewController.view)
         toViewController.view.backgroundColor = .clear
-        containerView.transform = containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
+        containerView.transform = containerView.transform.translatedBy(x: 0, y: UIDevice.screenHeight)
         let finalFrameBack = toViewController.backButton.transform
         toViewController.backButton.transform = toViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
 
@@ -46,7 +46,7 @@ class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning
 class StationDetailTransitionOut: NSObject, UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.AnimationInterval.defaultInterval
+        return Theme.Animation.defaultInterval
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -57,7 +57,7 @@ class StationDetailTransitionOut: NSObject, UIViewControllerAnimatedTransitionin
         }
 
         let containerView = fromViewController.containerView
-        let finalScale = containerView.transform.translatedBy(x: 0, y: Utils.screenHeight)
+        let finalScale = containerView.transform.translatedBy(x: 0, y: UIDevice.screenHeight)
         let finalFrameBack = fromViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
         toViewController.backFromDetailCamera()
 

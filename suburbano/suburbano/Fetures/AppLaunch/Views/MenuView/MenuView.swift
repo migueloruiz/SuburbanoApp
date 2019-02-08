@@ -98,7 +98,7 @@ class MenuView: UIView {
 
     func configure(items: [String], selected: Int = 0) {
         self.items = items
-        menuItemSize = CGSize(width: Utils.screenWidth / CGFloat(items.count), height: itemHeigth)
+        menuItemSize = CGSize(width: UIDevice.screenWidth / CGFloat(items.count), height: itemHeigth)
         selectorWidthConstraint?.constant = menuItemSize?.width ?? 0
         selectorSideConstraint?.constant = CGFloat(selected) * (menuItemSize?.width ?? 0)
         menuCollectionView.reloadData()

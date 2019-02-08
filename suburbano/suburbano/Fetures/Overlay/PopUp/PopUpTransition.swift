@@ -13,7 +13,7 @@ class PopUpTransition: NSObject, UIViewControllerAnimatedTransitioning {
     private let notificationFeedback = UINotificationFeedbackGenerator()
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Theme.AnimationInterval.defaultInterval
+        return Theme.Animation.defaultInterval
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -27,12 +27,12 @@ class PopUpTransition: NSObject, UIViewControllerAnimatedTransitioning {
         let finalScale = messageContiner.transform
         transitionContext.containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
         toViewController.view.backgroundColor = .clear
-        messageContiner.transform = messageContiner.transform.translatedBy(x: 0, y: Utils.screenHeight / 2)
+        messageContiner.transform = messageContiner.transform.translatedBy(x: 0, y: UIDevice.screenHeight / 2)
         messageContiner.alpha = 0
 
         notificationFeedback.notificationOccurred(.warning)
 
-        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: Theme.AnimationInterval.springWithDamping, initialSpringVelocity: Theme.AnimationInterval.springWithDamping, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: Theme.Animation.springWithDamping, initialSpringVelocity: Theme.Animation.springWithDamping, options: .curveEaseInOut, animations: {
             toViewController.view.backgroundColor = Theme.Pallete.darkBackground
             messageContiner.transform = finalScale
             messageContiner.alpha = 1

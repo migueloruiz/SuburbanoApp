@@ -18,10 +18,10 @@ enum AnnotationDisplayStyle {
 class StationMapAnnotation: MGLAnnotationView {
 
     struct Costants {
-        static let normalSize: CGFloat = 30 // TODO
-        static let normalOffset: CGFloat = -15 // TODO
-        static let selectedSize: CGFloat = 60 // TODO
-        static let selectedOffset: CGFloat = -30 // TODO
+        static let normalSize: CGFloat = 30
+        static let normalOffset: CGFloat = -15
+        static let selectedSize: CGFloat = 60
+        static let selectedOffset: CGFloat = -30
     }
 
     private(set) var id: String = ""
@@ -103,12 +103,12 @@ class StationMapAnnotation: MGLAnnotationView {
                 centerOffset = CGVector(dx: 0, dy: Costants.selectedOffset)
             }
         case .trip(let active):
-            imageView.alpha = active ? 1: 0.5
+            imageView.alpha = active ? 1 : 0.5
             titleAlpha = 0
         }
         guard titleView.alpha != titleAlpha else { return }
 
-        UIView.animate(withDuration: 0.5) { [weak self] in
+        UIView.animate(withDuration: Theme.Animation.defaultInterval) { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.titleView.alpha = titleAlpha
             strongSelf.layoutIfNeeded()

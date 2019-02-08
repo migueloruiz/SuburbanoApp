@@ -119,8 +119,8 @@ class CardBalanceViewController: UIViewController, PresentableView {
     // MARK: ConfigureLayout
 
     private func configureLayout() {
-        let verticalOffset = Utils.isSmallPhone ? Theme.Offset.normal : Theme.Offset.extralarge
-        let disclaimerOffset = Utils.isSmallPhone ? Theme.Offset.normal : Theme.Offset.extralarge
+        let verticalOffset = UIDevice.isSmallPhone ? Theme.Offset.normal : Theme.Offset.extralarge
+        let disclaimerOffset = UIDevice.isSmallPhone ? Theme.Offset.normal : Theme.Offset.extralarge
 
         view.addSubViews([loadingView, containerView])
         containerView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, bottomConstant: -Theme.Offset.large)
@@ -131,7 +131,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
         containerView.addSubViews([titleLabel, formContinerView])
 
         titleLabel.anchor(top: containerView.topAnchor, topConstant: Theme.Offset.normal)
-        titleLabel.anchorSize(height: 30)
+        titleLabel.anchorSize(height: 30) // TODO
         titleLabel.anchorCenterXToSuperview()
 
         formContinerView.anchor(top: titleLabel.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: verticalOffset, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)

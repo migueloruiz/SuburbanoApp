@@ -70,7 +70,7 @@ class IconInputView: UIInputView {
     }
 
     private func configureLayout() {
-        anchorSize(width: Utils.screenWidth)
+        anchorSize(width: UIDevice.screenWidth)
         addSubViews([colorsCollection, iconsCollection, pageControl])
 
         colorsCollection.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.small, rightConstant: Theme.Offset.small)
@@ -142,9 +142,9 @@ extension IconInputView: UICollectionViewDataSource, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView.tag {
         case Constants.iconsCollectionTag:
-            return CGSize(width: (Utils.screenWidth - (Theme.Offset.small * 2)) / 5, height: collectionView.frame.height / 2)
+            return CGSize(width: (UIDevice.screenWidth - (Theme.Offset.small * 2)) / 5, height: collectionView.frame.height / 2) // TODO
         default:
-            return CGSize(width: (Utils.screenWidth - (Theme.Offset.small * 2)) / 6, height: Theme.IconSize.normal)
+            return CGSize(width: (UIDevice.screenWidth - (Theme.Offset.small * 2)) / 6, height: Theme.IconSize.normal) // TODO
         }
     }
 

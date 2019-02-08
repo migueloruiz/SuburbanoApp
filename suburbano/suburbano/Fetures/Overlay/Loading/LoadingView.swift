@@ -16,12 +16,12 @@ class LoadingView: UIView {
     private let blurredEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
 
     struct Constants {
-        static let animationDuartion: TimeInterval = 0.5 // TODO
+        static let animationDuartion: TimeInterval = Theme.Animation.defaultInterval
     }
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
-    init(animation: String = Theme.Animations.loading) {
+    init(animation: String = AppConstants.Animations.loading) {
         self.animation = LOTAnimationView(name: animation)
         super.init(frame: .zero)
     }

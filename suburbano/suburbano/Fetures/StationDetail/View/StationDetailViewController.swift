@@ -63,7 +63,7 @@ class StationDetailViewController: UIViewController, PresentableView {
     private func configureLayout() {
         view.addSubViews([containerView, backButton])
         containerView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, bottomConstant: -Theme.Offset.large)
-        containerView.anchorSize(height: (Utils.screenHeight * Theme.ContainerPropotion.porcent70) + Theme.Offset.large)
+        containerView.anchorSize(height: (UIDevice.screenHeight * Theme.ContainerPropotion.porcent70) + Theme.Offset.large)
 
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
         backButton.anchorSquare(size: Theme.IconSize.button)

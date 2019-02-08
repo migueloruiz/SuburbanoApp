@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardCell: UICollectionViewCell, ReusableIdentifier {
+class CardCell: UICollectionViewCell, ReusableView {
 
     struct Constants {
         static let heigth: CGFloat = Theme.IconSize.normal

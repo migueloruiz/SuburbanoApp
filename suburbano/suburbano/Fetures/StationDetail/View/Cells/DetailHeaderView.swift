@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailHeaderView: UITableViewHeaderFooterView, ReusableIdentifier {
+class DetailHeaderView: UITableViewHeaderFooterView, ReusableView {
 
     static var cellHeight: CGFloat = 20 + (Theme.Offset.small * 2)
 

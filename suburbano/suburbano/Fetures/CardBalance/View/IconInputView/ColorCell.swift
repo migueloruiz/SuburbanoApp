@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColorCell: UICollectionViewCell, ReusableIdentifier {
+class ColorCell: UICollectionViewCell, ReusableView {
 
     struct Constants {
         static let defaultBorder: CGFloat = 0

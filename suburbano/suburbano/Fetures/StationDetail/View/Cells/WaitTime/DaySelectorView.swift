@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DaySelectorCell: UICollectionViewCell, ReusableIdentifier {
+class DaySelectorCell: UICollectionViewCell, ReusableView {
 
     private let label = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardTitle)
 
@@ -109,7 +109,7 @@ extension DaySelectorView: UICollectionViewDelegate, UICollectionViewDataSource,
     fileprivate func configureCollection() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(DaySelectorCell.self, forCellWithReuseIdentifier: DaySelectorCell.reuseIdentifier)
+        collectionView.register(cell: DaySelectorCell.self)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -117,8 +117,7 @@ extension DaySelectorView: UICollectionViewDelegate, UICollectionViewDataSource,
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let rawCell = collectionView.dequeueReusableCell(withReuseIdentifier: DaySelectorCell.reuseIdentifier, for: indexPath)
-        guard let cell = rawCell as? DaySelectorCell else { return rawCell }
+        guard let cell = collectionView.dequeueReusable(cell: DaySelectorCell.self, for: indexPath) else { return UICollectionViewCell() }
         cell.configure(title: items[indexPath.row])
         return cell
     }

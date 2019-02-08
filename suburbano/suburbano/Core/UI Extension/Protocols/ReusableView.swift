@@ -1,5 +1,5 @@
 //
-//  ReusableIdentifier.swift
+//  ReusableView.swift
 //  suburbano
 //
 //  Created by Miguel Ruiz on 18/07/18.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol ReusableIdentifier { }
+protocol ReusableView { }
 
-extension ReusableIdentifier where Self: UIView {
+extension ReusableView where Self: UIView {
     static var reuseIdentifier: String {
         return String(describing: self)
     }

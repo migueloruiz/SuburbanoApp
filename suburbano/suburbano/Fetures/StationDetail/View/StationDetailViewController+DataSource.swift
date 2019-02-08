@@ -19,11 +19,11 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
         detailsTableView.rowHeight = UITableView.automaticDimension
         detailsTableView.sectionHeaderHeight = UITableView.automaticDimension
         detailsTableView.estimatedSectionFooterHeight = 50 // TODO
-        detailsTableView.register(DetailAddressCell.self, forCellReuseIdentifier: DetailAddressCell.reuseIdentifier)
-        detailsTableView.register(DetailScheduleCell.self, forCellReuseIdentifier: DetailScheduleCell.reuseIdentifier)
-        detailsTableView.register(DeatilConectionsCell.self, forCellReuseIdentifier: DeatilConectionsCell.reuseIdentifier)
-        detailsTableView.register(DetailWaitTimeCell.self, forCellReuseIdentifier: DetailWaitTimeCell.reuseIdentifier)
-        detailsTableView.register(DetailHeaderView.self, forHeaderFooterViewReuseIdentifier: DetailHeaderView.reuseIdentifier)
+        detailsTableView.register(cell: DetailAddressCell.self)
+        detailsTableView.register(cell: DetailScheduleCell.self)
+        detailsTableView.register(cell: DeatilConectionsCell.self)
+        detailsTableView.register(cell: DetailWaitTimeCell.self)
+        detailsTableView.registerHeaderFooterView(cell: DetailHeaderView.self)
         detailsTableView.reloadData()
     }
 

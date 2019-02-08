@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeatilConectionsCell: UITableViewCell, DetailCell, ReusableIdentifier {
+class DeatilConectionsCell: UITableViewCell, DetailCell, ReusableView {
 
     private let stackView = UIStackView.with(distribution: UIStackView.Distribution.fillProportionally, alignment: UIStackView.Alignment.trailing)
 

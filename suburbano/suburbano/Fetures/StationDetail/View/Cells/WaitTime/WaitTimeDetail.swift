@@ -14,7 +14,7 @@ struct WaitTimeDetailModel {
     let displayTime: String
 }
 
-class WaitTimeDetailCell: UICollectionViewCell, ReusableIdentifier {
+class WaitTimeDetailCell: UICollectionViewCell, ReusableView {
     private let timeLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardDetails)
     private let waitTimeLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardDetails)
     private let spaceView = UIView()
@@ -114,7 +114,7 @@ class WaitTimeDetail: UIView {
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(WaitTimeDetailCell.self, forCellWithReuseIdentifier: WaitTimeDetailCell.reuseIdentifier)
+        collectionView.register(cell: WaitTimeDetailCell.self)
     }
 
     private func configureLayout() {
@@ -144,8 +144,7 @@ extension WaitTimeDetail: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let rawCell = collectionView.dequeueReusableCell(withReuseIdentifier: WaitTimeDetailCell.reuseIdentifier, for: indexPath)
-        guard let cell = rawCell as? WaitTimeDetailCell else { return rawCell }
+        guard let cell = collectionView.dequeueReusable(cell: WaitTimeDetailCell.self, for: indexPath) else { return UICollectionViewCell() }
         cell.configure(withModel: items[indexPath.row])
         return cell
     }

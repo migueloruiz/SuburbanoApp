@@ -98,7 +98,7 @@ extension CardBalancePicker: UICollectionViewDataSource, UICollectionViewDelegat
         cardsCollection.clipsToBounds = false
         cardsCollection.dataSource = self
         cardsCollection.delegate = self
-        cardsCollection.register(CardCell.self, forCellWithReuseIdentifier: CardCell.reuseIdentifier)
+        cardsCollection.register(cell: CardCell.self)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -106,7 +106,8 @@ extension CardBalancePicker: UICollectionViewDataSource, UICollectionViewDelegat
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusable(cell: CardCell.self, for: indexPath)
+        return cell ?? UICollectionViewCell()
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

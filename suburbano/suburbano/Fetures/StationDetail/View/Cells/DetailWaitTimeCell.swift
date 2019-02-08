@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailWaitTimeCell: UITableViewCell, DetailCell, ReusableIdentifier {
+class DetailWaitTimeCell: UITableViewCell, DetailCell, ReusableView {
 
     struct Constants {
         static let waitTimeDetailCarrouselHeigth: CGFloat = 200

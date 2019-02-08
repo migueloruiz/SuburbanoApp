@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailAddressCell: UITableViewCell, DetailCell, ReusableIdentifier {
+class DetailAddressCell: UITableViewCell, DetailCell, ReusableView {
 
     private let addressLable = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
 

@@ -16,10 +16,11 @@ class IconInputView: UIInputView {
 
     struct Constants {
         static let iconsCollectionTag = 10
-        static let defaultIcon = "\u{e91b}"
+        static let defaultIcon = "\u{e91b}" // TODO
     }
 
     private let colors = [Theme.Pallete.concert, Theme.Pallete.workshop, Theme.Pallete.fair, Theme.Pallete.exhibition, Theme.Pallete.special, Theme.Pallete.softRed]
+    // TODO
     private let icons = [
         ["\u{e901}", "\u{e902}", "\u{e904}", "\u{e905}", "\u{e906}", "\u{e900}", "\u{e903}", "\u{e907}", "\u{e908}", "\u{e909}"],
         ["\u{e90b}", "\u{e90a}", "\u{e90c}", "\u{e90d}", "\u{e90e}", "\u{e910}", "\u{e911}", "\u{e912}", "\u{e914}", "\u{e91a}"],
@@ -91,14 +92,12 @@ extension IconInputView: UICollectionViewDataSource, UICollectionViewDelegate, U
     fileprivate func configureMenu() {
         iconsCollection.dataSource = self
         iconsCollection.delegate = self
-        iconsCollection.register(IconCell.self, forCellWithReuseIdentifier: IconCell.reuseIdentifier)
-        iconsCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
+        iconsCollection.register(cell: IconCell.self)
         iconsCollection.tag = Constants.iconsCollectionTag
 
         colorsCollection.dataSource = self
         colorsCollection.delegate = self
-        colorsCollection.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.reuseIdentifier)
-        colorsCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
+        colorsCollection.register(cell: ColorCell.self)
         colorsCollection.backgroundColor = .white
 
         iconsCollection.reloadData()
@@ -127,13 +126,11 @@ extension IconInputView: UICollectionViewDataSource, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView.tag {
         case Constants.iconsCollectionTag:
-            let rawCell = collectionView.dequeueReusableCell(withReuseIdentifier: IconCell.reuseIdentifier, for: indexPath)
-            guard let cell = rawCell as? IconCell else { return rawCell }
+            guard let cell = collectionView.dequeueReusable(cell: IconCell.self, for: indexPath) else { return UICollectionViewCell() }
             cell.configure(withIcon: icons[indexPath.section][indexPath.row])
             return cell
         default:
-            let rawCell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCell.reuseIdentifier, for: indexPath)
-            guard let cell = rawCell as? ColorCell else { return rawCell }
+            guard let cell = collectionView.dequeueReusable(cell: ColorCell.self, for: indexPath) else { return UICollectionViewCell() }
             cell.configure(withColor: colors[indexPath.row])
             return cell
         }
@@ -156,7 +153,8 @@ extension IconInputView: UICollectionViewDataSource, UICollectionViewDelegate, U
             selectedColor = colors[indexPath.row]
         }
 
-        let icon = CardBalanceIcon.custome(iconCode: selectedIcon ?? Constants.defaultIcon, color: selectedColor ?? Theme.Pallete.softGray)
+        let icon = CardBalanceIcon.custome(iconCode: selectedIcon ?? Constants.defaultIcon,
+                                           color: selectedColor ?? Theme.Pallete.softGray)
         delegate?.update(icon: icon)
     }
 

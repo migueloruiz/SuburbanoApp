@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IconCell: UICollectionViewCell, ReusableIdentifier {
+class IconCell: UICollectionViewCell, ReusableView {
 
     private let iconView = UIFactory.createLable(withTheme: UIThemes.Label.IconPicker)
 

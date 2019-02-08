@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailScheduleCell: UITableViewCell, DetailCell, ReusableIdentifier {
+class DetailScheduleCell: UITableViewCell, DetailCell, ReusableView {
 
     private let daysLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
     private let scheduleLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)

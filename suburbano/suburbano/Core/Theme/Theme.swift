@@ -25,6 +25,11 @@ struct Theme {
         static let fair: UIColor = UIColor(named: "fairColor") ?? .purple
         static let exhibition: UIColor = UIColor(named: "exhibitionColor") ?? .purple
         static let special: UIColor = UIColor(named: "specialColor") ?? .purple
+
+        static let waitLow: UIColor = UIColor(named: "wait-low") ?? .gray
+        static let waitMid: UIColor = UIColor(named: "wait-mid") ?? .gray
+        static let waitHigh: UIColor = UIColor(named: "wait-high") ?? .gray
+        static let waitMax: UIColor = UIColor(named: "wait-veryhigh") ?? .gray
     }
 
     struct Animation {

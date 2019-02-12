@@ -102,11 +102,10 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
 extension RouteCalculatorPresenterImpl {
     private func preperForDisplay(info: RouteInformation) -> DisplayRouteInformation {
         var distance = distanceFormatter.string(from: info.distance as NSNumber) ?? ""
-        distance = distance.isEmpty ? "-" : distance + "Km" // TODO
-
-        return DisplayRouteInformation(time: String(info.time) + "min", // TODO
+        distance = distance.isEmpty ? "-" : "\(distance) Km" // Localize
+        return DisplayRouteInformation(time: "\(info.time) min", // Localize
                                        distance: distance,
-                                       price: String(format: "$%.02f", info.price)) // TODO
+                                       price: String(format: "$%.02f", info.price))
     }
 
     private func getInformation(from departure: StationEntity, to arraival: StationEntity) {

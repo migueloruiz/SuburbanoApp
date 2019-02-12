@@ -16,11 +16,10 @@ class IconInputView: UIInputView {
 
     struct Constants {
         static let iconsCollectionTag = 10
-        static let defaultIcon = "\u{e91b}" // TODO
+        static let defaultIcon = "\u{e91b}"
     }
 
     private let colors = [Theme.Pallete.concert, Theme.Pallete.workshop, Theme.Pallete.fair, Theme.Pallete.exhibition, Theme.Pallete.special, Theme.Pallete.softRed]
-    // TODO
     private let icons = [
         ["\u{e901}", "\u{e902}", "\u{e904}", "\u{e905}", "\u{e906}", "\u{e900}", "\u{e903}", "\u{e907}", "\u{e908}", "\u{e909}"],
         ["\u{e90b}", "\u{e90a}", "\u{e90c}", "\u{e90d}", "\u{e90e}", "\u{e910}", "\u{e911}", "\u{e912}", "\u{e914}", "\u{e91a}"],
@@ -139,9 +138,11 @@ extension IconInputView: UICollectionViewDataSource, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView.tag {
         case Constants.iconsCollectionTag:
-            return CGSize(width: (UIDevice.screenWidth - (Theme.Offset.small * 2)) / 5, height: collectionView.frame.height / 2) // TODO
+            return CGSize(width: collectionView.bounds.width / IconCell.Constant.expectedCellsInRow,
+                          height: collectionView.frame.height / 2)
         default:
-            return CGSize(width: (UIDevice.screenWidth - (Theme.Offset.small * 2)) / 6, height: Theme.IconSize.normal) // TODO
+            return CGSize(width: collectionView.bounds.width / ColorCell.Constants.expectedCellsInRow,
+                          height: Theme.IconSize.normal)
         }
     }
 

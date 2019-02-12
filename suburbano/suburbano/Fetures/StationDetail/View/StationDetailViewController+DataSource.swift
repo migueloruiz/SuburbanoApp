@@ -17,8 +17,9 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
         detailsTableView.allowsSelection = false
         detailsTableView.separatorStyle = .none
         detailsTableView.rowHeight = UITableView.automaticDimension
+        detailsTableView.estimatedRowHeight = UITableView.automaticDimension
         detailsTableView.sectionHeaderHeight = UITableView.automaticDimension
-        detailsTableView.estimatedSectionFooterHeight = 50 // TODO
+        detailsTableView.estimatedSectionFooterHeight = Theme.Offset.extralarge
         detailsTableView.register(cell: DetailAddressCell.self)
         detailsTableView.register(cell: DetailScheduleCell.self)
         detailsTableView.register(cell: DeatilConectionsCell.self)
@@ -52,9 +53,5 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? DetailHeaderView else { return }
         header.configure(with: presenter.section(atIndex: section))
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return DetailHeaderView.cellHeight
     }
 }

@@ -13,6 +13,7 @@ class ColorCell: UICollectionViewCell, ReusableView {
     struct Constants {
         static let defaultBorder: CGFloat = 0
         static let selectedBorder: CGFloat = 3
+        static let expectedCellsInRow: CGFloat = 6
     }
 
     private let colorView = UIView()

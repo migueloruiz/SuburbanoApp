@@ -10,6 +10,10 @@ import UIKit
 
 class IconCell: UICollectionViewCell, ReusableView {
 
+    struct Constant {
+        static let expectedCellsInRow: CGFloat = 5
+    }
+
     private let iconView = UIFactory.createLable(withTheme: UIThemes.Label.IconPicker)
 
     override var isSelected: Bool {

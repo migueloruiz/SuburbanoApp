@@ -65,10 +65,10 @@ class CardBalanceViewController: UIViewController, PresentableView {
     private func configureUI() {
         view.backgroundColor = Theme.Pallete.darkBackground
 
-        cardNumberInput.title = "No. de trajeta"
-        cardNumberInput.placeholder = "XXXXXXXXX"
-        cardNumberInput.disclaimer = "Pudes encontrar el numero al frente de tu tarjeta en la parte inferior"
-        useDisclaimerView.configure(disclaimer: "Los cambios en tu saldo, podrá verse reflejado en 15 min aprox.")
+        cardNumberInput.title = "No. de trajeta" // Localize
+        cardNumberInput.placeholder = "XXXXXXXXX" // Localize
+        cardNumberInput.disclaimer = "Pudes encontrar el numero al frente de tu tarjeta en la parte inferior" // Localize
+        useDisclaimerView.configure(disclaimer: "Los cambios en tu saldo, podrá verse reflejado en 15 min aprox.") // Localize
 
         setUIwithCard()
         loadingView.configure()
@@ -85,7 +85,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
         configureButtons()
 
         if let card = card {
-            titleLabel.text = "Detalle Tarjeta"
+            titleLabel.text = "Detalle Tarjeta" // Localize
             cardNumberInput.text = card.id
             balanceLabel.text = card.balance
             dateLabel.text = card.displayDate
@@ -93,7 +93,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
             cardNumberInput.isUserInteractionEnabled = false
             cardBalanceIconView.isUserInteractionEnabled = false
         } else {
-            titleLabel.text = "Agrega tu tarjeta"
+            titleLabel.text = "Agrega tu tarjeta" // Localize
             cardNumberInput.isUserInteractionEnabled = true
             cardBalanceIconView.isUserInteractionEnabled = true
         }
@@ -104,14 +104,14 @@ class CardBalanceViewController: UIViewController, PresentableView {
         secondaryButton.removeTarget(nil, action: nil, for: .allEvents)
 
         if card == nil {
-            primaryButton.set(title: "Agregar")
+            primaryButton.set(title: "Agregar") // Localize
             primaryButton.addTarget(self, action: #selector(CardBalanceViewController.validateInformation), for: .touchUpInside)
-            secondaryButton.set(title: "Cancelar")
+            secondaryButton.set(title: "Cancelar") // Localize
             secondaryButton.addTarget(self, action: #selector(CardBalanceViewController.close), for: .touchUpInside)
         } else {
-            primaryButton.set(title: "Volver")
+            primaryButton.set(title: "Volver") // Localize
             primaryButton.addTarget(self, action: #selector(CardBalanceViewController.close), for: .touchUpInside)
-            secondaryButton.set(title: "Eliminar")
+            secondaryButton.set(title: "Eliminar") // Localize
             secondaryButton.addTarget(self, action: #selector(CardBalanceViewController.delateCard), for: .touchUpInside)
         }
     }
@@ -130,8 +130,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
 
         containerView.addSubViews([titleLabel, formContinerView])
 
-        titleLabel.anchor(top: containerView.topAnchor, topConstant: Theme.Offset.normal)
-        titleLabel.anchorSize(height: 30) // TODO
+        titleLabel.anchor(top: containerView.topAnchor, topConstant: Theme.Offset.large)
         titleLabel.anchorCenterXToSuperview()
 
         formContinerView.anchor(top: titleLabel.bottomAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor, topConstant: verticalOffset, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
@@ -219,8 +218,7 @@ extension CardBalanceViewController: CardBalanceViewDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.loadingView.dismiss(hiddingView: strongSelf.formContinerView) { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.close()
+                self?.close()
             }
         }
     }
@@ -229,10 +227,9 @@ extension CardBalanceViewController: CardBalanceViewDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.loadingView.dismiss(hiddingView: strongSelf.formContinerView) { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.cardNumberInput.shake()
-                strongSelf.cardNumberInput.error = error
-                _ = strongSelf.cardNumberInput.becomeFirstResponder()
+                self?.cardNumberInput.shake()
+                self?.cardNumberInput.error = error
+                _ = self?.cardNumberInput.becomeFirstResponder()
             }
         }
     }

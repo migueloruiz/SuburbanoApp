@@ -90,7 +90,7 @@ extension UIView {
         return anchorSize(width: size, height: size)
     }
 
-    func center(x: NSLayoutXAxisAnchor?, y: NSLayoutYAxisAnchor?) {
+    func center(x: NSLayoutXAxisAnchor? = nil, y: NSLayoutYAxisAnchor? = nil) {
         translatesAutoresizingMaskIntoConstraints = false
         if let xAnchor = x { centerXAnchor.constraint(equalTo: xAnchor, constant: 0).isActive = true }
         if let yAnchor = y { centerYAnchor.constraint(equalTo: yAnchor, constant: 0).isActive = true }

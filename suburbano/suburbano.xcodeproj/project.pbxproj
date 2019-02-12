@@ -139,6 +139,7 @@
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* UIDevice.swift */; };
 		86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75EB212B9F8800DBDB98 /* IconInputView.swift */; };
+		86DF0C7322125E16008300FF /* WaitTimeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF0C7222125E16008300FF /* WaitTimeDetailCell.swift */; };
 		86FC7454220D024D006311B3 /* ResponseAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7453220D024D006311B3 /* ResponseAlias.swift */; };
 		86FC7456220D1DE8006311B3 /* AppLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7455220D1DE8006311B3 /* AppLaunchArguments.swift */; };
 		86FC7458220D2257006311B3 /* DebugManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7457220D2257006311B3 /* DebugManager.swift */; };
@@ -324,6 +325,7 @@
 		86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeTextField.swift; sourceTree = "<group>"; };
 		86CB75E7212B834200DBDB98 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		86CB75EB212B9F8800DBDB98 /* IconInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInputView.swift; sourceTree = "<group>"; };
+		86DF0C7222125E16008300FF /* WaitTimeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTimeDetailCell.swift; sourceTree = "<group>"; };
 		86F14E4820F43F6D00D1CF7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86F14E4A20F43FE300D1CF7D /* UITabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBar.swift; sourceTree = "<group>"; };
 		86F14E4C20F4500E00D1CF7D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -854,6 +856,7 @@
 			children = (
 				86BD985E2159D7660022DC6F /* DaySelectorView.swift */,
 				86BD9860215AE6640022DC6F /* WaitTimeDetail.swift */,
+				86DF0C7222125E16008300FF /* WaitTimeDetailCell.swift */,
 			);
 			path = WaitTime;
 			sourceTree = "<group>";
@@ -1492,6 +1495,7 @@
 				8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */,
 				86B831012138C1920063AC75 /* StationDetailCordinator.swift in Sources */,
 				86BD98572159C7170022DC6F /* StationWaitTime.swift in Sources */,
+				86DF0C7322125E16008300FF /* WaitTimeDetailCell.swift in Sources */,
 				86FC745E220D329F006311B3 /* UICollectionView.swift in Sources */,
 				86385C8C2133840E002EA9DF /* CardUseCaseImpl.swift in Sources */,
 			);

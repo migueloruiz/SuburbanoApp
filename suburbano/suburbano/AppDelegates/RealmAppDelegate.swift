@@ -11,6 +11,12 @@ import RealmSwift
 
 final class RealmAppDelegate: NSObject, UIApplicationDelegate {
 
+    struct Constants {
+        static let securityApplicationGroup = "group.com.miguelo.suburbano"
+        static let realmFolder = "Realm"
+        static let realmFile = "default.realm"
+    }
+
     static let shared = RealmAppDelegate()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
@@ -48,28 +54,16 @@ extension RealmAppDelegate {
 
     func deleteBrokenFile() {
         guard let realmURL = getRealmURL() else { return }
-        deleteFileIfExists(path: realmURL.path)
+        Utils.deleteFileIfExists(path: realmURL.path)
     }
 
-    // TODO
     func getRealmURL() -> URL? {
-        guard let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.migueloruiz.subur") else { return nil }
-        let realmURL = container.appendingPathComponent("Realm")
-        createFoldersIfNecesary(forPath: realmURL.path)
-        return realmURL.appendingPathComponent("default.realm")
+        guard let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.securityApplicationGroup) else { return nil }
+        let realmURL = container.appendingPathComponent(Constants.realmFolder)
+        Utils.createFoldersIfNecesary(forPath: realmURL.path)
+        return realmURL.appendingPathComponent(Constants.realmFile)
     }
 
-    func createFoldersIfNecesary(forPath path: String) {
-        guard !FileManager.default.fileExists(atPath: path) else { return }
-        try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
-    }
-
-    func deleteFileIfExists(path: String) {
-        guard FileManager.default.fileExists(atPath: path) else { return }
-        try? FileManager.default.removeItem(atPath: path)
-    }
-
-    // TODO
     func getBundleVersion() -> Int? {
         guard let envVariables = Bundle.main.infoDictionary,
             let rawBundleVersion = envVariables[AppConstants.App.bundleVersion] as? String,

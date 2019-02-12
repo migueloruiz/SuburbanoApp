@@ -10,7 +10,11 @@ import UIKit
 
 class DetailHeaderView: UITableViewHeaderFooterView, ReusableView {
 
-    static var cellHeight: CGFloat = 20 + (Theme.Offset.small * 2)
+    struct Constant {
+        static let addressHeigth: CGFloat = 20
+    }
+
+//    static var cellHeight: CGFloat = Constant.addressHeigth + Theme.Offset.normal
 
     private let addressLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
 
@@ -30,13 +34,13 @@ class DetailHeaderView: UITableViewHeaderFooterView, ReusableView {
         backgroundView = UIView(frame: bounds)
         backgroundView?.backgroundColor = .white
         accessibilityTraits = UIAccessibilityTraits.notEnabled
-        addressLabel.textColor = Theme.Pallete.darkGray // TODO: Add Theme
+        addressLabel.textColor = Theme.Pallete.darkGray
     }
 
     private func configureLayout() {
         addSubViews([addressLabel])
         addressLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: Theme.Offset.small, bottomConstant: Theme.Offset.small)
-        addressLabel.anchorSize(height: 20) // TODO
+        addressLabel.anchorSize(height: Constant.addressHeigth)
     }
 
     func configure(with detail: DetailSection) {

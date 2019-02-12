@@ -26,8 +26,8 @@ class MapStationsViewController: UIViewController {
     struct Constants {
         static let railRoadColor: UIColor = Theme.Pallete.softGray
         static let railRoadWith: CGFloat = 7
-        static let defaultEdges = UIEdgeInsets(top: 80, left: 0, bottom: 100, right: 0) // TODO suport notch
-        static let detailEdges = UIEdgeInsets(top: 80, left: 0, bottom: UIDevice.screenHeight * 0.65, right: 0)
+        static let defaultEdges = UIEdgeInsets(top: 90, left: 0, bottom: 100, right: 0) // TODO suport notch
+        static let detailEdges = UIEdgeInsets(top: 90, left: 0, bottom: UIDevice.screenHeight * 0.65, right: 0)
         static let routeEdges = UIEdgeInsets(top: 0, left: 40, bottom: 40, right: 40)
         static let detailZoomLevel = 11000.0
     }

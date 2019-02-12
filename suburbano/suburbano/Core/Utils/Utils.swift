@@ -16,4 +16,14 @@ class Utils {
     static func bundlePath(forResource resource: AppResource) -> String? {
         return Bundle.main.path(forResource: resource.fileName, ofType: resource.extention)
     }
+
+    static func createFoldersIfNecesary(forPath path: String) {
+        guard !FileManager.default.fileExists(atPath: path) else { return }
+        try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
+    }
+
+    static func deleteFileIfExists(path: String) {
+        guard FileManager.default.fileExists(atPath: path) else { return }
+        try? FileManager.default.removeItem(atPath: path)
+    }
 }

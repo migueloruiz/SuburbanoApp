@@ -112,6 +112,13 @@ struct UIThemes {
                                                  backgroundColor: .white,
                                                  font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
 
+        // MARK: - Wait
+        static let WaitTime = LabelTheme(numberOfLines: 0,
+                                        textAlignment: .center,
+                                        textColor: Theme.Pallete.darkGray,
+                                        backgroundColor: .white,
+                                        font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .openSansCondensed, style: .bold))
+
         // MARK: - Popup Label Themes
         static let PopupTitle = LabelTheme(numberOfLines: 0,
                                                   textAlignment: .center,

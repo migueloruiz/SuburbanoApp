@@ -16,10 +16,8 @@ struct WebResource {
 
 struct WebResources {
     static let Alerts = WebResource(fileName: "alerts", extentionType: .json)
-    static let Events = WebResource(fileName: "activities", extentionType: .json)
     static let General = WebResource(fileName: "general", extentionType: .json)
     static let Update = WebResource(fileName: "resurcesUpdate", extentionType: .json)
     static let Prices = WebResource(fileName: "prices", extentionType: .json)
-    static let Trains = WebResource(fileName: "trains", extentionType: .json)
     static let WaitTime = WebResource(fileName: "waitTime", extentionType: .json)
 }

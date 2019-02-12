@@ -18,15 +18,11 @@ protocol GetRouteInformationUseCase {
     func getInformation(from departure: StationEntity, to arraival: StationEntity, complition:  @escaping SuccessResponse<RouteInformation>)
 }
 
-protocol GetRouteScheduleUseCase {
-    func getSchedule(from departure: StationEntity, to arraival: StationEntity, day: TripDay, complition: @escaping SuccessResponse<[TrainEntity]>)
-}
-
 protocol GetRouteWaitTimeUseCase {
     func getWaitTime(inStation station: String, complition: @escaping SuccessResponse<[StationWaitTimeEntity]>)
 }
 
-protocol RouteUseCase: GetRouteInformationUseCase, GetRouteScheduleUseCase, GetRouteWaitTimeUseCase { }
+protocol RouteUseCase: GetRouteInformationUseCase, GetRouteWaitTimeUseCase { }
 
 class RouteUseCaseImpl: RouteUseCase {
 
@@ -36,7 +32,6 @@ class RouteUseCaseImpl: RouteUseCase {
 
     private let pricesRepository: TripPriceRepository
     private let pricesService: PricesWebService
-    private let trainsService: TrainsWebSercive
     private let trainsRepository: TrainRepository
     private let stationWaitTimeRepository: StationWaitTimeRepository
     private let stationWaitTimeService: StationWaitTimeWebService
@@ -44,14 +39,12 @@ class RouteUseCaseImpl: RouteUseCase {
 
     init(pricesRepository: TripPriceRepository,
          pricesService: PricesWebService,
-         trainsService: TrainsWebSercive,
          trainsRepository: TrainRepository,
          stationWaitTimeRepository: StationWaitTimeRepository,
          stationWaitTimeService: StationWaitTimeWebService,
          resilienceHandler: ResilienceFileHandler) {
         self.pricesRepository = pricesRepository
         self.pricesService = pricesService
-        self.trainsService = trainsService
         self.trainsRepository = trainsRepository
         self.stationWaitTimeRepository = stationWaitTimeRepository
         self.stationWaitTimeService = stationWaitTimeService
@@ -81,23 +74,6 @@ class RouteUseCaseImpl: RouteUseCase {
             let waitTimeReponse = strongSelf.stationWaitTimeRepository.get(inStation: station)
             complition(waitTimeReponse)
         }, failure: {_  in complition([])})
-    }
-
-    func getSchedule(from departure: StationEntity, to arraival: StationEntity, day: TripDay, complition: @escaping SuccessResponse<[TrainEntity]>) {
-        let direction = TrainDirection.get(from: departure, to: arraival)
-        let trains = trainsRepository.get(withDirection: direction.rawValue, day: day.rawValue)
-
-        guard trains.isEmpty else {
-            complition(trains)
-            return
-        }
-
-        trainsService.getTrains(success: { [weak self] trains in
-            guard let strongSelf = self else { return }
-            strongSelf.trainsRepository.add(objects: trains, update: true)
-            let result = strongSelf.trainsRepository.get(withDirection: "North", day: "Normal") as? [Train]
-            complition(result ?? [])
-        }, failure: { _ in complition([]) })
     }
 }
 

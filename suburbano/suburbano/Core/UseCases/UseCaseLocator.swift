@@ -29,12 +29,10 @@ class UseCaseLocator {
             return StationsUseCaseImpl(resilienceHandler: ResilienceFileHandlerImpl()) as? UseCase
 
         case String(describing: GetRouteInformationUseCase.self),
-             String(describing: GetRouteScheduleUseCase.self),
              String(describing: GetRouteWaitTimeUseCase.self),
              String(describing: RouteUseCase.self):
             return RouteUseCaseImpl(pricesRepository: TripPriceRepositoryRealmImpl(realmHandler: RealmHandler.shared),
                                     pricesService: PricesWebServiceImpl(),
-                                    trainsService: TrainsWebSerciveImpl(),
                                     trainsRepository: TrainRepositoryRealmImpl(realmHandler: RealmHandler.shared),
                                     stationWaitTimeRepository: StationWaitTimeRepositoryImpl(realmHandler: RealmHandler.shared),
                                     stationWaitTimeService: StationWaitTimeWebServiceImpl(),

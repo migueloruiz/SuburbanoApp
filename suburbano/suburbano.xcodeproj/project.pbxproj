@@ -14,7 +14,6 @@
 		8611C836214ED5B400FFBC23 /* RouteCalculatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C835214ED5B400FFBC23 /* RouteCalculatorPresenter.swift */; };
 		861472422151C0850042BBB8 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861472412151C0850042BBB8 /* Train.swift */; };
 		861472462151C47F0042BBB8 /* TrainStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861472452151C47F0042BBB8 /* TrainStop.swift */; };
-		861472482151D0EC0042BBB8 /* TrainsWebSercive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861472472151D0EC0042BBB8 /* TrainsWebSercive.swift */; };
 		8614724C2151DE660042BBB8 /* TrainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614724B2151DE660042BBB8 /* TrainRepository.swift */; };
 		861FC57F210FF7BD0024783A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC57E210FF7BD0024783A /* Date.swift */; };
 		861FC581211010480024783A /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC580211010480024783A /* UIEdgeInsets.swift */; };
@@ -196,7 +195,6 @@
 		8611C835214ED5B400FFBC23 /* RouteCalculatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCalculatorPresenter.swift; sourceTree = "<group>"; };
 		861472412151C0850042BBB8 /* Train.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
 		861472452151C47F0042BBB8 /* TrainStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStop.swift; sourceTree = "<group>"; };
-		861472472151D0EC0042BBB8 /* TrainsWebSercive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainsWebSercive.swift; sourceTree = "<group>"; };
 		8614724B2151DE660042BBB8 /* TrainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainRepository.swift; sourceTree = "<group>"; };
 		861FC57E210FF7BD0024783A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		861FC580211010480024783A /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
@@ -616,7 +614,6 @@
 			isa = PBXGroup;
 			children = (
 				86593C392150443E00383445 /* PricesWebService.swift */,
-				861472472151D0EC0042BBB8 /* TrainsWebSercive.swift */,
 				86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */,
 			);
 			path = Networking;
@@ -1437,7 +1434,6 @@
 				864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */,
 				864132582100017A0031F4F4 /* ReusableView.swift in Sources */,
 				86B8312F21459FD70063AC75 /* DirectionsAppsFactory.swift in Sources */,
-				861472482151D0EC0042BBB8 /* TrainsWebSercive.swift in Sources */,
 				8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */,
 				86B831042138C1AE0063AC75 /* StationDetailViewController.swift in Sources */,
 				86385C7721335ED3002EA9DF /* IconCell.swift in Sources */,

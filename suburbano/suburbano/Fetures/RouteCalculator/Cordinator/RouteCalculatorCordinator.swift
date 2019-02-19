@@ -9,10 +9,10 @@
 import Foundation
 
 class RouteCalculatorCordinator: NSObject, Coordinator {
-    fileprivate let rootViewController: MapStationsViewController
+    fileprivate let rootViewController: MainViewController
     fileprivate var controller: RouteCalculatorViewController
 
-    init(rootViewController: MapStationsViewController, stations: [Station], departure: Station, arraival: Station) {
+    init(rootViewController: MainViewController, stations: [Station], departure: Station, arraival: Station) {
         self.rootViewController = rootViewController
         let presenter = RouteCalculatorPresenterImpl(routeUseCase: UseCaseLocator.getUseCase(ofType: RouteUseCase.self),
                                                      stations: stations,

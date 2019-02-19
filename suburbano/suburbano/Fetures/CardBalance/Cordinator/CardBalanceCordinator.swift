@@ -9,10 +9,10 @@
 import UIKit
 
 class CardBalanceCordinator: NSObject, Coordinator {
-    fileprivate let rootViewController: MapStationsViewController
+    fileprivate let rootViewController: MainViewController
     fileprivate let controller: CardBalanceViewController
 
-    init(rootViewController: MapStationsViewController, card: Card? = nil) {
+    init(rootViewController: MainViewController, card: Card? = nil) {
         self.rootViewController = rootViewController
         let cardBalancePresenter = CardBalancePresenterImpl(cardUseCase: UseCaseLocator.getUseCase(ofType: CardUseCase.self)!)
         self.controller = CardBalanceViewController(presenter: cardBalancePresenter, card: card)

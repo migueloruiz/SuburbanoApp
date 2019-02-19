@@ -38,20 +38,25 @@ enum TripDirection {
     }
 }
 
-protocol StationsMapPresenterProtocol {
+protocol StationsMapPresenter {
     func getStations() -> [Station]
     func getMarkers() -> [StationMarker]
     func getStationMarker(withName name: String) -> StationMarker?
     func getStation(withName name: String) -> Station?
-    func getCards() -> [Card]
     func tripDirection(from departure: Station, to arrival: Station) -> TripDirection
 }
+
+protocol CardBalancePickerPresenter {
+    func getCards() -> [Card]
+}
+
+protocol MainPresenter: StationsMapPresenter, CardBalancePickerPresenter {}
 
 protocol StationsViewDelegate: class {
     func update(cards: [Card])
 }
 
-class StationsMapPresenter: StationsMapPresenterProtocol {
+class MainPresenterImpl: MainPresenter {
 
     private let getCardUseCase: GetCardUseCase?
     private let getStationsUseCase: GetStationsUseCase?
@@ -64,7 +69,7 @@ class StationsMapPresenter: StationsMapPresenterProtocol {
         self.getCardUseCase = getCardUseCase
         self.getStationsUseCase = getStationsUseCase
 
-        NotificationCenter.default.addObserver(self, selector: #selector(StationsMapPresenter.updateCards), name: .UpdateCards, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainPresenterImpl.updateCards), name: .UpdateCards, object: nil)
     }
 
     func getStations() -> [Station] {

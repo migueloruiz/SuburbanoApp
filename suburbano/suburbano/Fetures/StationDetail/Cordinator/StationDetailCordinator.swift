@@ -13,11 +13,11 @@ protocol StationDetailViewFlowDelegate: class {
 }
 
 class StationDetailCordinator: NSObject, Coordinator {
-    fileprivate let rootViewController: MapStationsViewController
+    fileprivate let rootViewController: MainViewController
     fileprivate let station: Station
     fileprivate var controller: StationDetailViewController
 
-    init(rootViewController: MapStationsViewController, station: Station) {
+    init(rootViewController: MainViewController, station: Station) {
         self.rootViewController = rootViewController
         self.station = station
         let presenter = StationDetailPresenterImpl(station: station,

@@ -11,12 +11,12 @@ import UIKit
 class MainCordinator: NSObject, Coordinator {
     private let window: UIWindow
     private var detailCordinator: Coordinator?
-    private lazy var rootViewController: MapStationsViewController = {
-        let stationsMapPresenter = StationsMapPresenter(
+    private lazy var rootViewController: MainViewController = {
+        let stationsMapPresenter = MainPresenterImpl(
             getCardUseCase: UseCaseLocator.getUseCase(ofType: GetCardUseCase.self),
             getStationsUseCase: UseCaseLocator.getUseCase(ofType: GetStationsUseCase.self)
         )
-        return MapStationsViewController(presenter: stationsMapPresenter, mapConfiguration: StationsMap(), delegate: self)
+        return MainViewController(presenter: stationsMapPresenter, delegate: self)
     }()
 
     init(window: UIWindow) {

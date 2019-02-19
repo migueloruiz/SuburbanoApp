@@ -17,7 +17,7 @@ class StationDetailTransitionIn: NSObject, UIViewControllerAnimatedTransitioning
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 
         guard let toViewController = transitionContext.viewController(forKey: .to) as? StationDetailViewController,
-            let fromViewController = transitionContext.viewController(forKey: .from) as? MapStationsViewController else {
+            let fromViewController = transitionContext.viewController(forKey: .from) as? MainViewController else {
             transitionContext.cancelInteractiveTransition()
             return
         }
@@ -51,7 +51,7 @@ class StationDetailTransitionOut: NSObject, UIViewControllerAnimatedTransitionin
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromViewController = transitionContext.viewController(forKey: .from) as? StationDetailViewController,
-            let toViewController = transitionContext.viewController(forKey: .to) as? MapStationsViewController else {
+            let toViewController = transitionContext.viewController(forKey: .to) as? MainViewController else {
             transitionContext.cancelInteractiveTransition()
             return
         }

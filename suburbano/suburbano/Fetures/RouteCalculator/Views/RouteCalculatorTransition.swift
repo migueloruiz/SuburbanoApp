@@ -17,7 +17,7 @@ class RouteCalculatorTransitionIn: NSObject, UIViewControllerAnimatedTransitioni
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 
         guard let toViewController = transitionContext.viewController(forKey: .to) as? RouteCalculatorViewController,
-            let fromViewController = transitionContext.viewController(forKey: .from) as? MapStationsViewController else {
+            let fromViewController = transitionContext.viewController(forKey: .from) as? MainViewController else {
                 transitionContext.cancelInteractiveTransition()
                 return
         }
@@ -51,7 +51,7 @@ class RouteCalculatorTransitionOut: NSObject, UIViewControllerAnimatedTransition
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromViewController = transitionContext.viewController(forKey: .from) as? RouteCalculatorViewController,
-            let toViewController = transitionContext.viewController(forKey: .to) as? MapStationsViewController else {
+            let toViewController = transitionContext.viewController(forKey: .to) as? MainViewController else {
                 transitionContext.cancelInteractiveTransition()
                 return
         }

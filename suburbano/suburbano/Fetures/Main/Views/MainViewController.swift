@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
     private lazy var cardBalanceView = CardBalancePicker(delegate: self)
     private lazy var pricesButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "money"), tintColor: .white, backgroundColor: Theme.Pallete.softRed)
     private lazy var centerMapButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "mapCenter"), tintColor: .white, backgroundColor: Theme.Pallete.blue)
+    private let gradientView = UIView()
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
@@ -45,6 +46,13 @@ class MainViewController: UIViewController {
         configureLayout()
     }
 
+    override func viewDidLayoutSubviews() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = gradientView.bounds
+        gradientLayer.colors = [UIColor.white.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
+        gradientView.layer.addSublayer(gradientLayer)
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         cardBalanceView.display(cards: presenter.getCards())
     }
@@ -58,7 +66,14 @@ class MainViewController: UIViewController {
     }
 
     private func configureLayout() {
-        view.addSubViews([mapView.view, cardBalanceView, buttonsContiner])
+        view.addSubViews([mapView.view, gradientView, cardBalanceView, buttonsContiner])
+
+        gradientView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor)
+        if UIDevice.hasNotch {
+            gradientView.anchor(bottom: view.safeAreaLayoutGuide.topAnchor)
+        } else {
+            gradientView.anchorSize(height: AppConstants.Device.normalStatusbarHeigth)
+        }
 
         mapView.view.fillSuperview()
         cardBalanceView.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)

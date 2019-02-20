@@ -26,6 +26,13 @@ struct StationsMap: MapInitialConfiguration {
 }
 
 class MapViewFactory {
+
+    struct Constants {
+        static let railRoadColor = Theme.Pallete.softGray
+        static let railRoadWith: CGFloat = 7
+        static let railLineCap = "round"
+    }
+
     static func create(frame: CGRect, initilConfiguration: MapInitialConfiguration) -> MGLMapView {
         let styleURL = Utils.bundleUrl(forResource: initilConfiguration.style)
         let map = MGLMapView(frame: frame, styleURL: styleURL)
@@ -36,5 +43,16 @@ class MapViewFactory {
         map.logoView.isHidden = true
         map.compassView.isHidden = true
         return map
+    }
+
+    static func createRoute(identifier: String, withCoordinates coordinates: [CLLocationCoordinate2D]) -> (source: MGLShapeSource, layer: MGLLineStyleLayer) {
+        let tripLine = MGLPolyline(coordinates: coordinates, count: UInt(coordinates.count))
+        let source = MGLShapeSource(identifier: identifier, shape: tripLine, options: nil)
+        let layer = MGLLineStyleLayer(identifier: identifier, source: source)
+        layer.sourceLayerIdentifier = identifier
+        layer.lineWidth = NSExpression(forConstantValue: Constants.railRoadWith)
+        layer.lineColor = NSExpression(forConstantValue: Theme.Pallete.blue)
+        layer.lineCap = NSExpression(forConstantValue: Constants.railLineCap)
+        return(source: source, layer: layer)
     }
 }

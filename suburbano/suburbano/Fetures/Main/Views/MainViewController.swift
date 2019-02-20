@@ -31,6 +31,7 @@ class MainViewController: UIViewController {
     private lazy var pricesButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "money"), tintColor: .white, backgroundColor: Theme.Pallete.softRed)
     private lazy var centerMapButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "mapCenter"), tintColor: .white, backgroundColor: Theme.Pallete.blue)
     private let gradientView = UIView()
+    private let gradientLayer = CAGradientLayer()
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
@@ -47,10 +48,7 @@ class MainViewController: UIViewController {
     }
 
     override func viewDidLayoutSubviews() {
-        let gradientLayer = CAGradientLayer()
         gradientLayer.frame = gradientView.bounds
-        gradientLayer.colors = [UIColor.white.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
-        gradientView.layer.addSublayer(gradientLayer)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +61,11 @@ class MainViewController: UIViewController {
         pricesButton.addTarget(self, action: #selector(MainViewController.openRouteCalculator), for: .touchUpInside)
         centerMapButton.addTarget(self, action: #selector(MainViewController.centerMap), for: .touchUpInside)
         centerMapButton.isHidden = true
+
+        gradientLayer.colors = [UIColor.white.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
+        gradientLayer.locations = [0.8, 1]
+        gradientLayer.frame = gradientView.bounds
+        gradientView.layer.addSublayer(gradientLayer)
     }
 
     private func configureLayout() {
@@ -125,8 +128,8 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
         return prentableView.outTransition
     }
 
-    func backFromDetailCamera() { // TODO
-        mapView.backFromDetailCamera()
+    func setDefaultMap() {
+        mapView.setDefaultMap()
     }
 }
 

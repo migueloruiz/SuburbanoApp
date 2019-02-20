@@ -56,7 +56,7 @@ class RouteCalculatorTransitionOut: NSObject, UIViewControllerAnimatedTransition
                 return
         }
 
-        toViewController.backFromDetailCamera()
+        toViewController.setDefaultMap()
         let finalFrameBack = fromViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {

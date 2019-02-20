@@ -17,12 +17,13 @@ protocol MapViewControllerDelegate: class {
 class MapViewController: UIViewController {
 
     struct Constants {
-        static let railRoadColor: UIColor = Theme.Pallete.softGray
-        static let railRoadWith: CGFloat = 7
         static let defaultEdges = UIEdgeInsets(top: 90, left: 0, bottom: 100, right: 0) // TODO suport notch
         static let detailEdges = UIEdgeInsets(top: 90, left: 0, bottom: UIDevice.screenHeight * 0.65, right: 0)
         static let routeEdges = UIEdgeInsets(top: 0, left: 40, bottom: 40, right: 40)
         static let detailZoomLevel = 11000.0
+        static let railIdentifier = "trip"
+        static let railRoadWith: CGFloat = 7
+        static let railRoadColor = Theme.Pallete.softGray
     }
 
     fileprivate lazy var mapView: MGLMapView = MapViewFactory.create(frame: view.frame, initilConfiguration: mapConfiguration)
@@ -33,8 +34,6 @@ class MapViewController: UIViewController {
 
     private weak var selectedAnotation: StationMapAnnotation?
     private var railCordinates = [[Double]]()
-    private var tripRailSource: MGLShapeSource?
-    private var tripRailLayer: MGLLineStyleLayer?
     private var departureStaionId: String?
     private var arraivalStaionId: String?
 
@@ -169,32 +168,11 @@ extension MapViewController: MGLMapViewDelegate {
 // MARK: - Transitions
 
 extension MapViewController {
-    func backFromDetailCamera() {
+    func setDefaultMap() {
         cleanMapDetailIfNeeded()
-        cleanMapFromRouteIfNeeded()
+        cleanRouteLayerIfNeeded()
+        updateMarkersToDeafult()
         centerMap()
-    }
-
-    private func cleanMapFromRouteIfNeeded() {
-        guard let source = tripRailSource, let layer = tripRailLayer else { return }
-        mapView.style?.removeLayer(layer)
-        mapView.style?.removeSource(source)
-        tripRailSource = nil
-        tripRailLayer = nil
-        departureStaionId = nil
-        arraivalStaionId = nil
-        for anomtation in mapView.annotations ?? [] {
-            guard let marker = mapView.view(for: anomtation) as? StationMapAnnotation else { continue }
-            marker.diaplayStyle = .normal
-        }
-    }
-
-    private func cleanMapDetailIfNeeded() {
-        guard selectedAnotation != nil else { return }
-        selectedAnotation?.diaplayStyle = .normal
-        selectedAnotation?.isSelected = false
-        selectedAnotation = nil
-//        flowDelegate?.dismissedDetail() // TODO
     }
 
     func setDetailCamera(annotationView: MGLAnnotationView) {
@@ -221,55 +199,70 @@ extension MapViewController {
     }
 
     func setRouteCamera(departure: Station, arraival: Station) {
-        if let source = tripRailSource, let layer = tripRailLayer {
-            mapView.style?.removeLayer(layer)
-            mapView.style?.removeSource(source)
-            tripRailSource = nil
-            tripRailLayer = nil
-        }
-
+        cleanRouteLayerIfNeeded()
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.departureStaionId = departure.name
-            strongSelf.arraivalStaionId = arraival.name
             let tripDirection = strongSelf.presenter.tripDirection(from: departure, to: arraival)
-            var tripCordinates = [[Double]]()
-
-            switch tripDirection {
-            case .buenavistaToCuautitlan:
-                tripCordinates = Array(strongSelf.railCordinates[arraival.id...departure.id])
-            case .cuautitlanToBuenavista:
-                tripCordinates = Array(strongSelf.railCordinates[departure.id...arraival.id])
-            }
-
-            let tripMapCordinates = tripCordinates.map { cordinate in
-                return CLLocationCoordinate2D(latitude: cordinate.last ?? 0, longitude: cordinate.first ?? 0)
-            }
-            let tripLine = MGLPolyline(coordinates: tripMapCordinates, count: UInt(tripMapCordinates.count))
-            let source = MGLShapeSource(identifier: "trip", shape: tripLine, options: nil)// TODO
-            let layer = MGLLineStyleLayer(identifier: "trip", source: source)// TODO
-            layer.sourceLayerIdentifier = "trip"// TODO
-            layer.lineWidth = NSExpression(forConstantValue: Constants.railRoadWith)
-            layer.lineColor = NSExpression(forConstantValue: Theme.Pallete.blue)
-            layer.lineCap = NSExpression(forConstantValue: "round")// TODO
-
-            strongSelf.tripRailSource = source
-            strongSelf.tripRailLayer = layer
-
+            let tripMapCordinates = strongSelf.getRouteCoordinates(from: departure, to: arraival, direction: tripDirection)
+            let railData = MapViewFactory.createRoute(identifier: Constants.railIdentifier, withCoordinates: tripMapCordinates)
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
-                strongSelf.mapView.style?.addSource(source)
-                strongSelf.mapView.style?.addLayer(layer)
-
-                for anomtation in strongSelf.mapView.annotations ?? [] {
-                    guard let marker = strongSelf.mapView.view(for: anomtation) as? StationMapAnnotation else { continue }
-                    marker.diaplayStyle = .trip(active: marker.id == departure.name || marker.id == arraival.name)
-                }
-                let tempCamera = strongSelf.mapView.cameraThatFitsShape(tripLine,
+                strongSelf.mapView.style?.addSource(railData.source)
+                strongSelf.mapView.style?.addLayer(railData.layer)
+                strongSelf.updateMarkersForRoute(from: departure, to: arraival)
+                guard let railLine = railData.source.shape else { return }
+                let tempCamera = strongSelf.mapView.cameraThatFitsShape(railLine,
                                                                         direction: tripDirection.direction,
                                                                         edgePadding: Constants.routeEdges)
                 strongSelf.mapView.set(camera: tempCamera)
             }
         }
+    }
+}
+
+// MARK: - Helpers
+
+extension MapViewController {
+
+    private func cleanRouteLayerIfNeeded() {
+        guard let source =  mapView.style?.source(withIdentifier: Constants.railIdentifier),
+            let layer = mapView.style?.layer(withIdentifier: Constants.railIdentifier) else { return }
+        mapView.style?.removeLayer(layer)
+        mapView.style?.removeSource(source)
+    }
+
+    private func getRouteCoordinates(from departure: Station, to arraival: Station, direction: TripDirection) -> [CLLocationCoordinate2D] {
+        var tripCordinates = [[Double]]()
+        switch direction {
+        case .buenavistaToCuautitlan:
+            tripCordinates = Array(railCordinates[arraival.id...departure.id])
+        case .cuautitlanToBuenavista:
+            tripCordinates = Array(railCordinates[departure.id...arraival.id])
+        }
+
+        return tripCordinates.map { cordinate in
+            return CLLocationCoordinate2D(latitude: cordinate.last ?? 0, longitude: cordinate.first ?? 0)
+        }
+    }
+
+    private func updateMarkersForRoute(from departure: Station, to arraival: Station) {
+        for anomtation in mapView.annotations ?? [] {
+            guard let marker = mapView.view(for: anomtation) as? StationMapAnnotation else { continue }
+            marker.diaplayStyle = .trip(active: marker.id == departure.name || marker.id == arraival.name)
+        }
+    }
+
+    private func updateMarkersToDeafult() {
+        for anomtation in mapView.annotations ?? [] {
+            guard let marker = mapView.view(for: anomtation) as? StationMapAnnotation else { continue }
+            marker.diaplayStyle = .normal
+        }
+    }
+
+    private func cleanMapDetailIfNeeded() {
+        guard selectedAnotation != nil else { return }
+        selectedAnotation?.isSelected = false
+        selectedAnotation = nil
+        //        flowDelegate?.dismissedDetail() // TODO
     }
 }

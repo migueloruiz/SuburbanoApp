@@ -59,7 +59,7 @@ class StationDetailTransitionOut: NSObject, UIViewControllerAnimatedTransitionin
         let containerView = fromViewController.containerView
         let finalScale = containerView.transform.translatedBy(x: 0, y: UIDevice.screenHeight)
         let finalFrameBack = fromViewController.backButton.transform.translatedBy(x: 0, y: -Theme.Offset.extralarge)
-        toViewController.backFromDetailCamera()
+        toViewController.setDefaultMap()
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             containerView.transform = finalScale

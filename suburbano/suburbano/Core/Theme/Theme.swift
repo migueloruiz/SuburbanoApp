@@ -50,7 +50,7 @@ struct Theme {
         static let small: CGFloat = 30
         static let normal: CGFloat = 40
         static let large: CGFloat = 50
-        static let extraLarge: CGFloat = 100
+        static let extraLarge: CGFloat = 130
     }
 
     struct Rounded {

@@ -31,7 +31,7 @@ extension UIView {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         animation.duration = 0.4
-        animation.values = [-20.0, 15.0, -10.0, 5.0, 0.0 ]
+        animation.values = [-20.0, 15.0, -10.0, 5.0, 0.0]
         layer.add(animation, forKey: "shake")
         notificationFeedback.notificationOccurred(.error)
     }
@@ -45,10 +45,16 @@ extension UIView {
     func fillSuperview(verticalOffset: CGFloat = 0, horizontalOffset: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         guard  let superview = superview else { return }
-        leftAnchor.constraint(equalTo: superview.leftAnchor, constant: horizontalOffset).isActive = true
-        rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -horizontalOffset).isActive = true
+        fillHorizontalSuperview(offset: horizontalOffset)
         topAnchor.constraint(equalTo: superview.topAnchor, constant: verticalOffset).isActive = true
         bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -verticalOffset).isActive = true
+    }
+
+    func fillHorizontalSuperview(offset: CGFloat = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        guard  let superview = superview else { return }
+        leftAnchor.constraint(equalTo: superview.leftAnchor, constant: offset).isActive = true
+        rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -offset).isActive = true
     }
 
     @discardableResult

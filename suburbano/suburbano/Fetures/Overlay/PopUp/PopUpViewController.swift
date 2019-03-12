@@ -46,12 +46,13 @@ class PopUpViewController: UIViewController {
     }
 
     private func configureUI() {
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.4) // TODO
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PopUpViewController.primaryAction)))
 
         titleLabel.text = context.title
         descripcionLabel.text = context.disclaimer
         imageView.image = context.image
+        imageView.contentMode = .scaleAspectFit
 
         primaryButton.set(title: context.primaryButton)
         primaryButton.addTarget(self, action: #selector(PopUpViewController.primaryAction), for: .touchUpInside)
@@ -69,10 +70,11 @@ class PopUpViewController: UIViewController {
         messageContiner.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
         messageContiner.addSubViews([imageView, titleLabel, descripcionLabel, buttonsContainer])
 
-        imageView.anchor(top: messageContiner.topAnchor, topConstant: Theme.Offset.large)
-        imageView.anchorSquare(size: Constants.imageSize)
+        imageView.anchor(top: messageContiner.topAnchor, topConstant: Theme.Offset.extralarge)
+        imageView.fillHorizontalSuperview()
+        imageView.anchorSize(height: Constants.imageSize)
         imageView.center(x: messageContiner.centerXAnchor, y: nil)
-        titleLabel.anchor(top: imageView.bottomAnchor, left: messageContiner.leftAnchor, right: messageContiner.rightAnchor, topConstant: Theme.Offset.large, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
+        titleLabel.anchor(top: imageView.bottomAnchor, left: messageContiner.leftAnchor, right: messageContiner.rightAnchor, topConstant: Theme.Offset.extralarge, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
         descripcionLabel.anchor(top: titleLabel.bottomAnchor, left: messageContiner.leftAnchor, bottom: buttonsContainer.topAnchor, right: messageContiner.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)
 
         buttonsContainer.anchor(left: titleLabel.leftAnchor, bottom: messageContiner.bottomAnchor, right: titleLabel.rightAnchor, bottomConstant: Theme.Offset.large)

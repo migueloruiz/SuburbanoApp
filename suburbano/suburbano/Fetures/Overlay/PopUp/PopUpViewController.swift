@@ -12,6 +12,7 @@ class PopUpViewController: UIViewController {
 
     struct Constants {
         static let imageSize: CGFloat = Theme.IconSize.extraLarge
+        static let secondaryTag = 2
     }
 
     private let context: AlertContext
@@ -23,7 +24,7 @@ class PopUpViewController: UIViewController {
     private lazy var buttonsContainer: UIStackView = UIStackView.with(distribution: .fillEqually, spacing: Theme.Offset.small)
     private(set) lazy var messageContiner: UIView = UIFactory.createCardView()
 
-    var didTapPrimary: (() -> Void)?
+    var didTapClose: (() -> Void)?
     var didTapSecondary: (() -> Void)?
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -46,8 +47,7 @@ class PopUpViewController: UIViewController {
     }
 
     private func configureUI() {
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.4) // TODO
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PopUpViewController.primaryAction)))
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PopUpViewController.didTapAction(_:))))
 
         titleLabel.text = context.title
         descripcionLabel.text = context.disclaimer
@@ -55,13 +55,13 @@ class PopUpViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
 
         primaryButton.set(title: context.primaryButton)
-        primaryButton.addTarget(self, action: #selector(PopUpViewController.primaryAction), for: .touchUpInside)
+        primaryButton.addTarget(self, action: #selector(PopUpViewController.didTapAction(_:)), for: .touchUpInside)
 
-        if let secondaryTitle = context.secondaryButton {
-            secondaryButton.set(title: secondaryTitle)
-            buttonsContainer.addArrangedSubview(secondaryButton)
-            secondaryButton.addTarget(self, action: #selector(PopUpViewController.secondaryAction), for: .touchUpInside)
-        }
+        guard let secondaryTitle = context.secondaryButton else { return }
+        secondaryButton.set(title: secondaryTitle)
+        secondaryButton.tag = Constants.secondaryTag
+        buttonsContainer.addArrangedSubview(secondaryButton)
+        secondaryButton.addTarget(self, action: #selector(PopUpViewController.didTapAction(_:)), for: .touchUpInside)
     }
 
     private func configureLayout() {
@@ -81,13 +81,8 @@ class PopUpViewController: UIViewController {
         buttonsContainer.addArrangedSubview(primaryButton)
     }
 
-    @objc func primaryAction() {
-        didTapPrimary?()
-        dismiss(animated: true, completion: nil)
-    }
-
-    @objc func secondaryAction() {
-        didTapSecondary?()
+    @objc func didTapAction(_ sender: UIView) {
+        sender.tag == Constants.secondaryTag ? didTapSecondary?() : didTapClose?()
         dismiss(animated: true, completion: nil)
     }
 }

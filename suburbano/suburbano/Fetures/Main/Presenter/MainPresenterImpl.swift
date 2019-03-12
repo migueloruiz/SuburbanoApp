@@ -44,6 +44,8 @@ protocol StationsMapPresenter {
     func getStationMarker(withName name: String) -> StationMarker?
     func getStation(withName name: String) -> Station?
     func tripDirection(from departure: Station, to arrival: Station) -> TripDirection
+    func getTrainRailCoordinates() -> [CLLocationCoordinate2D]
+    func getTrainRailCoordinates(from departure: Station, to arraival: Station, direction: TripDirection) -> [CLLocationCoordinate2D]
 }
 
 protocol CardBalancePickerPresenter {
@@ -59,15 +61,16 @@ protocol StationsViewDelegate: class {
 class MainPresenterImpl: MainPresenter {
 
     private let getCardUseCase: GetCardUseCase?
-    private let getStationsUseCase: GetStationsUseCase?
+    private let loadResurcesUseCase: LoadResurcesUseCase?
 
     weak var viewDelegate: StationsViewDelegate?
     private var stationsMarkers: [String: StationMarker] = [:]
     private var stations: [String: Station] = [:]
+    private var railCordinates = [CLLocationCoordinate2D]()
 
-    init(getCardUseCase: GetCardUseCase?, getStationsUseCase: GetStationsUseCase?) {
+    init(getCardUseCase: GetCardUseCase?, loadResurcesUseCase: LoadResurcesUseCase?) {
         self.getCardUseCase = getCardUseCase
-        self.getStationsUseCase = getStationsUseCase
+        self.loadResurcesUseCase = loadResurcesUseCase
 
         NotificationCenter.default.addObserver(self, selector: #selector(MainPresenterImpl.updateCards), name: .UpdateCards, object: nil)
     }
@@ -78,7 +81,7 @@ class MainPresenterImpl: MainPresenter {
 
     func getMarkers() -> [StationMarker] {
         guard stationsMarkers.isEmpty else { return Array(stationsMarkers.values) }
-        guard let rawStation = getStationsUseCase?.getStations() else { return [] }
+        guard let rawStation = loadResurcesUseCase?.getStations() else { return [] }
 
         for station in rawStation {
             let stationMarker = StationMarker(name: station.name,
@@ -112,5 +115,19 @@ class MainPresenterImpl: MainPresenter {
 
     @objc func updateCards() {
         viewDelegate?.update(cards: getCards())
+    }
+
+    func getTrainRailCoordinates() -> [CLLocationCoordinate2D] {
+        railCordinates = loadResurcesUseCase?.getTrainRailCoordinates() ?? []
+        return railCordinates
+    }
+
+    func getTrainRailCoordinates(from departure: Station, to arraival: Station, direction: TripDirection) -> [CLLocationCoordinate2D] {
+        switch direction {
+        case .buenavistaToCuautitlan:
+            return Array(railCordinates[arraival.id...departure.id])
+        case .cuautitlanToBuenavista:
+            return Array(railCordinates[departure.id...arraival.id])
+        }
     }
 }

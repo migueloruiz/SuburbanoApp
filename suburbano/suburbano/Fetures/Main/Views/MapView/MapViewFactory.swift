@@ -18,7 +18,7 @@ protocol MapInitialConfiguration {
 }
 
 struct StationsMap: MapInitialConfiguration {
-    let style: AppResource = AppResources.Map.StyleFile
+    let style: AppResource = AppResources.MapStyle
     let maxZoomLevel: Double = 20
     let minZoomLevel: Double = 8
     let mapBoundsNE: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 19.858455, longitude: -98.935441)
@@ -45,13 +45,13 @@ class MapViewFactory {
         return map
     }
 
-    static func createRoute(identifier: String, withCoordinates coordinates: [CLLocationCoordinate2D]) -> (source: MGLShapeSource, layer: MGLLineStyleLayer) {
+    static func createRail(withIdentifier identifier: String, withCoordinates coordinates: [CLLocationCoordinate2D], isRoute: Bool = false) -> (source: MGLShapeSource, layer: MGLLineStyleLayer) {
         let tripLine = MGLPolyline(coordinates: coordinates, count: UInt(coordinates.count))
         let source = MGLShapeSource(identifier: identifier, shape: tripLine, options: nil)
         let layer = MGLLineStyleLayer(identifier: identifier, source: source)
         layer.sourceLayerIdentifier = identifier
         layer.lineWidth = NSExpression(forConstantValue: Constants.railRoadWith)
-        layer.lineColor = NSExpression(forConstantValue: Theme.Pallete.blue)
+        layer.lineColor = NSExpression(forConstantValue: isRoute ? Theme.Pallete.blue: Constants.railRoadColor)
         layer.lineCap = NSExpression(forConstantValue: Constants.railLineCap)
         return(source: source, layer: layer)
     }

@@ -8,18 +8,17 @@
 
 import Foundation
 
-protocol ResilienceFileHandler {
-    func loadLocalJSON(from fileName: String) -> Data?
-}
+class ResilienceFileHandler {
 
-class ResilienceFileHandlerImpl: ResilienceFileHandler {
-
-    struct Constants {
-        static let fileExtention = "json"
-    }
-
-    func loadLocalJSON(from fileName: String) -> Data? {
-        guard let path = Bundle.main.path(forResource: fileName, ofType: Constants.fileExtention) else { return nil }
-        return try? Data(contentsOf: URL(fileURLWithPath: path))
+    func load<Model: Codable>(resource: AppResource, parser: ParserMethod<Model>? = nil) throws ->  Model {
+        guard let url = Utils.bundleUrl(forResource: resource) else {
+            throw ParsingError.noExistingFile
+        }
+        let rawJson = try Data(contentsOf: url)
+        let parserMethod = parser ?? { body in
+            guard let json = body else { throw ParsingError.noExistingBody }
+            return try JSONDecoder().decode(Model.self, from: json)
+        }
+        return try parserMethod(rawJson)
     }
 }

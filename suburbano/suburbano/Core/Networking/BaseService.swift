@@ -32,6 +32,7 @@ enum ServiceError: Error {
 
 enum ParsingError: Error {
     case noExistingBody
+    case noExistingFile
 }
 
 typealias ParserMethod<Model> = (Data?) throws -> Model

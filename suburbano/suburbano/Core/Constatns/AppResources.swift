@@ -20,9 +20,8 @@ struct AppResource {
 }
 
 struct AppResources {
-    // MARK: Map Resources
-    struct Map {
-        static let StyleFile = AppResource(fileName: "mapStyle", extentionType: .json)
-        static let TrainRail = AppResource(fileName: "train-rail", extentionType: .geojson)
-    }
+    static let MapStyle = AppResource(fileName: "mapStyle", extentionType: .json)
+    static let TrainRail = AppResource(fileName: "trainRail", extentionType: .json)
+    static let Stations = AppResource(fileName: "stations", extentionType: .json)
+    static let Prices = AppResource(fileName: "prices", extentionType: .json)
 }

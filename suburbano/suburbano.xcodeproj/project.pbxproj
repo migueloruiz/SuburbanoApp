@@ -17,6 +17,8 @@
 		861472422151C0850042BBB8 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861472412151C0850042BBB8 /* Train.swift */; };
 		861472462151C47F0042BBB8 /* TrainStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861472452151C47F0042BBB8 /* TrainStop.swift */; };
 		8614724C2151DE660042BBB8 /* TrainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614724B2151DE660042BBB8 /* TrainRepository.swift */; };
+		8614C47D2238153E003E4A14 /* LoadResurcesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47C2238153E003E4A14 /* LoadResurcesUseCase.swift */; };
+		8614C47F2238177D003E4A14 /* LoadResurcesUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47E2238177D003E4A14 /* LoadResurcesUseCaseImpl.swift */; };
 		861FC57F210FF7BD0024783A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC57E210FF7BD0024783A /* Date.swift */; };
 		861FC581211010480024783A /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC580211010480024783A /* UIEdgeInsets.swift */; };
 		861FC583211015460024783A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC582211015460024783A /* UIStackView.swift */; };
@@ -36,7 +38,7 @@
 		8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */; };
 		8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682120F41FF400A6B17A /* ApplicationCoordinatorAppDelegate.swift */; };
 		8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008020F00FFE00C9D8B1 /* AppDelegate.swift */; };
-		8621A2E120F6FE0A00A2D8B1 /* train-rail.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680220F0175800A6B17A /* train-rail.geojson */; };
+		8621A2E120F6FE0A00A2D8B1 /* trainRail.json in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680220F0175800A6B17A /* trainRail.json */; };
 		8621A2E220F6FE0A00A2D8B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 868D008920F00FFF00C9D8B1 /* LaunchScreen.storyboard */; };
 		8621A2E320F6FE0A00A2D8B1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680620F0496300A6B17A /* Colors.xcassets */; };
 		8621A2E420F6FE0A00A2D8B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86F14E4820F43F6D00D1CF7D /* Assets.xcassets */; };
@@ -112,8 +114,6 @@
 		86B830F4213899BE0063AC75 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830F3213899BE0063AC75 /* Location.swift */; };
 		86B830F621389FD00063AC75 /* RealmStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830F521389FD00063AC75 /* RealmStation.swift */; };
 		86B830F82138A0A90063AC75 /* RealmLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830F72138A0A90063AC75 /* RealmLocation.swift */; };
-		86B830FB2138AA630063AC75 /* StationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830FA2138AA630063AC75 /* StationsUseCase.swift */; };
-		86B830FD2138AAE70063AC75 /* StationsUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830FC2138AAE70063AC75 /* StationsUseCaseImpl.swift */; };
 		86B831012138C1920063AC75 /* StationDetailCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831002138C1920063AC75 /* StationDetailCordinator.swift */; };
 		86B831042138C1AE0063AC75 /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831032138C1AE0063AC75 /* StationDetailViewController.swift */; };
 		86B831062138C95A0063AC75 /* PresentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831052138C95A0063AC75 /* PresentableView.swift */; };
@@ -201,6 +201,8 @@
 		861472412151C0850042BBB8 /* Train.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
 		861472452151C47F0042BBB8 /* TrainStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStop.swift; sourceTree = "<group>"; };
 		8614724B2151DE660042BBB8 /* TrainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainRepository.swift; sourceTree = "<group>"; };
+		8614C47C2238153E003E4A14 /* LoadResurcesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResurcesUseCase.swift; sourceTree = "<group>"; };
+		8614C47E2238177D003E4A14 /* LoadResurcesUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResurcesUseCaseImpl.swift; sourceTree = "<group>"; };
 		861FC57E210FF7BD0024783A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		861FC580211010480024783A /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		861FC582211015460024783A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
@@ -292,8 +294,6 @@
 		86B830F3213899BE0063AC75 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		86B830F521389FD00063AC75 /* RealmStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStation.swift; sourceTree = "<group>"; };
 		86B830F72138A0A90063AC75 /* RealmLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmLocation.swift; sourceTree = "<group>"; };
-		86B830FA2138AA630063AC75 /* StationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsUseCase.swift; sourceTree = "<group>"; };
-		86B830FC2138AAE70063AC75 /* StationsUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsUseCaseImpl.swift; sourceTree = "<group>"; };
 		86B831002138C1920063AC75 /* StationDetailCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailCordinator.swift; sourceTree = "<group>"; };
 		86B831032138C1AE0063AC75 /* StationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailViewController.swift; sourceTree = "<group>"; };
 		86B831052138C95A0063AC75 /* PresentableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableView.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 		86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWaitTimeWebService.swift; sourceTree = "<group>"; };
 		86BD985E2159D7660022DC6F /* DaySelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectorView.swift; sourceTree = "<group>"; };
 		86BD9860215AE6640022DC6F /* WaitTimeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTimeDetail.swift; sourceTree = "<group>"; };
-		86C0680220F0175800A6B17A /* train-rail.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "train-rail.geojson"; sourceTree = "<group>"; };
+		86C0680220F0175800A6B17A /* trainRail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trainRail.json; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		86C0680A20F0532A00A6B17A /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
@@ -775,7 +775,7 @@
 		868D00B320F0167C00C9D8B1 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				86C0680220F0175800A6B17A /* train-rail.geojson */,
+				86C0680220F0175800A6B17A /* trainRail.json */,
 				86C0680420F01F7D00A6B17A /* mapStyle.json */,
 				86B830ED213896F30063AC75 /* stations.json */,
 				86593C29215020A100383445 /* prices.json */,
@@ -936,8 +936,8 @@
 		86B830F92138AA430063AC75 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				86B830FA2138AA630063AC75 /* StationsUseCase.swift */,
-				86B830FC2138AAE70063AC75 /* StationsUseCaseImpl.swift */,
+				8614C47C2238153E003E4A14 /* LoadResurcesUseCase.swift */,
+				8614C47E2238177D003E4A14 /* LoadResurcesUseCaseImpl.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1311,7 +1311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8621A2E120F6FE0A00A2D8B1 /* train-rail.geojson in Resources */,
+				8621A2E120F6FE0A00A2D8B1 /* trainRail.json in Resources */,
 				8621A2E220F6FE0A00A2D8B1 /* LaunchScreen.storyboard in Resources */,
 				86B8313121460CC60063AC75 /* table-loading.json in Resources */,
 				869E40E121371CC900EB133F /* loading.json in Resources */,
@@ -1458,7 +1458,6 @@
 				869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */,
 				13B53F332142D78200848B8D /* DirectionDetailsTransition.swift in Sources */,
 				86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */,
-				86B830FB2138AA630063AC75 /* StationsUseCase.swift in Sources */,
 				869E2CC721250C9300B2FA9F /* PopUpViewController.swift in Sources */,
 				868D2614214B361900700DE7 /* RouteCalculatorCordinator.swift in Sources */,
 				861FC583211015460024783A /* UIStackView.swift in Sources */,
@@ -1495,6 +1494,7 @@
 				86FC7458220D2257006311B3 /* DebugManager.swift in Sources */,
 				869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */,
 				864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */,
+				8614C47D2238153E003E4A14 /* LoadResurcesUseCase.swift in Sources */,
 				869E1D102134BA04004BE0A9 /* CardRepository.swift in Sources */,
 				869E1D122134C9D0004BE0A9 /* RealmAppDelegate.swift in Sources */,
 				86B831282140BB5B0063AC75 /* DirectionsDetailPresenter.swift in Sources */,
@@ -1502,7 +1502,6 @@
 				86593C3E2150456400383445 /* ResilienceHandler.swift in Sources */,
 				868D2616214B362500700DE7 /* RouteCalculatorViewController.swift in Sources */,
 				86B830DC2137422A0063AC75 /* LoadingView.swift in Sources */,
-				86B830FD2138AAE70063AC75 /* StationsUseCaseImpl.swift in Sources */,
 				86B83125213F7A620063AC75 /* DirectionsDetailViewController.swift in Sources */,
 				86B830F22138984C0063AC75 /* Station.swift in Sources */,
 				861472462151C47F0042BBB8 /* TrainStop.swift in Sources */,
@@ -1513,6 +1512,7 @@
 				86BD98572159C7170022DC6F /* StationWaitTime.swift in Sources */,
 				86DF0C7322125E16008300FF /* WaitTimeDetailCell.swift in Sources */,
 				86FC745E220D329F006311B3 /* UICollectionView.swift in Sources */,
+				8614C47F2238177D003E4A14 /* LoadResurcesUseCaseImpl.swift in Sources */,
 				86385C8C2133840E002EA9DF /* CardUseCaseImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

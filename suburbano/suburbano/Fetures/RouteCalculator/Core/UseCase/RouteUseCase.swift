@@ -26,10 +26,6 @@ protocol RouteUseCase: GetRouteInformationUseCase, GetRouteWaitTimeUseCase { }
 
 class RouteUseCaseImpl: RouteUseCase {
 
-    struct Constants {
-        static let fileName = "prices"
-    }
-
     private let pricesRepository: TripPriceRepository
     private let pricesService: PricesWebService
     private let trainsRepository: TrainRepository
@@ -98,8 +94,7 @@ extension RouteUseCaseImpl {
     }
 
     private func getPricesFromResilienceFile(complition: @escaping SuccessResponse<[TripPrice]>) {
-        guard let rawPrices = resilienceHandler.loadLocalJSON(from: Constants.fileName),
-            let reciliencePrices = try? JSONDecoder().decode([TripPrice].self, from: rawPrices) else {
+        guard let reciliencePrices: [TripPrice] = try? resilienceHandler.load(resource: AppResources.Prices) else {
             complition([])
             return
         }

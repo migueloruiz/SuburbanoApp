@@ -23,7 +23,7 @@ protocol RouteCameraDelegate: class {
 class MainViewController: UIViewController {
 
     private weak var flowDelegate: StationsMapFlowDelegate?
-    private let presenter: MainPresenter
+    private var presenter: MainPresenter
 
     fileprivate lazy var mapView = MapViewController(presenter: presenter, mapConfiguration: StationsMap())
     private(set) lazy var buttonsContiner = UIStackView.with(axis: .vertical, spacing: Theme.Offset.small)
@@ -39,6 +39,7 @@ class MainViewController: UIViewController {
         self.presenter = presenter
         self.flowDelegate = delegate
         super.init(nibName: nil, bundle: nil)
+        self.presenter.viewDelegate = self
     }
 
     override func viewDidLoad() {

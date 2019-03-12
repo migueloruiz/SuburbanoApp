@@ -49,6 +49,7 @@ protocol StationsMapPresenter {
 }
 
 protocol CardBalancePickerPresenter {
+    var viewDelegate: StationsViewDelegate? { get set }
     func getCards() -> [Card]
 }
 

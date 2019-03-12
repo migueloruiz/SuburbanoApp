@@ -54,7 +54,7 @@ class CardBalancePresenterImpl: CardBalancePresenter {
                             date: 0)
 
         guard let isRegistered = cardUseCase?.isAlreadyRegister(card: tempCard), !isRegistered else {
-            viewDelegate?.addCardFailure(error: "Esta tarjeta ya esta registrada")
+            viewDelegate?.addCardFailure(error: "Esta tarjeta ya esta registrada") // Localized
             return
         }
 
@@ -64,7 +64,7 @@ class CardBalancePresenterImpl: CardBalancePresenter {
             strongSelf.viewDelegate?.addCardSuccess(card: card)
         }, failure: { [weak self] _ in
             guard let strongSelf = self else { return }
-            strongSelf.viewDelegate?.addCardFailure(error: "Número de tarjeta no valido. Puedes encontrar el numero al frente en la parte inferior de tu tarjeta")
+            strongSelf.viewDelegate?.addCardFailure(error: "Número de tarjeta no valido. Puedes encontrar el numero al frente en la parte inferior de tu tarjeta") // Localized
         })
     }
 

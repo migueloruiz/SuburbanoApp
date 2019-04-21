@@ -19,7 +19,6 @@
 		8614724C2151DE660042BBB8 /* TrainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614724B2151DE660042BBB8 /* TrainRepository.swift */; };
 		8614C47D2238153E003E4A14 /* LoadResurcesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47C2238153E003E4A14 /* LoadResurcesUseCase.swift */; };
 		8614C47F2238177D003E4A14 /* LoadResurcesUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47E2238177D003E4A14 /* LoadResurcesUseCaseImpl.swift */; };
-		861FC57F210FF7BD0024783A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC57E210FF7BD0024783A /* Date.swift */; };
 		861FC581211010480024783A /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC580211010480024783A /* UIEdgeInsets.swift */; };
 		861FC583211015460024783A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC582211015460024783A /* UIStackView.swift */; };
 		8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4A20F43FE300D1CF7D /* UITabBar.swift */; };
@@ -172,7 +171,6 @@
 		8614724B2151DE660042BBB8 /* TrainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainRepository.swift; sourceTree = "<group>"; };
 		8614C47C2238153E003E4A14 /* LoadResurcesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResurcesUseCase.swift; sourceTree = "<group>"; };
 		8614C47E2238177D003E4A14 /* LoadResurcesUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResurcesUseCaseImpl.swift; sourceTree = "<group>"; };
-		861FC57E210FF7BD0024783A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		861FC580211010480024783A /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		861FC582211015460024783A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		8621A2EB20F6FE0A00A2D8B1 /* suburbano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suburbano.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -765,7 +763,6 @@
 		869E2CC42124FADA00B2FA9F /* Type Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				861FC57E210FF7BD0024783A /* Date.swift */,
 				867468E121018BAD00E4809D /* String.swift */,
 			);
 			path = "Type Extentions";
@@ -1291,7 +1288,6 @@
 				86B83121213F79490063AC75 /* DirectionsDetailCordinator.swift in Sources */,
 				8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */,
 				86BD98592159CD680022DC6F /* StationWaitTimeRepository.swift in Sources */,
-				861FC57F210FF7BD0024783A /* Date.swift in Sources */,
 				8611AF8021017D3F0002663B /* FontStyle.swift in Sources */,
 				86385C8821337558002EA9DF /* RealmCard.swift in Sources */,
 				86385C8A21338392002EA9DF /* CardUseCase.swift in Sources */,

@@ -12,7 +12,13 @@ enum CardBalanceParser: Error {
     case valueNorFound
 }
 
+typealias Timestamp = (unixTimestamp: Double, displayTimestamp: String)
+
 class CardParser {
+
+    private struct Constants {
+        static let balanceRegex = "\\$[0-9]{1,5}\\.[0-9]{2}"
+    }
 
     private let dateFormatter = DateFormatter()
 
@@ -25,24 +31,22 @@ class CardParser {
         return { [weak self] body in
             guard let strongSelf = self,
                 let data = body,
-                let balance = String(data: data, encoding: .utf8) else { throw ParsingError.noExistingBody }
+                let rawBalance = String(data: data, encoding: .utf8),
+                let balance = rawBalance.firstMatch(forRegex: Constants.balanceRegex) else { throw CardBalanceParser.valueNorFound }
 
-            let matches = balance.matches(forPattern: "\\$[0-9]{1,5}\\.[0-9]{2}")
-            guard let match = matches.first else { throw CardBalanceParser.valueNorFound }
-
-            let date = strongSelf.getDate()
+            let timestamp = strongSelf.getTimestamp()
             return Card(id: card.id,
-                        balance: match,
+                        balance: balance,
                         icon: card.icon,
                         color: card.color,
-                        displayDate: date.display,
-                        date: date.timestamp)
+                        displayDate: timestamp.displayTimestamp,
+                        date: timestamp.unixTimestamp)
         }
-
     }
 
-    func getDate() -> (timestamp: Double, display: String) {
+    func getTimestamp() -> Timestamp {
         let now = Date()
-        return (timestamp: now.timeIntervalSince1970, display: dateFormatter.string(from: now))
+        return (unixTimestamp: now.timeIntervalSince1970,
+                displayTimestamp: dateFormatter.string(from: now))
     }
 }

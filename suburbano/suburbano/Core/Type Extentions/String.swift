@@ -20,10 +20,10 @@ extension String {
         return true
     }
 
-    func matches(forPattern pattern: String) -> [String] {
+    func matches(forRegex regex: String) -> [String] {
         do {
-            let regex = try NSRegularExpression(pattern: pattern)
-            let results = regex.matches(in: self, range: NSRange(self.startIndex..., in: self))
+            let regex = try NSRegularExpression(pattern: regex)
+            let results = regex.matches(in: self, range: NSRange(startIndex..., in: self))
             return results.compactMap({ (result) -> String? in
                 guard let range = Range(result.range, in: self) else { return nil }
                 return String(self[range])
@@ -31,5 +31,9 @@ extension String {
         } catch {
             return []
         }
+    }
+
+    func firstMatch(forRegex regex: String) -> String? {
+        return self.matches(forRegex: regex).first
     }
 }

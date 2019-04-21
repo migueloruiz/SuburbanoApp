@@ -19,6 +19,7 @@ protocol CardEntity {
 }
 
 struct Card: CardEntity, Codable {
+
     let id: String
     var balance: String
     var icon: String
@@ -26,7 +27,7 @@ struct Card: CardEntity, Codable {
     var displayDate: String
     var date: Double
 
-    var displayColor: UIColor {
+    var displayColor: UIColor { // TODO: UIColor inside an entity
         return NSKeyedUnarchiver.unarchiveObject(with: color) as? UIColor ?? Theme.Pallete.darkGray
     }
 }

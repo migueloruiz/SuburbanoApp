@@ -73,8 +73,8 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
     }
 
     func selectedElements() -> (departureItem: Int, arraivalItem: Int) {
-        let departureItem = stations.index { $0.name == departure.name } ?? 0
-        let arrailvalItem = filterStations.index { $0.name == arraival.name } ?? 0
+        let departureItem = stations.firstIndex { $0.name == departure.name } ?? 0
+        let arrailvalItem = filterStations.firstIndex { $0.name == arraival.name } ?? 0
         return (departureItem: departureItem, arraivalItem: arrailvalItem)
     }
 

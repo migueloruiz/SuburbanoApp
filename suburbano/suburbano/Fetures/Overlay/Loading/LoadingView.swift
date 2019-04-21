@@ -11,7 +11,7 @@ import Lottie
 
 class LoadingView: UIView {
 
-    private let animation: LOTAnimationView
+    private let animation: AnimationView
     private let dispatchGroup = DispatchGroup()
     private let blurredEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
 
@@ -22,7 +22,7 @@ class LoadingView: UIView {
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     init(animation: String = AppConstants.Animations.loading) {
-        self.animation = LOTAnimationView(name: animation)
+        self.animation = AnimationView(name: animation)
         super.init(frame: .zero)
     }
 
@@ -37,7 +37,7 @@ class LoadingView: UIView {
 
     func show(hiddingView: UIView? = nil) {
         dispatchGroup.enter()
-        animation.loopAnimation = true
+        animation.loopMode = .loop
         superview?.endEditing(true)
         superview?.bringSubviewToFront(self)
 
@@ -52,7 +52,7 @@ class LoadingView: UIView {
     }
 
     func dismiss(hiddingView: UIView? = nil, completion: (() -> Void)? = nil ) {
-        animation.loopAnimation = false
+        animation.loopMode = .playOnce
         dispatchGroup.notify(queue: .main, execute: { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.animation.stop()

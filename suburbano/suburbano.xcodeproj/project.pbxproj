@@ -336,6 +336,7 @@
 		135366F4214C01110022B042 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
+				869E1D132134CEA0004BE0A9 /* suburbano.entitlements */,
 				135366F5214C01450022B042 /* Development.xcconfig */,
 				135366F6214C03300022B042 /* Production.xcconfig */,
 				135366F7214C090B0022B042 /* Example.xcconfig */,
@@ -600,11 +601,11 @@
 				86C0681E20F4168C00A6B17A /* AppLaunch */,
 				8652A35E212A3FED00ED1910 /* CardBalance */,
 				86B8311E213F787D0063AC75 /* DirectionsDetail */,
+				8641325320FFFF860031F4F4 /* Main */,
 				8681284F2123BACC00A7A011 /* MoreBoard */,
 				869E2CC521250C7100B2FA9F /* Overlay */,
 				868D2610214B35D800700DE7 /* RouteCalculator */,
 				86B830FE2138C15A0063AC75 /* StationDetail */,
-				8641325320FFFF860031F4F4 /* Main */,
 			);
 			path = Fetures;
 			sourceTree = "<group>";
@@ -643,7 +644,6 @@
 			isa = PBXGroup;
 			children = (
 				135366F4214C01110022B042 /* Configurations */,
-				869E1D132134CEA0004BE0A9 /* suburbano.entitlements */,
 				86C0681220F4140E00A6B17A /* AppDelegates */,
 				868D00B220F0167400C9D8B1 /* Assets */,
 				86C0681420F4150C00A6B17A /* Core */,
@@ -1405,7 +1405,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
-				CODE_SIGN_ENTITLEMENTS = suburbano/suburbano.entitlements;
+				CODE_SIGN_ENTITLEMENTS = suburbano/Configurations/suburbano.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1432,7 +1432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
-				CODE_SIGN_ENTITLEMENTS = suburbano/suburbano.entitlements;
+				CODE_SIGN_ENTITLEMENTS = suburbano/Configurations/suburbano.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;

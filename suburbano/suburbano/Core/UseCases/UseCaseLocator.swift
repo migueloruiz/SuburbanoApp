@@ -20,7 +20,7 @@ class UseCaseLocator {
              String(describing: CardUseCase.self):
             return CardUseCaseImpl(
                 cardBalanceWebService: CardBalanceWebServiceImpl(),
-                cardRepository: CardRepository(realmHandler: RealmHandler.shared)
+                cardRepository: CardRepositoryImpl(realmHandler: RealmHandler.shared)
             ) as? UseCase
 
         case String(describing: GetStationsUseCase.self),
@@ -33,7 +33,7 @@ class UseCaseLocator {
              String(describing: RouteUseCase.self):
             return RouteUseCaseImpl(pricesRepository: TripPriceRepositoryRealmImpl(realmHandler: RealmHandler.shared),
                                     pricesService: PricesWebServiceImpl(),
-                                    trainsRepository: TrainRepositoryRealmImpl(realmHandler: RealmHandler.shared),
+                                    trainsRepository: TrainRepositoryImpl(realmHandler: RealmHandler.shared),
                                     stationWaitTimeRepository: StationWaitTimeRepositoryImpl(realmHandler: RealmHandler.shared),
                                     stationWaitTimeService: StationWaitTimeWebServiceImpl(),
                                     resilienceHandler: ResilienceFileHandler()) as? UseCase

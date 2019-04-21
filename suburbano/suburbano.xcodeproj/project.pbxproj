@@ -47,7 +47,7 @@
 		8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30620F70C2E00A2D8B1 /* BaseService.swift */; };
 		862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517CB20F84D2F002F2048 /* RealmHandler.swift */; };
 		862517D120FD6ED0002F2048 /* UseCaseLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D020FD6ED0002F2048 /* UseCaseLocator.swift */; };
-		862517E220FD7A32002F2048 /* RepositoryRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E120FD7A32002F2048 /* RepositoryRealm.swift */; };
+		862517E220FD7A32002F2048 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E120FD7A32002F2048 /* RealmRepository.swift */; };
 		86385C7521335D91002EA9DF /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7421335D91002EA9DF /* ColorCell.swift */; };
 		86385C7721335ED3002EA9DF /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7621335ED3002EA9DF /* IconCell.swift */; };
 		86385C7A213362DC002EA9DF /* CardBalancePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C79213362DC002EA9DF /* CardBalancePresenter.swift */; };
@@ -78,6 +78,7 @@
 		867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */; };
 		868128512123BAFA00A7A011 /* MoreBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128502123BAFA00A7A011 /* MoreBoardViewController.swift */; };
 		868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */; };
+		868B6EF3226D31E10019DEFB /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868B6EF2226D31E10019DEFB /* Repository.swift */; };
 		868D009620F00FFF00C9D8B1 /* suburbanoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D009520F00FFF00C9D8B1 /* suburbanoTests.swift */; };
 		868D00A120F00FFF00C9D8B1 /* suburbanoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D00A020F00FFF00C9D8B1 /* suburbanoUITests.swift */; };
 		868D2614214B361900700DE7 /* RouteCalculatorCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2613214B361900700DE7 /* RouteCalculatorCordinator.swift */; };
@@ -178,7 +179,7 @@
 		8621A30620F70C2E00A2D8B1 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		862517CB20F84D2F002F2048 /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
 		862517D020FD6ED0002F2048 /* UseCaseLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseLocator.swift; sourceTree = "<group>"; };
-		862517E120FD7A32002F2048 /* RepositoryRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRealm.swift; sourceTree = "<group>"; };
+		862517E120FD7A32002F2048 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		86385C7421335D91002EA9DF /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		86385C7621335ED3002EA9DF /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		86385C79213362DC002EA9DF /* CardBalancePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalancePresenter.swift; sourceTree = "<group>"; };
@@ -216,6 +217,7 @@
 		867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSansCondensed-Bold.ttf"; path = "Open_Sans_Condensed/OpenSansCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		868128502123BAFA00A7A011 /* MoreBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBoardViewController.swift; sourceTree = "<group>"; };
 		868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutAnchor.swift; sourceTree = "<group>"; };
+		868B6EF2226D31E10019DEFB /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		868D008020F00FFE00C9D8B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		868D008220F00FFE00C9D8B1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		868D008A20F00FFF00C9D8B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				862517CA20F84A27002F2048 /* RepositoryRealm */,
+				868B6EF2226D31E10019DEFB /* Repository.swift */,
 			);
 			path = "Data Persistence";
 			sourceTree = "<group>";
@@ -414,7 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				862517CB20F84D2F002F2048 /* RealmHandler.swift */,
-				862517E120FD7A32002F2048 /* RepositoryRealm.swift */,
+				862517E120FD7A32002F2048 /* RealmRepository.swift */,
 			);
 			path = RepositoryRealm;
 			sourceTree = "<group>";
@@ -1319,7 +1322,7 @@
 				868128512123BAFA00A7A011 /* MoreBoardViewController.swift in Sources */,
 				86B830F4213899BE0063AC75 /* Location.swift in Sources */,
 				8621A2D720F6FE0A00A2D8B1 /* MainPresenterImpl.swift in Sources */,
-				862517E220FD7A32002F2048 /* RepositoryRealm.swift in Sources */,
+				862517E220FD7A32002F2048 /* RealmRepository.swift in Sources */,
 				8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */,
 				86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */,
 				86B830E1213843FB0063AC75 /* CardCell.swift in Sources */,
@@ -1353,6 +1356,7 @@
 				86B83125213F7A620063AC75 /* DirectionsDetailViewController.swift in Sources */,
 				86B830F22138984C0063AC75 /* Station.swift in Sources */,
 				861472462151C47F0042BBB8 /* TrainStop.swift in Sources */,
+				868B6EF3226D31E10019DEFB /* Repository.swift in Sources */,
 				86385C7521335D91002EA9DF /* ColorCell.swift in Sources */,
 				86FC7456220D1DE8006311B3 /* AppLaunchArguments.swift in Sources */,
 				8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */,

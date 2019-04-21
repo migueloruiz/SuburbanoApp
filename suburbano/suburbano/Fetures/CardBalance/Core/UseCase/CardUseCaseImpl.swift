@@ -11,7 +11,7 @@ import Foundation
 class CardUseCaseImpl: CardUseCase {
 
     let cardBalanceWebService: CardBalanceWebService
-    let cardRepository: CardRepository // Decouple Repository
+    let cardRepository: CardRepository
 
     init(cardBalanceWebService: CardBalanceWebService,
          cardRepository: CardRepository) {
@@ -20,11 +20,11 @@ class CardUseCaseImpl: CardUseCase {
     }
 
     func get() -> [Card] {
-        return cardRepository.get() ?? []
+        return cardRepository.getCards() ?? []
     }
 
     func updateCards() {
-        guard let cards = cardRepository.get() else { return }
+        guard let cards = cardRepository.getCards() else { return }
         let dispatchGroup = DispatchGroup()
         var updatedCards: [Card] = []
 
@@ -47,24 +47,24 @@ class CardUseCaseImpl: CardUseCase {
 
         dispatchGroup.notify(queue: .global(qos: .background), execute: { [weak self] in
             guard let strongSelf = self, !updatedCards.isEmpty else { return }
-            strongSelf.cardRepository.add(objects: updatedCards)
+            strongSelf.cardRepository.add(cards: updatedCards)
             strongSelf.notifiCardsUpdate()
         })
     }
 
     func isAlreadyRegister(card: Card) -> Bool {
-        return cardRepository.get(forKey: card.id) == nil ? false : true
+        return !(cardRepository.getCard(withId: card.id) == nil)
     }
 
     func delate(withId id: String) {
-        cardRepository.delate(withId: id)
+        cardRepository.delateCard(withId: id)
         notifiCardsUpdate()
     }
 
     func add(card: Card, success: @escaping SuccessResponse<Card>, failure: @escaping ErrorResponse) {
         cardBalanceWebService.getBalace(for: card, success: { [weak self] card in
             guard let strongSelf = self else { return }
-                strongSelf.cardRepository.add(object: card)
+                strongSelf.cardRepository.add(card: card)
                 strongSelf.notifiCardsUpdate()
                 success(card)
         }, failure: failure)

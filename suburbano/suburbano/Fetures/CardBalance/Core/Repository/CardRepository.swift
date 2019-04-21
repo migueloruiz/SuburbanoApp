@@ -8,9 +8,17 @@
 
 import Foundation
 
-class CardRepository: RepositoryRealm {
-    typealias RealElement = RealmCard
-    typealias Element = Card
+protocol CardRepository {
+    func getCard(withId id: String) -> Card?
+    func getCards() -> [Card]?
+    func add(card: Card)
+    func add(cards: [Card])
+    func delateCard(withId id: String)
+}
+
+class CardRepositoryImpl: CardRepository, RealmRepository {
+    typealias DBModel = RealmCard
+    typealias Model = Card
 
     let realmHandler: RealmHandler
 
@@ -18,61 +26,48 @@ class CardRepository: RepositoryRealm {
         self.realmHandler = realmHandler
     }
 
-    func get(forKey key: String) -> Card? {
-        guard let realmCard = realmHandler.get(ofType: RealmCard.self, forKey: key) else { return nil }
-        return map(object: realmCard)
+    func getCard(withId id: String) -> Card? {
+        guard let realmCard = realmHandler.get(ofType: RealmCard.self, forKey: id) else { return nil }
+        return mapToModel(dbModel: realmCard)
     }
 
-    func get(predicateFormat: NSPredicate? = nil) -> [Card]? {
-        guard let realmCards = realmHandler.get(type: RealmCard.self, predicateFormat: predicateFormat) else { return nil }
-        return realmCards.map { map(object: $0) }
+    func getCards() -> [Card]? {
+        guard let realmCards = realmHandler.get(type: RealmCard.self) else { return nil }
+        return realmCards.map { mapToModel(dbModel: $0) }
     }
 
-    func add(object: Card, update: Bool = true) {
-        realmHandler.add(object: map(object: object))
+    func add(card: Card) {
+        realmHandler.add(object: mapToDB(model: card))
     }
 
-    func add(objects: [Card], update: Bool = true) {
-        let realmCards = objects.map { map(object: $0) }
+    func add(cards: [Card]) {
+        let realmCards = cards.map { mapToDB(model: $0) }
         realmHandler.add(objects: realmCards)
     }
 
-    func delete(object: Card) {
-        realmHandler.delete(object: map(object: object))
-    }
-
-    func delate(withId id: String) {
+    func delateCard(withId id: String) {
         guard let realmCard = realmHandler.get(ofType: RealmCard.self, forKey: id) else { return }
         realmHandler.delete(object: realmCard)
     }
 
-    func delete(objects: [Card]) {
-        let realmCards = objects.map { map(object: $0) }
-        realmHandler.delete(objects: realmCards)
-    }
-
-    func deleteAll() {
-        realmHandler.deleteAll(forType: RealmCard.self)
-    }
-
-    func map(object: RealmCard) -> Card {
-        return Card(id: object.id,
-                    balance: object.balance,
-                    icon: object.icon,
-                    color: object.color,
-                    displayDate: object.displayDate,
-                    date: object.date)
+    func mapToModel(dbModel: RealmCard) -> Card {
+        return Card(id: dbModel.id,
+                    balance: dbModel.balance,
+                    icon: dbModel.icon,
+                    color: dbModel.color,
+                    displayDate: dbModel.displayDate,
+                    date: dbModel.date)
 
     }
 
-    func map(object: Card) -> RealmCard {
+    func mapToDB(model: Card) -> RealmCard {
         let realmCard = RealmCard()
-        realmCard.id = object.id
-        realmCard.balance = object.balance
-        realmCard.icon = object.icon
-        realmCard.color = object.color
-        realmCard.displayDate = object.displayDate
-        realmCard.date = object.date
+        realmCard.id = model.id
+        realmCard.balance = model.balance
+        realmCard.icon = model.icon
+        realmCard.color = model.color
+        realmCard.displayDate = model.displayDate
+        realmCard.date = model.date
         return realmCard
     }
 }

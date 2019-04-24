@@ -47,7 +47,7 @@
 		8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30620F70C2E00A2D8B1 /* BaseService.swift */; };
 		862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517CB20F84D2F002F2048 /* RealmHandler.swift */; };
 		862517D120FD6ED0002F2048 /* UseCaseLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D020FD6ED0002F2048 /* UseCaseLocator.swift */; };
-		862517E220FD7A32002F2048 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E120FD7A32002F2048 /* RealmRepository.swift */; };
+		862517E220FD7A32002F2048 /* DataBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E120FD7A32002F2048 /* DataBaseRepository.swift */; };
 		86385C7521335D91002EA9DF /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7421335D91002EA9DF /* ColorCell.swift */; };
 		86385C7721335ED3002EA9DF /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7621335ED3002EA9DF /* IconCell.swift */; };
 		86385C7A213362DC002EA9DF /* CardBalancePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C79213362DC002EA9DF /* CardBalancePresenter.swift */; };
@@ -182,7 +182,7 @@
 		8621A30620F70C2E00A2D8B1 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		862517CB20F84D2F002F2048 /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
 		862517D020FD6ED0002F2048 /* UseCaseLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseLocator.swift; sourceTree = "<group>"; };
-		862517E120FD7A32002F2048 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		862517E120FD7A32002F2048 /* DataBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseRepository.swift; sourceTree = "<group>"; };
 		86385C7421335D91002EA9DF /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		86385C7621335ED3002EA9DF /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		86385C79213362DC002EA9DF /* CardBalancePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalancePresenter.swift; sourceTree = "<group>"; };
@@ -426,7 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				862517CB20F84D2F002F2048 /* RealmHandler.swift */,
-				862517E120FD7A32002F2048 /* RealmRepository.swift */,
+				862517E120FD7A32002F2048 /* DataBaseRepository.swift */,
 			);
 			path = RepositoryRealm;
 			sourceTree = "<group>";
@@ -1342,7 +1342,7 @@
 				868128512123BAFA00A7A011 /* MoreBoardViewController.swift in Sources */,
 				86B830F4213899BE0063AC75 /* Location.swift in Sources */,
 				8621A2D720F6FE0A00A2D8B1 /* MainPresenterImpl.swift in Sources */,
-				862517E220FD7A32002F2048 /* RealmRepository.swift in Sources */,
+				862517E220FD7A32002F2048 /* DataBaseRepository.swift in Sources */,
 				8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */,
 				86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */,
 				86587CD2226FDFD40025A764 /* RealmPrice.swift in Sources */,

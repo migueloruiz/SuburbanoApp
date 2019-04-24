@@ -14,7 +14,7 @@ protocol StationWaitTimeRepository: Repository {
     func deleteAll()
 }
 
-class StationWaitTimeRepositoryImpl: StationWaitTimeRepository, RealmRepository {
+class StationWaitTimeRepositoryImpl: StationWaitTimeRepository, DataBaseRepository {
 
     func get(inStation station: String) -> [StationWaitTimeEntity] {
         let predicate = NSPredicate(format: "station == %@", argumentArray: [station])

@@ -16,7 +16,7 @@ protocol CardRepository: Repository {
     func delateCard(withId id: String)
 }
 
-class CardRepositoryImpl: CardRepository, RealmRepository {
+class CardRepositoryImpl: CardRepository, DataBaseRepository {
 
     func getCard(withId id: String) -> Card? {
         guard let realmCard = get(ofType: RealmCard.self, forKey: id) else { return nil }

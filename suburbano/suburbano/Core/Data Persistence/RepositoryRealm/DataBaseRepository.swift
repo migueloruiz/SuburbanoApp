@@ -9,9 +9,9 @@
 import Foundation
 import RealmSwift
 
-protocol RealmRepository {}
+protocol DataBaseRepository {}
 
-extension RealmRepository where Self: Repository {
+extension DataBaseRepository where Self: Repository {
     func add(object: Object, update: Bool = true) {
         RealmHandler.shared.add(object: object, update: update)
     }

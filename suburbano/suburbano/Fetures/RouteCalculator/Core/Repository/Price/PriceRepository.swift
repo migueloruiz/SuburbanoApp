@@ -15,7 +15,7 @@ protocol PriceRepository: Repository {
     func getPricesFromResilienceFile(complition: @escaping SuccessResponse<[Price]>)
 }
 
-class TripPriceRepositoryRealmImpl: PriceRepository, RealmRepository, ResilienceRepository {
+class TripPriceRepositoryRealmImpl: PriceRepository, DataBaseRepository, ResilienceRepository {
     func getPrices() -> [Price]? {
         guard let realmActivities = get(type: RealmPrice.self) else { return nil }
         return realmActivities.map { Price(entity: $0) }

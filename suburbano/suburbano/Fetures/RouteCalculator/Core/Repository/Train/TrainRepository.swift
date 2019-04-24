@@ -14,7 +14,7 @@ protocol TrainRepository: Repository {
     func deleteAll()
 }
 
-class TrainRepositoryImpl: TrainRepository, RealmRepository {
+class TrainRepositoryImpl: TrainRepository, DataBaseRepository {
     func get(withDirection direction: String, day: String) -> [TrainEntity] {
         let predicate = NSPredicate(format: "direction == %@ && day == %@", argumentArray: [direction, day])
         guard let realmActivities = get(type: RealmTrain.self, predicateFormat: predicate) else { return [] }

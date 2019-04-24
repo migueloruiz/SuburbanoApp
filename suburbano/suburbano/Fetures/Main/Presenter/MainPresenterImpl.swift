@@ -62,14 +62,14 @@ protocol StationsViewDelegate: class {
 class MainPresenterImpl: MainPresenter {
 
     private let getCardUseCase: GetCardUseCase?
-    private let loadResurcesUseCase: LoadResurcesUseCase?
+    private let loadResurcesUseCase: MapResurcesUseCase?
 
     weak var viewDelegate: StationsViewDelegate?
     private var stationsMarkers: [String: StationMarker] = [:]
     private var stations: [String: Station] = [:]
     private var railCordinates = [CLLocationCoordinate2D]()
 
-    init(getCardUseCase: GetCardUseCase?, loadResurcesUseCase: LoadResurcesUseCase?) {
+    init(getCardUseCase: GetCardUseCase?, loadResurcesUseCase: MapResurcesUseCase?) {
         self.getCardUseCase = getCardUseCase
         self.loadResurcesUseCase = loadResurcesUseCase
 

@@ -20,6 +20,8 @@ protocol StationEntity {
     var distance: Float { get }
     var railLocation: Location { get }
     var accessLocation: Location { get }
+
+    init(entity: StationEntity)
 }
 
 struct Station: StationEntity, Codable {
@@ -67,6 +69,20 @@ struct Station: StationEntity, Codable {
         } catch let jsonError {
             throw jsonError
         }
+    }
+
+    init(entity: StationEntity) {
+        id = entity.id
+        name = entity.name
+        address = entity.address
+        conections = entity.conections
+        markerImage = entity.markerImage
+        markerTitleImage = entity.markerTitleImage
+        titleSide = entity.titleSide
+        time = entity.time
+        distance = entity.distance
+        railLocation = entity.railLocation
+        accessLocation = entity.railLocation
     }
 }
 

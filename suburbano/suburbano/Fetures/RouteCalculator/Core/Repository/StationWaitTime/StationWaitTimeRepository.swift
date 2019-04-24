@@ -8,32 +8,26 @@
 
 import Foundation
 
-protocol StationWaitTimeRepository {
+protocol StationWaitTimeRepository: Repository {
     func get(inStation station: String) -> [StationWaitTimeEntity]
     func add(objects: [StationWaitTimeEntity])
     func deleteAll()
 }
 
-class StationWaitTimeRepositoryImpl: StationWaitTimeRepository {
-
-    let realmHandler: RealmHandler
-
-    init(realmHandler: RealmHandler) {
-        self.realmHandler = realmHandler
-    }
+class StationWaitTimeRepositoryImpl: StationWaitTimeRepository, RealmRepository {
 
     func get(inStation station: String) -> [StationWaitTimeEntity] {
         let predicate = NSPredicate(format: "station == %@", argumentArray: [station])
-        guard let realmActivities = realmHandler.get(type: RealmStationWaitTime.self, predicateFormat: predicate, sortingKey: "timestamp", ascending: true) else { return [] }
+        guard let realmActivities = get(type: RealmStationWaitTime.self, predicateFormat: predicate, sortingKey: "timestamp", ascending: true) else { return [] }
         return realmActivities.map { StationWaitTime(entity: $0) }
     }
 
     func add(objects: [StationWaitTimeEntity]) {
         let realmTrain = objects.map { RealmStationWaitTime(entity: $0) }
-        realmHandler.add(objects: realmTrain)
+        add(objects: realmTrain)
     }
 
     func deleteAll() {
-        realmHandler.deleteAll(forType: RealmStationWaitTime.self)
+        deleteAll(forType: RealmStationWaitTime.self)
     }
 }

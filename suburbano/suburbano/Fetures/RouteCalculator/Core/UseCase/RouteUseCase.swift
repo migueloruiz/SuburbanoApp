@@ -15,7 +15,7 @@ struct RouteInformation {
 }
 
 protocol GetRouteInformationUseCase {
-    func getInformation(from departure: StationEntity, to arraival: StationEntity, complition:  @escaping SuccessResponse<RouteInformation>)
+    func getInformation(from departure: StationEntity, to arraival: StationEntity, complition: @escaping SuccessResponse<RouteInformation>)
 }
 
 protocol GetRouteWaitTimeUseCase {
@@ -26,25 +26,22 @@ protocol RouteUseCase: GetRouteInformationUseCase, GetRouteWaitTimeUseCase { }
 
 class RouteUseCaseImpl: RouteUseCase {
 
-    private let pricesRepository: TripPriceRepository
+    private let pricesRepository: PriceRepository
     private let pricesService: PricesWebService
     private let trainsRepository: TrainRepository
     private let stationWaitTimeRepository: StationWaitTimeRepository
     private let stationWaitTimeService: StationWaitTimeWebService
-    private let resilienceHandler: ResilienceFileHandler
 
-    init(pricesRepository: TripPriceRepository,
+    init(pricesRepository: PriceRepository,
          pricesService: PricesWebService,
          trainsRepository: TrainRepository,
          stationWaitTimeRepository: StationWaitTimeRepository,
-         stationWaitTimeService: StationWaitTimeWebService,
-         resilienceHandler: ResilienceFileHandler) {
+         stationWaitTimeService: StationWaitTimeWebService) {
         self.pricesRepository = pricesRepository
         self.pricesService = pricesService
         self.trainsRepository = trainsRepository
         self.stationWaitTimeRepository = stationWaitTimeRepository
         self.stationWaitTimeService = stationWaitTimeService
-        self.resilienceHandler = resilienceHandler
     }
 
     func getInformation(from departure: StationEntity, to arraival: StationEntity, complition: @escaping SuccessResponse<RouteInformation>) {
@@ -74,15 +71,15 @@ class RouteUseCaseImpl: RouteUseCase {
 }
 
 extension RouteUseCaseImpl {
-    func getPrices(complition: @escaping SuccessResponse<[TripPrice]>) {
-        guard let cachedPrices = pricesRepository.get(predicateFormat: nil), !cachedPrices.isEmpty else {
+    func getPrices(complition: @escaping SuccessResponse<[Price]>) {
+        guard let cachedPrices = pricesRepository.getPrices(), !cachedPrices.isEmpty else {
             getPricesFromService(complition: complition)
             return
         }
         complition(cachedPrices)
     }
 
-    private func getPricesFromService(complition: @escaping SuccessResponse<[TripPrice]>) {
+    private func getPricesFromService(complition: @escaping SuccessResponse<[Price]>) {
         pricesService.getPrices(success: { [weak self] prices in
             guard let strongSelf = self else { return }
             strongSelf.pricesRepository.add(objects: prices, update: true)
@@ -93,12 +90,8 @@ extension RouteUseCaseImpl {
         })
     }
 
-    private func getPricesFromResilienceFile(complition: @escaping SuccessResponse<[TripPrice]>) {
-        guard let reciliencePrices: [TripPrice] = try? resilienceHandler.load(resource: AppResources.Prices) else {
-            complition([])
-            return
-        }
-        complition(reciliencePrices)
+    private func getPricesFromResilienceFile(complition: @escaping SuccessResponse<[Price]>) {
+        pricesRepository.getPricesFromResilienceFile(complition: complition)
     }
 
 }

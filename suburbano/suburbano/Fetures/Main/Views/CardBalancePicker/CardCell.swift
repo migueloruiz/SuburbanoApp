@@ -49,7 +49,7 @@ class CardCell: UICollectionViewCell, ReusableView {
     }
 
     func configure(withCard card: Card) {
-        iconView.backgroundColor = card.displayColor
+        iconView.backgroundColor = UIColor.from(data: card.color)
         iconView.text = card.icon
         balanceLabel.text = card.balance
     }

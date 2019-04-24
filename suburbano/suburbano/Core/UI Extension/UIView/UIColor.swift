@@ -25,4 +25,8 @@ extension UIColor {
             alpha: CGFloat(alpha)
         )
     }
+
+    @nonobjc class func from(data: Data) -> UIColor {
+        return NSKeyedUnarchiver.unarchiveObject(with: data) as? UIColor ?? Theme.Pallete.darkGray
+    }
 }

@@ -7,18 +7,17 @@
 //
 
 import Foundation
-import RealmSwift
 
-// MARK: Entity
 protocol TrainStopEntity {
     var id: String { get }
     var arraival: String? { get }
     var arraivalTimestamp: Int? { get }
     var departure: String? { get }
     var departureTimestamp: Int? { get }
+
+    init(entity: TrainStopEntity)
 }
 
-// MARK: Struct
 struct TrainStop: TrainStopEntity, Codable {
     let id: String
     let arraival: String?
@@ -61,44 +60,5 @@ struct TrainStop: TrainStopEntity, Codable {
         } catch let jsonError {
             throw jsonError
         }
-    }
-}
-
-// MARK: Realm
-class RealmTrainStop: Object, TrainStopEntity {
-    @objc dynamic var id: String = ""
-    @objc dynamic var arraival: String?
-    @objc dynamic var rawArraivalTimestamp: NSNumber? = 0
-    @objc dynamic var departure: String?
-    @objc dynamic var rawDepartureTimestamp: NSNumber? = 0
-
-    var arraivalTimestamp: Int? {
-        get {
-            return rawArraivalTimestamp as? Int
-        }
-        set(newValue) {
-            rawArraivalTimestamp = newValue as NSNumber?
-        }
-    }
-
-    var departureTimestamp: Int? {
-        get {
-            return rawDepartureTimestamp as? Int
-        }
-        set(newValue) {
-            rawDepartureTimestamp = newValue as NSNumber?
-        }
-    }
-
-    override class func primaryKey() -> String? { return "id" }
-
-    convenience init(entity: TrainStopEntity? = nil) {
-        self.init()
-        guard let safeEntity = entity else { return }
-        self.id = safeEntity.id
-        self.arraival = safeEntity.arraival
-        self.arraivalTimestamp = safeEntity.arraivalTimestamp
-        self.departure = safeEntity.departure
-        self.departureTimestamp = safeEntity.departureTimestamp
     }
 }

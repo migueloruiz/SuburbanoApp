@@ -20,23 +20,22 @@ class UseCaseLocator {
              String(describing: CardUseCase.self):
             return CardUseCaseImpl(
                 cardBalanceWebService: CardBalanceWebServiceImpl(),
-                cardRepository: CardRepositoryImpl(realmHandler: RealmHandler.shared)
+                cardRepository: CardRepositoryImpl()
             ) as? UseCase
 
         case String(describing: GetStationsUseCase.self),
              String(describing: GetTrainRailUseCase.self),
-             String(describing: LoadResurcesUseCase.self):
-            return LoadResurcesUseCaseImpl(resilienceHandler: ResilienceFileHandler()) as? UseCase
+             String(describing: MapResurcesUseCase.self):
+            return MapResurcesUseCaseImpl(mapResurcesRepository: MapResurcesRepositoryImpl()) as? UseCase
 
         case String(describing: GetRouteInformationUseCase.self),
              String(describing: GetRouteWaitTimeUseCase.self),
              String(describing: RouteUseCase.self):
-            return RouteUseCaseImpl(pricesRepository: TripPriceRepositoryRealmImpl(realmHandler: RealmHandler.shared),
+            return RouteUseCaseImpl(pricesRepository: TripPriceRepositoryRealmImpl(),
                                     pricesService: PricesWebServiceImpl(),
-                                    trainsRepository: TrainRepositoryImpl(realmHandler: RealmHandler.shared),
-                                    stationWaitTimeRepository: StationWaitTimeRepositoryImpl(realmHandler: RealmHandler.shared),
-                                    stationWaitTimeService: StationWaitTimeWebServiceImpl(),
-                                    resilienceHandler: ResilienceFileHandler()) as? UseCase
+                                    trainsRepository: TrainRepositoryImpl(),
+                                    stationWaitTimeRepository: StationWaitTimeRepositoryImpl(),
+                                    stationWaitTimeService: StationWaitTimeWebServiceImpl()) as? UseCase
         default:
             return nil
         }

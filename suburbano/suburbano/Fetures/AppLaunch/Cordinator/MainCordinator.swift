@@ -14,7 +14,7 @@ class MainCordinator: NSObject, Coordinator {
     private lazy var rootViewController: MainViewController = {
         let stationsMapPresenter = MainPresenterImpl(
             getCardUseCase: UseCaseLocator.getUseCase(ofType: GetCardUseCase.self),
-            loadResurcesUseCase: UseCaseLocator.getUseCase(ofType: LoadResurcesUseCase.self)
+            loadResurcesUseCase: UseCaseLocator.getUseCase(ofType: MapResurcesUseCase.self)
         )
         return MainViewController(presenter: stationsMapPresenter, delegate: self)
     }()

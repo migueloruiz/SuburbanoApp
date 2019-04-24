@@ -20,4 +20,14 @@ class RealmCard: Object, CardEntity {
     override class func primaryKey() -> String? {
         return "id"
     }
+
+    required convenience init(entity: CardEntity) {
+        self.init()
+        self.id = entity.id
+        self.balance = entity.balance
+        self.icon = entity.icon
+        self.color = entity.color
+        self.displayDate = entity.displayDate
+        self.date = entity.date
+    }
 }

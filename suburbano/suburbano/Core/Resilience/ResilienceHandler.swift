@@ -1,5 +1,5 @@
 //
-//  ResilienceFileHandler.swift
+//  ResilienceRepository.swift
 //  suburbano
 //
 //  Created by Miguel Ruiz on 9/17/18.
@@ -8,8 +8,9 @@
 
 import Foundation
 
-class ResilienceFileHandler {
+protocol ResilienceRepository {}
 
+extension ResilienceRepository where Self: Repository {
     func load<Model: Codable>(resource: AppResource, parser: ParserMethod<Model>? = nil) throws ->  Model {
         guard let url = Utils.bundleUrl(forResource: resource) else {
             throw ParsingError.noExistingFile

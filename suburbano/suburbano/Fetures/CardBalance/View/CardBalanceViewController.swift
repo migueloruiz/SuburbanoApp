@@ -89,7 +89,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
             cardNumberInput.text = card.id
             balanceLabel.text = card.balance
             dateLabel.text = card.displayDate
-            cardBalanceIconView.set(icon: .custome(iconCode: card.icon, color: card.displayColor))
+            cardBalanceIconView.set(icon: .custome(iconCode: card.icon, color: UIColor.from(data: card.color)))
             cardNumberInput.isUserInteractionEnabled = false
             cardBalanceIconView.isUserInteractionEnabled = false
         } else {
@@ -182,7 +182,7 @@ extension CardBalanceViewController {
     @objc func delateCard() {
         let controller = PopUpViewController(context: .confirmDelete)
         controller.transitioningDelegate = self
-        controller.didTapSecondary = {
+        controller.didTapAction = {
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self, let card = strongSelf.card else { return }
                 strongSelf.presenter.deleteCard(withId: card.id)

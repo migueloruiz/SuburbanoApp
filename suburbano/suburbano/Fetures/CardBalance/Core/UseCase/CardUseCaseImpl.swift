@@ -10,6 +10,10 @@ import Foundation
 
 class CardUseCaseImpl: CardUseCase {
 
+    private struct Constants {
+        static let fifteenMin: Double = 900
+    }
+
     let cardBalanceWebService: CardBalanceWebService
     let cardRepository: CardRepository
 
@@ -76,8 +80,7 @@ extension CardUseCaseImpl {
         NotificationCenter.default.post(name: .UpdateCards, object: nil)
     }
 
-    fileprivate func shouldUpdate(card: Card) -> Bool {
-        let now = Date().timeIntervalSince1970
-        return (now - card.date) > 900
+    fileprivate func shouldUpdate(card: Card) -> Bool { // TODO: better name and inject Date
+        return (Date().timeIntervalSince1970 - card.date) > Constants.fifteenMin
     }
 }

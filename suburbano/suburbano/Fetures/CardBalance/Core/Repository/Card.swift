@@ -16,18 +16,26 @@ protocol CardEntity {
     var color: Data { get }
     var displayDate: String { get }
     var date: Double { get }
+
+    init(entity: CardEntity)
 }
 
 struct Card: CardEntity, Codable {
-
     let id: String
     var balance: String
     var icon: String
     var color: Data
     var displayDate: String
     var date: Double
+}
 
-    var displayColor: UIColor { // TODO: UIColor inside an entity
-        return NSKeyedUnarchiver.unarchiveObject(with: color) as? UIColor ?? Theme.Pallete.darkGray
+extension Card {
+    init(entity: CardEntity) {
+        self.id = entity.id
+        self.balance = entity.balance
+        self.icon = entity.icon
+        self.color = entity.color
+        self.displayDate = entity.displayDate
+        self.date = entity.date
     }
 }

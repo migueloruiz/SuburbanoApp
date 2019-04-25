@@ -595,7 +595,6 @@
 			isa = PBXGroup;
 			children = (
 				86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */,
-				86C0682720F4227900A6B17A /* Coordinator.swift */,
 				86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */,
 			);
 			path = Cordinator;
@@ -611,6 +610,14 @@
 				86FC7453220D024D006311B3 /* ResponseAlias.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		866DEEF622713282008221EF /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				86C0682720F4227900A6B17A /* Coordinator.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		868128432122743900A7A011 /* Fetures */ = {
@@ -1013,6 +1020,7 @@
 		86C0681420F4150C00A6B17A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				866DEEF622713282008221EF /* Navigation */,
 				86C0681820F4158000A6B17A /* Constatns */,
 				862517C920F849CF002F2048 /* Data Persistence */,
 				86695E1D20F6D3F900F74150 /* Networking */,

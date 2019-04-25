@@ -10,6 +10,7 @@ import UIKit
 
 struct Theme {
     struct Pallete {
+        static let white: UIColor = .white
         static let darkGray: UIColor = UIColor(named: "darkGray") ?? .red
         static let softGray: UIColor = UIColor(named: "softGray") ?? .red
         static let ligthGray: UIColor = UIColor(named: "ligthGray") ?? .red

@@ -30,7 +30,7 @@ class CardCell: UICollectionViewCell, ReusableView {
         iconView.roundCorners(withDiameter: Constants.heigth)
         iconView.clipsToBounds = true
 
-        balanceLabel.textAlignment = .right
+        balanceLabel.textAlignment = .center
         balanceLabel.backgroundColor = .clear
         containerView.roundCorners(withDiameter: Constants.heigth)
     }

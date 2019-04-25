@@ -8,6 +8,8 @@
 
 import UIKit
 
+// TODO: Refactor
+
 protocol LabelStyle {
     var numberOfLines: Int { get }
     var textAlignment: NSTextAlignment { get }

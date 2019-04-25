@@ -28,17 +28,20 @@ class BalanceEmptyMessageView: UIView {
 
     private func configureUI() {
         clipsToBounds = true
+        backgroundColor = Theme.Pallete.softGray.withAlphaComponent(0.7)
         roundCorners(withRadius: Constants.addButtonDiameter / 2)
 
-        addIconView.tintColor = .white
+        addIconView.tintColor = Theme.Pallete.white
         addIconView.contentMode = .center
         addIconView.backgroundColor = Theme.Pallete.softGray
         addIconView.anchorSquare(size: Constants.addButtonDiameter)
         addIconView.roundCorners(withRadius: Constants.addButtonDiameter / 2)
 
-        messageLabel.textAlignment = .left
-        messageLabel.text = "Agrega una tarjeta para consultar tu saldo"
+        messageLabel.textAlignment = .center
+        messageLabel.text = "Agrega una tarjeta para consultar tu saldo" // Localize
         messageLabel.backgroundColor = .clear
+        messageLabel.textColor = Theme.Pallete.white
+        messageLabel.font = FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium).getScaledFont()
     }
 
     private func configureLayout() {

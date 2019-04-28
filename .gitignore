@@ -1,7 +1,7 @@
 ### Configuration files ###
 # Develop
-suburbano/Configurations/Devel/Development.xcconfig
-suburbano/Configurations/Devel/GoogleService-Info.plist
+suburbano/Configurations/Dev/Development.xcconfig
+suburbano/Configurations/Dev/GoogleService-Info.plist
 
 # Production
 suburbano/Configurations/Prod/Production.xcconfig

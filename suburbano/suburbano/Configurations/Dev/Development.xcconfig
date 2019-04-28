@@ -1,0 +1,19 @@
+//
+//  Development.xcconfig
+//  suburbano
+//
+//  Created by Miguel Angel Ruiz Galvez on 9/14/18.
+//  Copyright © 2018 chimichanga studio. All rights reserved.
+//
+
+// System
+APP_DISPLAY_NAME = Suburbano-Dev
+APP_BUNDLE_ID = com.miguelo.suburbano.dev
+
+// APIs
+SIMPLE_SLASH = /
+MAIN_HOST = https:$(SIMPLE_SLASH)$(SIMPLE_SLASH)raw.githubusercontent.com
+FSUBURBANOS_HOST = https:$(SIMPLE_SLASH)$(SIMPLE_SLASH)app.fsuburbanos.com
+
+// MapBox
+MAPBOX_ACCESS_TOKEN = pk.eyJ1IjoibWlndWVsb3J1aXoiLCJhIjoiY2p2MTk2NnlpMXJxMjQ0bnV6aW5reXp3MSJ9.vPeLIrpEYBgi0ttPcArpIw

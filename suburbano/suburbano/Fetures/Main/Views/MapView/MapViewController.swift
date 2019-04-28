@@ -56,7 +56,7 @@ class MapViewController: UIViewController {
     }
 
     private func configureUI() {
-        automaticallyAdjustsScrollViewInsets = false // MapBox is working in no depend on this property
+//        automaticallyAdjustsScrollViewInsets = false // MapBox is working in no depend on this property
         mapView.delegate = self
     }
 
@@ -102,7 +102,11 @@ extension MapViewController: MGLMapViewDelegate {
         mapView.addAnnotations(stationsMarkers)
     }
 
-    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+    func mapViewDidFailLoadingMap(_ mapView: MGLMapView, withError error: Error) {
+        print(error)
+    }
+
+    func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
         drawRailRoad(mapView: mapView)
         draw(mapView: mapView, stations: presenter.getMarkers())
     }

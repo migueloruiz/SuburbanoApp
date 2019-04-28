@@ -1,0 +1,19 @@
+//
+//  Example.xcconfig
+//  suburbano
+//
+//  Created by Miguel Angel Ruiz Galvez on 9/14/18.
+//  Copyright © 2018 chimichanga studio. All rights reserved.
+//
+
+// System
+APP_DISPLAY_NAME = Suburbano-Example
+APP_BUNDLE_ID = xxxxxxxx
+
+// APIs
+SIMPLE_SLASH = /
+MAIN_HOST = https:$(SIMPLE_SLASH)$(SIMPLE_SLASH)xxxxxxxx
+FSUBURBANOS_HOST = https:$(SIMPLE_SLASH)$(SIMPLE_SLASH)xxxxxxxxx
+
+// MapBox
+MAPBOX_ACCESS_TOKEN = xxxxxxxxxxxxxxx

@@ -19,6 +19,163 @@
 		8614724C2151DE660042BBB8 /* TrainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614724B2151DE660042BBB8 /* TrainRepository.swift */; };
 		8614C47D2238153E003E4A14 /* MapResurcesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47C2238153E003E4A14 /* MapResurcesUseCase.swift */; };
 		8614C47F2238177D003E4A14 /* MapResurcesUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47E2238177D003E4A14 /* MapResurcesUseCaseImpl.swift */; };
+		861CA0BE2274CE7000DAF641 /* FireBaseAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CA0BD2274CE7000DAF641 /* FireBaseAppDelegate.swift */; };
+		861CA0BF2275FE6C00DAF641 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0AB2274C90600DAF641 /* GoogleAppMeasurement.framework */; };
+		861CA0C02275FE6C00DAF641 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0AC2274C90600DAF641 /* FirebaseCore.framework */; };
+		861CA0C12275FE6C00DAF641 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0AD2274C90600DAF641 /* FirebaseAnalytics.framework */; };
+		861CA0C22275FE6C00DAF641 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0AE2274C90600DAF641 /* GoogleUtilities.framework */; };
+		861CA0C32275FE6C00DAF641 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0AF2274C90600DAF641 /* nanopb.framework */; };
+		861CA0C42275FE6C00DAF641 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0B02274C90600DAF641 /* FIRAnalyticsConnector.framework */; };
+		861CA0C52275FE6C00DAF641 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0B12274C90600DAF641 /* FirebaseInstanceID.framework */; };
+		861CA0C62275FE6C00DAF641 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0B22274C90600DAF641 /* FirebaseCoreDiagnostics.framework */; };
+		861CA0C7227601DC00DAF641 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 868D00B020F014F900C9D8B1 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		861CA106227621B300DAF641 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 861CA105227621B300DAF641 /* GoogleService-Info.plist */; };
+		861CA10A227621F400DAF641 /* UseCaseLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D020FD6ED0002F2048 /* UseCaseLocator.swift */; };
+		861CA10B227621F400DAF641 /* CardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830EB21388E420063AC75 /* CardParser.swift */; };
+		861CA10C227621F400DAF641 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867468E121018BAD00E4809D /* String.swift */; };
+		861CA10D227621F400DAF641 /* RouteInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3F21505CB500383445 /* RouteInfoView.swift */; };
+		861CA10E227621F400DAF641 /* CardBalancePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A35A2129074700ED1910 /* CardBalancePicker.swift */; };
+		861CA10F227621F400DAF641 /* DaySelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985E2159D7660022DC6F /* DaySelectorView.swift */; };
+		861CA110227621F400DAF641 /* UITabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4A20F43FE300D1CF7D /* UITabBar.swift */; };
+		861CA111227621F400DAF641 /* CardBalanceWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8321337437002EA9DF /* CardBalanceWebService.swift */; };
+		861CA112227621F400DAF641 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A2ED20F7026400A2D8B1 /* AppConstants.swift */; };
+		861CA113227621F400DAF641 /* WeekDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939D21B850A100490820 /* WeekDays.swift */; };
+		861CA114227621F400DAF641 /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC580211010480024783A /* UIEdgeInsets.swift */; };
+		861CA115227621F400DAF641 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83113213DBF350063AC75 /* DetailHeaderView.swift */; };
+		861CA116227621F400DAF641 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E921385FBB0063AC75 /* PromptView.swift */; };
+		861CA117227621F400DAF641 /* PriceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3621502E0A00383445 /* PriceRepository.swift */; };
+		861CA118227621F400DAF641 /* FireBaseAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CA0BD2274CE7000DAF641 /* FireBaseAppDelegate.swift */; };
+		861CA119227621F400DAF641 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */; };
+		861CA11A227621F400DAF641 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C852133747E002EA9DF /* Card.swift */; };
+		861CA11B227621F400DAF641 /* CardBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A360212A407600ED1910 /* CardBalanceViewController.swift */; };
+		861CA11C227621F400DAF641 /* WaitTimeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD9860215AE6640022DC6F /* WaitTimeDetail.swift */; };
+		861CA11D227621F400DAF641 /* AppResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4E20F450B700D1CF7D /* AppResources.swift */; };
+		861CA11E227621F400DAF641 /* AlertContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DD213765A80063AC75 /* AlertContext.swift */; };
+		861CA11F227621F400DAF641 /* DirectionActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831292140CDFF0063AC75 /* DirectionActionView.swift */; };
+		861CA120227621F400DAF641 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7459220D3217006311B3 /* UITableView.swift */; };
+		861CA121227621F400DAF641 /* MapResurcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CCF226FDD620025A764 /* MapResurcesRepository.swift */; };
+		861CA122227621F400DAF641 /* DetailScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83119213DC6230063AC75 /* DetailScheduleCell.swift */; };
+		861CA123227621F400DAF641 /* RouteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C2C2150261F00383445 /* RouteUseCase.swift */; };
+		861CA124227621F400DAF641 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
+		861CA125227621F400DAF641 /* TrainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614724B2151DE660042BBB8 /* TrainRepository.swift */; };
+		861CA126227621F400DAF641 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AFE52221BBB0E004972B0 /* MapViewController.swift */; };
+		861CA127227621F400DAF641 /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517CB20F84D2F002F2048 /* RealmHandler.swift */; };
+		861CA128227621F400DAF641 /* RealmStationWaitTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CCB226FD7D50025A764 /* RealmStationWaitTime.swift */; };
+		861CA129227621F400DAF641 /* DetailAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83117213DC5140063AC75 /* DetailAddressCell.swift */; };
+		861CA12A227621F400DAF641 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E7213857EA0063AC75 /* Notifications.swift */; };
+		861CA12B227621F400DAF641 /* RouteCalculatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C835214ED5B400FFBC23 /* RouteCalculatorPresenter.swift */; };
+		861CA12C227621F400DAF641 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* UIDevice.swift */; };
+		861CA12D227621F400DAF641 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008220F00FFE00C9D8B1 /* MainViewController.swift */; };
+		861CA12E227621F400DAF641 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682720F4227900A6B17A /* Coordinator.swift */; };
+		861CA12F227621F400DAF641 /* DetailWaitTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939A21B84C7600490820 /* DetailWaitTimeCell.swift */; };
+		861CA130227621F400DAF641 /* ResponseAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7453220D024D006311B3 /* ResponseAlias.swift */; };
+		861CA131227621F400DAF641 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
+		861CA132227621F400DAF641 /* RouteCalculatorTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2617214B3AD000700DE7 /* RouteCalculatorTransition.swift */; };
+		861CA133227621F400DAF641 /* DirectionsDetailCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83120213F79480063AC75 /* DirectionsDetailCordinator.swift */; };
+		861CA134227621F400DAF641 /* PluggableApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0681F20F4176D00A6B17A /* PluggableApplicationDelegate.swift */; };
+		861CA135227621F400DAF641 /* RealmTrainStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587C9E226EBE0A0025A764 /* RealmTrainStop.swift */; };
+		861CA136227621F400DAF641 /* StationWaitTimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98582159CD680022DC6F /* StationWaitTimeRepository.swift */; };
+		861CA137227621F400DAF641 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7F21017D3F0002663B /* FontStyle.swift */; };
+		861CA138227621F400DAF641 /* RealmCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8721337558002EA9DF /* RealmCard.swift */; };
+		861CA139227621F400DAF641 /* CardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8921338392002EA9DF /* CardUseCase.swift */; };
+		861CA13A227621F400DAF641 /* StationDetailTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831072138CC6F0063AC75 /* StationDetailTransition.swift */; };
+		861CA13B227621F400DAF641 /* RealmTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587C9B226EB23B0025A764 /* RealmTrain.swift */; };
+		861CA13C227621F400DAF641 /* PopUpTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CC8212524DB00B2FA9F /* PopUpTransition.swift */; };
+		861CA13D227621F400DAF641 /* FadingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E42138485A0063AC75 /* FadingCollectionView.swift */; };
+		861CA13E227621F400DAF641 /* NSLayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */; };
+		861CA13F227621F400DAF641 /* FadingCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E2213844440063AC75 /* FadingCollectionLayout.swift */; };
+		861CA140227621F400DAF641 /* CardBalancePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C79213362DC002EA9DF /* CardBalancePresenter.swift */; };
+		861CA141227621F400DAF641 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D121163E170053DFB1 /* UIFactory.swift */; };
+		861CA142227621F400DAF641 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864132572100017A0031F4F4 /* ReusableView.swift */; };
+		861CA143227621F400DAF641 /* DirectionsAppsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8312E21459FD70063AC75 /* DirectionsAppsFactory.swift */; };
+		861CA144227621F400DAF641 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641325120FFF6ED0031F4F4 /* UIView.swift */; };
+		861CA145227621F400DAF641 /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831032138C1AE0063AC75 /* StationDetailViewController.swift */; };
+		861CA146227621F400DAF641 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7621335ED3002EA9DF /* IconCell.swift */; };
+		861CA147227621F400DAF641 /* StationMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */; };
+		861CA148227621F400DAF641 /* DirectionDetailsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B53F322142D78200848B8D /* DirectionDetailsTransition.swift */; };
+		861CA149227621F400DAF641 /* IconInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75EB212B9F8800DBDB98 /* IconInputView.swift */; };
+		861CA14A227621F400DAF641 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CC621250C9300B2FA9F /* PopUpViewController.swift */; };
+		861CA14B227621F400DAF641 /* RouteCalculatorCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2613214B361900700DE7 /* RouteCalculatorCordinator.swift */; };
+		861CA14C227621F400DAF641 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC582211015460024783A /* UIStackView.swift */; };
+		861CA14D227621F400DAF641 /* WebResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86695E2220F6E67C00F74150 /* WebResources.swift */; };
+		861CA14E227621F400DAF641 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86695E2020F6E65900F74150 /* RequestFactory.swift */; };
+		861CA14F227621F400DAF641 /* PresentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831052138C95A0063AC75 /* PresentableView.swift */; };
+		861CA150227621F400DAF641 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3221502A5900383445 /* Price.swift */; };
+		861CA151227621F400DAF641 /* MGLMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AFE54221BC6DF004972B0 /* MGLMapView.swift */; };
+		861CA152227621F400DAF641 /* MapViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E5120F4550200D1CF7D /* MapViewFactory.swift */; };
+		861CA153227621F400DAF641 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E5320F45D3600D1CF7D /* UIColor.swift */; };
+		861CA154227621F400DAF641 /* MoreBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128502123BAFA00A7A011 /* MoreBoardViewController.swift */; };
+		861CA155227621F400DAF641 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830F3213899BE0063AC75 /* Location.swift */; };
+		861CA156227621F400DAF641 /* MainPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E5620F4662800D1CF7D /* MainPresenterImpl.swift */; };
+		861CA157227621F400DAF641 /* DataBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E120FD7A32002F2048 /* DataBaseRepository.swift */; };
+		861CA158227621F400DAF641 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30620F70C2E00A2D8B1 /* BaseService.swift */; };
+		861CA159227621F400DAF641 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */; };
+		861CA15A227621F400DAF641 /* RealmPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CD1226FDFD40025A764 /* RealmPrice.swift */; };
+		861CA15B227621F400DAF641 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E0213843FB0063AC75 /* CardCell.swift */; };
+		861CA15C227621F400DAF641 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4C20F4500E00D1CF7D /* Utils.swift */; };
+		861CA15D227621F400DAF641 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861472412151C0850042BBB8 /* Train.swift */; };
+		861CA15E227621F400DAF641 /* BalanceEmptyMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A35C212915C900ED1910 /* BalanceEmptyMessageView.swift */; };
+		861CA15F227621F400DAF641 /* DirectionsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8312C21459ADD0063AC75 /* DirectionsApp.swift */; };
+		861CA160227621F400DAF641 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86695E1E20F6D50600F74150 /* Endpoints.swift */; };
+		861CA161227621F400DAF641 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83115213DC4F30063AC75 /* DetailCell.swift */; };
+		861CA162227621F400DAF641 /* StationWaitTimeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */; };
+		861CA163227621F400DAF641 /* StationDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83110213DAEBA0063AC75 /* StationDetailPresenter.swift */; };
+		861CA164227621F400DAF641 /* ResourceSynchronizerAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */; };
+		861CA165227621F400DAF641 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7A21017AAD0002663B /* Theme.swift */; };
+		861CA166227621F400DAF641 /* PricesWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C392150443E00383445 /* PricesWebService.swift */; };
+		861CA167227621F400DAF641 /* DeatilConectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8311B213DF3AA0063AC75 /* DeatilConectionsCell.swift */; };
+		861CA168227621F400DAF641 /* CardBalanceTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A362212B2D3500ED1910 /* CardBalanceTransition.swift */; };
+		861CA169227621F400DAF641 /* StationDetailViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8310D213DADB70063AC75 /* StationDetailViewController+DataSource.swift */; };
+		861CA16A227621F400DAF641 /* CardBalanceCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7C21336C2E002EA9DF /* CardBalanceCordinator.swift */; };
+		861CA16B227621F400DAF641 /* DebugLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7457220D2257006311B3 /* DebugLogger.swift */; };
+		861CA16C227621F400DAF641 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCC2125380600B2FA9F /* UIButton.swift */; };
+		861CA16D227621F400DAF641 /* UIThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D32116422A0053DFB1 /* UIThemes.swift */; };
+		861CA16E227621F400DAF641 /* MapResurcesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47C2238153E003E4A14 /* MapResurcesUseCase.swift */; };
+		861CA16F227621F400DAF641 /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D0F2134BA04004BE0A9 /* CardRepository.swift */; };
+		861CA170227621F400DAF641 /* RealmAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */; };
+		861CA171227621F400DAF641 /* DirectionsDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831272140BB5B0063AC75 /* DirectionsDetailPresenter.swift */; };
+		861CA172227621F400DAF641 /* ApplicationCoordinatorAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682120F41FF400A6B17A /* ApplicationCoordinatorAppDelegate.swift */; };
+		861CA173227621F400DAF641 /* ResilienceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3D2150456400383445 /* ResilienceHandler.swift */; };
+		861CA174227621F400DAF641 /* RouteCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2615214B362500700DE7 /* RouteCalculatorViewController.swift */; };
+		861CA175227621F400DAF641 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DB2137422A0063AC75 /* LoadingView.swift */; };
+		861CA176227621F400DAF641 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CCD226FDAE40025A764 /* Repository.swift */; };
+		861CA177227621F400DAF641 /* DirectionsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83124213F7A620063AC75 /* DirectionsDetailViewController.swift */; };
+		861CA178227621F400DAF641 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830F12138984C0063AC75 /* Station.swift */; };
+		861CA179227621F400DAF641 /* TrainStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861472452151C47F0042BBB8 /* TrainStop.swift */; };
+		861CA17A227621F400DAF641 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7421335D91002EA9DF /* ColorCell.swift */; };
+		861CA17B227621F400DAF641 /* AppLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7455220D1DE8006311B3 /* AppLaunchArguments.swift */; };
+		861CA17C227621F400DAF641 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008020F00FFE00C9D8B1 /* AppDelegate.swift */; };
+		861CA17D227621F400DAF641 /* StationDetailCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831002138C1920063AC75 /* StationDetailCordinator.swift */; };
+		861CA17E227621F400DAF641 /* StationWaitTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98562159C7170022DC6F /* StationWaitTime.swift */; };
+		861CA17F227621F400DAF641 /* WaitTimeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF0C7222125E16008300FF /* WaitTimeDetailCell.swift */; };
+		861CA180227621F400DAF641 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC745D220D329F006311B3 /* UICollectionView.swift */; };
+		861CA181227621F400DAF641 /* MapResurcesUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47E2238177D003E4A14 /* MapResurcesUseCaseImpl.swift */; };
+		861CA182227621F400DAF641 /* CardUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8B2133840E002EA9DF /* CardUseCaseImpl.swift */; };
+		861CA184227621F400DAF641 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868D00B020F014F900C9D8B1 /* Mapbox.framework */; };
+		861CA185227621F400DAF641 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0AB2274C90600DAF641 /* GoogleAppMeasurement.framework */; };
+		861CA186227621F400DAF641 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0AC2274C90600DAF641 /* FirebaseCore.framework */; };
+		861CA187227621F400DAF641 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0AD2274C90600DAF641 /* FirebaseAnalytics.framework */; };
+		861CA188227621F400DAF641 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0AE2274C90600DAF641 /* GoogleUtilities.framework */; };
+		861CA189227621F400DAF641 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0AF2274C90600DAF641 /* nanopb.framework */; };
+		861CA18A227621F400DAF641 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0B02274C90600DAF641 /* FIRAnalyticsConnector.framework */; };
+		861CA18B227621F400DAF641 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0B12274C90600DAF641 /* FirebaseInstanceID.framework */; };
+		861CA18C227621F400DAF641 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0B22274C90600DAF641 /* FirebaseCoreDiagnostics.framework */; };
+		861CA18E227621F400DAF641 /* trainRail.json in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680220F0175800A6B17A /* trainRail.json */; };
+		861CA18F227621F400DAF641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 868D008920F00FFF00C9D8B1 /* LaunchScreen.storyboard */; };
+		861CA190227621F400DAF641 /* table-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B8313021460CC60063AC75 /* table-loading.json */; };
+		861CA191227621F400DAF641 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 869E40E021371CC900EB133F /* loading.json */; };
+		861CA192227621F400DAF641 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680620F0496300A6B17A /* Colors.xcassets */; };
+		861CA193227621F400DAF641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86F14E4820F43F6D00D1CF7D /* Assets.xcassets */; };
+		861CA194227621F400DAF641 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680A20F0532A00A6B17A /* AppIcon.xcassets */; };
+		861CA195227621F400DAF641 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 869E2CCA2125347500B2FA9F /* Montserrat-Bold.ttf */; };
+		861CA197227621F400DAF641 /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B830ED213896F30063AC75 /* stations.json */; };
+		861CA19A227621F400DAF641 /* OpenSansCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */; };
+		861CA19B227621F400DAF641 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 861CA0A42274C7BE00DAF641 /* GoogleService-Info.plist */; };
+		861CA19C227621F400DAF641 /* IconsCataloge.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 864C6FDC212CE7DE0072C26B /* IconsCataloge.ttf */; };
+		861CA19D227621F400DAF641 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680420F01F7D00A6B17A /* mapStyle.json */; };
+		861CA19E227621F400DAF641 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8611AF82210186100002663B /* Montserrat-Medium.ttf */; };
+		861CA19F227621F400DAF641 /* prices.json in Resources */ = {isa = PBXBuildFile; fileRef = 86593C29215020A100383445 /* prices.json */; };
+		861CA1A3227621F400DAF641 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 868D00B020F014F900C9D8B1 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		861FC581211010480024783A /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC580211010480024783A /* UIEdgeInsets.swift */; };
 		861FC583211015460024783A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC582211015460024783A /* UIStackView.swift */; };
 		8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4A20F43FE300D1CF7D /* UITabBar.swift */; };
@@ -59,6 +216,10 @@
 		86385C8C2133840E002EA9DF /* CardUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8B2133840E002EA9DF /* CardUseCaseImpl.swift */; };
 		8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641325120FFF6ED0031F4F4 /* UIView.swift */; };
 		864132582100017A0031F4F4 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864132572100017A0031F4F4 /* ReusableView.swift */; };
+		8646BE7922762ACD00F2BAB0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7722762ACD00F2BAB0 /* Crashlytics.framework */; };
+		8646BE7A22762ACD00F2BAB0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7722762ACD00F2BAB0 /* Crashlytics.framework */; };
+		8646BE7B22762ACD00F2BAB0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7822762ACD00F2BAB0 /* Fabric.framework */; };
+		8646BE7C22762ACD00F2BAB0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7822762ACD00F2BAB0 /* Fabric.framework */; };
 		864A38C22102A343006AD3A0 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868D00B020F014F900C9D8B1 /* Mapbox.framework */; };
 		864C6FDD212CE7DE0072C26B /* IconsCataloge.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 864C6FDC212CE7DE0072C26B /* IconsCataloge.ttf */; };
 		864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D121163E170053DFB1 /* UIFactory.swift */; };
@@ -141,18 +302,30 @@
 		86DF0C7322125E16008300FF /* WaitTimeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF0C7222125E16008300FF /* WaitTimeDetailCell.swift */; };
 		86FC7454220D024D006311B3 /* ResponseAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7453220D024D006311B3 /* ResponseAlias.swift */; };
 		86FC7456220D1DE8006311B3 /* AppLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7455220D1DE8006311B3 /* AppLaunchArguments.swift */; };
-		86FC7458220D2257006311B3 /* DebugManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7457220D2257006311B3 /* DebugManager.swift */; };
+		86FC7458220D2257006311B3 /* DebugLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7457220D2257006311B3 /* DebugLogger.swift */; };
 		86FC745A220D3217006311B3 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7459220D3217006311B3 /* UITableView.swift */; };
 		86FC745E220D329F006311B3 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC745D220D329F006311B3 /* UICollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		861CA1A2227621F400DAF641 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				861CA1A3227621F400DAF641 /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8621A2FE20F7075500A2D8B1 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				861CA0C7227601DC00DAF641 /* Mapbox.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,8 +333,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		135366F5214C01450022B042 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
-		135366F6214C03300022B042 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		135366F7214C090B0022B042 /* Example.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Example.xcconfig; sourceTree = "<group>"; };
 		13B53F322142D78200848B8D /* DirectionDetailsTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionDetailsTransition.swift; sourceTree = "<group>"; };
 		860AFE52221BBB0E004972B0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -175,9 +346,27 @@
 		8614724B2151DE660042BBB8 /* TrainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainRepository.swift; sourceTree = "<group>"; };
 		8614C47C2238153E003E4A14 /* MapResurcesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResurcesUseCase.swift; sourceTree = "<group>"; };
 		8614C47E2238177D003E4A14 /* MapResurcesUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResurcesUseCaseImpl.swift; sourceTree = "<group>"; };
+		861CA0A32274C7BE00DAF641 /* Development.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		861CA0A42274C7BE00DAF641 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		861CA0A82274C7CA00DAF641 /* Production.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		861CA0AB2274C90600DAF641 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurement.framework; sourceTree = "<group>"; };
+		861CA0AC2274C90600DAF641 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		861CA0AD2274C90600DAF641 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		861CA0AE2274C90600DAF641 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		861CA0AF2274C90600DAF641 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		861CA0B02274C90600DAF641 /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
+		861CA0B12274C90600DAF641 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		861CA0B22274C90600DAF641 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		861CA0BB2274CDD000DAF641 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		861CA0BC2274CDF700DAF641 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		861CA0BD2274CE7000DAF641 /* FireBaseAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireBaseAppDelegate.swift; sourceTree = "<group>"; };
+		861CA105227621B300DAF641 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		861CA107227621CB00DAF641 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		861CA1A7227621F400DAF641 /* suburbano-dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "suburbano-dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		861CA1A8227621F500DAF641 /* suburbano copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "suburbano copy-Info.plist"; path = "/Users/miguelruiz/Git/SuburbanoApp/SuburbanoApp/suburbano/suburbano copy-Info.plist"; sourceTree = "<absolute>"; };
 		861FC580211010480024783A /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		861FC582211015460024783A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
-		8621A2EB20F6FE0A00A2D8B1 /* suburbano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suburbano.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8621A2EB20F6FE0A00A2D8B1 /* suburbano-prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "suburbano-prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8621A2ED20F7026400A2D8B1 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		8621A30620F70C2E00A2D8B1 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		862517CB20F84D2F002F2048 /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
@@ -194,6 +383,8 @@
 		86385C8B2133840E002EA9DF /* CardUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardUseCaseImpl.swift; sourceTree = "<group>"; };
 		8641325120FFF6ED0031F4F4 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		864132572100017A0031F4F4 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		8646BE7722762ACD00F2BAB0 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		8646BE7822762ACD00F2BAB0 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		864A389221029335006AD3A0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		864A389321029336006AD3A0 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		864A38BE2102A2A4006AD3A0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -308,17 +499,45 @@
 		86F14E5620F4662800D1CF7D /* MainPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterImpl.swift; sourceTree = "<group>"; };
 		86FC7453220D024D006311B3 /* ResponseAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseAlias.swift; sourceTree = "<group>"; };
 		86FC7455220D1DE8006311B3 /* AppLaunchArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchArguments.swift; sourceTree = "<group>"; };
-		86FC7457220D2257006311B3 /* DebugManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugManager.swift; sourceTree = "<group>"; };
+		86FC7457220D2257006311B3 /* DebugLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLogger.swift; sourceTree = "<group>"; };
 		86FC7459220D3217006311B3 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		86FC745D220D329F006311B3 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		861CA183227621F400DAF641 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				861CA184227621F400DAF641 /* Mapbox.framework in Frameworks */,
+				861CA185227621F400DAF641 /* GoogleAppMeasurement.framework in Frameworks */,
+				861CA186227621F400DAF641 /* FirebaseCore.framework in Frameworks */,
+				861CA187227621F400DAF641 /* FirebaseAnalytics.framework in Frameworks */,
+				861CA188227621F400DAF641 /* GoogleUtilities.framework in Frameworks */,
+				861CA189227621F400DAF641 /* nanopb.framework in Frameworks */,
+				8646BE7A22762ACD00F2BAB0 /* Crashlytics.framework in Frameworks */,
+				861CA18A227621F400DAF641 /* FIRAnalyticsConnector.framework in Frameworks */,
+				861CA18B227621F400DAF641 /* FirebaseInstanceID.framework in Frameworks */,
+				861CA18C227621F400DAF641 /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				8646BE7C22762ACD00F2BAB0 /* Fabric.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8621A2DE20F6FE0A00A2D8B1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				864A38C22102A343006AD3A0 /* Mapbox.framework in Frameworks */,
+				861CA0BF2275FE6C00DAF641 /* GoogleAppMeasurement.framework in Frameworks */,
+				861CA0C02275FE6C00DAF641 /* FirebaseCore.framework in Frameworks */,
+				861CA0C12275FE6C00DAF641 /* FirebaseAnalytics.framework in Frameworks */,
+				861CA0C22275FE6C00DAF641 /* GoogleUtilities.framework in Frameworks */,
+				861CA0C32275FE6C00DAF641 /* nanopb.framework in Frameworks */,
+				8646BE7922762ACD00F2BAB0 /* Crashlytics.framework in Frameworks */,
+				861CA0C42275FE6C00DAF641 /* FIRAnalyticsConnector.framework in Frameworks */,
+				861CA0C52275FE6C00DAF641 /* FirebaseInstanceID.framework in Frameworks */,
+				861CA0C62275FE6C00DAF641 /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				8646BE7B22762ACD00F2BAB0 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,9 +562,11 @@
 			isa = PBXGroup;
 			children = (
 				869E1D132134CEA0004BE0A9 /* suburbano.entitlements */,
-				135366F5214C01450022B042 /* Development.xcconfig */,
-				135366F6214C03300022B042 /* Production.xcconfig */,
-				135366F7214C090B0022B042 /* Example.xcconfig */,
+				861CA0BB2274CDD000DAF641 /* Firebase.h */,
+				861CA0BC2274CDF700DAF641 /* module.modulemap */,
+				861CA0A22274C7BE00DAF641 /* Dev */,
+				861CA1042276201D00DAF641 /* Example */,
+				861CA0A72274C7CA00DAF641 /* Prod */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -411,6 +632,50 @@
 				8614724B2151DE660042BBB8 /* TrainRepository.swift */,
 			);
 			path = Train;
+			sourceTree = "<group>";
+		};
+		861CA0A22274C7BE00DAF641 /* Dev */ = {
+			isa = PBXGroup;
+			children = (
+				861CA0A32274C7BE00DAF641 /* Development.xcconfig */,
+				861CA0A42274C7BE00DAF641 /* GoogleService-Info.plist */,
+			);
+			path = Dev;
+			sourceTree = "<group>";
+		};
+		861CA0A72274C7CA00DAF641 /* Prod */ = {
+			isa = PBXGroup;
+			children = (
+				861CA105227621B300DAF641 /* GoogleService-Info.plist */,
+				861CA0A82274C7CA00DAF641 /* Production.xcconfig */,
+			);
+			path = Prod;
+			sourceTree = "<group>";
+		};
+		861CA0AA2274C90600DAF641 /* NoCrathageFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8646BE7722762ACD00F2BAB0 /* Crashlytics.framework */,
+				8646BE7822762ACD00F2BAB0 /* Fabric.framework */,
+				861CA0AB2274C90600DAF641 /* GoogleAppMeasurement.framework */,
+				861CA0AC2274C90600DAF641 /* FirebaseCore.framework */,
+				861CA0AD2274C90600DAF641 /* FirebaseAnalytics.framework */,
+				861CA0AE2274C90600DAF641 /* GoogleUtilities.framework */,
+				861CA0AF2274C90600DAF641 /* nanopb.framework */,
+				861CA0B02274C90600DAF641 /* FIRAnalyticsConnector.framework */,
+				861CA0B12274C90600DAF641 /* FirebaseInstanceID.framework */,
+				861CA0B22274C90600DAF641 /* FirebaseCoreDiagnostics.framework */,
+			);
+			path = NoCrathageFrameworks;
+			sourceTree = "<group>";
+		};
+		861CA1042276201D00DAF641 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				135366F7214C090B0022B042 /* Example.xcconfig */,
+				861CA107227621CB00DAF641 /* GoogleService-Info.plist */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 		862517C920F849CF002F2048 /* Data Persistence */ = {
@@ -651,7 +916,9 @@
 				868D009420F00FFF00C9D8B1 /* suburbanoTests */,
 				868D009F20F00FFF00C9D8B1 /* suburbanoUITests */,
 				868D007E20F00FFE00C9D8B1 /* Products */,
+				861CA0AA2274C90600DAF641 /* NoCrathageFrameworks */,
 				868D00AF20F014F900C9D8B1 /* Frameworks */,
+				861CA1A8227621F500DAF641 /* suburbano copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -660,7 +927,8 @@
 			children = (
 				868D009120F00FFF00C9D8B1 /* suburbanoTests.xctest */,
 				868D009C20F00FFF00C9D8B1 /* suburbanoUITests.xctest */,
-				8621A2EB20F6FE0A00A2D8B1 /* suburbano.app */,
+				8621A2EB20F6FE0A00A2D8B1 /* suburbano-prod.app */,
+				861CA1A7227621F400DAF641 /* suburbano-dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1013,6 +1281,7 @@
 				86C0681F20F4176D00A6B17A /* PluggableApplicationDelegate.swift */,
 				86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */,
 				869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */,
+				861CA0BD2274CE7000DAF641 /* FireBaseAppDelegate.swift */,
 			);
 			path = AppDelegates;
 			sourceTree = "<group>";
@@ -1049,7 +1318,7 @@
 			children = (
 				86FC7455220D1DE8006311B3 /* AppLaunchArguments.swift */,
 				86F14E4C20F4500E00D1CF7D /* Utils.swift */,
-				86FC7457220D2257006311B3 /* DebugManager.swift */,
+				86FC7457220D2257006311B3 /* DebugLogger.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1091,9 +1360,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8621A2CB20F6FE0A00A2D8B1 /* suburbano */ = {
+		861CA108227621F400DAF641 /* suburbano-dev */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8621A2E820F6FE0A00A2D8B1 /* Build configuration list for PBXNativeTarget "suburbano" */;
+			buildConfigurationList = 861CA1A4227621F400DAF641 /* Build configuration list for PBXNativeTarget "suburbano-dev" */;
+			buildPhases = (
+				861CA109227621F400DAF641 /* Sources */,
+				861CA183227621F400DAF641 /* Frameworks */,
+				861CA1A2227621F400DAF641 /* Embed Frameworks */,
+				861CA18D227621F400DAF641 /* Resources */,
+				861CA1A0227621F400DAF641 /* Carthage Script */,
+				861CA1A1227621F400DAF641 /* SwiftLint Script */,
+				8646BE752276288600F2BAB0 /* CrashLytics Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "suburbano-dev";
+			productName = suburbano;
+			productReference = 861CA1A7227621F400DAF641 /* suburbano-dev.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8621A2CB20F6FE0A00A2D8B1 /* suburbano-prod */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8621A2E820F6FE0A00A2D8B1 /* Build configuration list for PBXNativeTarget "suburbano-prod" */;
 			buildPhases = (
 				8621A2CC20F6FE0A00A2D8B1 /* Sources */,
 				8621A2DE20F6FE0A00A2D8B1 /* Frameworks */,
@@ -1101,14 +1391,15 @@
 				8621A2E720F6FE0A00A2D8B1 /* Carthage Script */,
 				86B8311D213F5CEA0063AC75 /* SwiftLint Script */,
 				8621A2FE20F7075500A2D8B1 /* Embed Frameworks */,
+				8646BE762276299D00F2BAB0 /* CrashLytics Script */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = suburbano;
+			name = "suburbano-prod";
 			productName = suburbano;
-			productReference = 8621A2EB20F6FE0A00A2D8B1 /* suburbano.app */;
+			productReference = 8621A2EB20F6FE0A00A2D8B1 /* suburbano-prod.app */;
 			productType = "com.apple.product-type.application";
 		};
 		868D009020F00FFF00C9D8B1 /* suburbanoTests */ = {
@@ -1155,6 +1446,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "chimichanga studio";
 				TargetAttributes = {
+					861CA108227621F400DAF641 = {
+						ProvisioningStyle = Automatic;
+					};
 					8621A2CB20F6FE0A00A2D8B1 = {
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
@@ -1189,7 +1483,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8621A2CB20F6FE0A00A2D8B1 /* suburbano */,
+				8621A2CB20F6FE0A00A2D8B1 /* suburbano-prod */,
+				861CA108227621F400DAF641 /* suburbano-dev */,
 				868D009020F00FFF00C9D8B1 /* suburbanoTests */,
 				868D009B20F00FFF00C9D8B1 /* suburbanoUITests */,
 			);
@@ -1197,6 +1492,28 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		861CA18D227621F400DAF641 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				861CA18E227621F400DAF641 /* trainRail.json in Resources */,
+				861CA18F227621F400DAF641 /* LaunchScreen.storyboard in Resources */,
+				861CA190227621F400DAF641 /* table-loading.json in Resources */,
+				861CA191227621F400DAF641 /* loading.json in Resources */,
+				861CA192227621F400DAF641 /* Colors.xcassets in Resources */,
+				861CA193227621F400DAF641 /* Assets.xcassets in Resources */,
+				861CA194227621F400DAF641 /* AppIcon.xcassets in Resources */,
+				861CA195227621F400DAF641 /* Montserrat-Bold.ttf in Resources */,
+				861CA197227621F400DAF641 /* stations.json in Resources */,
+				861CA19A227621F400DAF641 /* OpenSansCondensed-Bold.ttf in Resources */,
+				861CA19B227621F400DAF641 /* GoogleService-Info.plist in Resources */,
+				861CA19C227621F400DAF641 /* IconsCataloge.ttf in Resources */,
+				861CA19D227621F400DAF641 /* mapStyle.json in Resources */,
+				861CA19E227621F400DAF641 /* Montserrat-Medium.ttf in Resources */,
+				861CA19F227621F400DAF641 /* prices.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8621A2E020F6FE0A00A2D8B1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1210,6 +1527,7 @@
 				8621A2E520F6FE0A00A2D8B1 /* AppIcon.xcassets in Resources */,
 				869E2CCB2125347500B2FA9F /* Montserrat-Bold.ttf in Resources */,
 				86B830EE213896F30063AC75 /* stations.json in Resources */,
+				861CA106227621B300DAF641 /* GoogleService-Info.plist in Resources */,
 				867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */,
 				864C6FDD212CE7DE0072C26B /* IconsCataloge.ttf in Resources */,
 				8621A2E620F6FE0A00A2D8B1 /* mapStyle.json in Resources */,
@@ -1235,6 +1553,38 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		861CA1A0227621F400DAF641 /* Carthage Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Mapbox.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Lottie.framework",
+			);
+			name = "Carthage Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		861CA1A1227621F400DAF641 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		8621A2E720F6FE0A00A2D8B1 /* Carthage Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1253,6 +1603,44 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
+		8646BE752276288600F2BAB0 /* CrashLytics Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "CrashLytics Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/NoCrathageFrameworks/Fabric.framework/run\n";
+		};
+		8646BE762276299D00F2BAB0 /* CrashLytics Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "CrashLytics Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/NoCrathageFrameworks/Fabric.framework/run\n";
+		};
 		86B8311D213F5CEA0063AC75 /* SwiftLint Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1270,6 +1658,134 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		861CA109227621F400DAF641 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				861CA10A227621F400DAF641 /* UseCaseLocator.swift in Sources */,
+				861CA10B227621F400DAF641 /* CardParser.swift in Sources */,
+				861CA10C227621F400DAF641 /* String.swift in Sources */,
+				861CA10D227621F400DAF641 /* RouteInfoView.swift in Sources */,
+				861CA10E227621F400DAF641 /* CardBalancePicker.swift in Sources */,
+				861CA10F227621F400DAF641 /* DaySelectorView.swift in Sources */,
+				861CA110227621F400DAF641 /* UITabBar.swift in Sources */,
+				861CA111227621F400DAF641 /* CardBalanceWebService.swift in Sources */,
+				861CA112227621F400DAF641 /* AppConstants.swift in Sources */,
+				861CA113227621F400DAF641 /* WeekDays.swift in Sources */,
+				861CA114227621F400DAF641 /* UIEdgeInsets.swift in Sources */,
+				861CA115227621F400DAF641 /* DetailHeaderView.swift in Sources */,
+				861CA116227621F400DAF641 /* PromptView.swift in Sources */,
+				861CA117227621F400DAF641 /* PriceRepository.swift in Sources */,
+				861CA118227621F400DAF641 /* FireBaseAppDelegate.swift in Sources */,
+				861CA119227621F400DAF641 /* ApplicationCoordinator.swift in Sources */,
+				861CA11A227621F400DAF641 /* Card.swift in Sources */,
+				861CA11B227621F400DAF641 /* CardBalanceViewController.swift in Sources */,
+				861CA11C227621F400DAF641 /* WaitTimeDetail.swift in Sources */,
+				861CA11D227621F400DAF641 /* AppResources.swift in Sources */,
+				861CA11E227621F400DAF641 /* AlertContext.swift in Sources */,
+				861CA11F227621F400DAF641 /* DirectionActionView.swift in Sources */,
+				861CA120227621F400DAF641 /* UITableView.swift in Sources */,
+				861CA121227621F400DAF641 /* MapResurcesRepository.swift in Sources */,
+				861CA122227621F400DAF641 /* DetailScheduleCell.swift in Sources */,
+				861CA123227621F400DAF641 /* RouteUseCase.swift in Sources */,
+				861CA124227621F400DAF641 /* CustomeTextField.swift in Sources */,
+				861CA125227621F400DAF641 /* TrainRepository.swift in Sources */,
+				861CA126227621F400DAF641 /* MapViewController.swift in Sources */,
+				861CA127227621F400DAF641 /* RealmHandler.swift in Sources */,
+				861CA128227621F400DAF641 /* RealmStationWaitTime.swift in Sources */,
+				861CA129227621F400DAF641 /* DetailAddressCell.swift in Sources */,
+				861CA12A227621F400DAF641 /* Notifications.swift in Sources */,
+				861CA12B227621F400DAF641 /* RouteCalculatorPresenter.swift in Sources */,
+				861CA12C227621F400DAF641 /* UIDevice.swift in Sources */,
+				861CA12D227621F400DAF641 /* MainViewController.swift in Sources */,
+				861CA12E227621F400DAF641 /* Coordinator.swift in Sources */,
+				861CA12F227621F400DAF641 /* DetailWaitTimeCell.swift in Sources */,
+				861CA130227621F400DAF641 /* ResponseAlias.swift in Sources */,
+				861CA131227621F400DAF641 /* IconPickerView.swift in Sources */,
+				861CA132227621F400DAF641 /* RouteCalculatorTransition.swift in Sources */,
+				861CA133227621F400DAF641 /* DirectionsDetailCordinator.swift in Sources */,
+				861CA134227621F400DAF641 /* PluggableApplicationDelegate.swift in Sources */,
+				861CA135227621F400DAF641 /* RealmTrainStop.swift in Sources */,
+				861CA136227621F400DAF641 /* StationWaitTimeRepository.swift in Sources */,
+				861CA137227621F400DAF641 /* FontStyle.swift in Sources */,
+				861CA138227621F400DAF641 /* RealmCard.swift in Sources */,
+				861CA139227621F400DAF641 /* CardUseCase.swift in Sources */,
+				861CA13A227621F400DAF641 /* StationDetailTransition.swift in Sources */,
+				861CA13B227621F400DAF641 /* RealmTrain.swift in Sources */,
+				861CA13C227621F400DAF641 /* PopUpTransition.swift in Sources */,
+				861CA13D227621F400DAF641 /* FadingCollectionView.swift in Sources */,
+				861CA13E227621F400DAF641 /* NSLayoutAnchor.swift in Sources */,
+				861CA13F227621F400DAF641 /* FadingCollectionLayout.swift in Sources */,
+				861CA140227621F400DAF641 /* CardBalancePresenter.swift in Sources */,
+				861CA141227621F400DAF641 /* UIFactory.swift in Sources */,
+				861CA142227621F400DAF641 /* ReusableView.swift in Sources */,
+				861CA143227621F400DAF641 /* DirectionsAppsFactory.swift in Sources */,
+				861CA144227621F400DAF641 /* UIView.swift in Sources */,
+				861CA145227621F400DAF641 /* StationDetailViewController.swift in Sources */,
+				861CA146227621F400DAF641 /* IconCell.swift in Sources */,
+				861CA147227621F400DAF641 /* StationMapAnnotation.swift in Sources */,
+				861CA148227621F400DAF641 /* DirectionDetailsTransition.swift in Sources */,
+				861CA149227621F400DAF641 /* IconInputView.swift in Sources */,
+				861CA14A227621F400DAF641 /* PopUpViewController.swift in Sources */,
+				861CA14B227621F400DAF641 /* RouteCalculatorCordinator.swift in Sources */,
+				861CA14C227621F400DAF641 /* UIStackView.swift in Sources */,
+				861CA14D227621F400DAF641 /* WebResources.swift in Sources */,
+				861CA14E227621F400DAF641 /* RequestFactory.swift in Sources */,
+				861CA14F227621F400DAF641 /* PresentableView.swift in Sources */,
+				861CA150227621F400DAF641 /* Price.swift in Sources */,
+				861CA151227621F400DAF641 /* MGLMapView.swift in Sources */,
+				861CA152227621F400DAF641 /* MapViewFactory.swift in Sources */,
+				861CA153227621F400DAF641 /* UIColor.swift in Sources */,
+				861CA154227621F400DAF641 /* MoreBoardViewController.swift in Sources */,
+				861CA155227621F400DAF641 /* Location.swift in Sources */,
+				861CA156227621F400DAF641 /* MainPresenterImpl.swift in Sources */,
+				861CA157227621F400DAF641 /* DataBaseRepository.swift in Sources */,
+				861CA158227621F400DAF641 /* BaseService.swift in Sources */,
+				861CA159227621F400DAF641 /* MainCordinator.swift in Sources */,
+				861CA15A227621F400DAF641 /* RealmPrice.swift in Sources */,
+				861CA15B227621F400DAF641 /* CardCell.swift in Sources */,
+				861CA15C227621F400DAF641 /* Utils.swift in Sources */,
+				861CA15D227621F400DAF641 /* Train.swift in Sources */,
+				861CA15E227621F400DAF641 /* BalanceEmptyMessageView.swift in Sources */,
+				861CA15F227621F400DAF641 /* DirectionsApp.swift in Sources */,
+				861CA160227621F400DAF641 /* Endpoints.swift in Sources */,
+				861CA161227621F400DAF641 /* DetailCell.swift in Sources */,
+				861CA162227621F400DAF641 /* StationWaitTimeWebService.swift in Sources */,
+				861CA163227621F400DAF641 /* StationDetailPresenter.swift in Sources */,
+				861CA164227621F400DAF641 /* ResourceSynchronizerAppDelegate.swift in Sources */,
+				861CA165227621F400DAF641 /* Theme.swift in Sources */,
+				861CA166227621F400DAF641 /* PricesWebService.swift in Sources */,
+				861CA167227621F400DAF641 /* DeatilConectionsCell.swift in Sources */,
+				861CA168227621F400DAF641 /* CardBalanceTransition.swift in Sources */,
+				861CA169227621F400DAF641 /* StationDetailViewController+DataSource.swift in Sources */,
+				861CA16A227621F400DAF641 /* CardBalanceCordinator.swift in Sources */,
+				861CA16B227621F400DAF641 /* DebugLogger.swift in Sources */,
+				861CA16C227621F400DAF641 /* UIButton.swift in Sources */,
+				861CA16D227621F400DAF641 /* UIThemes.swift in Sources */,
+				861CA16E227621F400DAF641 /* MapResurcesUseCase.swift in Sources */,
+				861CA16F227621F400DAF641 /* CardRepository.swift in Sources */,
+				861CA170227621F400DAF641 /* RealmAppDelegate.swift in Sources */,
+				861CA171227621F400DAF641 /* DirectionsDetailPresenter.swift in Sources */,
+				861CA172227621F400DAF641 /* ApplicationCoordinatorAppDelegate.swift in Sources */,
+				861CA173227621F400DAF641 /* ResilienceHandler.swift in Sources */,
+				861CA174227621F400DAF641 /* RouteCalculatorViewController.swift in Sources */,
+				861CA175227621F400DAF641 /* LoadingView.swift in Sources */,
+				861CA176227621F400DAF641 /* Repository.swift in Sources */,
+				861CA177227621F400DAF641 /* DirectionsDetailViewController.swift in Sources */,
+				861CA178227621F400DAF641 /* Station.swift in Sources */,
+				861CA179227621F400DAF641 /* TrainStop.swift in Sources */,
+				861CA17A227621F400DAF641 /* ColorCell.swift in Sources */,
+				861CA17B227621F400DAF641 /* AppLaunchArguments.swift in Sources */,
+				861CA17C227621F400DAF641 /* AppDelegate.swift in Sources */,
+				861CA17D227621F400DAF641 /* StationDetailCordinator.swift in Sources */,
+				861CA17E227621F400DAF641 /* StationWaitTime.swift in Sources */,
+				861CA17F227621F400DAF641 /* WaitTimeDetailCell.swift in Sources */,
+				861CA180227621F400DAF641 /* UICollectionView.swift in Sources */,
+				861CA181227621F400DAF641 /* MapResurcesUseCaseImpl.swift in Sources */,
+				861CA182227621F400DAF641 /* CardUseCaseImpl.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8621A2CC20F6FE0A00A2D8B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1288,6 +1804,7 @@
 				86B83114213DBF350063AC75 /* DetailHeaderView.swift in Sources */,
 				86B830EA21385FBB0063AC75 /* PromptView.swift in Sources */,
 				86593C3721502E0A00383445 /* PriceRepository.swift in Sources */,
+				861CA0BE2274CE7000DAF641 /* FireBaseAppDelegate.swift in Sources */,
 				8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */,
 				86385C862133747E002EA9DF /* Card.swift in Sources */,
 				8652A361212A407600ED1910 /* CardBalanceViewController.swift in Sources */,
@@ -1370,7 +1887,7 @@
 				8652A363212B2D3500ED1910 /* CardBalanceTransition.swift in Sources */,
 				86B8310E213DADB70063AC75 /* StationDetailViewController+DataSource.swift in Sources */,
 				86385C7D21336C2E002EA9DF /* CardBalanceCordinator.swift in Sources */,
-				86FC7458220D2257006311B3 /* DebugManager.swift in Sources */,
+				86FC7458220D2257006311B3 /* DebugLogger.swift in Sources */,
 				869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */,
 				864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */,
 				8614C47D2238153E003E4A14 /* MapResurcesUseCase.swift in Sources */,
@@ -1427,9 +1944,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8621A2E920F6FE0A00A2D8B1 /* Debug */ = {
+		861CA1A5227621F400DAF641 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 135366F5214C01450022B042 /* Development.xcconfig */;
+			baseConfigurationReference = 861CA0A32274C7BE00DAF641 /* Development.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
+				CODE_SIGN_ENTITLEMENTS = suburbano/Configurations/suburbano.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = G79YXHT3W3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/NoCrathageFrameworks",
+				);
+				INFOPLIST_FILE = "suburbano copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miguelo.suburbano.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		861CA1A6227621F400DAF641 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 861CA0A32274C7BE00DAF641 /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
@@ -1441,6 +1987,37 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/NoCrathageFrameworks",
+				);
+				GCC_OPTIMIZATION_LEVEL = fast;
+				INFOPLIST_FILE = "suburbano copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miguelo.suburbano.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8621A2E920F6FE0A00A2D8B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 861CA0A82274C7CA00DAF641 /* Production.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
+				CODE_SIGN_ENTITLEMENTS = suburbano/Configurations/suburbano.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = G79YXHT3W3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/NoCrathageFrameworks",
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1456,7 +2033,7 @@
 		};
 		8621A2EA20F6FE0A00A2D8B1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 135366F6214C03300022B042 /* Production.xcconfig */;
+			baseConfigurationReference = 861CA0A82274C7CA00DAF641 /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
@@ -1468,7 +2045,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/NoCrathageFrameworks",
 				);
+				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1534,10 +2113,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Configurations/module.modulemap ";
 			};
 			name = Debug;
 		};
@@ -1587,16 +2168,18 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Configurations/module.modulemap ";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		868D00A920F00FFF00C9D8B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 135366F5214C01450022B042 /* Development.xcconfig */;
+			baseConfigurationReference = 861CA0A32274C7BE00DAF641 /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1614,6 +2197,7 @@
 		};
 		868D00AA20F00FFF00C9D8B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 861CA0A32274C7BE00DAF641 /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1664,7 +2248,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8621A2E820F6FE0A00A2D8B1 /* Build configuration list for PBXNativeTarget "suburbano" */ = {
+		861CA1A4227621F400DAF641 /* Build configuration list for PBXNativeTarget "suburbano-dev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				861CA1A5227621F400DAF641 /* Debug */,
+				861CA1A6227621F400DAF641 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8621A2E820F6FE0A00A2D8B1 /* Build configuration list for PBXNativeTarget "suburbano-prod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8621A2E920F6FE0A00A2D8B1 /* Debug */,

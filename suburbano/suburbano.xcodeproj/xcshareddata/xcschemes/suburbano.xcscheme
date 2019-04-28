@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8621A2CB20F6FE0A00A2D8B1"
-               BuildableName = "suburbano.app"
-               BlueprintName = "suburbano"
+               BuildableName = "suburbano-prod.app"
+               BlueprintName = "suburbano-prod"
                ReferencedContainer = "container:suburbano.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8621A2CB20F6FE0A00A2D8B1"
-            BuildableName = "suburbano.app"
-            BlueprintName = "suburbano"
+            BuildableName = "suburbano-prod.app"
+            BlueprintName = "suburbano-prod"
             ReferencedContainer = "container:suburbano.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8621A2CB20F6FE0A00A2D8B1"
-            BuildableName = "suburbano.app"
-            BlueprintName = "suburbano"
+            BuildableName = "suburbano-prod.app"
+            BlueprintName = "suburbano-prod"
             ReferencedContainer = "container:suburbano.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -71,7 +71,7 @@
          <EnvironmentVariable
             key = "OS_ACTIVITY_MODE"
             value = "disable"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>
       <AdditionalOptions>
@@ -88,8 +88,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8621A2CB20F6FE0A00A2D8B1"
-            BuildableName = "suburbano.app"
-            BlueprintName = "suburbano"
+            BuildableName = "suburbano-prod.app"
+            BlueprintName = "suburbano-prod"
             ReferencedContainer = "container:suburbano.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

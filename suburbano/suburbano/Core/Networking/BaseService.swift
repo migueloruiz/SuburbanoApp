@@ -44,7 +44,7 @@ class BaseService<Model: Codable> {
               failure: @escaping ErrorResponse,
               parser: ParserMethod<Model>? = nil) {
 
-        DebugManager.log(request)
+        DebugLogger.log(request)
 
         let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = session.dataTask(with: request) { [weak self] (body, response, error) in
@@ -64,7 +64,7 @@ class BaseService<Model: Codable> {
                                  failure: @escaping ErrorResponse,
                                  parser: @escaping ParserMethod<Model>) {
 
-        DebugManager.log(urlResponse)
+        DebugLogger.log(urlResponse)
 
         switch ResponseStatusCodes.getStatusForCode(urlResponse.statusCode) {
         case .successCode:

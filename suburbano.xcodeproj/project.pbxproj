@@ -220,7 +220,6 @@
 		8646BE7A22762ACD00F2BAB0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7722762ACD00F2BAB0 /* Crashlytics.framework */; };
 		8646BE7B22762ACD00F2BAB0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7822762ACD00F2BAB0 /* Fabric.framework */; };
 		8646BE7C22762ACD00F2BAB0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7822762ACD00F2BAB0 /* Fabric.framework */; };
-		8646BE7E227645EA00F2BAB0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8646BE7D227645EA00F2BAB0 /* Default-568h@2x.png */; };
 		864A38C22102A343006AD3A0 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868D00B020F014F900C9D8B1 /* Mapbox.framework */; };
 		864C6FDD212CE7DE0072C26B /* IconsCataloge.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 864C6FDC212CE7DE0072C26B /* IconsCataloge.ttf */; };
 		864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D121163E170053DFB1 /* UIFactory.swift */; };
@@ -364,7 +363,6 @@
 		861CA105227621B300DAF641 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		861CA107227621CB00DAF641 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		861CA1A7227621F400DAF641 /* suburbano-dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "suburbano-dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		861CA1A8227621F500DAF641 /* suburbano copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "suburbano copy-Info.plist"; path = "/Users/miguelruiz/Git/SuburbanoApp/SuburbanoApp/suburbano/suburbano copy-Info.plist"; sourceTree = "<absolute>"; };
 		861FC580211010480024783A /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		861FC582211015460024783A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		8621A2EB20F6FE0A00A2D8B1 /* suburbano-prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "suburbano-prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -386,7 +384,6 @@
 		864132572100017A0031F4F4 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		8646BE7722762ACD00F2BAB0 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8646BE7822762ACD00F2BAB0 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		8646BE7D227645EA00F2BAB0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		864A389221029335006AD3A0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		864A389321029336006AD3A0 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		864A38BE2102A2A4006AD3A0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -913,7 +910,6 @@
 		868D007420F00FFE00C9D8B1 = {
 			isa = PBXGroup;
 			children = (
-				8646BE7D227645EA00F2BAB0 /* Default-568h@2x.png */,
 				868D007F20F00FFE00C9D8B1 /* suburbano */,
 				868D008C20F00FFF00C9D8B1 /* Info.plist */,
 				868D009420F00FFF00C9D8B1 /* suburbanoTests */,
@@ -921,7 +917,6 @@
 				868D007E20F00FFE00C9D8B1 /* Products */,
 				861CA0AA2274C90600DAF641 /* NoCrathageFrameworks */,
 				868D00AF20F014F900C9D8B1 /* Frameworks */,
-				861CA1A8227621F500DAF641 /* suburbano copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1512,7 +1507,6 @@
 				861CA19B227621F400DAF641 /* GoogleService-Info.plist in Resources */,
 				861CA19C227621F400DAF641 /* IconsCataloge.ttf in Resources */,
 				861CA19D227621F400DAF641 /* mapStyle.json in Resources */,
-				8646BE7E227645EA00F2BAB0 /* Default-568h@2x.png in Resources */,
 				861CA19E227621F400DAF641 /* Montserrat-Medium.ttf in Resources */,
 				861CA19F227621F400DAF641 /* prices.json in Resources */,
 			);
@@ -1953,6 +1947,7 @@
 			baseConfigurationReference = 861CA0A32274C7BE00DAF641 /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
 				CODE_SIGN_ENTITLEMENTS = suburbano/Configurations/suburbano.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1973,7 +1968,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1982,6 +1977,7 @@
 			baseConfigurationReference = 861CA0A32274C7BE00DAF641 /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
 				CODE_SIGN_ENTITLEMENTS = suburbano/Configurations/suburbano.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2002,7 +1998,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -2011,6 +2007,7 @@
 			baseConfigurationReference = 861CA0A82274C7CA00DAF641 /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
 				CODE_SIGN_ENTITLEMENTS = suburbano/Configurations/suburbano.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2031,7 +2028,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2040,6 +2037,7 @@
 			baseConfigurationReference = 861CA0A82274C7CA00DAF641 /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
 				CODE_SIGN_ENTITLEMENTS = suburbano/Configurations/suburbano.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2060,7 +2058,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

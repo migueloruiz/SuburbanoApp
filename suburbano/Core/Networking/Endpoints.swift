@@ -9,15 +9,8 @@
 import Foundation
 
 enum Host: String {
-    case main = "MainHost"
-    case fsuburbanos = "FsuburbanoHost"
-
-    func getURL(infoDictionary: [String: Any]? = Bundle.main.infoDictionary) -> URL? {
-        guard let envVariables = infoDictionary,
-            let hosts = envVariables[AppConstants.App.BaseUrls] as? [String: String],
-            let host = hosts[self.rawValue] else { return nil }
-        return URL(string: host)
-    }
+    case main
+    case fsuburbanos
 }
 
 protocol Endpoint {

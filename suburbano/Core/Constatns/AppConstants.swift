@@ -9,11 +9,6 @@
 import UIKit
 
 struct AppConstants {
-    struct App {
-        static let BaseUrls = "BaseUrls"
-        static let bundleVersion = "CFBundleVersion"
-    }
-
     struct Animations {
         static let loading = "loading"
     }

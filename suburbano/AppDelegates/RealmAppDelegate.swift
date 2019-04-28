@@ -11,8 +11,12 @@ import RealmSwift
 
 final class RealmAppDelegate: NSObject, UIApplicationDelegate {
 
+    private enum RealmError: Error {
+        case urlNotFound
+        case handleMigrationFail
+    }
+
     struct Constants {
-        static let securityApplicationGroup = "group.com.miguelo.suburbano"
         static let realmFolder = "Realm"
         static let realmFile = "default.realm"
     }
@@ -26,12 +30,14 @@ final class RealmAppDelegate: NSObject, UIApplicationDelegate {
 }
 
 extension RealmAppDelegate {
+
     func realmSetup() {
-        guard let realmPath = getRealmURL(),
-            let schemaVersion = getBundleVersion() else { return }
         do {
+            let realmPath = try getRealmURL()
+            let schemaVersion = try Environment.getBundleVersion()
             try configure(schemaVersion: schemaVersion, realmFileURL: realmPath)
-        } catch {
+        } catch let error {
+            DebugLogger.record(error: error)
             handleMigrationFail()
         }
     }
@@ -53,21 +59,21 @@ extension RealmAppDelegate {
     }
 
     func deleteBrokenFile() {
-        guard let realmURL = getRealmURL() else { return }
-        Utils.deleteFileIfExists(path: realmURL.path)
+        do {
+            let realmURL = try getRealmURL()
+            try Utils.deleteFileIfExists(path: realmURL.path)
+        } catch let error {
+            DebugLogger.record(error: error)
+        }
     }
 
-    func getRealmURL() -> URL? {
-        guard let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.securityApplicationGroup) else { return nil }
+    func getRealmURL() throws -> URL {
+        let securityApplicationGroup = try Environment.getSecurityApplicationGroup()
+        guard let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: securityApplicationGroup) else {
+            throw RealmError.urlNotFound
+        }
         let realmURL = container.appendingPathComponent(Constants.realmFolder)
-        Utils.createFoldersIfNecesary(forPath: realmURL.path)
+        try Utils.createFoldersIfNecesary(forPath: realmURL.path)
         return realmURL.appendingPathComponent(Constants.realmFile)
-    }
-
-    func getBundleVersion() -> Int? {
-        guard let envVariables = Bundle.main.infoDictionary,
-            let rawBundleVersion = envVariables[AppConstants.App.bundleVersion] as? String,
-            let bundleVersion = Int(rawBundleVersion) else { return nil }
-        return bundleVersion
     }
 }

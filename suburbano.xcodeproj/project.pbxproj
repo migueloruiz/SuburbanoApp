@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		13B53F332142D78200848B8D /* DirectionDetailsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B53F322142D78200848B8D /* DirectionDetailsTransition.swift */; };
+		8607AD5C22764B040046513F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD5B22764B040046513F /* Environment.swift */; };
+		8607AD5D22764B040046513F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD5B22764B040046513F /* Environment.swift */; };
 		860AFE53221BBB0E004972B0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AFE52221BBB0E004972B0 /* MapViewController.swift */; };
 		860AFE55221BC6DF004972B0 /* MGLMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AFE54221BC6DF004972B0 /* MGLMapView.swift */; };
 		8611AF7B21017AAD0002663B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7A21017AAD0002663B /* Theme.swift */; };
@@ -335,6 +337,7 @@
 /* Begin PBXFileReference section */
 		135366F7214C090B0022B042 /* Example.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Example.xcconfig; sourceTree = "<group>"; };
 		13B53F322142D78200848B8D /* DirectionDetailsTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionDetailsTransition.swift; sourceTree = "<group>"; };
+		8607AD5B22764B040046513F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		860AFE52221BBB0E004972B0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		860AFE54221BC6DF004972B0 /* MGLMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLMapView.swift; sourceTree = "<group>"; };
 		8611AF7A21017AAD0002663B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -910,8 +913,8 @@
 		868D007420F00FFE00C9D8B1 = {
 			isa = PBXGroup;
 			children = (
-				868D007F20F00FFE00C9D8B1 /* suburbano */,
 				868D008C20F00FFF00C9D8B1 /* Info.plist */,
+				868D007F20F00FFE00C9D8B1 /* suburbano */,
 				868D009420F00FFF00C9D8B1 /* suburbanoTests */,
 				868D009F20F00FFF00C9D8B1 /* suburbanoUITests */,
 				868D007E20F00FFE00C9D8B1 /* Products */,
@@ -1307,6 +1310,7 @@
 			children = (
 				8621A2ED20F7026400A2D8B1 /* AppConstants.swift */,
 				86F14E4E20F450B700D1CF7D /* AppResources.swift */,
+				8607AD5B22764B040046513F /* Environment.swift */,
 			);
 			path = Constatns;
 			sourceTree = "<group>";
@@ -1667,6 +1671,7 @@
 				861CA10E227621F400DAF641 /* CardBalancePicker.swift in Sources */,
 				861CA10F227621F400DAF641 /* DaySelectorView.swift in Sources */,
 				861CA110227621F400DAF641 /* UITabBar.swift in Sources */,
+				8607AD5D22764B040046513F /* Environment.swift in Sources */,
 				861CA111227621F400DAF641 /* CardBalanceWebService.swift in Sources */,
 				861CA112227621F400DAF641 /* AppConstants.swift in Sources */,
 				861CA113227621F400DAF641 /* WeekDays.swift in Sources */,
@@ -1795,6 +1800,7 @@
 				8652A35B2129074700ED1910 /* CardBalancePicker.swift in Sources */,
 				86BD985F2159D7660022DC6F /* DaySelectorView.swift in Sources */,
 				8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */,
+				8607AD5C22764B040046513F /* Environment.swift in Sources */,
 				86385C8421337437002EA9DF /* CardBalanceWebService.swift in Sources */,
 				8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */,
 				86A4939E21B850A100490820 /* WeekDays.swift in Sources */,
@@ -1960,7 +1966,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/NoCrathageFrameworks",
 				);
-				INFOPLIST_FILE = "suburbano copy-Info.plist";
+				INFOPLIST_FILE = info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
@@ -1990,7 +1996,7 @@
 					"$(PROJECT_DIR)/NoCrathageFrameworks",
 				);
 				GCC_OPTIMIZATION_LEVEL = fast;
-				INFOPLIST_FILE = "suburbano copy-Info.plist";
+				INFOPLIST_FILE = info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;

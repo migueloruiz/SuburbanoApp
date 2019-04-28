@@ -34,7 +34,7 @@ class MapViewFactory {
     }
 
     static func create(frame: CGRect, initilConfiguration: MapInitialConfiguration) -> MGLMapView {
-        let styleURL = Utils.bundleUrl(forResource: initilConfiguration.style) // TODO 
+        let styleURL = try? Utils.bundleUrl(forResource: initilConfiguration.style)
         let map = MGLMapView(frame: frame, styleURL: styleURL)
         map.maximumZoomLevel = initilConfiguration.maxZoomLevel
         map.minimumZoomLevel = initilConfiguration.minZoomLevel

@@ -12,9 +12,7 @@ protocol ResilienceRepository {}
 
 extension ResilienceRepository where Self: Repository {
     func load<Model: Codable>(resource: AppResource, parser: ParserMethod<Model>? = nil) throws ->  Model {
-        guard let url = Utils.bundleUrl(forResource: resource) else {
-            throw ParsingError.noExistingFile
-        }
+        let url = try Utils.bundleUrl(forResource: resource)
         let rawJson = try Data(contentsOf: url)
         let parserMethod = parser ?? { body in
             guard let json = body else { throw ParsingError.noExistingBody }

@@ -31,8 +31,9 @@ class RequestFactory {
                      body: Data? = nil,
                      timeout: Double = Constants.defaultTimeout,
                      infoDictionary: [String: Any]? = Bundle.main.infoDictionary) throws -> URLRequest {
-        guard let baseURL = endoint.host.getURL(),
-            var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false) else {
+
+        let baseURL = try Environment.host(withType: endoint.host)
+        guard var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false) else {
                 throw RequestFactoryError.makeFailure
         }
 

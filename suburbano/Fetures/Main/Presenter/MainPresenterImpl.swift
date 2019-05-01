@@ -38,7 +38,7 @@ enum TripDirection {
     }
 }
 
-protocol StationsMapPresenter {
+protocol StationsMapPresenter: class, Presenter {
     func getStations() -> [Station]
     func getMarkers() -> [StationMarker]
     func getStationMarker(withName name: String) -> StationMarker?
@@ -48,7 +48,7 @@ protocol StationsMapPresenter {
     func getTrainRailCoordinates(from departure: Station, to arraival: Station, direction: TripDirection) -> [CLLocationCoordinate2D]
 }
 
-protocol CardBalancePickerPresenter {
+protocol CardBalancePickerPresenter: class, Presenter {
     var viewDelegate: StationsViewDelegate? { get set }
     func getCards() -> [Card]
 }
@@ -63,15 +63,17 @@ class MainPresenterImpl: MainPresenter {
 
     private let getCardUseCase: GetCardUseCase?
     private let loadResurcesUseCase: MapResurcesUseCase?
+    internal var analyticsUseCase: AnalyticsUseCase?
 
     weak var viewDelegate: StationsViewDelegate?
     private var stationsMarkers: [String: StationMarker] = [:]
     private var stations: [String: Station] = [:]
     private var railCordinates = [CLLocationCoordinate2D]()
 
-    init(getCardUseCase: GetCardUseCase?, loadResurcesUseCase: MapResurcesUseCase?) {
+    init(getCardUseCase: GetCardUseCase?, loadResurcesUseCase: MapResurcesUseCase?, analyticsUseCase: AnalyticsUseCase?) {
         self.getCardUseCase = getCardUseCase
         self.loadResurcesUseCase = loadResurcesUseCase
+        self.analyticsUseCase = analyticsUseCase
 
         NotificationCenter.default.addObserver(self, selector: #selector(MainPresenterImpl.updateCards), name: .UpdateCards, object: nil)
     }

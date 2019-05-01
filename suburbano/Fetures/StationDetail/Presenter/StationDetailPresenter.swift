@@ -69,7 +69,7 @@ enum TripDay: String, CaseIterable {
     }
 }
 
-protocol StationDetailPresenter: class {
+protocol StationDetailPresenter: class, Presenter {
     var station: Station { get }
     var titleImageName: String { get }
     func numberOfSections() -> Int
@@ -80,17 +80,20 @@ protocol StationDetailPresenter: class {
     func load()
 }
 
-class StationDetailPresenterImpl: StationDetailPresenter {
+final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresenter {
+
+    private let routeUseCase: RouteUseCase?
+    internal let analyticsUseCase: AnalyticsUseCase?
 
     let station: Station
-    private let routeUseCase: RouteUseCase?
     fileprivate var stationDetails: [[DetailItem]] = []
 
     weak var viewDelegate: StationDetailViewController?
 
-    init(station: Station, routeUseCase: RouteUseCase?) {
+    init(station: Station, routeUseCase: RouteUseCase?, analyticsUseCase: AnalyticsUseCase?) {
         self.station = station
         self.routeUseCase = routeUseCase
+        self.analyticsUseCase = analyticsUseCase
     }
 
     func load() {

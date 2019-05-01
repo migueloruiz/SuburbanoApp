@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RouteCalculatorPresenter: class {
+protocol RouteCalculatorPresenter: class, Presenter {
     func load()
     func selectedElements() -> (departureItem: Int, arraivalItem: Int)
     func elementsFor(pickerId: Int) -> Int
@@ -26,9 +26,11 @@ struct Route {
     let information: DisplayRouteInformation
 }
 
-class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
+class RouteCalculatorPresenterImpl: RouteCalculatorPresenter, AnalyticsPresenter {
 
     private let routeUseCase: RouteUseCase?
+    internal let analyticsUseCase: AnalyticsUseCase?
+
     private var stations: [Station]
     private var filterStations: [Station]
     private var departure: Station
@@ -43,12 +45,14 @@ class RouteCalculatorPresenterImpl: RouteCalculatorPresenter {
 
     weak var viewDelegate: RouteCalculatorViewDelegate?
 
-    init(routeUseCase: RouteUseCase?, stations: [Station], departure: Station, arraival: Station) {
-        self.routeUseCase = routeUseCase
+    init(stations: [Station], departure: Station, arraival: Station, routeUseCase: RouteUseCase?, analyticsUseCase: AnalyticsUseCase?) {
         self.stations = stations
         self.departure = departure
         self.arraival = arraival
         self.filterStations = stations.filter { $0.name != departure.name }
+
+        self.routeUseCase = routeUseCase
+        self.analyticsUseCase = analyticsUseCase
     }
 
     func load() {

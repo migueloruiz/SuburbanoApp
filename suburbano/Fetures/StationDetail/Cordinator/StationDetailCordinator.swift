@@ -20,8 +20,12 @@ class StationDetailCordinator: NSObject, Coordinator {
     init(rootViewController: MainViewController, station: Station) {
         self.rootViewController = rootViewController
         self.station = station
-        let presenter = StationDetailPresenterImpl(station: station,
-                                                   routeUseCase: UseCaseLocator.getUseCase(ofType: RouteUseCase.self))
+
+        let presenter = StationDetailPresenterImpl(
+            station: station,
+            routeUseCase: UseCaseLocator.getUseCase(ofType: RouteUseCase.self),
+            analyticsUseCase: UseCaseLocator.getUseCase(ofType: AnalyticsUseCase.self)
+        )
         self.controller = StationDetailViewController(presenter: presenter)
         presenter.viewDelegate = self.controller
     }

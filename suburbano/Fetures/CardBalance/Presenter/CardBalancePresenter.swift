@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CardBalancePresenter: class {
+protocol CardBalancePresenter: class, Presenter {
     func addCard(withIcon: CardBalanceIcon, number: String)
     func deleteCard(withId id: String)
 }
@@ -25,13 +25,15 @@ enum CardBalanceForm {
     case icon
 }
 
-class CardBalancePresenterImpl: CardBalancePresenter {
+class CardBalancePresenterImpl: CardBalancePresenter, AnalyticsPresenter {
 
     private let cardUseCase: CardUseCase?
+    internal let analyticsUseCase: AnalyticsUseCase?
     weak var viewDelegate: CardBalanceViewDelegate?
 
-    init(cardUseCase: CardUseCase?) {
+    init(cardUseCase: CardUseCase?, analyticsUseCase: AnalyticsUseCase?) {
         self.cardUseCase = cardUseCase
+        self.analyticsUseCase = analyticsUseCase
     }
 
     func addCard(withIcon icon: CardBalanceIcon, number: String) {

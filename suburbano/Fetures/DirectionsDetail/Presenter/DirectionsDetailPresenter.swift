@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol DirectionsDetailPresenter: class {
+protocol DirectionsDetailPresenter: class, Presenter {
     var stationName: String { get }
     var disclaimer: String? { get }
     var availableApps: [DirectionsApp] { get }
@@ -24,7 +24,7 @@ class DirectionsDetailPresenterImpl: DirectionsDetailPresenter {
 
     init(station: Station) {
         self.station = station
-        let availableApps = DirectionsAppsFactory.getAvailableApps()
+        let availableApps = DirectionsAppsFactory.getAvailableApps() // Presenter
         self.availableApps = availableApps.apps
         disclaimer = availableApps.disclaimer
     }

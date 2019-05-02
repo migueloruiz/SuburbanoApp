@@ -16,6 +16,6 @@ class FadingCollectionView: UICollectionView {
         super.init(frame: .zero, collectionViewLayout: FadingCollectionLayout())
         showsHorizontalScrollIndicator = false
         backgroundColor = .clear
-        contentInset = UIEdgeInsets(top: 0, left: CardBalancePikerConstas.interSapace, bottom: 0, right: CardBalancePikerConstas.interSapace)
+        contentInset = UIEdgeInsets.with(vertical: 0, horizoltal: CardBalancePikerConstas.interSapace)
     }
 }

@@ -14,8 +14,6 @@ class DetailHeaderView: UITableViewHeaderFooterView, ReusableView {
         static let addressHeigth: CGFloat = 20
     }
 
-//    static var cellHeight: CGFloat = Constant.addressHeigth + Theme.Offset.normal
-
     private let addressLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -40,7 +38,6 @@ class DetailHeaderView: UITableViewHeaderFooterView, ReusableView {
     private func configureLayout() {
         addSubViews([addressLabel])
         addressLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: Theme.Offset.small, bottomConstant: Theme.Offset.small)
-        addressLabel.anchorSize(height: Constant.addressHeigth)
     }
 
     func configure(with detail: DetailSection) {

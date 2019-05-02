@@ -10,7 +10,7 @@ import Foundation
 
 protocol StationWaitTimeRepository: Repository {
     func get(inStation station: String) -> [StationWaitTimeEntity]
-    func add(objects: [StationWaitTimeEntity])
+    func add(waitTimes: [StationWaitTimeEntity])
     func deleteAll()
 }
 
@@ -22,9 +22,9 @@ class StationWaitTimeRepositoryImpl: StationWaitTimeRepository, DataBaseReposito
         return realmActivities.map { StationWaitTime(entity: $0) }
     }
 
-    func add(objects: [StationWaitTimeEntity]) {
-        let realmTrain = objects.map { RealmStationWaitTime(entity: $0) }
-        add(objects: realmTrain)
+    func add(waitTimes: [StationWaitTimeEntity]) {
+        let realmWaitTimes = waitTimes.map { RealmStationWaitTime(entity: $0) }
+        add(objects: realmWaitTimes)
     }
 
     func deleteAll() {

@@ -47,10 +47,10 @@ class RouteUseCaseImpl: RouteUseCase {
 
         stationWaitTimeService.getWaitTimes(success: { [weak self] waitTimes in
             guard let strongSelf = self else { return }
-            strongSelf.stationWaitTimeRepository.add(objects: waitTimes)
+            strongSelf.stationWaitTimeRepository.add(waitTimes: waitTimes)
             let waitTimeReponse = strongSelf.stationWaitTimeRepository.get(inStation: station)
             complition(waitTimeReponse)
-            }, failure: {_  in complition([])})
+        }, failure: {_  in complition([])})
     }
 }
 

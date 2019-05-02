@@ -18,7 +18,7 @@ class UIFactory {
         lable.font = theme.font.getScaledFont()
         lable.adjustsFontSizeToFitWidth = true
         lable.adjustsFontForContentSizeCategory = true
-        lable.minimumScaleFactor = 0.8
+        lable.minimumScaleFactor = 0.6
         if !text.isEmpty { lable.text = text }
         return lable
     }

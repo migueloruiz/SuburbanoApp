@@ -9,38 +9,40 @@
 import Foundation
 
 enum DetailSection: Int {
-    case location = 0
-    case schedule = 1
-    case conactions = 2
-    case waitTime = 3
+    case location
+    case schedule
+    case conactions
+    case waitTime
 
     var title: String {
         switch self {
         case .location: return "UBICACION" // Localize
         case .schedule: return "HORARIO" // Localize
         case .conactions: return "CONECCIONES" // Localize
-        case .waitTime: return "TIEMPO DE ESPERA" // Localize
+        case .waitTime: return "TIEMPO ENTRE TRENES" // Localize
         }
     }
 }
+
+typealias WeekChartModel = [WeekDays: [ChartTimeBarModel]]
 
 enum DetailItem {
     case location(address: String)
     case schedule(dias: TripDay)
     case conactions(images: [String])
-    case waitTime(days: [String], waitTimes: [Int: [WaitTimeDetailModel]])
+    case waitTime(waitTimes: WeekChartModel, maxValue: Int)
 
     var cellIdentifier: String {
         switch self {
         case .location: return DetailAddressCell.reuseIdentifier
         case .schedule: return DetailScheduleCell.reuseIdentifier
         case .conactions: return DeatilConectionsCell.reuseIdentifier
-        case .waitTime: return DetailWaitTimeCell.reuseIdentifier
+        case .waitTime: return ChartDetailCell.reuseIdentifier
         }
     }
 }
 
-enum TripDay: String, CaseIterable {
+enum TripDay: String, CaseIterable { // TODO
     case normal = "Normal"
     case saturday = "Saturday"
     case sundayAndHolidays = "SundayAndHolidays"
@@ -76,11 +78,14 @@ protocol StationDetailPresenter: class, Presenter {
     func numberOfItems(atSection: Int) -> Int
     func section(atIndex index: Int) -> DetailSection
     func item(atIndex: IndexPath) -> DetailItem
-    func getWeekDays() -> [String]
     func load()
 }
 
 final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresenter {
+
+    private struct Constants {
+        static let waitTimeMaxValue = 20
+    }
 
     private let routeUseCase: RouteUseCase?
     internal let analyticsUseCase: AnalyticsUseCase?
@@ -122,23 +127,23 @@ final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresent
         return stationDetails[index.section][index.row]
     }
 
-    func getWeekDays() -> [String] {
-        return WeekDays.allCases.map { $0.title }
-    }
-
     private func getWaitTime(for station: StationEntity) {
         routeUseCase?.getWaitTime(inStation: station.name) { [weak self] waitTimes in
             guard let strongSelf = self else { return }
-            var waitDaysDetals = [Int: [WaitTimeDetailModel]]()
+            var waitDaysDetals = WeekChartModel()
             for item in waitTimes {
-                let model = WaitTimeDetailModel(concurrence: item.concurrence, waitTime: item.waitTime, displayTime: item.displayTime)
-                if waitDaysDetals[item.day] == nil {
-                    waitDaysDetals[item.day] = [model]
+                let display = item.displayTime.split(separator: ":").first ?? "•"
+                let model = ChartTimeBarModel(value: item.waitTime,
+                                              maxValue: 20,
+                                              displayTime: String(display))
+                guard let day = WeekDays.init(rawValue: item.day) else { continue }
+                if waitDaysDetals[day] == nil {
+                    waitDaysDetals[day] = [model]
                 } else {
-                    waitDaysDetals[item.day]?.append(model)
+                    waitDaysDetals[day]?.append(model)
                 }
             }
-            strongSelf.stationDetails[DetailSection.waitTime.rawValue] = [.waitTime(days: strongSelf.getWeekDays(), waitTimes: waitDaysDetals)]
+            strongSelf.stationDetails[DetailSection.waitTime.rawValue] = [.waitTime(waitTimes: waitDaysDetals, maxValue: Constants.waitTimeMaxValue)]
             strongSelf.viewDelegate?.update()
         }
     }
@@ -155,7 +160,7 @@ extension StationDetailPresenterImpl {
             .schedule(dias: .sundayAndHolidays)
         ])
         details.append([.conactions(images: station.conections.components(separatedBy: ","))])
-        details.append([.waitTime(days: [], waitTimes: [:])])
+        details.append([.waitTime(waitTimes: [:], maxValue: Constants.waitTimeMaxValue)])
 
         return details
     }

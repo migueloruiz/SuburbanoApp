@@ -57,7 +57,7 @@ class StationDetailViewController: UIViewController, PresentableView {
 
         configureTable()
 
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(StationDetailViewController.close)))
+//        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(StationDetailViewController.close)))
     }
 
     private func configureLayout() {
@@ -77,7 +77,7 @@ class StationDetailViewController: UIViewController, PresentableView {
 
         locationButton.anchor(top: stationLabel.topAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.small, rightConstant: Theme.Offset.large)
 
-        detailsTableView.anchor(top: stationNameImage.bottomAnchor, left: containerView.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.normal, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.large)
+        detailsTableView.anchor(top: stationNameImage.bottomAnchor, left: containerView.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: containerView.rightAnchor, topConstant: Theme.Offset.normal)
     }
 
     @objc func close() {

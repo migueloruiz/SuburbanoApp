@@ -43,11 +43,15 @@ extension UIView {
     }
 
     func fillSuperview(verticalOffset: CGFloat = 0, horizontalOffset: CGFloat = 0) {
+        fillHorizontalSuperview(offset: horizontalOffset)
+        fillVerticallySuperview(offset: verticalOffset)
+    }
+
+    func fillVerticallySuperview(offset: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         guard  let superview = superview else { return }
-        fillHorizontalSuperview(offset: horizontalOffset)
-        topAnchor.constraint(equalTo: superview.topAnchor, constant: verticalOffset).isActive = true
-        bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -verticalOffset).isActive = true
+        topAnchor.constraint(equalTo: superview.topAnchor, constant: offset).isActive = true
+        bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -offset).isActive = true
     }
 
     func fillHorizontalSuperview(offset: CGFloat = 0) {

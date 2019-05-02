@@ -124,7 +124,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
 
         view.addSubViews([loadingView, containerView])
         containerView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, bottomConstant: -Theme.Offset.large)
-        loadingView.fillSuperview()
+        loadingView.fill()
 
         let buttonsContainer = UIStackView.with(distribution: .fillEqually, spacing: Theme.Offset.small)
 

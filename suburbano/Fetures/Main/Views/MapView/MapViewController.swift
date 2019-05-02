@@ -62,7 +62,7 @@ class MapViewController: UIViewController {
 
     private func configureLayout() {
         view.addSubViews([mapView])
-        mapView.fillSuperview()
+        mapView.fill()
     }
 
     func centerMap() {

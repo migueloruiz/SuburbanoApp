@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChartDetailCell: UITableViewCell, DetailCell, ReusableView {
+class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
 
     struct Constants {
         static let chartHeigth: CGFloat = 100
@@ -71,18 +71,18 @@ class ChartDetailCell: UITableViewCell, DetailCell, ReusableView {
         addSubViews([chartHeader, collectionView, pageControl, anotationsStackView])
 
         chartHeader.anchor(top: topAnchor)
-        chartHeader.fillHorizontalSuperview()
+        chartHeader.fillHorizontal()
         chartHeader.anchorSize(height: 40)
 
         collectionView.anchor(top: chartHeader.bottomAnchor)
-        collectionView.fillHorizontalSuperview()
+        collectionView.fillHorizontal()
         collectionView.anchorSize(height: Constants.chartHeigth)
 
         pageControl.anchor(top: collectionView.bottomAnchor)
-        pageControl.fillHorizontalSuperview()
+        pageControl.fillHorizontal()
 
         anotationsStackView.anchor(top: pageControl.bottomAnchor, bottom: bottomAnchor, bottomConstant: Theme.Offset.small)
-        anotationsStackView.fillHorizontalSuperview(offset: Theme.Offset.large)
+        anotationsStackView.fillHorizontal(offset: Theme.Offset.large)
     }
 
     func configure(with item: DetailItem) {
@@ -112,7 +112,7 @@ class ChartDetailCell: UITableViewCell, DetailCell, ReusableView {
     }
 }
 
-extension ChartDetailCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension DetailChartCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         pageControl.numberOfPages = chartDetals.keys.count

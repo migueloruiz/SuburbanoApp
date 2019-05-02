@@ -30,9 +30,13 @@ class DetailScheduleCell: UITableViewCell, DetailCell, ReusableView {
 
     private func configureLayout() {
         addSubViews([daysLabel, scheduleLabel])
-        daysLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor)
+
+        daysLabel.fillVertically()
+        daysLabel.anchor(left: leftAnchor, leftConstant: Theme.Offset.large)
+
         scheduleLabel.anchorSize(height: 20)
-        scheduleLabel.anchor(top: topAnchor, left: daysLabel.rightAnchor, bottom: bottomAnchor, right: rightAnchor)
+        scheduleLabel.fillVertically()
+        scheduleLabel.anchor(left: daysLabel.rightAnchor, right: rightAnchor, rightConstant: Theme.Offset.large)
     }
 
     func configure(with item: DetailItem) {

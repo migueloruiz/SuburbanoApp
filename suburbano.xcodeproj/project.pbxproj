@@ -78,7 +78,7 @@
 		861CA12C227621F400DAF641 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* UIDevice.swift */; };
 		861CA12D227621F400DAF641 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008220F00FFE00C9D8B1 /* MainViewController.swift */; };
 		861CA12E227621F400DAF641 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682720F4227900A6B17A /* Coordinator.swift */; };
-		861CA12F227621F400DAF641 /* ChartDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939A21B84C7600490820 /* ChartDetailCell.swift */; };
+		861CA12F227621F400DAF641 /* DetailChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939A21B84C7600490820 /* DetailChartCell.swift */; };
 		861CA130227621F400DAF641 /* ResponseAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7453220D024D006311B3 /* ResponseAlias.swift */; };
 		861CA131227621F400DAF641 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		861CA132227621F400DAF641 /* RouteCalculatorTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2617214B3AD000700DE7 /* RouteCalculatorTransition.swift */; };
@@ -269,7 +269,7 @@
 		869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCC2125380600B2FA9F /* UIButton.swift */; };
 		869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */; };
 		869E40E121371CC900EB133F /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 869E40E021371CC900EB133F /* loading.json */; };
-		86A4939B21B84C7600490820 /* ChartDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939A21B84C7600490820 /* ChartDetailCell.swift */; };
+		86A4939B21B84C7600490820 /* DetailChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939A21B84C7600490820 /* DetailChartCell.swift */; };
 		86A4939E21B850A100490820 /* WeekDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939D21B850A100490820 /* WeekDays.swift */; };
 		86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */; };
 		86B830DC2137422A0063AC75 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DB2137422A0063AC75 /* LoadingView.swift */; };
@@ -316,6 +316,8 @@
 		86EBA6DE227A753C00B04A21 /* ChartAnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6DC227A753C00B04A21 /* ChartAnotation.swift */; };
 		86EBA6E1227A7E2100B04A21 /* SafeAsignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6E0227A7E2100B04A21 /* SafeAsignable.swift */; };
 		86EBA6E2227A7E2100B04A21 /* SafeAsignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6E0227A7E2100B04A21 /* SafeAsignable.swift */; };
+		86EBA6E4227A904800B04A21 /* DetailTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */; };
+		86EBA6E5227A904800B04A21 /* DetailTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */; };
 		86FC7454220D024D006311B3 /* ResponseAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7453220D024D006311B3 /* ResponseAlias.swift */; };
 		86FC7456220D1DE8006311B3 /* AppLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7455220D1DE8006311B3 /* AppLaunchArguments.swift */; };
 		86FC7458220D2257006311B3 /* DebugLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7457220D2257006311B3 /* DebugLogger.swift */; };
@@ -461,7 +463,7 @@
 		869E2CCC2125380600B2FA9F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationMapAnnotation.swift; sourceTree = "<group>"; };
 		869E40E021371CC900EB133F /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
-		86A4939A21B84C7600490820 /* ChartDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailCell.swift; sourceTree = "<group>"; };
+		86A4939A21B84C7600490820 /* DetailChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailChartCell.swift; sourceTree = "<group>"; };
 		86A4939D21B850A100490820 /* WeekDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDays.swift; sourceTree = "<group>"; };
 		86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
 		86B830DB2137422A0063AC75 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 		86EBA6D62279D92700B04A21 /* ChartBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBar.swift; sourceTree = "<group>"; };
 		86EBA6DC227A753C00B04A21 /* ChartAnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAnotation.swift; sourceTree = "<group>"; };
 		86EBA6E0227A7E2100B04A21 /* SafeAsignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAsignable.swift; sourceTree = "<group>"; };
+		86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableHeader.swift; sourceTree = "<group>"; };
 		86F14E4820F43F6D00D1CF7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86F14E4A20F43FE300D1CF7D /* UITabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBar.swift; sourceTree = "<group>"; };
 		86F14E4C20F4500E00D1CF7D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -929,7 +932,6 @@
 		868128432122743900A7A011 /* Fetures */ = {
 			isa = PBXGroup;
 			children = (
-				86C0681E20F4168C00A6B17A /* AppLaunch */,
 				8652A35E212A3FED00ED1910 /* CardBalance */,
 				86B8311E213F787D0063AC75 /* DirectionsDetail */,
 				8641325320FFFF860031F4F4 /* Main */,
@@ -1220,7 +1222,7 @@
 		86B831022138C19F0063AC75 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				86B83112213DBF2C0063AC75 /* Cells */,
+				86B83112213DBF2C0063AC75 /* Cells & SubViews */,
 				86B831072138CC6F0063AC75 /* StationDetailTransition.swift */,
 				86B831032138C1AE0063AC75 /* StationDetailViewController.swift */,
 				86B8310D213DADB70063AC75 /* StationDetailViewController+DataSource.swift */,
@@ -1237,18 +1239,19 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		86B83112213DBF2C0063AC75 /* Cells */ = {
+		86B83112213DBF2C0063AC75 /* Cells & SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				86A4939C21B84C9C00490820 /* Chart */,
-				86B83113213DBF350063AC75 /* DetailHeaderView.swift */,
 				86B83115213DC4F30063AC75 /* DetailCell.swift */,
+				86B83113213DBF350063AC75 /* DetailHeaderView.swift */,
 				86B83117213DC5140063AC75 /* DetailAddressCell.swift */,
 				86B83119213DC6230063AC75 /* DetailScheduleCell.swift */,
 				86B8311B213DF3AA0063AC75 /* DeatilConectionsCell.swift */,
-				86A4939A21B84C7600490820 /* ChartDetailCell.swift */,
+				86A4939A21B84C7600490820 /* DetailChartCell.swift */,
+				86A4939C21B84C9C00490820 /* Chart */,
+				86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */,
 			);
-			path = Cells;
+			path = "Cells & SubViews";
 			sourceTree = "<group>";
 		};
 		86B8311E213F787D0063AC75 /* DirectionsDetail */ = {
@@ -1319,11 +1322,11 @@
 			isa = PBXGroup;
 			children = (
 				868D008020F00FFE00C9D8B1 /* AppDelegate.swift */,
-				86C0682120F41FF400A6B17A /* ApplicationCoordinatorAppDelegate.swift */,
 				86C0681F20F4176D00A6B17A /* PluggableApplicationDelegate.swift */,
 				86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */,
 				869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */,
 				861CA0BD2274CE7000DAF641 /* FireBaseAppDelegate.swift */,
+				86C0681E20F4168C00A6B17A /* AppLaunch */,
 			);
 			path = AppDelegates;
 			sourceTree = "<group>";
@@ -1381,6 +1384,7 @@
 		86C0681E20F4168C00A6B17A /* AppLaunch */ = {
 			isa = PBXGroup;
 			children = (
+				86C0682120F41FF400A6B17A /* ApplicationCoordinatorAppDelegate.swift */,
 				86593C432151514B00383445 /* Cordinator */,
 			);
 			path = AppLaunch;
@@ -1758,7 +1762,7 @@
 				861CA12C227621F400DAF641 /* UIDevice.swift in Sources */,
 				861CA12D227621F400DAF641 /* MainViewController.swift in Sources */,
 				861CA12E227621F400DAF641 /* Coordinator.swift in Sources */,
-				861CA12F227621F400DAF641 /* ChartDetailCell.swift in Sources */,
+				861CA12F227621F400DAF641 /* DetailChartCell.swift in Sources */,
 				861CA130227621F400DAF641 /* ResponseAlias.swift in Sources */,
 				861CA131227621F400DAF641 /* IconPickerView.swift in Sources */,
 				861CA132227621F400DAF641 /* RouteCalculatorTransition.swift in Sources */,
@@ -1800,6 +1804,7 @@
 				861CA155227621F400DAF641 /* Location.swift in Sources */,
 				861CA156227621F400DAF641 /* MainPresenterImpl.swift in Sources */,
 				861CA157227621F400DAF641 /* DataBaseRepository.swift in Sources */,
+				86EBA6E5227A904800B04A21 /* DetailTableHeader.swift in Sources */,
 				861CA158227621F400DAF641 /* BaseService.swift in Sources */,
 				861CA159227621F400DAF641 /* MainCordinator.swift in Sources */,
 				861CA15A227621F400DAF641 /* RealmPrice.swift in Sources */,
@@ -1893,7 +1898,7 @@
 				86CB75E8212B834200DBDB98 /* UIDevice.swift in Sources */,
 				8621A2D020F6FE0A00A2D8B1 /* MainViewController.swift in Sources */,
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,
-				86A4939B21B84C7600490820 /* ChartDetailCell.swift in Sources */,
+				86A4939B21B84C7600490820 /* DetailChartCell.swift in Sources */,
 				86FC7454220D024D006311B3 /* ResponseAlias.swift in Sources */,
 				86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */,
 				868D2618214B3AD000700DE7 /* RouteCalculatorTransition.swift in Sources */,
@@ -1936,6 +1941,7 @@
 				8621A2D720F6FE0A00A2D8B1 /* MainPresenterImpl.swift in Sources */,
 				862517E220FD7A32002F2048 /* DataBaseRepository.swift in Sources */,
 				8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */,
+				86EBA6E4227A904800B04A21 /* DetailTableHeader.swift in Sources */,
 				86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */,
 				86587CD2226FDFD40025A764 /* RealmPrice.swift in Sources */,
 				86B830E1213843FB0063AC75 /* CardCell.swift in Sources */,

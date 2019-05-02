@@ -46,7 +46,7 @@ class BalanceEmptyMessageView: UIView {
 
     private func configureLayout() {
         addSubViews([blurredEffectView, messageLabel, addIconView])
-        blurredEffectView.fillSuperview()
+        blurredEffectView.fill()
         addIconView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor)
         messageLabel.anchor(top: topAnchor, left: addIconView.rightAnchor, bottom: bottomAnchor, right: rightAnchor, leftConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
     }

@@ -11,7 +11,10 @@ import UIKit
 extension UIView {
     // MARK: Drop Shadow
 
-    func addDropShadow(color: UIColor = Theme.Pallete.darkGray, opacity: Float = 0.7, offSet: CGSize = CGSize(width: 0, height: 2), radius: CGFloat = 3) {
+    func addDropShadow(color: UIColor = Theme.Pallete.darkGray,
+                       opacity: Float = 0.7,
+                       offSet: CGSize = CGSize(width: 0, height: 1),
+                       radius: CGFloat = 4) {
         layer.shadowColor = color.cgColor
         layer.shadowOpacity = opacity
         layer.shadowOffset = offSet
@@ -42,19 +45,19 @@ extension UIView {
         views.forEach { addSubview($0) }
     }
 
-    func fillSuperview(verticalOffset: CGFloat = 0, horizontalOffset: CGFloat = 0) {
-        fillHorizontalSuperview(offset: horizontalOffset)
-        fillVerticallySuperview(offset: verticalOffset)
+    func fill(verticalOffset: CGFloat = 0, horizontalOffset: CGFloat = 0) {
+        fillHorizontal(offset: horizontalOffset)
+        fillVertically(offset: verticalOffset)
     }
 
-    func fillVerticallySuperview(offset: CGFloat = 0) {
+    func fillVertically(offset: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         guard  let superview = superview else { return }
         topAnchor.constraint(equalTo: superview.topAnchor, constant: offset).isActive = true
         bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -offset).isActive = true
     }
 
-    func fillHorizontalSuperview(offset: CGFloat = 0) {
+    func fillHorizontal(offset: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         guard  let superview = superview else { return }
         leftAnchor.constraint(equalTo: superview.leftAnchor, constant: offset).isActive = true

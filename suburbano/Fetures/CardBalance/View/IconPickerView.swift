@@ -63,7 +63,7 @@ class IconPickerView: UIView {
     private func configureLayout() {
         anchorSquare(size: Constants.iconDiameter)
         addSubview(field)
-        field.fillSuperview()
+        field.fill()
     }
 
     func set(icon: CardBalanceIcon) {

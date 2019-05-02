@@ -66,7 +66,7 @@ class RouteInfoView: UIView {
 
     private func configureLayout() {
         addSubview(containerView)
-        containerView.fillSuperview()
+        containerView.fill()
         containerView.addArranged(subViews: [timeItem, distanceItem, priceItem])
     }
 

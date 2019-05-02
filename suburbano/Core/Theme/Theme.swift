@@ -47,7 +47,6 @@ struct Theme {
 
     struct IconSize {
         static let extraSmall: CGFloat = 15
-        static let button: CGFloat = 25
         static let small: CGFloat = 30
         static let normal: CGFloat = 40
         static let large: CGFloat = 50
@@ -55,7 +54,7 @@ struct Theme {
     }
 
     struct Rounded {
-        static let controller: CGFloat = 10
+        static let controller: CGFloat = 38.5
         static let button: CGFloat = 20
     }
 
@@ -64,8 +63,11 @@ struct Theme {
         static let large: CGFloat = 20
         static let normal: CGFloat = 10
         static let small: CGFloat = 5
-        static let selector: CGFloat = 2
-        static let separator: CGFloat = 1
+    }
+
+    struct Size {
+        static let button: CGFloat = 25
+        static let separator: CGFloat = 5 / UIScreen.main.scale
     }
 
     enum FontName: String {

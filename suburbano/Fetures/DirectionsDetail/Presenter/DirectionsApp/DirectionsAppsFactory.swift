@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DirectionsAppsFactory {
+class DirectionsAppsFactory { // TODO
     static func getAvailableApps() -> (apps: [DirectionsApp], disclaimer: String?) {
         let allApps: [DirectionsApp] = [Waze(), GoogleMaps(), AppleMaps(), Uber()]
         let available = allApps.filter { $0.shouldDisplay }

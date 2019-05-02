@@ -31,8 +31,8 @@ class LoadingView: UIView {
         animation.contentMode = .scaleAspectFit
         addSubview(animation)
         addSubViews([blurredEffectView, animation])
-        blurredEffectView.fillSuperview()
-        animation.fillSuperview()
+        blurredEffectView.fill()
+        animation.fill()
     }
 
     func show(hiddingView: UIView? = nil) {

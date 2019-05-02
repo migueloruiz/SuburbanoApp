@@ -24,7 +24,7 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
         detailsTableView.register(cell: DetailAddressCell.self)
         detailsTableView.register(cell: DetailScheduleCell.self)
         detailsTableView.register(cell: DeatilConectionsCell.self)
-        detailsTableView.register(cell: ChartDetailCell.self)
+        detailsTableView.register(cell: DetailChartCell.self)
         detailsTableView.registerHeaderFooterView(cell: DetailHeaderView.self)
 
         detailsTableView.reloadData()

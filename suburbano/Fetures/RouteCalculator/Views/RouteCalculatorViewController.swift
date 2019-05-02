@@ -25,7 +25,6 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
     let backButton = UIButton()
 
     private let presenter: RouteCalculatorPresenter
-    private let resultsContainer = UIFactory.createContainerView()
     private let departurePicker = UIPickerView()
     private let departureLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoTitle)
     private let arrivalPicker = UIPickerView()
@@ -60,7 +59,7 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         arrivalPicker.dataSource = self
         arrivalPicker.tag = Constants.ArrivalPickerTag
         arrivalPicker.backgroundColor = .white
-        routeInfoView.roundCorners()
+        routeInfoView.roundCorners(withDiameter: Theme.Rounded.controller)
 
         departurePicker.reloadAllComponents()
         arrivalPicker.reloadAllComponents()
@@ -72,25 +71,33 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
 
     private func configureLayout() {
         view.addSubViews([containerView, backView, backButton])
-        backView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: containerView.topAnchor, right: view.rightAnchor)
+        backView.anchor(top: view.topAnchor, bottom: containerView.topAnchor)
+        backView.fillHorizontal()
 
-        containerView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, bottomConstant: -Theme.Offset.large)
+        containerView.anchor(bottom: view.bottomAnchor, bottomConstant: -Theme.Offset.large)
+        containerView.fillHorizontal()
 
-        backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
-        backButton.anchorSquare(size: Theme.IconSize.button)
+        backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, topConstant: Theme.Offset.small)
+        backButton.anchor(left: view.leftAnchor, leftConstant: Theme.Offset.large)
+        backButton.anchorSquare(size: Theme.Size.button)
 
         containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel, routeInfoView])
 
-        routeInfoView.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, right: containerView.rightAnchor)
+        routeInfoView.anchor(top: containerView.topAnchor)
+        routeInfoView.fillHorizontal()
 
         departureLabel.anchor(top: routeInfoView.bottomAnchor, topConstant: Theme.Offset.large)
         departureLabel.center(x: departurePicker.centerXAnchor, y: nil)
         arrivalLabel.anchor(top: departureLabel.topAnchor, bottom: departureLabel.bottomAnchor)
         arrivalLabel.center(x: arrivalPicker.centerXAnchor, y: nil)
 
-        departurePicker.anchor(top: departureLabel.bottomAnchor, left: containerView.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.centerXAnchor, topConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.large)
+        departurePicker.anchor(top: departureLabel.bottomAnchor, topConstant: Theme.Offset.normal)
+        departurePicker.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, bottomConstant: Theme.Offset.large)
+        departurePicker.anchor(left: containerView.leftAnchor, right: view.centerXAnchor)
+
         departurePicker.anchorSize(height: Constants.PickerHeigth)
-        arrivalPicker.anchor(top: departurePicker.topAnchor, left: view.centerXAnchor, bottom: departurePicker.bottomAnchor, right: containerView.rightAnchor)
+        arrivalPicker.anchor(top: departurePicker.topAnchor, bottom: departurePicker.bottomAnchor)
+        arrivalPicker.anchor(left: view.centerXAnchor, right: containerView.rightAnchor)
     }
 
     private func setSelectedStations() {

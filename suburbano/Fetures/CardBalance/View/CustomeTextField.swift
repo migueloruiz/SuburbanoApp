@@ -11,7 +11,7 @@ import UIKit
 class CustomeTextField: UIView {
 
     struct Contants {
-        static let lineHeigth: CGFloat = Theme.Offset.separator
+        static let lineHeigth: CGFloat = Theme.Size.separator
         static let lineDesableColor = Theme.Pallete.softGray
     }
 

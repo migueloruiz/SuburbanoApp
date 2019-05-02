@@ -23,7 +23,7 @@ class ChartHeader: UIView {
     private func configureLayout() {
         addSubViews([label])
         label.textAlignment = .center
-        label.fillSuperview()
+        label.fill()
     }
 
     func configure(title: String) {

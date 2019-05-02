@@ -37,7 +37,7 @@ enum DetailItem {
         case .location: return DetailAddressCell.reuseIdentifier
         case .schedule: return DetailScheduleCell.reuseIdentifier
         case .conactions: return DeatilConectionsCell.reuseIdentifier
-        case .waitTime: return ChartDetailCell.reuseIdentifier
+        case .waitTime: return DetailChartCell.reuseIdentifier
         }
     }
 }
@@ -50,7 +50,7 @@ enum TripDay: String, CaseIterable { // TODO
     var selectionText: String {
         switch self {
         case .sundayAndHolidays: return "Domingos y Festivos" // Localize
-        case .normal: return "Lunes a Viernes" // Localize
+        case .normal: return "Dia Laboral" // Localize
         case .saturday: return "Sabados" // Localize
         }
     }

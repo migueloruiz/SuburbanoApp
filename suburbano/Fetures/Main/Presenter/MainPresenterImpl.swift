@@ -105,7 +105,9 @@ class MainPresenterImpl: MainPresenter {
     }
 
     func getStation(withName name: String) -> Station? {
-        return stations[name]
+        let station = stations[name]
+        trackSelected(station: station)
+        return station
     }
 
     func getCards() -> [Card] {

@@ -9,38 +9,42 @@
 import Foundation
 import FirebaseAnalytics
 
-enum AnalyticsEventType {
-    case action(tag: String)
-    case track(tag: String)
-    case error(tag: String)
-
-    var tag: String {
-        switch self {
-        case .action(let tag):
-            return "Action-\(tag)"
-        case .track(let tag):
-            return "Track-\(tag)"
-        case .error(let tag):
-            return "UserError-\(tag)"
-        }
-    }
-}
-
 protocol AnalyticsEvent {
-    var type: AnalyticsEventType { get }
-    var parameters: [String: Any]? { get }
+    var tag: String { get }
 }
 
-extension AnalyticsEvent {
-    var tag: String { return type.tag }
+struct ErrorEvent: AnalyticsEvent {
+    let name: String
+    var tag: String { return "user_error_\(name)" }
+}
+
+struct ActionEvent: AnalyticsEvent {
+    let name: String
+    var tag: String { return "action_\(name)" }
 }
 
 protocol AnalyticsUseCase {
-    func log(event: AnalyticsEvent)
+    func track(event: AnalyticsEvent, parameters: [String: Any]?, shouldCount: Bool)
+    func getEventCount(forEvent event: AnalyticsEvent) -> Int
+    func cleanCount(forEvent event: AnalyticsEvent)
 }
 
 class AnalyticsUseCaseImpl: AnalyticsUseCase {
-    func log(event: AnalyticsEvent) {
-        Analytics.logEvent(event.tag, parameters: event.parameters)
+
+    private var eventsCount = [String: Int]()
+
+    func track(event: AnalyticsEvent, parameters: [String: Any]?, shouldCount: Bool = false) {
+        Analytics.logEvent(event.tag, parameters: parameters)
+
+        guard shouldCount else { return }
+        eventsCount[event.tag] = (eventsCount[event.tag] ?? 0) + 1
+    }
+
+    func getEventCount(forEvent event: AnalyticsEvent) -> Int {
+        return eventsCount[event.tag] ?? 0
+    }
+
+    func cleanCount(forEvent event: AnalyticsEvent) {
+        eventsCount.removeValue(forKey: event.tag)
     }
 }

@@ -13,7 +13,15 @@ protocol AnalyticsPresenter {
 }
 
 extension AnalyticsPresenter where Self: Presenter {
-    func log(event: AnalyticsEvent) {
-        analyticsUseCase?.log(event: event)
+    func track(event: AnalyticsEvent, parameters: [String: Any]? = nil, shouldCount: Bool = false) {
+        analyticsUseCase?.track(event: event, parameters: parameters, shouldCount: shouldCount)
+    }
+
+    func getEventCount(forEvent event: AnalyticsEvent) -> Int {
+        return analyticsUseCase?.getEventCount(forEvent: event) ?? 0
+    }
+
+    func cleanCount(forEvent event: AnalyticsEvent) {
+        analyticsUseCase?.cleanCount(forEvent: event)
     }
 }

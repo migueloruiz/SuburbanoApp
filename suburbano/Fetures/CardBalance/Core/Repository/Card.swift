@@ -38,4 +38,13 @@ extension Card {
         self.displayDate = entity.displayDate
         self.date = entity.date
     }
+
+    init(id: String, icon: String, color: Data) {
+        self.id = id
+        self.balance = ""
+        self.icon = icon
+        self.color = color
+        self.displayDate = ""
+        self.date = 0
+    }
 }

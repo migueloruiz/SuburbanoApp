@@ -318,6 +318,10 @@
 		86EBA6E2227A7E2100B04A21 /* SafeAsignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6E0227A7E2100B04A21 /* SafeAsignable.swift */; };
 		86EBA6E4227A904800B04A21 /* DetailTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */; };
 		86EBA6E5227A904800B04A21 /* DetailTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */; };
+		86EBA6EB227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6EA227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift */; };
+		86EBA6EC227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6EA227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift */; };
+		86EBA6EE227C664E00B04A21 /* CardBalancePresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6ED227C664E00B04A21 /* CardBalancePresenter+Analytics.swift */; };
+		86EBA6EF227C664E00B04A21 /* CardBalancePresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6ED227C664E00B04A21 /* CardBalancePresenter+Analytics.swift */; };
 		86FC7454220D024D006311B3 /* ResponseAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7453220D024D006311B3 /* ResponseAlias.swift */; };
 		86FC7456220D1DE8006311B3 /* AppLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7455220D1DE8006311B3 /* AppLaunchArguments.swift */; };
 		86FC7458220D2257006311B3 /* DebugLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7457220D2257006311B3 /* DebugLogger.swift */; };
@@ -516,6 +520,8 @@
 		86EBA6DC227A753C00B04A21 /* ChartAnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAnotation.swift; sourceTree = "<group>"; };
 		86EBA6E0227A7E2100B04A21 /* SafeAsignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAsignable.swift; sourceTree = "<group>"; };
 		86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableHeader.swift; sourceTree = "<group>"; };
+		86EBA6EA227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DirectionsDetailPresenter+Analytics.swift"; sourceTree = "<group>"; };
+		86EBA6ED227C664E00B04A21 /* CardBalancePresenter+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardBalancePresenter+Analytics.swift"; sourceTree = "<group>"; };
 		86F14E4820F43F6D00D1CF7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86F14E4A20F43FE300D1CF7D /* UITabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBar.swift; sourceTree = "<group>"; };
 		86F14E4C20F4500E00D1CF7D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -743,6 +749,7 @@
 			isa = PBXGroup;
 			children = (
 				86385C79213362DC002EA9DF /* CardBalancePresenter.swift */,
+				86EBA6ED227C664E00B04A21 /* CardBalancePresenter+Analytics.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1287,6 +1294,7 @@
 			children = (
 				86B8312B21459AC60063AC75 /* DirectionsApp */,
 				86B831272140BB5B0063AC75 /* DirectionsDetailPresenter.swift */,
+				86EBA6EA227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1757,6 +1765,7 @@
 				861CA127227621F400DAF641 /* RealmHandler.swift in Sources */,
 				861CA128227621F400DAF641 /* RealmStationWaitTime.swift in Sources */,
 				861CA129227621F400DAF641 /* DetailAddressCell.swift in Sources */,
+				86EBA6EC227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */,
 				861CA12A227621F400DAF641 /* Notifications.swift in Sources */,
 				861CA12B227621F400DAF641 /* RouteCalculatorPresenter.swift in Sources */,
 				861CA12C227621F400DAF641 /* UIDevice.swift in Sources */,
@@ -1805,6 +1814,7 @@
 				861CA156227621F400DAF641 /* MainPresenterImpl.swift in Sources */,
 				861CA157227621F400DAF641 /* DataBaseRepository.swift in Sources */,
 				86EBA6E5227A904800B04A21 /* DetailTableHeader.swift in Sources */,
+				86EBA6EF227C664E00B04A21 /* CardBalancePresenter+Analytics.swift in Sources */,
 				861CA158227621F400DAF641 /* BaseService.swift in Sources */,
 				861CA159227621F400DAF641 /* MainCordinator.swift in Sources */,
 				861CA15A227621F400DAF641 /* RealmPrice.swift in Sources */,
@@ -1894,6 +1904,7 @@
 				86587CCC226FD7D50025A764 /* RealmStationWaitTime.swift in Sources */,
 				86B83118213DC5140063AC75 /* DetailAddressCell.swift in Sources */,
 				86B830E8213857EA0063AC75 /* Notifications.swift in Sources */,
+				86EBA6EB227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */,
 				8611C836214ED5B400FFBC23 /* RouteCalculatorPresenter.swift in Sources */,
 				86CB75E8212B834200DBDB98 /* UIDevice.swift in Sources */,
 				8621A2D020F6FE0A00A2D8B1 /* MainViewController.swift in Sources */,
@@ -1942,6 +1953,7 @@
 				862517E220FD7A32002F2048 /* DataBaseRepository.swift in Sources */,
 				8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */,
 				86EBA6E4227A904800B04A21 /* DetailTableHeader.swift in Sources */,
+				86EBA6EE227C664E00B04A21 /* CardBalancePresenter+Analytics.swift in Sources */,
 				86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */,
 				86587CD2226FDFD40025A764 /* RealmPrice.swift in Sources */,
 				86B830E1213843FB0063AC75 /* CardCell.swift in Sources */,
@@ -2026,7 +2038,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
+				ASSETCATALOG_COMPILER_OPTIMIZATION = "";
 				CODE_SIGN_ENTITLEMENTS = suburbano/Configurations/suburbano.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2056,7 +2068,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
+				ASSETCATALOG_COMPILER_OPTIMIZATION = "";
 				CODE_SIGN_ENTITLEMENTS = suburbano/Configurations/suburbano.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

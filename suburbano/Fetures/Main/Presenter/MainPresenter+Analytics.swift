@@ -10,4 +10,14 @@ import Foundation
 
 extension MainPresenterImpl: AnalyticsPresenter {
 
+    private struct AnalyticsKeys {
+        static let selectStation = ActionEvent(name: "select_station")
+    }
+
+    internal func trackSelected(station: Station?) {
+        guard let station = station else { return }
+        track(event: AnalyticsKeys.selectStation,
+              parameters: ["station": station.name])
+    }
+
 }

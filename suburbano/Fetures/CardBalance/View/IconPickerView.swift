@@ -70,7 +70,7 @@ class IconPickerView: UIView {
         switch icon {
         case .initial:
             backgroundColor = Theme.Pallete.softGray
-            field.text = Constants.defaultIcon
+            field.placeholder = Constants.defaultIcon
         case .custome(let iconCode, let color):
             field.text = iconCode
             backgroundColor = color

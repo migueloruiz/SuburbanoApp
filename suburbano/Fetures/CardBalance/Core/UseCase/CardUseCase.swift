@@ -12,9 +12,10 @@ protocol UpdateCardsBalanceUseCase {
     func updateCards()
 }
 
+typealias AddCardErrorClosure = (_ error: AddCardError) -> Void
 protocol GetCardBalanceUseCase {
-    func isAlreadyRegister(card: Card) -> Bool
-    func add(card: Card, success: @escaping SuccessResponse<Card>, failure: @escaping ErrorResponse)
+    func validate(card: Card) throws
+    func add(card: Card, success: @escaping SuccessResponse<Card>, failure: @escaping AddCardErrorClosure)
 }
 
 protocol DeleteCardUseCase {

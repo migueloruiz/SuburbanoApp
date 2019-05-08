@@ -17,14 +17,16 @@ protocol DirectionsDetailPresenter: class, Presenter {
 
 class DirectionsDetailPresenterImpl: DirectionsDetailPresenter {
 
+    var analyticsUseCase: AnalyticsUseCase?
     var availableApps: [DirectionsApp]
     var disclaimer: String?
 
     private let station: Station
 
-    init(station: Station) {
+    init(station: Station, analyticsUseCase: AnalyticsUseCase?) {
         self.station = station
-        let availableApps = DirectionsAppsFactory.getAvailableApps() // Presenter
+        self.analyticsUseCase = analyticsUseCase
+        let availableApps = DirectionsAppsFactory.getAvailableApps() // TODO UseCase
         self.availableApps = availableApps.apps
         disclaimer = availableApps.disclaimer
     }
@@ -34,9 +36,9 @@ class DirectionsDetailPresenterImpl: DirectionsDetailPresenter {
     }
 
     func openDirections(app: DirectionsApp) {
+        trackSelected(app: app)
         guard let url = app.getLink(withStation: station) else { return }
-        UIApplication.shared.open(url, options: [:]) { succes in
-            print(succes)
-        }
+
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }

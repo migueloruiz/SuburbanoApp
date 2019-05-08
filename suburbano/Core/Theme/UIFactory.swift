@@ -94,8 +94,9 @@ class UIFactory {
     }
 
     static func createImageView(image: UIImage?, color: UIColor) -> UIImageView {
-        let view = UIImageView(image: image)
-        view.tintColor = color
-        return view
+        let imageView = UIImageView()
+        imageView.image = image?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = color
+        return imageView
     }
 }

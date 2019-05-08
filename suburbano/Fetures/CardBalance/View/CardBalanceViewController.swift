@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol CardBalanceViewDelegate: class {
+    func cardAdded()
+    func display(error: AddCardError)
+    func showAnimation()
+}
+
 class CardBalanceViewController: UIViewController, PresentableView {
 
     struct Constants {
@@ -112,7 +118,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
             primaryButton.set(title: "Volver") // Localize
             primaryButton.addTarget(self, action: #selector(CardBalanceViewController.close), for: .touchUpInside)
             secondaryButton.set(title: "Eliminar") // Localize
-            secondaryButton.addTarget(self, action: #selector(CardBalanceViewController.delateCard), for: .touchUpInside)
+            secondaryButton.addTarget(self, action: #selector(CardBalanceViewController.deleteCard), for: .touchUpInside)
         }
     }
 
@@ -172,14 +178,16 @@ extension CardBalanceViewController {
 
     @objc func close() {
         closeKeyboard()
+        presenter.endInteraction(inDetailMode: card != nil)
         dismiss(animated: true, completion: nil)
     }
 
     @objc func validateInformation() {
-        presenter.addCard(withIcon: cardBalanceIconView.icon, number: cardNumberInput.text)
+        let icon = cardBalanceIconView.icon.values // TODO
+        presenter.addCard(withId: cardNumberInput.text, icon: icon.icon, color: icon.color)
     }
 
-    @objc func delateCard() {
+    @objc func deleteCard() {
         let controller = PopUpViewController(context: .confirmDelete)
         controller.transitioningDelegate = self
         controller.didTapAction = {
@@ -207,41 +215,31 @@ extension CardBalanceViewController {
 // MARK: CardBalanceViewDelegate
 
 extension CardBalanceViewController: CardBalanceViewDelegate {
+
     func showAnimation() {
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.loadingView.show(hiddingView: strongSelf.formContinerView)
+        loadingView.show(hiddingView: formContinerView)
+    }
+
+    func cardAdded() {
+        loadingView.dismiss(hiddingView: formContinerView) { [weak self] in
+            self?.close()
         }
     }
 
-    func addCardSuccess(card: Card) {
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.loadingView.dismiss(hiddingView: strongSelf.formContinerView) { [weak self] in
-                self?.close()
-            }
-        }
-    }
-
-    func addCardFailure(error: InlineError) {
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.loadingView.dismiss(hiddingView: strongSelf.formContinerView) { [weak self] in
-                self?.cardNumberInput.shake()
-                self?.cardNumberInput.error = error
-                _ = self?.cardNumberInput.becomeFirstResponder()
-            }
-        }
-    }
-
-    func setInvalid(form: CardBalanceForm) {
-        switch form {
-        case .icon:
+    func display(error: AddCardError) {
+        switch error {
+        case .invalidIcon:
             _ = cardBalanceIconView.becomeFirstResponder()
             cardBalanceIconView.shake()
-        case .number:
+        case .invalidCardId:
             _ = cardNumberInput.becomeFirstResponder()
             cardNumberInput.shake()
+        case .cardAlreadyRegistered, .cardNotFound:
+            loadingView.dismiss(hiddingView: formContinerView) { [weak self] in
+                self?.cardNumberInput.shake()
+                self?.cardNumberInput.error = error.failureReason
+                _ = self?.cardNumberInput.becomeFirstResponder()
+            }
         }
     }
 }

@@ -74,7 +74,7 @@ class CustomeTextField: UIView {
         }
     }
 
-    var error: String {
+    var error: String? {
         get {
             return disclaimerLabel.text ?? ""
         }

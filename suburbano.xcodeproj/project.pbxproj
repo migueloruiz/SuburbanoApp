@@ -227,6 +227,8 @@
 		86385C8C2133840E002EA9DF /* CardUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8B2133840E002EA9DF /* CardUseCaseImpl.swift */; };
 		8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641325120FFF6ED0031F4F4 /* UIView.swift */; };
 		864132582100017A0031F4F4 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864132572100017A0031F4F4 /* ReusableView.swift */; };
+		8642323D2283ADC4008C3A64 /* SafeAsignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8642323C2283ADC4008C3A64 /* SafeAsignable.swift */; };
+		8642323E2283ADC4008C3A64 /* SafeAsignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8642323C2283ADC4008C3A64 /* SafeAsignable.swift */; };
 		8646BE7922762ACD00F2BAB0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7722762ACD00F2BAB0 /* Crashlytics.framework */; };
 		8646BE7A22762ACD00F2BAB0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7722762ACD00F2BAB0 /* Crashlytics.framework */; };
 		8646BE7B22762ACD00F2BAB0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7822762ACD00F2BAB0 /* Fabric.framework */; };
@@ -408,6 +410,7 @@
 		86385C8B2133840E002EA9DF /* CardUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardUseCaseImpl.swift; sourceTree = "<group>"; };
 		8641325120FFF6ED0031F4F4 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		864132572100017A0031F4F4 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		8642323C2283ADC4008C3A64 /* SafeAsignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAsignable.swift; sourceTree = "<group>"; };
 		8646BE7722762ACD00F2BAB0 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8646BE7822762ACD00F2BAB0 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		864A389221029335006AD3A0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -814,6 +817,14 @@
 				86B831052138C95A0063AC75 /* PresentableView.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8642323B2283ADAF008C3A64 /* Operatos */ = {
+			isa = PBXGroup;
+			children = (
+				8642323C2283ADC4008C3A64 /* SafeAsignable.swift */,
+			);
+			path = Operatos;
 			sourceTree = "<group>";
 		};
 		864C6FDB212CE2DC0072C26B /* IconInputView */ = {
@@ -1339,6 +1350,7 @@
 		86C0681420F4150C00A6B17A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8642323B2283ADAF008C3A64 /* Operatos */,
 				8607AD6222767FD40046513F /* Analytics */,
 				8607AD5E22766EDE0046513F /* Presenter */,
 				866DEEF622713282008221EF /* Navigation */,
@@ -1743,6 +1755,7 @@
 				861CA11E227621F400DAF641 /* AlertContext.swift in Sources */,
 				861CA11F227621F400DAF641 /* DirectionActionView.swift in Sources */,
 				861CA120227621F400DAF641 /* UITableView.swift in Sources */,
+				8642323E2283ADC4008C3A64 /* SafeAsignable.swift in Sources */,
 				861CA121227621F400DAF641 /* MapResurcesRepository.swift in Sources */,
 				861CA122227621F400DAF641 /* DetailScheduleCell.swift in Sources */,
 				861CA123227621F400DAF641 /* RouteUseCase.swift in Sources */,
@@ -1881,6 +1894,7 @@
 				86B8312A2140CDFF0063AC75 /* DirectionActionView.swift in Sources */,
 				86FC745A220D3217006311B3 /* UITableView.swift in Sources */,
 				86587CD0226FDD620025A764 /* MapResurcesRepository.swift in Sources */,
+				8642323D2283ADC4008C3A64 /* SafeAsignable.swift in Sources */,
 				86B8311A213DC6230063AC75 /* DetailScheduleCell.swift in Sources */,
 				86593C2D2150261F00383445 /* RouteUseCase.swift in Sources */,
 				86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */,

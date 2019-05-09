@@ -22,6 +22,7 @@ final class FireBaseAppDelegate: NSObject, UIApplicationDelegate {
 
 extension FireBaseAppDelegate {
     private func configureAnalytics() {
+        // TODO: Add toogle in Settings
         Analytics.setAnalyticsCollectionEnabled(true)
     }
 }

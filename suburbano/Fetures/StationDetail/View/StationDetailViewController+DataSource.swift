@@ -16,15 +16,17 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
         detailsTableView.delegate = self
         detailsTableView.allowsSelection = false
         detailsTableView.separatorStyle = .none
-        detailsTableView.rowHeight = UITableView.automaticDimension
-        detailsTableView.estimatedRowHeight = UITableView.automaticDimension
         detailsTableView.sectionHeaderHeight = UITableView.automaticDimension
-        detailsTableView.estimatedSectionFooterHeight = Theme.Offset.extralarge
+        detailsTableView.rowHeight = UITableView.automaticDimension
+        detailsTableView.estimatedRowHeight = 100
+        detailsTableView.estimatedSectionFooterHeight = 100
+
         detailsTableView.register(cell: DetailAddressCell.self)
         detailsTableView.register(cell: DetailScheduleCell.self)
         detailsTableView.register(cell: DeatilConectionsCell.self)
-        detailsTableView.register(cell: DetailWaitTimeCell.self)
+        detailsTableView.register(cell: DetailChartCell.self)
         detailsTableView.registerHeaderFooterView(cell: DetailHeaderView.self)
+
         detailsTableView.reloadData()
     }
 

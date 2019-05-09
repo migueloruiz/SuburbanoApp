@@ -9,6 +9,7 @@
 import UIKit
 
 protocol DirectionsApp {
+    var id: String { get }
     var host: String { get }
     var title: String { get }
     var disclaimer: String? { get }
@@ -25,6 +26,7 @@ extension DirectionsApp {
 }
 
 struct Waze: DirectionsApp { // Base in https://developers.google.com/waze/deeplinks/
+    let id: String = "WAZE"
     var host: String { return "waze://" }
     var title: String { return "Llega con Waze" } // Localize
     var disclaimer: String? { return nil }
@@ -37,6 +39,7 @@ struct Waze: DirectionsApp { // Base in https://developers.google.com/waze/deepl
 }
 
 struct GoogleMaps: DirectionsApp { // Base in https://developers.google.com/maps/documentation/urls/ios-urlscheme
+    let id: String = "GOOGLE_MAPS"
     var host: String { return "comgooglemaps://" }
     var title: String { return "Llega con Google maps" } // Localize
     var disclaimer: String? { return nil }
@@ -49,6 +52,7 @@ struct GoogleMaps: DirectionsApp { // Base in https://developers.google.com/maps
 }
 
 struct AppleMaps: DirectionsApp { // Base in https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
+    let id: String = "APPLE_MAPS"
     var host: String { return "http://maps.apple.com" }
     var title: String { return "Llega con Maps" } // Localize
     var disclaimer: String? { return nil }
@@ -61,6 +65,7 @@ struct AppleMaps: DirectionsApp { // Base in https://developer.apple.com/library
 }
 
 struct Uber: DirectionsApp { // Base in https://developer.uber.com/docs/riders/ride-requests/tutorials/deep-links/introduction
+    let id: String = "UBER"
     var host: String { return "uber://" }
     var title: String {
         return isAppInstall ? "Llega en Uber" : "Llega en Uber con $50 de descuento*"

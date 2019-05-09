@@ -18,7 +18,7 @@ class UIFactory {
         lable.font = theme.font.getScaledFont()
         lable.adjustsFontSizeToFitWidth = true
         lable.adjustsFontForContentSizeCategory = true
-        lable.minimumScaleFactor = 0.8
+        lable.minimumScaleFactor = 0.6
         if !text.isEmpty { lable.text = text }
         return lable
     }
@@ -63,19 +63,27 @@ class UIFactory {
     }
 
     static func createCardView() -> UIView {
-        let vw = UIView()
-        vw.backgroundColor = .white
-        vw.roundCorners()
-        vw.addDropShadow()
-        return vw
+        let view = UIView()
+        view.backgroundColor = .white
+        view.roundCorners()
+        view.addDropShadow()
+        return view
     }
 
     static func createContainerView() -> UIView {
-        let vw = UIView()
-        vw.backgroundColor = .white
-        vw.roundCorners(withRadius: Theme.Rounded.controller)
-        vw.addDropShadow()
-        return vw
+        let view = UIView()
+        view.backgroundColor = .white
+        view.roundCorners(withRadius: Theme.Rounded.controller)
+        view.addDropShadow()
+        return view
+    }
+
+    static func createSeparatorView() -> UIView {
+        let separator = UIView()
+        separator.backgroundColor = Theme.Pallete.ligthGray
+        separator.anchorSize(height: Theme.Size.separator)
+        separator.roundCorners(withDiameter: Theme.Size.separator)
+        return separator
     }
 
     static func createSquare(image: UIImage?, size: CGFloat, color: UIColor = Theme.Pallete.darkGray) -> UIImageView {
@@ -86,8 +94,9 @@ class UIFactory {
     }
 
     static func createImageView(image: UIImage?, color: UIColor) -> UIImageView {
-        let view = UIImageView(image: image)
-        view.tintColor = color
-        return view
+        let imageView = UIImageView()
+        imageView.image = image?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = color
+        return imageView
     }
 }

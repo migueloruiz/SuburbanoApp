@@ -71,7 +71,7 @@ class PopUpViewController: UIViewController {
         messageContiner.addSubViews([imageView, titleLabel, descripcionLabel, buttonsContainer])
 
         imageView.anchor(top: messageContiner.topAnchor, topConstant: Theme.Offset.extralarge)
-        imageView.fillHorizontalSuperview()
+        imageView.fillHorizontal()
         imageView.anchorSize(height: Constants.imageSize)
         imageView.center(x: messageContiner.centerXAnchor, y: nil)
         titleLabel.anchor(top: imageView.bottomAnchor, left: messageContiner.leftAnchor, right: messageContiner.rightAnchor, topConstant: Theme.Offset.extralarge, leftConstant: Theme.Offset.large, rightConstant: Theme.Offset.large)

@@ -14,10 +14,13 @@ class RouteCalculatorCordinator: NSObject, Coordinator {
 
     init(rootViewController: MainViewController, stations: [Station], departure: Station, arraival: Station) {
         self.rootViewController = rootViewController
-        let presenter = RouteCalculatorPresenterImpl(routeUseCase: UseCaseLocator.getUseCase(ofType: RouteUseCase.self),
-                                                     stations: stations,
-                                                     departure: departure,
-                                                     arraival: arraival)
+        let presenter = RouteCalculatorPresenterImpl(
+            stations: stations,
+            departure: departure,
+            arraival: arraival,
+            routeUseCase: UseCaseLocator.getUseCase(ofType: RouteUseCase.self),
+            analyticsUseCase: UseCaseLocator.getUseCase(ofType: AnalyticsUseCase.self)
+        )
         self.controller = RouteCalculatorViewController(presenter: presenter)
         presenter.viewDelegate = self.controller
         self.controller.routeCameraDelegate = rootViewController

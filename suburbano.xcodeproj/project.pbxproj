@@ -10,6 +10,16 @@
 		13B53F332142D78200848B8D /* DirectionDetailsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B53F322142D78200848B8D /* DirectionDetailsTransition.swift */; };
 		8607AD5C22764B040046513F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD5B22764B040046513F /* Environment.swift */; };
 		8607AD5D22764B040046513F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD5B22764B040046513F /* Environment.swift */; };
+		8607AD6022766EF00046513F /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD5F22766EF00046513F /* Presenter.swift */; };
+		8607AD6122766EF00046513F /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD5F22766EF00046513F /* Presenter.swift */; };
+		8607AD64227680060046513F /* AnalyticsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD63227680060046513F /* AnalyticsUseCase.swift */; };
+		8607AD65227680060046513F /* AnalyticsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD63227680060046513F /* AnalyticsUseCase.swift */; };
+		8607AD6A227683B80046513F /* RouteUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD69227683B80046513F /* RouteUseCaseImpl.swift */; };
+		8607AD6B227683B80046513F /* RouteUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD69227683B80046513F /* RouteUseCaseImpl.swift */; };
+		8607AD6D227685B20046513F /* AnalyticsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD6C227685B20046513F /* AnalyticsPresenter.swift */; };
+		8607AD6E227685B20046513F /* AnalyticsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD6C227685B20046513F /* AnalyticsPresenter.swift */; };
+		8607AD702276871B0046513F /* MainPresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD6F2276871B0046513F /* MainPresenter+Analytics.swift */; };
+		8607AD712276871B0046513F /* MainPresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD6F2276871B0046513F /* MainPresenter+Analytics.swift */; };
 		860AFE53221BBB0E004972B0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AFE52221BBB0E004972B0 /* MapViewController.swift */; };
 		860AFE55221BC6DF004972B0 /* MGLMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AFE54221BC6DF004972B0 /* MGLMapView.swift */; };
 		8611AF7B21017AAD0002663B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7A21017AAD0002663B /* Theme.swift */; };
@@ -37,7 +47,7 @@
 		861CA10C227621F400DAF641 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867468E121018BAD00E4809D /* String.swift */; };
 		861CA10D227621F400DAF641 /* RouteInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3F21505CB500383445 /* RouteInfoView.swift */; };
 		861CA10E227621F400DAF641 /* CardBalancePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A35A2129074700ED1910 /* CardBalancePicker.swift */; };
-		861CA10F227621F400DAF641 /* DaySelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985E2159D7660022DC6F /* DaySelectorView.swift */; };
+		861CA10F227621F400DAF641 /* ChartHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985E2159D7660022DC6F /* ChartHeader.swift */; };
 		861CA110227621F400DAF641 /* UITabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4A20F43FE300D1CF7D /* UITabBar.swift */; };
 		861CA111227621F400DAF641 /* CardBalanceWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8321337437002EA9DF /* CardBalanceWebService.swift */; };
 		861CA112227621F400DAF641 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A2ED20F7026400A2D8B1 /* AppConstants.swift */; };
@@ -50,7 +60,6 @@
 		861CA119227621F400DAF641 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */; };
 		861CA11A227621F400DAF641 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C852133747E002EA9DF /* Card.swift */; };
 		861CA11B227621F400DAF641 /* CardBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A360212A407600ED1910 /* CardBalanceViewController.swift */; };
-		861CA11C227621F400DAF641 /* WaitTimeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD9860215AE6640022DC6F /* WaitTimeDetail.swift */; };
 		861CA11D227621F400DAF641 /* AppResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F14E4E20F450B700D1CF7D /* AppResources.swift */; };
 		861CA11E227621F400DAF641 /* AlertContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DD213765A80063AC75 /* AlertContext.swift */; };
 		861CA11F227621F400DAF641 /* DirectionActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831292140CDFF0063AC75 /* DirectionActionView.swift */; };
@@ -69,7 +78,7 @@
 		861CA12C227621F400DAF641 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* UIDevice.swift */; };
 		861CA12D227621F400DAF641 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008220F00FFE00C9D8B1 /* MainViewController.swift */; };
 		861CA12E227621F400DAF641 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682720F4227900A6B17A /* Coordinator.swift */; };
-		861CA12F227621F400DAF641 /* DetailWaitTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939A21B84C7600490820 /* DetailWaitTimeCell.swift */; };
+		861CA12F227621F400DAF641 /* DetailChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939A21B84C7600490820 /* DetailChartCell.swift */; };
 		861CA130227621F400DAF641 /* ResponseAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7453220D024D006311B3 /* ResponseAlias.swift */; };
 		861CA131227621F400DAF641 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		861CA132227621F400DAF641 /* RouteCalculatorTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2617214B3AD000700DE7 /* RouteCalculatorTransition.swift */; };
@@ -149,7 +158,7 @@
 		861CA17C227621F400DAF641 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008020F00FFE00C9D8B1 /* AppDelegate.swift */; };
 		861CA17D227621F400DAF641 /* StationDetailCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831002138C1920063AC75 /* StationDetailCordinator.swift */; };
 		861CA17E227621F400DAF641 /* StationWaitTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98562159C7170022DC6F /* StationWaitTime.swift */; };
-		861CA17F227621F400DAF641 /* WaitTimeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF0C7222125E16008300FF /* WaitTimeDetailCell.swift */; };
+		861CA17F227621F400DAF641 /* ChartTimeBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF0C7222125E16008300FF /* ChartTimeBarCell.swift */; };
 		861CA180227621F400DAF641 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC745D220D329F006311B3 /* UICollectionView.swift */; };
 		861CA181227621F400DAF641 /* MapResurcesUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47E2238177D003E4A14 /* MapResurcesUseCaseImpl.swift */; };
 		861CA182227621F400DAF641 /* CardUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8B2133840E002EA9DF /* CardUseCaseImpl.swift */; };
@@ -260,7 +269,7 @@
 		869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCC2125380600B2FA9F /* UIButton.swift */; };
 		869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */; };
 		869E40E121371CC900EB133F /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 869E40E021371CC900EB133F /* loading.json */; };
-		86A4939B21B84C7600490820 /* DetailWaitTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939A21B84C7600490820 /* DetailWaitTimeCell.swift */; };
+		86A4939B21B84C7600490820 /* DetailChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939A21B84C7600490820 /* DetailChartCell.swift */; };
 		86A4939E21B850A100490820 /* WeekDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939D21B850A100490820 /* WeekDays.swift */; };
 		86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */; };
 		86B830DC2137422A0063AC75 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DB2137422A0063AC75 /* LoadingView.swift */; };
@@ -295,13 +304,22 @@
 		86BD98572159C7170022DC6F /* StationWaitTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98562159C7170022DC6F /* StationWaitTime.swift */; };
 		86BD98592159CD680022DC6F /* StationWaitTimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98582159CD680022DC6F /* StationWaitTimeRepository.swift */; };
 		86BD985D2159CFF20022DC6F /* StationWaitTimeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */; };
-		86BD985F2159D7660022DC6F /* DaySelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985E2159D7660022DC6F /* DaySelectorView.swift */; };
-		86BD9861215AE6640022DC6F /* WaitTimeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD9860215AE6640022DC6F /* WaitTimeDetail.swift */; };
+		86BD985F2159D7660022DC6F /* ChartHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985E2159D7660022DC6F /* ChartHeader.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* UIDevice.swift */; };
 		86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75EB212B9F8800DBDB98 /* IconInputView.swift */; };
-		86DF0C7322125E16008300FF /* WaitTimeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF0C7222125E16008300FF /* WaitTimeDetailCell.swift */; };
+		86DF0C7322125E16008300FF /* ChartTimeBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF0C7222125E16008300FF /* ChartTimeBarCell.swift */; };
+		86EBA6D72279D92700B04A21 /* ChartBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6D62279D92700B04A21 /* ChartBar.swift */; };
+		86EBA6D82279DD7400B04A21 /* ChartBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6D62279D92700B04A21 /* ChartBar.swift */; };
+		86EBA6DD227A753C00B04A21 /* ChartAnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6DC227A753C00B04A21 /* ChartAnotation.swift */; };
+		86EBA6DE227A753C00B04A21 /* ChartAnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6DC227A753C00B04A21 /* ChartAnotation.swift */; };
+		86EBA6E4227A904800B04A21 /* DetailTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */; };
+		86EBA6E5227A904800B04A21 /* DetailTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */; };
+		86EBA6EB227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6EA227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift */; };
+		86EBA6EC227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6EA227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift */; };
+		86EBA6EE227C664E00B04A21 /* CardBalancePresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6ED227C664E00B04A21 /* CardBalancePresenter+Analytics.swift */; };
+		86EBA6EF227C664E00B04A21 /* CardBalancePresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6ED227C664E00B04A21 /* CardBalancePresenter+Analytics.swift */; };
 		86FC7454220D024D006311B3 /* ResponseAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7453220D024D006311B3 /* ResponseAlias.swift */; };
 		86FC7456220D1DE8006311B3 /* AppLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7455220D1DE8006311B3 /* AppLaunchArguments.swift */; };
 		86FC7458220D2257006311B3 /* DebugLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7457220D2257006311B3 /* DebugLogger.swift */; };
@@ -338,6 +356,11 @@
 		135366F7214C090B0022B042 /* Example.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Example.xcconfig; sourceTree = "<group>"; };
 		13B53F322142D78200848B8D /* DirectionDetailsTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionDetailsTransition.swift; sourceTree = "<group>"; };
 		8607AD5B22764B040046513F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		8607AD5F22766EF00046513F /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		8607AD63227680060046513F /* AnalyticsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsUseCase.swift; sourceTree = "<group>"; };
+		8607AD69227683B80046513F /* RouteUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteUseCaseImpl.swift; sourceTree = "<group>"; };
+		8607AD6C227685B20046513F /* AnalyticsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPresenter.swift; sourceTree = "<group>"; };
+		8607AD6F2276871B0046513F /* MainPresenter+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainPresenter+Analytics.swift"; sourceTree = "<group>"; };
 		860AFE52221BBB0E004972B0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		860AFE54221BC6DF004972B0 /* MGLMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLMapView.swift; sourceTree = "<group>"; };
 		8611AF7A21017AAD0002663B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -442,7 +465,7 @@
 		869E2CCC2125380600B2FA9F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationMapAnnotation.swift; sourceTree = "<group>"; };
 		869E40E021371CC900EB133F /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
-		86A4939A21B84C7600490820 /* DetailWaitTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWaitTimeCell.swift; sourceTree = "<group>"; };
+		86A4939A21B84C7600490820 /* DetailChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailChartCell.swift; sourceTree = "<group>"; };
 		86A4939D21B850A100490820 /* WeekDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDays.swift; sourceTree = "<group>"; };
 		86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
 		86B830DB2137422A0063AC75 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -477,8 +500,7 @@
 		86BD98562159C7170022DC6F /* StationWaitTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWaitTime.swift; sourceTree = "<group>"; };
 		86BD98582159CD680022DC6F /* StationWaitTimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWaitTimeRepository.swift; sourceTree = "<group>"; };
 		86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWaitTimeWebService.swift; sourceTree = "<group>"; };
-		86BD985E2159D7660022DC6F /* DaySelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectorView.swift; sourceTree = "<group>"; };
-		86BD9860215AE6640022DC6F /* WaitTimeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTimeDetail.swift; sourceTree = "<group>"; };
+		86BD985E2159D7660022DC6F /* ChartHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeader.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* trainRail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trainRail.json; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		86C0680620F0496300A6B17A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -491,7 +513,12 @@
 		86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeTextField.swift; sourceTree = "<group>"; };
 		86CB75E7212B834200DBDB98 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		86CB75EB212B9F8800DBDB98 /* IconInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInputView.swift; sourceTree = "<group>"; };
-		86DF0C7222125E16008300FF /* WaitTimeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTimeDetailCell.swift; sourceTree = "<group>"; };
+		86DF0C7222125E16008300FF /* ChartTimeBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTimeBarCell.swift; sourceTree = "<group>"; };
+		86EBA6D62279D92700B04A21 /* ChartBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBar.swift; sourceTree = "<group>"; };
+		86EBA6DC227A753C00B04A21 /* ChartAnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAnotation.swift; sourceTree = "<group>"; };
+		86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableHeader.swift; sourceTree = "<group>"; };
+		86EBA6EA227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DirectionsDetailPresenter+Analytics.swift"; sourceTree = "<group>"; };
+		86EBA6ED227C664E00B04A21 /* CardBalancePresenter+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardBalancePresenter+Analytics.swift"; sourceTree = "<group>"; };
 		86F14E4820F43F6D00D1CF7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86F14E4A20F43FE300D1CF7D /* UITabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBar.swift; sourceTree = "<group>"; };
 		86F14E4C20F4500E00D1CF7D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -571,6 +598,23 @@
 				861CA0A72274C7CA00DAF641 /* Prod */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		8607AD5E22766EDE0046513F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8607AD5F22766EF00046513F /* Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8607AD6222767FD40046513F /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				8607AD63227680060046513F /* AnalyticsUseCase.swift */,
+				8607AD6C227685B20046513F /* AnalyticsPresenter.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		860AFE51221BBAF6004972B0 /* MapView */ = {
@@ -702,6 +746,7 @@
 			isa = PBXGroup;
 			children = (
 				86385C79213362DC002EA9DF /* CardBalancePresenter.swift */,
+				86EBA6ED227C664E00B04A21 /* CardBalancePresenter+Analytics.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -826,6 +871,7 @@
 			isa = PBXGroup;
 			children = (
 				86593C2C2150261F00383445 /* RouteUseCase.swift */,
+				8607AD69227683B80046513F /* RouteUseCaseImpl.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -890,7 +936,6 @@
 		868128432122743900A7A011 /* Fetures */ = {
 			isa = PBXGroup;
 			children = (
-				86C0681E20F4168C00A6B17A /* AppLaunch */,
 				8652A35E212A3FED00ED1910 /* CardBalance */,
 				86B8311E213F787D0063AC75 /* DirectionsDetail */,
 				8641325320FFFF860031F4F4 /* Main */,
@@ -1052,6 +1097,7 @@
 			isa = PBXGroup;
 			children = (
 				86F14E5620F4662800D1CF7D /* MainPresenterImpl.swift */,
+				8607AD6F2276871B0046513F /* MainPresenter+Analytics.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1082,14 +1128,15 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		86A4939C21B84C9C00490820 /* WaitTime */ = {
+		86A4939C21B84C9C00490820 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				86BD985E2159D7660022DC6F /* DaySelectorView.swift */,
-				86BD9860215AE6640022DC6F /* WaitTimeDetail.swift */,
-				86DF0C7222125E16008300FF /* WaitTimeDetailCell.swift */,
+				86BD985E2159D7660022DC6F /* ChartHeader.swift */,
+				86DF0C7222125E16008300FF /* ChartTimeBarCell.swift */,
+				86EBA6D62279D92700B04A21 /* ChartBar.swift */,
+				86EBA6DC227A753C00B04A21 /* ChartAnotation.swift */,
 			);
-			path = WaitTime;
+			path = Chart;
 			sourceTree = "<group>";
 		};
 		86B830D9213742030063AC75 /* PopUp */ = {
@@ -1179,7 +1226,7 @@
 		86B831022138C19F0063AC75 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				86B83112213DBF2C0063AC75 /* Cells */,
+				86B83112213DBF2C0063AC75 /* Cells & SubViews */,
 				86B831072138CC6F0063AC75 /* StationDetailTransition.swift */,
 				86B831032138C1AE0063AC75 /* StationDetailViewController.swift */,
 				86B8310D213DADB70063AC75 /* StationDetailViewController+DataSource.swift */,
@@ -1196,18 +1243,19 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		86B83112213DBF2C0063AC75 /* Cells */ = {
+		86B83112213DBF2C0063AC75 /* Cells & SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				86A4939C21B84C9C00490820 /* WaitTime */,
-				86B83113213DBF350063AC75 /* DetailHeaderView.swift */,
 				86B83115213DC4F30063AC75 /* DetailCell.swift */,
+				86B83113213DBF350063AC75 /* DetailHeaderView.swift */,
 				86B83117213DC5140063AC75 /* DetailAddressCell.swift */,
 				86B83119213DC6230063AC75 /* DetailScheduleCell.swift */,
 				86B8311B213DF3AA0063AC75 /* DeatilConectionsCell.swift */,
-				86A4939A21B84C7600490820 /* DetailWaitTimeCell.swift */,
+				86A4939A21B84C7600490820 /* DetailChartCell.swift */,
+				86A4939C21B84C9C00490820 /* Chart */,
+				86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */,
 			);
-			path = Cells;
+			path = "Cells & SubViews";
 			sourceTree = "<group>";
 		};
 		86B8311E213F787D0063AC75 /* DirectionsDetail */ = {
@@ -1243,6 +1291,7 @@
 			children = (
 				86B8312B21459AC60063AC75 /* DirectionsApp */,
 				86B831272140BB5B0063AC75 /* DirectionsDetailPresenter.swift */,
+				86EBA6EA227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1278,11 +1327,11 @@
 			isa = PBXGroup;
 			children = (
 				868D008020F00FFE00C9D8B1 /* AppDelegate.swift */,
-				86C0682120F41FF400A6B17A /* ApplicationCoordinatorAppDelegate.swift */,
 				86C0681F20F4176D00A6B17A /* PluggableApplicationDelegate.swift */,
 				86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */,
 				869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */,
 				861CA0BD2274CE7000DAF641 /* FireBaseAppDelegate.swift */,
+				86C0681E20F4168C00A6B17A /* AppLaunch */,
 			);
 			path = AppDelegates;
 			sourceTree = "<group>";
@@ -1290,6 +1339,8 @@
 		86C0681420F4150C00A6B17A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8607AD6222767FD40046513F /* Analytics */,
+				8607AD5E22766EDE0046513F /* Presenter */,
 				866DEEF622713282008221EF /* Navigation */,
 				86C0681820F4158000A6B17A /* Constatns */,
 				862517C920F849CF002F2048 /* Data Persistence */,
@@ -1329,7 +1380,7 @@
 			isa = PBXGroup;
 			children = (
 				86413256210000220031F4F4 /* Protocols */,
-				86FC745C220D322F006311B3 /* UIView */,
+				86FC745C220D322F006311B3 /* UIKit */,
 			);
 			path = "UI Extension";
 			sourceTree = "<group>";
@@ -1337,12 +1388,13 @@
 		86C0681E20F4168C00A6B17A /* AppLaunch */ = {
 			isa = PBXGroup;
 			children = (
+				86C0682120F41FF400A6B17A /* ApplicationCoordinatorAppDelegate.swift */,
 				86593C432151514B00383445 /* Cordinator */,
 			);
 			path = AppLaunch;
 			sourceTree = "<group>";
 		};
-		86FC745C220D322F006311B3 /* UIView */ = {
+		86FC745C220D322F006311B3 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
 				86CB75E7212B834200DBDB98 /* UIDevice.swift */,
@@ -1356,7 +1408,7 @@
 				86FC7459220D3217006311B3 /* UITableView.swift */,
 				86FC745D220D329F006311B3 /* UICollectionView.swift */,
 			);
-			path = UIView;
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1669,21 +1721,24 @@
 				861CA10C227621F400DAF641 /* String.swift in Sources */,
 				861CA10D227621F400DAF641 /* RouteInfoView.swift in Sources */,
 				861CA10E227621F400DAF641 /* CardBalancePicker.swift in Sources */,
-				861CA10F227621F400DAF641 /* DaySelectorView.swift in Sources */,
+				861CA10F227621F400DAF641 /* ChartHeader.swift in Sources */,
 				861CA110227621F400DAF641 /* UITabBar.swift in Sources */,
 				8607AD5D22764B040046513F /* Environment.swift in Sources */,
+				8607AD712276871B0046513F /* MainPresenter+Analytics.swift in Sources */,
 				861CA111227621F400DAF641 /* CardBalanceWebService.swift in Sources */,
 				861CA112227621F400DAF641 /* AppConstants.swift in Sources */,
 				861CA113227621F400DAF641 /* WeekDays.swift in Sources */,
+				8607AD6B227683B80046513F /* RouteUseCaseImpl.swift in Sources */,
 				861CA114227621F400DAF641 /* UIEdgeInsets.swift in Sources */,
+				86EBA6DE227A753C00B04A21 /* ChartAnotation.swift in Sources */,
 				861CA115227621F400DAF641 /* DetailHeaderView.swift in Sources */,
+				86EBA6D82279DD7400B04A21 /* ChartBar.swift in Sources */,
 				861CA116227621F400DAF641 /* PromptView.swift in Sources */,
 				861CA117227621F400DAF641 /* PriceRepository.swift in Sources */,
 				861CA118227621F400DAF641 /* FireBaseAppDelegate.swift in Sources */,
 				861CA119227621F400DAF641 /* ApplicationCoordinator.swift in Sources */,
 				861CA11A227621F400DAF641 /* Card.swift in Sources */,
 				861CA11B227621F400DAF641 /* CardBalanceViewController.swift in Sources */,
-				861CA11C227621F400DAF641 /* WaitTimeDetail.swift in Sources */,
 				861CA11D227621F400DAF641 /* AppResources.swift in Sources */,
 				861CA11E227621F400DAF641 /* AlertContext.swift in Sources */,
 				861CA11F227621F400DAF641 /* DirectionActionView.swift in Sources */,
@@ -1697,12 +1752,13 @@
 				861CA127227621F400DAF641 /* RealmHandler.swift in Sources */,
 				861CA128227621F400DAF641 /* RealmStationWaitTime.swift in Sources */,
 				861CA129227621F400DAF641 /* DetailAddressCell.swift in Sources */,
+				86EBA6EC227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */,
 				861CA12A227621F400DAF641 /* Notifications.swift in Sources */,
 				861CA12B227621F400DAF641 /* RouteCalculatorPresenter.swift in Sources */,
 				861CA12C227621F400DAF641 /* UIDevice.swift in Sources */,
 				861CA12D227621F400DAF641 /* MainViewController.swift in Sources */,
 				861CA12E227621F400DAF641 /* Coordinator.swift in Sources */,
-				861CA12F227621F400DAF641 /* DetailWaitTimeCell.swift in Sources */,
+				861CA12F227621F400DAF641 /* DetailChartCell.swift in Sources */,
 				861CA130227621F400DAF641 /* ResponseAlias.swift in Sources */,
 				861CA131227621F400DAF641 /* IconPickerView.swift in Sources */,
 				861CA132227621F400DAF641 /* RouteCalculatorTransition.swift in Sources */,
@@ -1717,6 +1773,7 @@
 				861CA13B227621F400DAF641 /* RealmTrain.swift in Sources */,
 				861CA13C227621F400DAF641 /* PopUpTransition.swift in Sources */,
 				861CA13D227621F400DAF641 /* FadingCollectionView.swift in Sources */,
+				8607AD6E227685B20046513F /* AnalyticsPresenter.swift in Sources */,
 				861CA13E227621F400DAF641 /* NSLayoutAnchor.swift in Sources */,
 				861CA13F227621F400DAF641 /* FadingCollectionLayout.swift in Sources */,
 				861CA140227621F400DAF641 /* CardBalancePresenter.swift in Sources */,
@@ -1743,6 +1800,8 @@
 				861CA155227621F400DAF641 /* Location.swift in Sources */,
 				861CA156227621F400DAF641 /* MainPresenterImpl.swift in Sources */,
 				861CA157227621F400DAF641 /* DataBaseRepository.swift in Sources */,
+				86EBA6E5227A904800B04A21 /* DetailTableHeader.swift in Sources */,
+				86EBA6EF227C664E00B04A21 /* CardBalancePresenter+Analytics.swift in Sources */,
 				861CA158227621F400DAF641 /* BaseService.swift in Sources */,
 				861CA159227621F400DAF641 /* MainCordinator.swift in Sources */,
 				861CA15A227621F400DAF641 /* RealmPrice.swift in Sources */,
@@ -1781,8 +1840,10 @@
 				861CA17B227621F400DAF641 /* AppLaunchArguments.swift in Sources */,
 				861CA17C227621F400DAF641 /* AppDelegate.swift in Sources */,
 				861CA17D227621F400DAF641 /* StationDetailCordinator.swift in Sources */,
+				8607AD6122766EF00046513F /* Presenter.swift in Sources */,
+				8607AD65227680060046513F /* AnalyticsUseCase.swift in Sources */,
 				861CA17E227621F400DAF641 /* StationWaitTime.swift in Sources */,
-				861CA17F227621F400DAF641 /* WaitTimeDetailCell.swift in Sources */,
+				861CA17F227621F400DAF641 /* ChartTimeBarCell.swift in Sources */,
 				861CA180227621F400DAF641 /* UICollectionView.swift in Sources */,
 				861CA181227621F400DAF641 /* MapResurcesUseCaseImpl.swift in Sources */,
 				861CA182227621F400DAF641 /* CardUseCaseImpl.swift in Sources */,
@@ -1798,13 +1859,16 @@
 				867468E221018BAD00E4809D /* String.swift in Sources */,
 				86593C4021505CB500383445 /* RouteInfoView.swift in Sources */,
 				8652A35B2129074700ED1910 /* CardBalancePicker.swift in Sources */,
-				86BD985F2159D7660022DC6F /* DaySelectorView.swift in Sources */,
+				86BD985F2159D7660022DC6F /* ChartHeader.swift in Sources */,
 				8621A2CD20F6FE0A00A2D8B1 /* UITabBar.swift in Sources */,
 				8607AD5C22764B040046513F /* Environment.swift in Sources */,
+				8607AD702276871B0046513F /* MainPresenter+Analytics.swift in Sources */,
 				86385C8421337437002EA9DF /* CardBalanceWebService.swift in Sources */,
 				8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */,
 				86A4939E21B850A100490820 /* WeekDays.swift in Sources */,
+				8607AD6A227683B80046513F /* RouteUseCaseImpl.swift in Sources */,
 				861FC581211010480024783A /* UIEdgeInsets.swift in Sources */,
+				86EBA6DD227A753C00B04A21 /* ChartAnotation.swift in Sources */,
 				86B83114213DBF350063AC75 /* DetailHeaderView.swift in Sources */,
 				86B830EA21385FBB0063AC75 /* PromptView.swift in Sources */,
 				86593C3721502E0A00383445 /* PriceRepository.swift in Sources */,
@@ -1812,7 +1876,6 @@
 				8621A2CE20F6FE0A00A2D8B1 /* ApplicationCoordinator.swift in Sources */,
 				86385C862133747E002EA9DF /* Card.swift in Sources */,
 				8652A361212A407600ED1910 /* CardBalanceViewController.swift in Sources */,
-				86BD9861215AE6640022DC6F /* WaitTimeDetail.swift in Sources */,
 				8621A2CF20F6FE0A00A2D8B1 /* AppResources.swift in Sources */,
 				86B830DE213765A80063AC75 /* AlertContext.swift in Sources */,
 				86B8312A2140CDFF0063AC75 /* DirectionActionView.swift in Sources */,
@@ -1827,11 +1890,12 @@
 				86587CCC226FD7D50025A764 /* RealmStationWaitTime.swift in Sources */,
 				86B83118213DC5140063AC75 /* DetailAddressCell.swift in Sources */,
 				86B830E8213857EA0063AC75 /* Notifications.swift in Sources */,
+				86EBA6EB227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */,
 				8611C836214ED5B400FFBC23 /* RouteCalculatorPresenter.swift in Sources */,
 				86CB75E8212B834200DBDB98 /* UIDevice.swift in Sources */,
 				8621A2D020F6FE0A00A2D8B1 /* MainViewController.swift in Sources */,
 				8621A2D120F6FE0A00A2D8B1 /* Coordinator.swift in Sources */,
-				86A4939B21B84C7600490820 /* DetailWaitTimeCell.swift in Sources */,
+				86A4939B21B84C7600490820 /* DetailChartCell.swift in Sources */,
 				86FC7454220D024D006311B3 /* ResponseAlias.swift in Sources */,
 				86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */,
 				868D2618214B3AD000700DE7 /* RouteCalculatorTransition.swift in Sources */,
@@ -1846,6 +1910,7 @@
 				86587C9C226EB23B0025A764 /* RealmTrain.swift in Sources */,
 				869E2CC9212524DB00B2FA9F /* PopUpTransition.swift in Sources */,
 				86B830E52138485A0063AC75 /* FadingCollectionView.swift in Sources */,
+				8607AD6D227685B20046513F /* AnalyticsPresenter.swift in Sources */,
 				868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */,
 				86B830E3213844440063AC75 /* FadingCollectionLayout.swift in Sources */,
 				86385C7A213362DC002EA9DF /* CardBalancePresenter.swift in Sources */,
@@ -1873,6 +1938,8 @@
 				8621A2D720F6FE0A00A2D8B1 /* MainPresenterImpl.swift in Sources */,
 				862517E220FD7A32002F2048 /* DataBaseRepository.swift in Sources */,
 				8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */,
+				86EBA6E4227A904800B04A21 /* DetailTableHeader.swift in Sources */,
+				86EBA6EE227C664E00B04A21 /* CardBalancePresenter+Analytics.swift in Sources */,
 				86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */,
 				86587CD2226FDFD40025A764 /* RealmPrice.swift in Sources */,
 				86B830E1213843FB0063AC75 /* CardCell.swift in Sources */,
@@ -1883,6 +1950,7 @@
 				8621A2D920F6FE0A00A2D8B1 /* Endpoints.swift in Sources */,
 				86B83116213DC4F30063AC75 /* DetailCell.swift in Sources */,
 				86BD985D2159CFF20022DC6F /* StationWaitTimeWebService.swift in Sources */,
+				86EBA6D72279D92700B04A21 /* ChartBar.swift in Sources */,
 				86B83111213DAEBA0063AC75 /* StationDetailPresenter.swift in Sources */,
 				8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				8611AF7B21017AAD0002663B /* Theme.swift in Sources */,
@@ -1910,8 +1978,10 @@
 				86FC7456220D1DE8006311B3 /* AppLaunchArguments.swift in Sources */,
 				8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */,
 				86B831012138C1920063AC75 /* StationDetailCordinator.swift in Sources */,
+				8607AD6022766EF00046513F /* Presenter.swift in Sources */,
+				8607AD64227680060046513F /* AnalyticsUseCase.swift in Sources */,
 				86BD98572159C7170022DC6F /* StationWaitTime.swift in Sources */,
-				86DF0C7322125E16008300FF /* WaitTimeDetailCell.swift in Sources */,
+				86DF0C7322125E16008300FF /* ChartTimeBarCell.swift in Sources */,
 				86FC745E220D329F006311B3 /* UICollectionView.swift in Sources */,
 				8614C47F2238177D003E4A14 /* MapResurcesUseCaseImpl.swift in Sources */,
 				86385C8C2133840E002EA9DF /* CardUseCaseImpl.swift in Sources */,
@@ -1954,7 +2024,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
+				ASSETCATALOG_COMPILER_OPTIMIZATION = "";
 				CODE_SIGN_ENTITLEMENTS = suburbano/Configurations/suburbano.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1984,7 +2054,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
+				ASSETCATALOG_COMPILER_OPTIMIZATION = "";
 				CODE_SIGN_ENTITLEMENTS = suburbano/Configurations/suburbano.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

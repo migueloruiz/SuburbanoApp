@@ -8,80 +8,56 @@
 
 import Foundation
 
-protocol CardBalancePresenter: class {
-    func addCard(withIcon: CardBalanceIcon, number: String)
+protocol CardBalancePresenter: Presenter {
+    func addCard(withId id: String, icon: String, color: Data)
     func deleteCard(withId id: String)
-}
-
-protocol CardBalanceViewDelegate: class {
-    func setInvalid(form: CardBalanceForm)
-    func addCardSuccess(card: Card)
-    func addCardFailure(error: InlineError)
-    func showAnimation()
-}
-
-enum CardBalanceForm {
-    case number
-    case icon
+    func endInteraction(inDetailMode: Bool)
 }
 
 class CardBalancePresenterImpl: CardBalancePresenter {
 
     private let cardUseCase: CardUseCase?
+    internal let analyticsUseCase: AnalyticsUseCase?
     weak var viewDelegate: CardBalanceViewDelegate?
 
-    init(cardUseCase: CardUseCase?) {
+    init(cardUseCase: CardUseCase?, analyticsUseCase: AnalyticsUseCase?) {
         self.cardUseCase = cardUseCase
+        self.analyticsUseCase = analyticsUseCase
     }
 
-    func addCard(withIcon icon: CardBalanceIcon, number: String) {
-        guard isIconValid(icon: icon) else {
-            viewDelegate?.setInvalid(form: .icon)
+    func addCard(withId id: String, icon: String, color: Data) {
+        let tempCard = Card(id: id, icon: icon, color: color)
+
+        do {
+            try cardUseCase?.validate(card: tempCard)
+        } catch let error {
+            let addCardError = (error as? AddCardError) ?? AddCardError.cardNotFound
+            DispatchQueue.main.async { [weak self] in self?.viewDelegate?.display(error: addCardError) }
+            trackForm(error: addCardError)
             return
         }
 
-        guard isCardNumberValid(number: number) else {
-            viewDelegate?.setInvalid(form: .number)
-            return
-        }
+        DispatchQueue.main.async { [weak self] in self?.viewDelegate?.showAnimation() }
 
-        let iconValues = icon.values
-        let tempCard = Card(id: number,
-                            balance: "",
-                            icon: iconValues.icon,
-                            color: iconValues.color,
-                            displayDate: "",
-                            date: 0)
-
-        guard let isRegistered = cardUseCase?.isAlreadyRegister(card: tempCard), !isRegistered else {
-            viewDelegate?.addCardFailure(error: "Esta tarjeta ya esta registrada") // Localized
-            return
-        }
-
-        viewDelegate?.showAnimation()
-        cardUseCase?.add(card: tempCard, success: { [weak self] card in
-            guard let strongSelf = self else { return }
-            strongSelf.viewDelegate?.addCardSuccess(card: card)
-        }, failure: { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.viewDelegate?.addCardFailure(error: "Número de tarjeta no valido. Puedes encontrar el numero al frente en la parte inferior de tu tarjeta") // Localized
+        cardUseCase?.add(card: tempCard, success: { _ in
+            DispatchQueue.main.async { [weak self] in
+                self?.viewDelegate?.cardAdded()
+                self?.trackAddedSuccess()
+            }
+        }, failure: { error in
+            DispatchQueue.main.async { [weak self] in
+                self?.viewDelegate?.display(error: error)
+                self?.trackForm(error: error)
+            }
         })
     }
 
     func deleteCard(withId id: String) {
         cardUseCase?.delate(withId: id)
     }
-}
 
-extension CardBalancePresenterImpl {
-    private func isIconValid(icon: CardBalanceIcon) -> Bool {
-        switch icon {
-        case .initial: return false
-        case .custome: return true
-        }
-    }
-
-    private func isCardNumberValid(number: String) -> Bool {
-        return number.matchesPattern(pattern: "^[0-9]+$")
+    func endInteraction(inDetailMode: Bool) {
+        guard !inDetailMode else { return }
+        trackDesist()
     }
 }

@@ -28,7 +28,8 @@ class DetailAddressCell: UITableViewCell, DetailCell, ReusableView {
 
     private func configureLayout() {
         addSubViews([addressLable])
-        addressLable.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
+        addressLable.fillVertically()
+        addressLable.fillHorizontal(offset: Theme.Offset.large)
     }
 
     func configure(with item: DetailItem) {

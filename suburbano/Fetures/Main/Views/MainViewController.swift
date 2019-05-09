@@ -79,13 +79,14 @@ class MainViewController: UIViewController {
             gradientView.anchorSize(height: AppConstants.Device.normalStatusbarHeigth)
         }
 
-        mapView.view.fillSuperview()
+        mapView.view.fill()
         cardBalanceView.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, leftConstant: Theme.Offset.normal, bottomConstant: Theme.Offset.normal, rightConstant: Theme.Offset.normal)
         buttonsContiner.anchor(top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, topConstant: Theme.Offset.small, rightConstant: Theme.Offset.normal)
         buttonsContiner.addArranged(subViews: [pricesButton, centerMapButton])
     }
 
     @objc func openRouteCalculator() {
+
         guard let departure = presenter.getStation(withName: "Buenavista"),
         let arraival = presenter.getStation(withName: "Cuautitlan") else { return }
         flowDelegate?.openRouteCalculator(stations: presenter.getStations(), departure: departure, arraival: arraival)

@@ -63,8 +63,8 @@ class CardBalancePicker: UIView {
     private func configureLayout() {
         addSubViews([containerView, emptyMessageView])
 
-        containerView.fillSuperview()
-        emptyMessageView.fillSuperview()
+        containerView.fill()
+        emptyMessageView.fill()
 
         containerView.addSubViews([cardsCollection, addButton])
         addButton.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor)

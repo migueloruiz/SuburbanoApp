@@ -44,7 +44,7 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(DirectionsDetailViewController.close))
         view.addGestureRecognizer(gesture)
-        backButton.set(title: "Cancelar")
+        backButton.set(title: "Cancelar") // Localize
         backButton.addTarget(self, action: #selector(DirectionsDetailViewController.close), for: .touchUpInside)
         backButton.isUserInteractionEnabled = true
 
@@ -52,7 +52,7 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
         titleLabel.textAlignment = .center
         titleLabel.backgroundColor = .clear
         titleLabel.font = titleLabel.font.withSize(28)
-        titleLabel.text = "¿Como llego a la estacion \(presenter.stationName.firstUppercased)?"
+        titleLabel.text = "¿Como llego a la estacion \(presenter.stationName.firstUppercased)?" // Localize
         titleLabel.addDropShadow()
 
         for app in presenter.availableApps {

@@ -63,14 +63,14 @@ class IconPickerView: UIView {
     private func configureLayout() {
         anchorSquare(size: Constants.iconDiameter)
         addSubview(field)
-        field.fillSuperview()
+        field.fill()
     }
 
     func set(icon: CardBalanceIcon) {
         switch icon {
         case .initial:
             backgroundColor = Theme.Pallete.softGray
-            field.text = Constants.defaultIcon
+            field.placeholder = Constants.defaultIcon
         case .custome(let iconCode, let color):
             field.text = iconCode
             backgroundColor = color

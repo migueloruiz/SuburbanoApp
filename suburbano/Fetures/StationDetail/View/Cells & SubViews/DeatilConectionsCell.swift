@@ -26,7 +26,7 @@ class DeatilConectionsCell: UITableViewCell, DetailCell, ReusableView {
 
     private func configureLayout() {
         addSubViews([stackView])
-        stackView.fillSuperview()
+        stackView.fill()
     }
 
     func configure(with item: DetailItem) {

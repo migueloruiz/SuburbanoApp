@@ -8,8 +8,23 @@
 
 import Foundation
 
-class CardUseCaseImpl: CardUseCase {
+enum AddCardError: LocalizedError {
+    case invalidIcon
+    case invalidCardId
+    case cardAlreadyRegistered
+    case cardNotFound
 
+    var failureReason: String? {
+        switch self {
+        case .invalidIcon: return nil
+        case .invalidCardId: return nil
+        case .cardAlreadyRegistered: return "Esta tarjeta ya esta registrada" // Localize
+        case .cardNotFound: return "Número de tarjeta no valido. Puedes encontrar el numero al frente en la parte inferior de tu tarjeta" // Localize
+        }
+    }
+}
+
+class CardUseCaseImpl: CardUseCase {
     private struct Constants {
         static let fifteenMin: Double = 900
     }
@@ -34,8 +49,9 @@ class CardUseCaseImpl: CardUseCase {
 
         for _ in cards { dispatchGroup.enter() }
 
+        let now = Date().timeIntervalSince1970
         for card in cards {
-            guard shouldUpdate(card: card) else {
+            guard didCardExpire(now: now, card: card) else {
                 dispatchGroup.leave()
                 continue
             }
@@ -56,31 +72,49 @@ class CardUseCaseImpl: CardUseCase {
         })
     }
 
-    func isAlreadyRegister(card: Card) -> Bool {
-        return !(cardRepository.getCard(withId: card.id) == nil)
-    }
-
     func delate(withId id: String) {
         cardRepository.delateCard(withId: id)
         notifiCardsUpdate()
     }
 
-    func add(card: Card, success: @escaping SuccessResponse<Card>, failure: @escaping ErrorResponse) {
+    func validate(card: Card) throws {
+        try isCardNumberValid(number: card.id)
+        try isAlreadyRegister(card: card)
+    }
+
+    func add(card: Card, success: @escaping SuccessResponse<Card>, failure: @escaping AddCardErrorClosure) {
         cardBalanceWebService.getBalace(for: card, success: { [weak self] card in
             guard let strongSelf = self else { return }
-                strongSelf.cardRepository.add(card: card)
-                strongSelf.notifiCardsUpdate()
-                success(card)
-        }, failure: failure)
+            strongSelf.cardRepository.add(card: card)
+            strongSelf.notifiCardsUpdate()
+            success(card)
+        }, failure: { _ in failure(.cardNotFound) })
+    }
+}
+
+// MARK: Validations
+
+extension CardUseCaseImpl {
+
+    func didCardExpire(now: Double, card: Card) -> Bool {
+        return (now - card.date) > Constants.fifteenMin
+    }
+
+    func isAlreadyRegister(card: Card) throws {
+        if cardRepository.getCard(withId: card.id) != nil {
+            throw AddCardError.invalidCardId
+        }
+    }
+
+    func isCardNumberValid(number: String) throws {
+        if !number.matchesPattern(pattern: "^[0-9]+$") {
+            throw AddCardError.invalidCardId
+        }
     }
 }
 
 extension CardUseCaseImpl {
     fileprivate func notifiCardsUpdate() {
         NotificationCenter.default.post(name: .UpdateCards, object: nil)
-    }
-
-    fileprivate func shouldUpdate(card: Card) -> Bool { // TODO: better name and inject Date
-        return (Date().timeIntervalSince1970 - card.date) > Constants.fifteenMin
     }
 }

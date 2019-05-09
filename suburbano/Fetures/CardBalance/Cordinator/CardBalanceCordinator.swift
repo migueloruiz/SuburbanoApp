@@ -14,7 +14,10 @@ class CardBalanceCordinator: NSObject, Coordinator {
 
     init(rootViewController: MainViewController, card: Card? = nil) {
         self.rootViewController = rootViewController
-        let cardBalancePresenter = CardBalancePresenterImpl(cardUseCase: UseCaseLocator.getUseCase(ofType: CardUseCase.self)!)
+        let cardBalancePresenter = CardBalancePresenterImpl(
+            cardUseCase: UseCaseLocator.getUseCase(ofType: CardUseCase.self),
+            analyticsUseCase: UseCaseLocator.getUseCase(ofType: AnalyticsUseCase.self)
+        )
         self.controller = CardBalanceViewController(presenter: cardBalancePresenter, card: card)
         cardBalancePresenter.viewDelegate = controller
     }

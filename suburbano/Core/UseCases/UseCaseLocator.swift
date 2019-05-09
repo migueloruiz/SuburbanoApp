@@ -10,8 +10,11 @@ import Foundation
 
 class UseCaseLocator {
 
-    static func getUseCase<UseCase>(ofType type: UseCase.Type) -> UseCase? {
+    static func getUseCase<Abstraction>(ofType type: Abstraction.Type) -> Abstraction? {
         switch String(describing: type) {
+
+        case String(describing: AnalyticsUseCase.self):
+            return AnalyticsUseCaseImpl() as? Abstraction
 
         case String(describing: UpdateCardsBalanceUseCase.self),
              String(describing: GetCardBalanceUseCase.self),
@@ -21,12 +24,12 @@ class UseCaseLocator {
             return CardUseCaseImpl(
                 cardBalanceWebService: CardBalanceWebServiceImpl(),
                 cardRepository: CardRepositoryImpl()
-            ) as? UseCase
+            ) as? Abstraction
 
         case String(describing: GetStationsUseCase.self),
              String(describing: GetTrainRailUseCase.self),
              String(describing: MapResurcesUseCase.self):
-            return MapResurcesUseCaseImpl(mapResurcesRepository: MapResurcesRepositoryImpl()) as? UseCase
+            return MapResurcesUseCaseImpl(mapResurcesRepository: MapResurcesRepositoryImpl()) as? Abstraction
 
         case String(describing: GetRouteInformationUseCase.self),
              String(describing: GetRouteWaitTimeUseCase.self),
@@ -35,7 +38,7 @@ class UseCaseLocator {
                                     pricesService: PricesWebServiceImpl(),
                                     trainsRepository: TrainRepositoryImpl(),
                                     stationWaitTimeRepository: StationWaitTimeRepositoryImpl(),
-                                    stationWaitTimeService: StationWaitTimeWebServiceImpl()) as? UseCase
+                                    stationWaitTimeService: StationWaitTimeWebServiceImpl()) as? Abstraction
         default:
             return nil
         }

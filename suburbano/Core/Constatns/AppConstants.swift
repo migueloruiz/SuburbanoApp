@@ -10,7 +10,8 @@ import UIKit
 
 struct AppConstants {
     struct Animations {
-        static let loading = "loading"
+        static let trainLoader = "train-loader"
+        static let genericLoader = "generic_loader"
     }
 
     struct Device {

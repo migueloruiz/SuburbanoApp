@@ -30,7 +30,7 @@ enum DetailItem {
     case location(address: String)
     case schedule(dias: TripDay)
     case conactions(images: [String])
-    case waitTime(waitTimes: WeekChartModel, maxValue: Int)
+    case waitTime(waitTimes: WeekChartModel?, maxValue: Int)
 
     var cellIdentifier: String {
         switch self {
@@ -160,7 +160,7 @@ extension StationDetailPresenterImpl {
             .schedule(dias: .sundayAndHolidays)
         ])
         details.append([.conactions(images: station.conections.components(separatedBy: ","))])
-        details.append([.waitTime(waitTimes: [:], maxValue: Constants.waitTimeMaxValue)])
+        details.append([.waitTime(waitTimes: nil, maxValue: Constants.waitTimeMaxValue)])
 
         return details
     }

@@ -106,13 +106,6 @@ extension CardUseCaseImpl {
         }
     }
 
-//    func isIconValid(icon: String) -> Bool {
-//        switch icon {
-//        case .initial: return false
-//        case .custome: return true
-//        }
-//    }
-
     func isCardNumberValid(number: String) throws {
         if !number.matchesPattern(pattern: "^[0-9]+$") {
             throw AddCardError.invalidCardId

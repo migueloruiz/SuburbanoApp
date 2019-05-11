@@ -129,7 +129,7 @@ final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresent
     }
 
     private func getWaitTime(for station: StationEntity) {
-        routeUseCase?.getChartData(forStation: station.name) { [weak self] chartData in
+        routeUseCase?.getChartData(forStation: station.name) { [weak self] _ in
 
             var trainWaitTimeChartStatus: ChartStatus = .empty
             if let trainWaitTime = chartData.trainWaitTime {

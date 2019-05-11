@@ -34,6 +34,7 @@ class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
     private let chartHeader = ChartHeader()
     private let pageControl = UIPageControl()
     private let loader = LoadingView(animation: AppConstants.Animations.genericLoader)
+    private let emptyStateLabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupBody)
 
     private let anotationsStackView = UIStackView.with(
         axis: .horizontal,
@@ -91,6 +92,8 @@ class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
         anotationsStackView.backgroundColor = Theme.Pallete.white
 
         loader.configure()
+
+        emptyStateLabel.text = "No hay informacion disponible" // Localize
     }
 
     private func configureLayout() {
@@ -104,6 +107,8 @@ class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
         collectionView.anchor(top: chartHeader.bottomAnchor)
         collectionView.fillHorizontal()
         collectionView.anchorSize(height: Constants.chartHeigth)
+
+        collectionView.backgroundView = emptyStateLabel
 
         pageControl.anchor(top: collectionView.bottomAnchor)
         pageControl.fillHorizontal()
@@ -129,10 +134,12 @@ class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
     }
 
     private func setEmptystate() {
+        emptyStateLabel.isHidden = false
         loader.dismiss(hiddingView: contentView)
     }
 
     private func configure(chart: ChartModel) {
+        emptyStateLabel.isHidden = true
         loader.dismiss(hiddingView: contentView)
         maxValue = chart.maxValue
         add(anotations: chart.anotations)
@@ -147,7 +154,7 @@ class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
         for text in anotations {
             let porcentaje = CGFloat(counter) / CGFloat(maxValue)
             let model = ChartAnotationModel(
-                title: text, // LOCALIZE
+                title: text,
                 color: UIColor.getGradientColor(from: chartBottomColor, to: chartTopColor, percentage: porcentaje)
             )
             let anotation = ChartAnotation(model: model)

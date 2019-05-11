@@ -13,18 +13,18 @@ class RouteUseCaseImpl: RouteUseCase {
     private let pricesRepository: PriceRepository
     private let pricesService: PricesWebService
     private let trainsRepository: TrainRepository
-    private let stationWaitTimeRepository: StationWaitTimeRepository
+    private let stationChartDataRepository: StationChartDataRepository
     private let stationWaitTimeService: StationWaitTimeWebService
 
     init(pricesRepository: PriceRepository,
          pricesService: PricesWebService,
          trainsRepository: TrainRepository,
-         stationWaitTimeRepository: StationWaitTimeRepository,
+         stationWaitTimeRepository: StationChartDataRepository,
          stationWaitTimeService: StationWaitTimeWebService) {
         self.pricesRepository = pricesRepository
         self.pricesService = pricesService
         self.trainsRepository = trainsRepository
-        self.stationWaitTimeRepository = stationWaitTimeRepository
+        self.stationChartDataRepository = stationWaitTimeRepository
         self.stationWaitTimeService = stationWaitTimeService
     }
 
@@ -38,24 +38,69 @@ class RouteUseCaseImpl: RouteUseCase {
         }
     }
 
-    func getWaitTime(inStation station: String, complition: @escaping SuccessResponse<[StationWaitTimeEntity]>) {
-        let waitTime = stationWaitTimeRepository.get(inStation: station)
-        guard waitTime.isEmpty else {
-            complition(waitTime)
+    func getChartData(forStation station: String, complition: @escaping SuccessResponse<StationChartsData>) {
+        let stationChartData = stationChartDataRepository.get(inStation: station)
+        guard stationChartData.isEmpty else {
+            complition(parseChartsData(stationChartData: stationChartData))
             return
         }
 
-        stationWaitTimeService.getWaitTimes(success: { [weak self] waitTimes in
+        stationWaitTimeService.getWaitTimes(success: { [weak self] stationChartData in
             guard let strongSelf = self else { return }
-            strongSelf.stationWaitTimeRepository.add(waitTimes: waitTimes)
-            let waitTimeReponse = strongSelf.stationWaitTimeRepository.get(inStation: station)
-            complition(waitTimeReponse)
-        }, failure: {_  in complition([])})
+            strongSelf.stationChartDataRepository.add(stationChartData: stationChartData)
+            let orderedStationChartData = strongSelf.stationChartDataRepository.get(inStation: station)
+            complition(strongSelf.parseChartsData(stationChartData: orderedStationChartData))
+            }, failure: {_  in complition((trainWaitTime: nil, concurrence: nil)) })
     }
 }
 
 extension RouteUseCaseImpl {
-    func getPrices(complition: @escaping SuccessResponse<[Price]>) {
+    private func parseChartsData(stationChartData: [StationChartDataEntity]) -> StationChartsData {
+        var trainWaitDetals = [String: [ChartBarModel]]()
+        var concurrenceDetals = [String: [ChartBarModel]]()
+
+        for item in stationChartData {
+            let display = item.displayTime.split(separator: ":").first ?? "•"
+
+            let waitTimeModel = ChartBarModel(value: item.waitTime,
+                                          label: String(display))
+            let concurrenceModel = ChartBarModel(value: item.concurrence,
+                                                  label: String(display))
+
+            guard let day = WeekDays.init(rawValue: item.day) else { continue }
+
+            let dayTitle = day.title
+            if trainWaitDetals[dayTitle] == nil {
+                trainWaitDetals[dayTitle] = [waitTimeModel]
+            } else {
+                trainWaitDetals[dayTitle]?.append(waitTimeModel)
+            }
+
+            if concurrenceDetals[dayTitle] == nil {
+                concurrenceDetals[dayTitle] = [concurrenceModel]
+            } else {
+                concurrenceDetals[dayTitle]?.append(concurrenceModel)
+            }
+        }
+
+        let trainWaitModel = ChartModel(
+            chartSections: Array(trainWaitDetals.keys),
+            chartData: Array(trainWaitDetals.values),
+            maxValue: 20,
+            anotations: ["5 min", "10 min", "15 min", "20 min"] // LOCALIZE
+        )
+
+        let concurrenceModel = ChartModel(
+            chartSections: Array(concurrenceDetals.keys),
+            chartData: Array(concurrenceDetals.values),
+            maxValue: 20,
+            anotations: ["Poca", "Media", "Alta", "Muy alta"] // LOCALIZE
+        )
+
+        return (trainWaitTime: trainWaitModel, concurrence: concurrenceModel)
+    }
+
+    private func getPrices(complition: @escaping SuccessResponse<[Price]>) {
         guard let cachedPrices = pricesRepository.getPrices(), !cachedPrices.isEmpty else {
             getPricesFromService(complition: complition)
             return

@@ -71,7 +71,7 @@
 		861CA125227621F400DAF641 /* TrainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614724B2151DE660042BBB8 /* TrainRepository.swift */; };
 		861CA126227621F400DAF641 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AFE52221BBB0E004972B0 /* MapViewController.swift */; };
 		861CA127227621F400DAF641 /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517CB20F84D2F002F2048 /* RealmHandler.swift */; };
-		861CA128227621F400DAF641 /* RealmStationWaitTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CCB226FD7D50025A764 /* RealmStationWaitTime.swift */; };
+		861CA128227621F400DAF641 /* RealmStationChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CCB226FD7D50025A764 /* RealmStationChartData.swift */; };
 		861CA129227621F400DAF641 /* DetailAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83117213DC5140063AC75 /* DetailAddressCell.swift */; };
 		861CA12A227621F400DAF641 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E7213857EA0063AC75 /* Notifications.swift */; };
 		861CA12B227621F400DAF641 /* RouteCalculatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C835214ED5B400FFBC23 /* RouteCalculatorPresenter.swift */; };
@@ -85,7 +85,7 @@
 		861CA133227621F400DAF641 /* DirectionsDetailCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83120213F79480063AC75 /* DirectionsDetailCordinator.swift */; };
 		861CA134227621F400DAF641 /* PluggableApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0681F20F4176D00A6B17A /* PluggableApplicationDelegate.swift */; };
 		861CA135227621F400DAF641 /* RealmTrainStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587C9E226EBE0A0025A764 /* RealmTrainStop.swift */; };
-		861CA136227621F400DAF641 /* StationWaitTimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98582159CD680022DC6F /* StationWaitTimeRepository.swift */; };
+		861CA136227621F400DAF641 /* StationChartDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98582159CD680022DC6F /* StationChartDataRepository.swift */; };
 		861CA137227621F400DAF641 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7F21017D3F0002663B /* FontStyle.swift */; };
 		861CA138227621F400DAF641 /* RealmCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8721337558002EA9DF /* RealmCard.swift */; };
 		861CA139227621F400DAF641 /* CardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8921338392002EA9DF /* CardUseCase.swift */; };
@@ -157,7 +157,7 @@
 		861CA17B227621F400DAF641 /* AppLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7455220D1DE8006311B3 /* AppLaunchArguments.swift */; };
 		861CA17C227621F400DAF641 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008020F00FFE00C9D8B1 /* AppDelegate.swift */; };
 		861CA17D227621F400DAF641 /* StationDetailCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831002138C1920063AC75 /* StationDetailCordinator.swift */; };
-		861CA17E227621F400DAF641 /* StationWaitTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98562159C7170022DC6F /* StationWaitTime.swift */; };
+		861CA17E227621F400DAF641 /* StationChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98562159C7170022DC6F /* StationChartData.swift */; };
 		861CA17F227621F400DAF641 /* ChartTimeBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF0C7222125E16008300FF /* ChartTimeBarCell.swift */; };
 		861CA180227621F400DAF641 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC745D220D329F006311B3 /* UICollectionView.swift */; };
 		861CA181227621F400DAF641 /* MapResurcesUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47E2238177D003E4A14 /* MapResurcesUseCaseImpl.swift */; };
@@ -244,7 +244,7 @@
 		8652A363212B2D3500ED1910 /* CardBalanceTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A362212B2D3500ED1910 /* CardBalanceTransition.swift */; };
 		86587C9C226EB23B0025A764 /* RealmTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587C9B226EB23B0025A764 /* RealmTrain.swift */; };
 		86587C9F226EBE0A0025A764 /* RealmTrainStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587C9E226EBE0A0025A764 /* RealmTrainStop.swift */; };
-		86587CCC226FD7D50025A764 /* RealmStationWaitTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CCB226FD7D50025A764 /* RealmStationWaitTime.swift */; };
+		86587CCC226FD7D50025A764 /* RealmStationChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CCB226FD7D50025A764 /* RealmStationChartData.swift */; };
 		86587CCE226FDAE40025A764 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CCD226FDAE40025A764 /* Repository.swift */; };
 		86587CD0226FDD620025A764 /* MapResurcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CCF226FDD620025A764 /* MapResurcesRepository.swift */; };
 		86587CD2226FDFD40025A764 /* RealmPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CD1226FDFD40025A764 /* RealmPrice.swift */; };
@@ -303,8 +303,8 @@
 		86B8312A2140CDFF0063AC75 /* DirectionActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831292140CDFF0063AC75 /* DirectionActionView.swift */; };
 		86B8312D21459ADD0063AC75 /* DirectionsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8312C21459ADD0063AC75 /* DirectionsApp.swift */; };
 		86B8312F21459FD70063AC75 /* DirectionsAppsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8312E21459FD70063AC75 /* DirectionsAppsFactory.swift */; };
-		86BD98572159C7170022DC6F /* StationWaitTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98562159C7170022DC6F /* StationWaitTime.swift */; };
-		86BD98592159CD680022DC6F /* StationWaitTimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98582159CD680022DC6F /* StationWaitTimeRepository.swift */; };
+		86BD98572159C7170022DC6F /* StationChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98562159C7170022DC6F /* StationChartData.swift */; };
+		86BD98592159CD680022DC6F /* StationChartDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98582159CD680022DC6F /* StationChartDataRepository.swift */; };
 		86BD985D2159CFF20022DC6F /* StationWaitTimeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */; };
 		86BD985F2159D7660022DC6F /* ChartHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985E2159D7660022DC6F /* ChartHeader.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
@@ -427,7 +427,7 @@
 		8652A362212B2D3500ED1910 /* CardBalanceTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceTransition.swift; sourceTree = "<group>"; };
 		86587C9B226EB23B0025A764 /* RealmTrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTrain.swift; sourceTree = "<group>"; };
 		86587C9E226EBE0A0025A764 /* RealmTrainStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTrainStop.swift; sourceTree = "<group>"; };
-		86587CCB226FD7D50025A764 /* RealmStationWaitTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStationWaitTime.swift; sourceTree = "<group>"; };
+		86587CCB226FD7D50025A764 /* RealmStationChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStationChartData.swift; sourceTree = "<group>"; };
 		86587CCD226FDAE40025A764 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		86587CCF226FDD620025A764 /* MapResurcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResurcesRepository.swift; sourceTree = "<group>"; };
 		86587CD1226FDFD40025A764 /* RealmPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPrice.swift; sourceTree = "<group>"; };
@@ -500,8 +500,8 @@
 		86B831292140CDFF0063AC75 /* DirectionActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionActionView.swift; sourceTree = "<group>"; };
 		86B8312C21459ADD0063AC75 /* DirectionsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsApp.swift; sourceTree = "<group>"; };
 		86B8312E21459FD70063AC75 /* DirectionsAppsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsAppsFactory.swift; sourceTree = "<group>"; };
-		86BD98562159C7170022DC6F /* StationWaitTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWaitTime.swift; sourceTree = "<group>"; };
-		86BD98582159CD680022DC6F /* StationWaitTimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWaitTimeRepository.swift; sourceTree = "<group>"; };
+		86BD98562159C7170022DC6F /* StationChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationChartData.swift; sourceTree = "<group>"; };
+		86BD98582159CD680022DC6F /* StationChartDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationChartDataRepository.swift; sourceTree = "<group>"; };
 		86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWaitTimeWebService.swift; sourceTree = "<group>"; };
 		86BD985E2159D7660022DC6F /* ChartHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeader.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* trainRail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trainRail.json; sourceTree = "<group>"; };
@@ -1257,14 +1257,14 @@
 		86B83112213DBF2C0063AC75 /* Cells & SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				86B83115213DC4F30063AC75 /* DetailCell.swift */,
-				86B83113213DBF350063AC75 /* DetailHeaderView.swift */,
-				86B83117213DC5140063AC75 /* DetailAddressCell.swift */,
-				86B83119213DC6230063AC75 /* DetailScheduleCell.swift */,
 				86B8311B213DF3AA0063AC75 /* DeatilConectionsCell.swift */,
+				86B83117213DC5140063AC75 /* DetailAddressCell.swift */,
+				86B83115213DC4F30063AC75 /* DetailCell.swift */,
 				86A4939A21B84C7600490820 /* DetailChartCell.swift */,
-				86A4939C21B84C9C00490820 /* Chart */,
+				86B83113213DBF350063AC75 /* DetailHeaderView.swift */,
+				86B83119213DC6230063AC75 /* DetailScheduleCell.swift */,
 				86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */,
+				86A4939C21B84C9C00490820 /* Chart */,
 			);
 			path = "Cells & SubViews";
 			sourceTree = "<group>";
@@ -1319,9 +1319,9 @@
 		86BD98552159C6A60022DC6F /* StationWaitTime */ = {
 			isa = PBXGroup;
 			children = (
-				86BD98562159C7170022DC6F /* StationWaitTime.swift */,
-				86BD98582159CD680022DC6F /* StationWaitTimeRepository.swift */,
-				86587CCB226FD7D50025A764 /* RealmStationWaitTime.swift */,
+				86BD98562159C7170022DC6F /* StationChartData.swift */,
+				86BD98582159CD680022DC6F /* StationChartDataRepository.swift */,
+				86587CCB226FD7D50025A764 /* RealmStationChartData.swift */,
 			);
 			path = StationWaitTime;
 			sourceTree = "<group>";
@@ -1763,7 +1763,7 @@
 				861CA125227621F400DAF641 /* TrainRepository.swift in Sources */,
 				861CA126227621F400DAF641 /* MapViewController.swift in Sources */,
 				861CA127227621F400DAF641 /* RealmHandler.swift in Sources */,
-				861CA128227621F400DAF641 /* RealmStationWaitTime.swift in Sources */,
+				861CA128227621F400DAF641 /* RealmStationChartData.swift in Sources */,
 				861CA129227621F400DAF641 /* DetailAddressCell.swift in Sources */,
 				86EBA6EC227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */,
 				861CA12A227621F400DAF641 /* Notifications.swift in Sources */,
@@ -1778,7 +1778,7 @@
 				861CA133227621F400DAF641 /* DirectionsDetailCordinator.swift in Sources */,
 				861CA134227621F400DAF641 /* PluggableApplicationDelegate.swift in Sources */,
 				861CA135227621F400DAF641 /* RealmTrainStop.swift in Sources */,
-				861CA136227621F400DAF641 /* StationWaitTimeRepository.swift in Sources */,
+				861CA136227621F400DAF641 /* StationChartDataRepository.swift in Sources */,
 				861CA137227621F400DAF641 /* FontStyle.swift in Sources */,
 				861CA138227621F400DAF641 /* RealmCard.swift in Sources */,
 				861CA139227621F400DAF641 /* CardUseCase.swift in Sources */,
@@ -1855,7 +1855,7 @@
 				861CA17D227621F400DAF641 /* StationDetailCordinator.swift in Sources */,
 				8607AD6122766EF00046513F /* Presenter.swift in Sources */,
 				8607AD65227680060046513F /* AnalyticsUseCase.swift in Sources */,
-				861CA17E227621F400DAF641 /* StationWaitTime.swift in Sources */,
+				861CA17E227621F400DAF641 /* StationChartData.swift in Sources */,
 				861CA17F227621F400DAF641 /* ChartTimeBarCell.swift in Sources */,
 				861CA180227621F400DAF641 /* UICollectionView.swift in Sources */,
 				861CA181227621F400DAF641 /* MapResurcesUseCaseImpl.swift in Sources */,
@@ -1901,7 +1901,7 @@
 				8614724C2151DE660042BBB8 /* TrainRepository.swift in Sources */,
 				860AFE53221BBB0E004972B0 /* MapViewController.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
-				86587CCC226FD7D50025A764 /* RealmStationWaitTime.swift in Sources */,
+				86587CCC226FD7D50025A764 /* RealmStationChartData.swift in Sources */,
 				86B83118213DC5140063AC75 /* DetailAddressCell.swift in Sources */,
 				86B830E8213857EA0063AC75 /* Notifications.swift in Sources */,
 				86EBA6EB227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */,
@@ -1916,7 +1916,7 @@
 				86B83121213F79490063AC75 /* DirectionsDetailCordinator.swift in Sources */,
 				8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */,
 				86587C9F226EBE0A0025A764 /* RealmTrainStop.swift in Sources */,
-				86BD98592159CD680022DC6F /* StationWaitTimeRepository.swift in Sources */,
+				86BD98592159CD680022DC6F /* StationChartDataRepository.swift in Sources */,
 				8611AF8021017D3F0002663B /* FontStyle.swift in Sources */,
 				86385C8821337558002EA9DF /* RealmCard.swift in Sources */,
 				86385C8A21338392002EA9DF /* CardUseCase.swift in Sources */,
@@ -1994,7 +1994,7 @@
 				86B831012138C1920063AC75 /* StationDetailCordinator.swift in Sources */,
 				8607AD6022766EF00046513F /* Presenter.swift in Sources */,
 				8607AD64227680060046513F /* AnalyticsUseCase.swift in Sources */,
-				86BD98572159C7170022DC6F /* StationWaitTime.swift in Sources */,
+				86BD98572159C7170022DC6F /* StationChartData.swift in Sources */,
 				86DF0C7322125E16008300FF /* ChartTimeBarCell.swift in Sources */,
 				86FC745E220D329F006311B3 /* UICollectionView.swift in Sources */,
 				8614C47F2238177D003E4A14 /* MapResurcesUseCaseImpl.swift in Sources */,

@@ -12,32 +12,32 @@ enum DetailSection: Int {
     case location
     case schedule
     case conactions
-    case waitTime
+    case trainWaitTimeChart
+    case concurrenciChart
 
     var title: String {
         switch self {
         case .location: return "UBICACION" // Localize
         case .schedule: return "HORARIO" // Localize
         case .conactions: return "CONECCIONES" // Localize
-        case .waitTime: return "TIEMPO ENTRE TRENES" // Localize
+        case .trainWaitTimeChart: return "TIEMPO ENTRE TRENES" // Localize
+        case .concurrenciChart: return "CONCIRRENCIA" // Localize
         }
     }
 }
-
-typealias WeekChartModel = [WeekDays: [ChartTimeBarModel]]
 
 enum DetailItem {
     case location(address: String)
     case schedule(dias: TripDay)
     case conactions(images: [String])
-    case waitTime(waitTimes: WeekChartModel?, maxValue: Int)
+    case chart(status: ChartStatus)
 
     var cellIdentifier: String {
         switch self {
         case .location: return DetailAddressCell.reuseIdentifier
         case .schedule: return DetailScheduleCell.reuseIdentifier
         case .conactions: return DeatilConectionsCell.reuseIdentifier
-        case .waitTime: return DetailChartCell.reuseIdentifier
+        case .chart: return DetailChartCell.reuseIdentifier
         }
     }
 }
@@ -84,7 +84,8 @@ protocol StationDetailPresenter: class, Presenter {
 final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresenter {
 
     private struct Constants {
-        static let waitTimeMaxValue = 20
+        static let trainWaitTimeChartMaxValue = 20
+        static let concurrenciChartMaxValue = 10
     }
 
     private let routeUseCase: RouteUseCase?
@@ -128,25 +129,23 @@ final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresent
     }
 
     private func getWaitTime(for station: StationEntity) {
-        routeUseCase?.getWaitTime(inStation: station.name) { [weak self] waitTimes in
-            guard let strongSelf = self else { return }
-            var waitDaysDetals = WeekChartModel()
-            for item in waitTimes {
-                let display = item.displayTime.split(separator: ":").first ?? "•"
-                let model = ChartTimeBarModel(value: item.waitTime,
-                                              maxValue: 20,
-                                              displayTime: String(display))
-                guard let day = WeekDays.init(rawValue: item.day) else { continue }
-                if waitDaysDetals[day] == nil {
-                    waitDaysDetals[day] = [model]
-                } else {
-                    waitDaysDetals[day]?.append(model)
-                }
+        routeUseCase?.getChartData(forStation: station.name) { [weak self] chartData in
+
+            var trainWaitTimeChartStatus: ChartStatus = .empty
+            if let trainWaitTime = chartData.trainWaitTime {
+                trainWaitTimeChartStatus = .content(chartData: trainWaitTime)
             }
-            strongSelf.stationDetails[DetailSection.waitTime.rawValue] = [.waitTime(waitTimes: waitDaysDetals, maxValue: Constants.waitTimeMaxValue)]
-            strongSelf.viewDelegate?.update()
+            self?.stationDetails[DetailSection.trainWaitTimeChart.rawValue] = [.chart(status: trainWaitTimeChartStatus)]
+
+            var concurrenceChartStatus: ChartStatus = .empty
+            if let concurrence = chartData.concurrence {
+                concurrenceChartStatus = .content(chartData: concurrence)
+            }
+            self?.stationDetails[DetailSection.concurrenciChart.rawValue] = [.chart(status: concurrenceChartStatus)]
+
+            self?.viewDelegate?.update()
         }
-    }
+     }
 }
 
 extension StationDetailPresenterImpl {
@@ -160,7 +159,8 @@ extension StationDetailPresenterImpl {
             .schedule(dias: .sundayAndHolidays)
         ])
         details.append([.conactions(images: station.conections.components(separatedBy: ","))])
-        details.append([.waitTime(waitTimes: nil, maxValue: Constants.waitTimeMaxValue)])
+        details.append([.chart(status: .loading)])
+        details.append([.chart(status: .loading)])
 
         return details
     }

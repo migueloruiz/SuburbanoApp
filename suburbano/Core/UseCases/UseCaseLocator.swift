@@ -32,12 +32,12 @@ class UseCaseLocator {
             return MapResurcesUseCaseImpl(mapResurcesRepository: MapResurcesRepositoryImpl()) as? Abstraction
 
         case String(describing: GetRouteInformationUseCase.self),
-             String(describing: GetRouteWaitTimeUseCase.self),
+             String(describing: GetStationChartsUseCase.self),
              String(describing: RouteUseCase.self):
             return RouteUseCaseImpl(pricesRepository: TripPriceRepositoryRealmImpl(),
                                     pricesService: PricesWebServiceImpl(),
                                     trainsRepository: TrainRepositoryImpl(),
-                                    stationWaitTimeRepository: StationWaitTimeRepositoryImpl(),
+                                    stationWaitTimeRepository: StationChartDataRepositoryImpl(),
                                     stationWaitTimeService: StationWaitTimeWebServiceImpl()) as? Abstraction
         default:
             return nil

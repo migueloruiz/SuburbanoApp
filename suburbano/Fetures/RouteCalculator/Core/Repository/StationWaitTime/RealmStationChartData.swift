@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class RealmStationWaitTime: Object, StationWaitTimeEntity {
+class RealmStationChartData: Object, StationChartDataEntity {
     @objc dynamic var id: String = ""
     @objc dynamic var concurrence: Int = 0
     @objc dynamic var displayTime: String = ""
@@ -23,7 +23,7 @@ class RealmStationWaitTime: Object, StationWaitTimeEntity {
         return ["station", "day", "timestamp"]
     }
 
-    convenience init(entity: StationWaitTimeEntity) {
+    convenience init(entity: StationChartDataEntity) {
         self.init()
         self.id = "\(entity.station)-\(entity.day)-\(entity.timestamp)"
         self.station = entity.station

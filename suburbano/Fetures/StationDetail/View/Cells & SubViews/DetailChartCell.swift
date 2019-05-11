@@ -8,6 +8,19 @@
 
 import UIKit
 
+struct ChartModel {
+    let chartSections: [String]
+    let chartData: [[ChartBarModel]]
+    let maxValue: Int
+    let anotations: [String]
+}
+
+enum ChartStatus {
+    case loading
+    case empty
+    case content(chartData: ChartModel)
+}
+
 class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
 
     struct Constants {
@@ -17,7 +30,6 @@ class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
 
     internal var chartTopColor: UIColor = Theme.Pallete.softGray
     internal var chartBottomColor: UIColor = Theme.Pallete.softRed
-    internal var anotationsSteps: Int = 4
 
     private let chartHeader = ChartHeader()
     private let pageControl = UIPageControl()
@@ -48,12 +60,15 @@ class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
     }()
 
     private var maxValue: Int = 0
-    private var chartDetals: WeekChartModel? {
+    private var chartStatus: ChartStatus = .loading {
         didSet {
-            if chartDetals == nil {
-                loader.show(hiddingView: contentView)
-            } else {
-                loader.dismiss(hiddingView: contentView)
+            switch chartStatus {
+            case .loading:
+                setLoading()
+            case .empty:
+                setEmptystate()
+            case .content(let chartData):
+                configure(chart: chartData)
             }
         }
     }
@@ -84,7 +99,7 @@ class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
 
         chartHeader.anchor(top: contentView.topAnchor)
         chartHeader.fillHorizontal()
-        chartHeader.anchorSize(height: 40)
+        chartHeader.anchorSize(height: Theme.Offset.extralarge)
 
         collectionView.anchor(top: chartHeader.bottomAnchor)
         collectionView.fillHorizontal()
@@ -92,36 +107,49 @@ class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
 
         pageControl.anchor(top: collectionView.bottomAnchor)
         pageControl.fillHorizontal()
-        pageControl.anchorSize(height: 20)
+        pageControl.anchorSize(height: Theme.Offset.large)
 
         anotationsStackView.anchor(top: pageControl.bottomAnchor, bottom: contentView.bottomAnchor, bottomConstant: Theme.Offset.small)
         anotationsStackView.fillHorizontal(offset: Theme.Offset.large)
 
-        loader.anchor(top: contentView.topAnchor)
-        loader.fillHorizontal()
-        loader.anchor(bottom: contentView.bottomAnchor)
+        loader.anchorCenterSuperview()
+        loader.anchorSquare(size: Theme.Size.chartLoader)
     }
 
     func configure(with item: DetailItem) {
         switch item {
-        case .waitTime(let waitTimes, let maxValue):
-            chartDetals = waitTimes
-            self.maxValue = maxValue
-            addAnotations()
-            collectionView.reloadData()
+        case .chart( let status):
+            chartStatus = status
         default: break
         }
     }
 
-    private func addAnotations() {
+    private func setLoading() {
+        loader.show(hiddingView: contentView)
+    }
+
+    private func setEmptystate() {
+        loader.dismiss(hiddingView: contentView)
+    }
+
+    private func configure(chart: ChartModel) {
+        loader.dismiss(hiddingView: contentView)
+        maxValue = chart.maxValue
+        add(anotations: chart.anotations)
+        collectionView.reloadData()
+    }
+
+    private func add(anotations: [String]) {
         guard maxValue > 0 else { return }
         anotationsStackView.removeAllArrangedViews()
-        let increase = maxValue / anotationsSteps
+        let increase = maxValue / anotations.count
         var counter = increase
-        for _ in Array(1...anotationsSteps) {
+        for text in anotations {
             let porcentaje = CGFloat(counter) / CGFloat(maxValue)
-            let model = ChartAnotationModel(title: "\(counter) min", // LOCALIZE
-                color: UIColor.getGradientColor(from: chartBottomColor, to: chartTopColor, percentage: porcentaje))
+            let model = ChartAnotationModel(
+                title: text, // LOCALIZE
+                color: UIColor.getGradientColor(from: chartBottomColor, to: chartTopColor, percentage: porcentaje)
+            )
             let anotation = ChartAnotation(model: model)
             anotationsStackView.addArrangedSubview(anotation)
             counter += increase
@@ -133,29 +161,40 @@ class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
 extension DetailChartCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        guard let chartDetals = chartDetals else { return 0 }
-        pageControl.numberOfPages = chartDetals.keys.count
-        return chartDetals.keys.count
+        switch chartStatus {
+        case .loading, .empty:
+            return 0
+        case .content(let chartData):
+            return chartData.chartSections.count
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sectionKey = WeekDays.init(rawValue: section) ?? .sunday
-        return chartDetals?[sectionKey]?.count ?? 0
+        switch chartStatus {
+        case .loading, .empty:
+            return 0
+        case .content(let chartData):
+            return chartData.chartData[section].count
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let sectionKey = WeekDays.init(rawValue: indexPath.section) ?? .sunday
-        guard let cell = collectionView.dequeueReusable(cell: ChartTimeBarCell.self, for: indexPath),
-            let section = chartDetals?[sectionKey] else { return UICollectionViewCell() }
+        switch chartStatus {
+        case .loading, .empty:
+            return UICollectionViewCell()
+        case .content(let chart):
+            guard let cell = collectionView.dequeueReusable(cell: ChartTimeBarCell.self, for: indexPath) else { return UICollectionViewCell() }
 
-        let items = section[indexPath.row]
-        let shouldDisplaytime = !indexPath.row.isMultiple(of: 2)
+            let items = chart.chartData[indexPath.section][indexPath.row]
+            let shouldDisplaytime = !indexPath.row.isMultiple(of: 2)
 
-        cell.configure(withModel: items,
-                       shouldDisplaytime: shouldDisplaytime,
-                       topColor: chartTopColor,
-                       bottomColor: chartBottomColor)
-        return cell
+            cell.configure(withModel: items,
+                           maxValue: maxValue,
+                           shouldDisplaytime: shouldDisplaytime,
+                           topColor: chartTopColor,
+                           bottomColor: chartBottomColor)
+            return cell
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -167,12 +206,16 @@ extension DetailChartCell: UICollectionViewDelegate, UICollectionViewDataSource,
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let sectionKey = WeekDays.init(rawValue: section) ?? .sunday
-        let items = chartDetals?[sectionKey] ?? []
-        let cellsSpace = ChartBar.Constants.width * CGFloat(items.count)
-        let cellsSpacing = Constants.cellSpaicing * CGFloat(items.count - 1)
-        let emptySpace = bounds.width - cellsSpace - cellsSpacing
-        return UIEdgeInsets.with(vertical: 0, horizoltal: emptySpace/2)
+        switch chartStatus {
+        case .loading, .empty:
+            return UIEdgeInsets.zero
+        case .content(let chart):
+            let items = chart.chartData[section].count
+            let cellsSpace = ChartBar.Constants.width * CGFloat(items)
+            let cellsSpacing = Constants.cellSpaicing * CGFloat(items - 1)
+            let emptySpace = bounds.width - cellsSpace - cellsSpacing
+            return UIEdgeInsets.with(vertical: 0, horizoltal: emptySpace/2)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

@@ -23,7 +23,7 @@ class StationDetailCordinator: NSObject, Coordinator {
 
         let presenter = StationDetailPresenterImpl(
             station: station,
-            routeUseCase: UseCaseLocator.getUseCase(ofType: RouteUseCase.self),
+            stationDetailUseCase: UseCaseLocator.getUseCase(ofType: StationDetailUseCase.self),
             analyticsUseCase: UseCaseLocator.getUseCase(ofType: AnalyticsUseCase.self)
         )
         self.controller = StationDetailViewController(presenter: presenter)

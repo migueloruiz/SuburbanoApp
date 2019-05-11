@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol StationWaitTimeWebService {
+protocol StationChartsService {
     func getWaitTimes(success: @escaping SuccessResponse<[StationChartData]>, failure: @escaping ErrorResponse)
 }
 
-class StationWaitTimeWebServiceImpl: BaseService<[StationChartData]>, StationWaitTimeWebService {
+class StationChartsServiceImpl: BaseService<[StationChartData]>, StationChartsService {
     func getWaitTimes(success: @escaping SuccessResponse<[StationChartData]>, failure: @escaping ErrorResponse) {
         do {
             let request = try RequestFactory.make(.get, endoint: Endpoints.GeneralResource(resource: WebResources.WaitTime))

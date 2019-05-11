@@ -31,6 +31,18 @@
 		8614724C2151DE660042BBB8 /* TrainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614724B2151DE660042BBB8 /* TrainRepository.swift */; };
 		8614C47D2238153E003E4A14 /* MapResurcesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47C2238153E003E4A14 /* MapResurcesUseCase.swift */; };
 		8614C47F2238177D003E4A14 /* MapResurcesUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47E2238177D003E4A14 /* MapResurcesUseCaseImpl.swift */; };
+		86182AED2286698B007D6F9C /* StationsScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AEC2286698B007D6F9C /* StationsScheduleService.swift */; };
+		86182AEE2286698B007D6F9C /* StationsScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AEC2286698B007D6F9C /* StationsScheduleService.swift */; };
+		86182AF1228669B6007D6F9C /* StatiosSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AF0228669B6007D6F9C /* StatiosSchedule.swift */; };
+		86182AF2228669B6007D6F9C /* StatiosSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AF0228669B6007D6F9C /* StatiosSchedule.swift */; };
+		86182AF4228669D7007D6F9C /* RealmStatiosSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AF3228669D7007D6F9C /* RealmStatiosSchedule.swift */; };
+		86182AF5228669D7007D6F9C /* RealmStatiosSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AF3228669D7007D6F9C /* RealmStatiosSchedule.swift */; };
+		86182AF7228669E5007D6F9C /* StatiosScheduleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AF6228669E5007D6F9C /* StatiosScheduleRepository.swift */; };
+		86182AF8228669E5007D6F9C /* StatiosScheduleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AF6228669E5007D6F9C /* StatiosScheduleRepository.swift */; };
+		86182AFE228671E5007D6F9C /* StationDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AFD228671E5007D6F9C /* StationDetailUseCase.swift */; };
+		86182AFF228671E5007D6F9C /* StationDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AFD228671E5007D6F9C /* StationDetailUseCase.swift */; };
+		86182B0122867231007D6F9C /* StationDetailUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182B0022867231007D6F9C /* StationDetailUseCaseImpl.swift */; };
+		86182B0222867231007D6F9C /* StationDetailUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182B0022867231007D6F9C /* StationDetailUseCaseImpl.swift */; };
 		861CA0BE2274CE7000DAF641 /* FireBaseAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CA0BD2274CE7000DAF641 /* FireBaseAppDelegate.swift */; };
 		861CA0BF2275FE6C00DAF641 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0AB2274C90600DAF641 /* GoogleAppMeasurement.framework */; };
 		861CA0C02275FE6C00DAF641 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0AC2274C90600DAF641 /* FirebaseCore.framework */; };
@@ -129,7 +141,7 @@
 		861CA15F227621F400DAF641 /* DirectionsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8312C21459ADD0063AC75 /* DirectionsApp.swift */; };
 		861CA160227621F400DAF641 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86695E1E20F6D50600F74150 /* Endpoints.swift */; };
 		861CA161227621F400DAF641 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83115213DC4F30063AC75 /* DetailCell.swift */; };
-		861CA162227621F400DAF641 /* StationWaitTimeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */; };
+		861CA162227621F400DAF641 /* StationChartsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985C2159CFF20022DC6F /* StationChartsService.swift */; };
 		861CA163227621F400DAF641 /* StationDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B83110213DAEBA0063AC75 /* StationDetailPresenter.swift */; };
 		861CA164227621F400DAF641 /* ResourceSynchronizerAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */; };
 		861CA165227621F400DAF641 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7A21017AAD0002663B /* Theme.swift */; };
@@ -305,7 +317,7 @@
 		86B8312F21459FD70063AC75 /* DirectionsAppsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8312E21459FD70063AC75 /* DirectionsAppsFactory.swift */; };
 		86BD98572159C7170022DC6F /* StationChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98562159C7170022DC6F /* StationChartData.swift */; };
 		86BD98592159CD680022DC6F /* StationChartDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98582159CD680022DC6F /* StationChartDataRepository.swift */; };
-		86BD985D2159CFF20022DC6F /* StationWaitTimeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */; };
+		86BD985D2159CFF20022DC6F /* StationChartsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985C2159CFF20022DC6F /* StationChartsService.swift */; };
 		86BD985F2159D7660022DC6F /* ChartHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985E2159D7660022DC6F /* ChartHeader.swift */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
@@ -374,6 +386,12 @@
 		8614724B2151DE660042BBB8 /* TrainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainRepository.swift; sourceTree = "<group>"; };
 		8614C47C2238153E003E4A14 /* MapResurcesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResurcesUseCase.swift; sourceTree = "<group>"; };
 		8614C47E2238177D003E4A14 /* MapResurcesUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResurcesUseCaseImpl.swift; sourceTree = "<group>"; };
+		86182AEC2286698B007D6F9C /* StationsScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsScheduleService.swift; sourceTree = "<group>"; };
+		86182AF0228669B6007D6F9C /* StatiosSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatiosSchedule.swift; sourceTree = "<group>"; };
+		86182AF3228669D7007D6F9C /* RealmStatiosSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStatiosSchedule.swift; sourceTree = "<group>"; };
+		86182AF6228669E5007D6F9C /* StatiosScheduleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatiosScheduleRepository.swift; sourceTree = "<group>"; };
+		86182AFD228671E5007D6F9C /* StationDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailUseCase.swift; sourceTree = "<group>"; };
+		86182B0022867231007D6F9C /* StationDetailUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailUseCaseImpl.swift; sourceTree = "<group>"; };
 		861CA0A32274C7BE00DAF641 /* Development.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		861CA0A42274C7BE00DAF641 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		861CA0A82274C7CA00DAF641 /* Production.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
@@ -502,7 +520,7 @@
 		86B8312E21459FD70063AC75 /* DirectionsAppsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsAppsFactory.swift; sourceTree = "<group>"; };
 		86BD98562159C7170022DC6F /* StationChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationChartData.swift; sourceTree = "<group>"; };
 		86BD98582159CD680022DC6F /* StationChartDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationChartDataRepository.swift; sourceTree = "<group>"; };
-		86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWaitTimeWebService.swift; sourceTree = "<group>"; };
+		86BD985C2159CFF20022DC6F /* StationChartsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationChartsService.swift; sourceTree = "<group>"; };
 		86BD985E2159D7660022DC6F /* ChartHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeader.swift; sourceTree = "<group>"; };
 		86C0680220F0175800A6B17A /* trainRail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trainRail.json; sourceTree = "<group>"; };
 		86C0680420F01F7D00A6B17A /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
@@ -671,7 +689,7 @@
 			path = Price;
 			sourceTree = "<group>";
 		};
-		861472402151C06D0042BBB8 /* Train */ = {
+		861472402151C06D0042BBB8 /* TrainStop */ = {
 			isa = PBXGroup;
 			children = (
 				86587C9E226EBE0A0025A764 /* RealmTrainStop.swift */,
@@ -680,7 +698,54 @@
 				861472412151C0850042BBB8 /* Train.swift */,
 				8614724B2151DE660042BBB8 /* TrainRepository.swift */,
 			);
-			path = Train;
+			path = TrainStop;
+			sourceTree = "<group>";
+		};
+		86182AEF228669AB007D6F9C /* StatiosSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				86182AF0228669B6007D6F9C /* StatiosSchedule.swift */,
+				86182AF3228669D7007D6F9C /* RealmStatiosSchedule.swift */,
+				86182AF6228669E5007D6F9C /* StatiosScheduleRepository.swift */,
+			);
+			path = StatiosSchedule;
+			sourceTree = "<group>";
+		};
+		86182AF922867123007D6F9C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				86182AFC228671CD007D6F9C /* UseCase */,
+				86182AFB22867175007D6F9C /* Repository */,
+				86182AFA2286712A007D6F9C /* Networking */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		86182AFA2286712A007D6F9C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				86BD985C2159CFF20022DC6F /* StationChartsService.swift */,
+				86182AEC2286698B007D6F9C /* StationsScheduleService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		86182AFB22867175007D6F9C /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				86182AEF228669AB007D6F9C /* StatiosSchedule */,
+				86BD98552159C6A60022DC6F /* StationWaitTime */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		86182AFC228671CD007D6F9C /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				86182AFD228671E5007D6F9C /* StationDetailUseCase.swift */,
+				86182B0022867231007D6F9C /* StationDetailUseCaseImpl.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		861CA0A22274C7BE00DAF641 /* Dev */ = {
@@ -861,13 +926,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		86587C9D226EBC190025A764 /* TrainStop */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TrainStop;
-			sourceTree = "<group>";
-		};
 		86593C2B215025EE00383445 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -881,6 +939,7 @@
 		86593C3021502A1E00383445 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				86A4939D21B850A100490820 /* WeekDays.swift */,
 				86593C2C2150261F00383445 /* RouteUseCase.swift */,
 				8607AD69227683B80046513F /* RouteUseCaseImpl.swift */,
 			);
@@ -890,9 +949,7 @@
 		86593C3121502A3000383445 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				86587C9D226EBC190025A764 /* TrainStop */,
-				86BD98552159C6A60022DC6F /* StationWaitTime */,
-				861472402151C06D0042BBB8 /* Train */,
+				861472402151C06D0042BBB8 /* TrainStop */,
 				8614723F2151C0590042BBB8 /* Price */,
 			);
 			path = Repository;
@@ -902,7 +959,6 @@
 			isa = PBXGroup;
 			children = (
 				86593C392150443E00383445 /* PricesWebService.swift */,
-				86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1219,6 +1275,7 @@
 		86B830FE2138C15A0063AC75 /* StationDetail */ = {
 			isa = PBXGroup;
 			children = (
+				86182AF922867123007D6F9C /* Core */,
 				86B8310F213DAE9F0063AC75 /* Presenter */,
 				86B830FF2138C1810063AC75 /* Cordinator */,
 				86B831022138C19F0063AC75 /* View */,
@@ -1249,7 +1306,6 @@
 			isa = PBXGroup;
 			children = (
 				86B83110213DAEBA0063AC75 /* StationDetailPresenter.swift */,
-				86A4939D21B850A100490820 /* WeekDays.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1785,16 +1841,21 @@
 				861CA13A227621F400DAF641 /* StationDetailTransition.swift in Sources */,
 				861CA13B227621F400DAF641 /* RealmTrain.swift in Sources */,
 				861CA13C227621F400DAF641 /* PopUpTransition.swift in Sources */,
+				86182B0222867231007D6F9C /* StationDetailUseCaseImpl.swift in Sources */,
 				861CA13D227621F400DAF641 /* FadingCollectionView.swift in Sources */,
 				8607AD6E227685B20046513F /* AnalyticsPresenter.swift in Sources */,
 				861CA13E227621F400DAF641 /* NSLayoutAnchor.swift in Sources */,
 				861CA13F227621F400DAF641 /* FadingCollectionLayout.swift in Sources */,
 				861CA140227621F400DAF641 /* CardBalancePresenter.swift in Sources */,
+				86182AF8228669E5007D6F9C /* StatiosScheduleRepository.swift in Sources */,
 				861CA141227621F400DAF641 /* UIFactory.swift in Sources */,
 				861CA142227621F400DAF641 /* ReusableView.swift in Sources */,
+				86182AF5228669D7007D6F9C /* RealmStatiosSchedule.swift in Sources */,
+				86182AEE2286698B007D6F9C /* StationsScheduleService.swift in Sources */,
 				861CA143227621F400DAF641 /* DirectionsAppsFactory.swift in Sources */,
 				861CA144227621F400DAF641 /* UIView.swift in Sources */,
 				861CA145227621F400DAF641 /* StationDetailViewController.swift in Sources */,
+				86182AFF228671E5007D6F9C /* StationDetailUseCase.swift in Sources */,
 				861CA146227621F400DAF641 /* IconCell.swift in Sources */,
 				861CA147227621F400DAF641 /* StationMapAnnotation.swift in Sources */,
 				861CA148227621F400DAF641 /* DirectionDetailsTransition.swift in Sources */,
@@ -1825,12 +1886,13 @@
 				861CA15F227621F400DAF641 /* DirectionsApp.swift in Sources */,
 				861CA160227621F400DAF641 /* Endpoints.swift in Sources */,
 				861CA161227621F400DAF641 /* DetailCell.swift in Sources */,
-				861CA162227621F400DAF641 /* StationWaitTimeWebService.swift in Sources */,
+				861CA162227621F400DAF641 /* StationChartsService.swift in Sources */,
 				861CA163227621F400DAF641 /* StationDetailPresenter.swift in Sources */,
 				861CA164227621F400DAF641 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				861CA165227621F400DAF641 /* Theme.swift in Sources */,
 				861CA166227621F400DAF641 /* PricesWebService.swift in Sources */,
 				861CA167227621F400DAF641 /* DeatilConectionsCell.swift in Sources */,
+				86182AF2228669B6007D6F9C /* StatiosSchedule.swift in Sources */,
 				861CA168227621F400DAF641 /* CardBalanceTransition.swift in Sources */,
 				861CA169227621F400DAF641 /* StationDetailViewController+DataSource.swift in Sources */,
 				861CA16A227621F400DAF641 /* CardBalanceCordinator.swift in Sources */,
@@ -1924,16 +1986,21 @@
 				86587C9C226EB23B0025A764 /* RealmTrain.swift in Sources */,
 				869E2CC9212524DB00B2FA9F /* PopUpTransition.swift in Sources */,
 				86B830E52138485A0063AC75 /* FadingCollectionView.swift in Sources */,
+				86182B0122867231007D6F9C /* StationDetailUseCaseImpl.swift in Sources */,
 				8607AD6D227685B20046513F /* AnalyticsPresenter.swift in Sources */,
 				868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */,
 				86B830E3213844440063AC75 /* FadingCollectionLayout.swift in Sources */,
 				86385C7A213362DC002EA9DF /* CardBalancePresenter.swift in Sources */,
 				864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */,
+				86182AF7228669E5007D6F9C /* StatiosScheduleRepository.swift in Sources */,
 				864132582100017A0031F4F4 /* ReusableView.swift in Sources */,
 				86B8312F21459FD70063AC75 /* DirectionsAppsFactory.swift in Sources */,
+				86182AF4228669D7007D6F9C /* RealmStatiosSchedule.swift in Sources */,
+				86182AED2286698B007D6F9C /* StationsScheduleService.swift in Sources */,
 				8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */,
 				86B831042138C1AE0063AC75 /* StationDetailViewController.swift in Sources */,
 				86385C7721335ED3002EA9DF /* IconCell.swift in Sources */,
+				86182AFE228671E5007D6F9C /* StationDetailUseCase.swift in Sources */,
 				869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */,
 				13B53F332142D78200848B8D /* DirectionDetailsTransition.swift in Sources */,
 				86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */,
@@ -1963,13 +2030,14 @@
 				86B8312D21459ADD0063AC75 /* DirectionsApp.swift in Sources */,
 				8621A2D920F6FE0A00A2D8B1 /* Endpoints.swift in Sources */,
 				86B83116213DC4F30063AC75 /* DetailCell.swift in Sources */,
-				86BD985D2159CFF20022DC6F /* StationWaitTimeWebService.swift in Sources */,
+				86BD985D2159CFF20022DC6F /* StationChartsService.swift in Sources */,
 				86EBA6D72279D92700B04A21 /* ChartBar.swift in Sources */,
 				86B83111213DAEBA0063AC75 /* StationDetailPresenter.swift in Sources */,
 				8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				8611AF7B21017AAD0002663B /* Theme.swift in Sources */,
 				86593C3A2150443E00383445 /* PricesWebService.swift in Sources */,
 				86B8311C213DF3AA0063AC75 /* DeatilConectionsCell.swift in Sources */,
+				86182AF1228669B6007D6F9C /* StatiosSchedule.swift in Sources */,
 				8652A363212B2D3500ED1910 /* CardBalanceTransition.swift in Sources */,
 				86B8310E213DADB70063AC75 /* StationDetailViewController+DataSource.swift in Sources */,
 				86385C7D21336C2E002EA9DF /* CardBalanceCordinator.swift in Sources */,

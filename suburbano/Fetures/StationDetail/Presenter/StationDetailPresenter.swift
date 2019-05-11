@@ -28,7 +28,7 @@ enum DetailSection: Int {
 
 enum DetailItem {
     case location(address: String)
-    case schedule(dias: TripDay)
+    case schedule(dias: DetailScheduleCellModel)
     case conactions(images: [String])
     case chart(status: ChartStatus)
 
@@ -38,35 +38,6 @@ enum DetailItem {
         case .schedule: return DetailScheduleCell.reuseIdentifier
         case .conactions: return DeatilConectionsCell.reuseIdentifier
         case .chart: return DetailChartCell.reuseIdentifier
-        }
-    }
-}
-
-enum TripDay: String, CaseIterable { // TODO
-    case normal = "Normal"
-    case saturday = "Saturday"
-    case sundayAndHolidays = "SundayAndHolidays"
-
-    var selectionText: String {
-        switch self {
-        case .sundayAndHolidays: return "Domingos y Festivos" // Localize
-        case .normal: return "Dia Laboral" // Localize
-        case .saturday: return "Sabados" // Localize
-        }
-    }
-
-    var openTime: String {
-        switch self {
-        case .sundayAndHolidays: return "7:00" // Localize
-        case .normal: return "5:00" // Localize
-        case .saturday: return "6:00" // Localize
-        }
-    }
-
-    var closeTime: String {
-        switch self {
-        case .sundayAndHolidays, .normal, .saturday:
-            return "00:30" // Localize
         }
     }
 }
@@ -88,7 +59,7 @@ final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresent
         static let concurrenciChartMaxValue = 10
     }
 
-    private let routeUseCase: RouteUseCase?
+    private let stationDetailUseCase: StationDetailUseCase?
     internal let analyticsUseCase: AnalyticsUseCase?
 
     let station: Station
@@ -96,16 +67,17 @@ final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresent
 
     weak var viewDelegate: StationDetailViewController?
 
-    init(station: Station, routeUseCase: RouteUseCase?, analyticsUseCase: AnalyticsUseCase?) {
+    init(station: Station, stationDetailUseCase: StationDetailUseCase?, analyticsUseCase: AnalyticsUseCase?) {
         self.station = station
-        self.routeUseCase = routeUseCase
+        self.stationDetailUseCase = stationDetailUseCase
         self.analyticsUseCase = analyticsUseCase
     }
 
     func load() {
         stationDetails = configureStationDetails(station: station)
         viewDelegate?.update()
-        getWaitTime(for: station)
+        getCharts(for: station)
+        getSchedule()
     }
 
     var titleImageName: String {
@@ -127,10 +99,23 @@ final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresent
     func item(atIndex index: IndexPath) -> DetailItem {
         return stationDetails[index.section][index.row]
     }
+}
 
-    private func getWaitTime(for station: StationEntity) {
-        routeUseCase?.getChartData(forStation: station.name) { [weak self] _ in
+extension StationDetailPresenterImpl {
+    private func configureStationDetails(station: Station) -> [[DetailItem]] {
+        var details: [[DetailItem]] = []
 
+        details.append([.location(address: station.address)])
+        details.append([])
+        details.append([.conactions(images: station.conections.components(separatedBy: ","))])
+        details.append([.chart(status: .loading)])
+        details.append([.chart(status: .loading)])
+
+        return details
+    }
+
+    private func getCharts(for station: StationEntity) {
+        stationDetailUseCase?.getChartData(forStation: station.name) { [weak self] chartData in
             var trainWaitTimeChartStatus: ChartStatus = .empty
             if let trainWaitTime = chartData.trainWaitTime {
                 trainWaitTimeChartStatus = .content(chartData: trainWaitTime)
@@ -145,23 +130,17 @@ final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresent
 
             self?.viewDelegate?.update()
         }
-     }
-}
+    }
 
-extension StationDetailPresenterImpl {
-    private func configureStationDetails(station: Station) -> [[DetailItem]] {
-        var details: [[DetailItem]] = []
-
-        details.append([.location(address: station.address)])
-        details.append([
-            .schedule(dias: .normal),
-            .schedule(dias: .saturday),
-            .schedule(dias: .sundayAndHolidays)
-        ])
-        details.append([.conactions(images: station.conections.components(separatedBy: ","))])
-        details.append([.chart(status: .loading)])
-        details.append([.chart(status: .loading)])
-
-        return details
+    private func getSchedule() {
+        stationDetailUseCase?.getSchedule(complition: { [weak self] schedule in
+            for item in schedule {
+                let model = DetailScheduleCellModel(day: item.id, // Localize
+                                                    openTime: item.openTime,
+                                                    closeTime: item.openTime)
+                self?.stationDetails[DetailSection.schedule.rawValue].append(.schedule(dias: model))
+            }
+            self?.viewDelegate?.update()
+        })
     }
 }

@@ -18,10 +18,4 @@ protocol GetRouteInformationUseCase {
     func getInformation(from departure: StationEntity, to arraival: StationEntity, complition: @escaping SuccessResponse<RouteInformation>)
 }
 
-typealias StationChartsData = (trainWaitTime: ChartModel?, concurrence: ChartModel?)
-
-protocol GetStationChartsUseCase {
-    func getChartData(forStation station: String, complition: @escaping SuccessResponse<StationChartsData>)
-}
-
-protocol RouteUseCase: GetRouteInformationUseCase, GetStationChartsUseCase { }
+protocol RouteUseCase: GetRouteInformationUseCase { }

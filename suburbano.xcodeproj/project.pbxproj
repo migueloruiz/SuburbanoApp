@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		13B53F332142D78200848B8D /* DirectionDetailsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B53F322142D78200848B8D /* DirectionDetailsTransition.swift */; };
+		8606B2432287483C00579258 /* trainRail.json in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680220F0175800A6B17A /* trainRail.json */; };
+		8606B2442287483F00579258 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680420F01F7D00A6B17A /* mapStyle.json */; };
 		8607AD5C22764B040046513F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD5B22764B040046513F /* Environment.swift */; };
 		8607AD5D22764B040046513F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD5B22764B040046513F /* Environment.swift */; };
 		8607AD6022766EF00046513F /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607AD5F22766EF00046513F /* Presenter.swift */; };
@@ -171,21 +173,15 @@
 		861CA18A227621F400DAF641 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0B02274C90600DAF641 /* FIRAnalyticsConnector.framework */; };
 		861CA18B227621F400DAF641 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0B12274C90600DAF641 /* FirebaseInstanceID.framework */; };
 		861CA18C227621F400DAF641 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CA0B22274C90600DAF641 /* FirebaseCoreDiagnostics.framework */; };
-		861CA18E227621F400DAF641 /* trainRail.json in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680220F0175800A6B17A /* trainRail.json */; };
 		861CA18F227621F400DAF641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 868D008920F00FFF00C9D8B1 /* LaunchScreen.storyboard */; };
-		861CA190227621F400DAF641 /* table-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B8313021460CC60063AC75 /* table-loading.json */; };
-		861CA191227621F400DAF641 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 869E40E021371CC900EB133F /* loading.json */; };
 		861CA192227621F400DAF641 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680620F0496300A6B17A /* Colors.xcassets */; };
 		861CA193227621F400DAF641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86F14E4820F43F6D00D1CF7D /* Assets.xcassets */; };
 		861CA194227621F400DAF641 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680A20F0532A00A6B17A /* AppIcon.xcassets */; };
 		861CA195227621F400DAF641 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 869E2CCA2125347500B2FA9F /* Montserrat-Bold.ttf */; };
-		861CA197227621F400DAF641 /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B830ED213896F30063AC75 /* stations.json */; };
 		861CA19A227621F400DAF641 /* OpenSansCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */; };
 		861CA19B227621F400DAF641 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 861CA0A42274C7BE00DAF641 /* GoogleService-Info.plist */; };
 		861CA19C227621F400DAF641 /* IconsCataloge.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 864C6FDC212CE7DE0072C26B /* IconsCataloge.ttf */; };
-		861CA19D227621F400DAF641 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680420F01F7D00A6B17A /* mapStyle.json */; };
 		861CA19E227621F400DAF641 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8611AF82210186100002663B /* Montserrat-Medium.ttf */; };
-		861CA19F227621F400DAF641 /* prices.json in Resources */ = {isa = PBXBuildFile; fileRef = 86593C29215020A100383445 /* prices.json */; };
 		861CA1A3227621F400DAF641 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 868D00B020F014F900C9D8B1 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		861FC581211010480024783A /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC580211010480024783A /* UIEdgeInsets.swift */; };
 		861FC583211015460024783A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861FC582211015460024783A /* UIStackView.swift */; };
@@ -205,12 +201,10 @@
 		8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */; };
 		8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0682120F41FF400A6B17A /* ApplicationCoordinatorAppDelegate.swift */; };
 		8621A2DC20F6FE0A00A2D8B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D008020F00FFE00C9D8B1 /* AppDelegate.swift */; };
-		8621A2E120F6FE0A00A2D8B1 /* trainRail.json in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680220F0175800A6B17A /* trainRail.json */; };
 		8621A2E220F6FE0A00A2D8B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 868D008920F00FFF00C9D8B1 /* LaunchScreen.storyboard */; };
 		8621A2E320F6FE0A00A2D8B1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680620F0496300A6B17A /* Colors.xcassets */; };
 		8621A2E420F6FE0A00A2D8B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86F14E4820F43F6D00D1CF7D /* Assets.xcassets */; };
 		8621A2E520F6FE0A00A2D8B1 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680A20F0532A00A6B17A /* AppIcon.xcassets */; };
-		8621A2E620F6FE0A00A2D8B1 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680420F01F7D00A6B17A /* mapStyle.json */; };
 		8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A2ED20F7026400A2D8B1 /* AppConstants.swift */; };
 		8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30620F70C2E00A2D8B1 /* BaseService.swift */; };
 		862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517CB20F84D2F002F2048 /* RealmHandler.swift */; };
@@ -229,6 +223,7 @@
 		864132582100017A0031F4F4 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864132572100017A0031F4F4 /* ReusableView.swift */; };
 		8642323D2283ADC4008C3A64 /* SafeAsignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8642323C2283ADC4008C3A64 /* SafeAsignable.swift */; };
 		8642323E2283ADC4008C3A64 /* SafeAsignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8642323C2283ADC4008C3A64 /* SafeAsignable.swift */; };
+		864232412283B226008C3A64 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		8646BE7922762ACD00F2BAB0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7722762ACD00F2BAB0 /* Crashlytics.framework */; };
 		8646BE7A22762ACD00F2BAB0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7722762ACD00F2BAB0 /* Crashlytics.framework */; };
 		8646BE7B22762ACD00F2BAB0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7822762ACD00F2BAB0 /* Fabric.framework */; };
@@ -247,13 +242,13 @@
 		86587CCE226FDAE40025A764 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CCD226FDAE40025A764 /* Repository.swift */; };
 		86587CD0226FDD620025A764 /* MapResurcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CCF226FDD620025A764 /* MapResurcesRepository.swift */; };
 		86587CD2226FDFD40025A764 /* RealmPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587CD1226FDFD40025A764 /* RealmPrice.swift */; };
-		86593C2A215020A100383445 /* prices.json in Resources */ = {isa = PBXBuildFile; fileRef = 86593C29215020A100383445 /* prices.json */; };
 		86593C2D2150261F00383445 /* RouteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C2C2150261F00383445 /* RouteUseCase.swift */; };
 		86593C3321502A5900383445 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3221502A5900383445 /* Price.swift */; };
 		86593C3721502E0A00383445 /* PriceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3621502E0A00383445 /* PriceRepository.swift */; };
 		86593C3A2150443E00383445 /* PricesWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C392150443E00383445 /* PricesWebService.swift */; };
 		86593C3E2150456400383445 /* ResilienceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3D2150456400383445 /* ResilienceHandler.swift */; };
 		86593C4021505CB500383445 /* RouteInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3F21505CB500383445 /* RouteInfoView.swift */; };
+		86666A4D228740DB00963491 /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 86666A4C228740DB00963491 /* schedule.json */; };
 		867468E221018BAD00E4809D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867468E121018BAD00E4809D /* String.swift */; };
 		867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */; };
 		868128512123BAFA00A7A011 /* MoreBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128502123BAFA00A7A011 /* MoreBoardViewController.swift */; };
@@ -282,7 +277,6 @@
 		86B830E8213857EA0063AC75 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E7213857EA0063AC75 /* Notifications.swift */; };
 		86B830EA21385FBB0063AC75 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E921385FBB0063AC75 /* PromptView.swift */; };
 		86B830EC21388E420063AC75 /* CardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830EB21388E420063AC75 /* CardParser.swift */; };
-		86B830EE213896F30063AC75 /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B830ED213896F30063AC75 /* stations.json */; };
 		86B830F22138984C0063AC75 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830F12138984C0063AC75 /* Station.swift */; };
 		86B830F4213899BE0063AC75 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830F3213899BE0063AC75 /* Location.swift */; };
 		86B831012138C1920063AC75 /* StationDetailCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831002138C1920063AC75 /* StationDetailCordinator.swift */; };
@@ -302,7 +296,12 @@
 		86B8312A2140CDFF0063AC75 /* DirectionActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831292140CDFF0063AC75 /* DirectionActionView.swift */; };
 		86B8312D21459ADD0063AC75 /* DirectionsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8312C21459ADD0063AC75 /* DirectionsApp.swift */; };
 		86B8312F21459FD70063AC75 /* DirectionsAppsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8312E21459FD70063AC75 /* DirectionsAppsFactory.swift */; };
-		86B8313121460CC60063AC75 /* table-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B8313021460CC60063AC75 /* table-loading.json */; };
+		86BA6F2F22874259002E7AD2 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		86BA6F3022874278002E7AD2 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 869E40E021371CC900EB133F /* loading.json */; };
+		86BA6F3122874299002E7AD2 /* Resilience.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 86666A4222873FDD00963491 /* Resilience.bundle */; };
+		86BA6F32228742B3002E7AD2 /* Resilience.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 86666A4222873FDD00963491 /* Resilience.bundle */; };
+		86BA6F352287462B002E7AD2 /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B830ED213896F30063AC75 /* stations.json */; };
+		86BA6F362287462E002E7AD2 /* prices.json in Resources */ = {isa = PBXBuildFile; fileRef = 86593C29215020A100383445 /* prices.json */; };
 		86BD98572159C7170022DC6F /* StationWaitTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98562159C7170022DC6F /* StationWaitTime.swift */; };
 		86BD98592159CD680022DC6F /* StationWaitTimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98582159CD680022DC6F /* StationWaitTimeRepository.swift */; };
 		86BD985D2159CFF20022DC6F /* StationWaitTimeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985C2159CFF20022DC6F /* StationWaitTimeWebService.swift */; };
@@ -328,6 +327,23 @@
 		86FC745A220D3217006311B3 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7459220D3217006311B3 /* UITableView.swift */; };
 		86FC745E220D329F006311B3 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC745D220D329F006311B3 /* UICollectionView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		86666A482287401400963491 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 868D007520F00FFE00C9D8B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86666A4122873FDD00963491;
+			remoteInfo = Resilience;
+		};
+		86666A4A2287401A00963491 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 868D007520F00FFE00C9D8B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86666A4122873FDD00963491;
+			remoteInfo = Resilience;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		861CA1A2227621F400DAF641 /* Embed Frameworks */ = {
@@ -437,6 +453,9 @@
 		86593C392150443E00383445 /* PricesWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesWebService.swift; sourceTree = "<group>"; };
 		86593C3D2150456400383445 /* ResilienceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResilienceHandler.swift; sourceTree = "<group>"; };
 		86593C3F21505CB500383445 /* RouteInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteInfoView.swift; sourceTree = "<group>"; };
+		86666A4222873FDD00963491 /* Resilience.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Resilience.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		86666A4422873FDD00963491 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86666A4C228740DB00963491 /* schedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schedule.json; sourceTree = "<group>"; };
 		86695E1B20F6D24400F74150 /* ResourceSynchronizerAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceSynchronizerAppDelegate.swift; sourceTree = "<group>"; };
 		86695E1E20F6D50600F74150 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		86695E2020F6E65900F74150 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
@@ -924,6 +943,19 @@
 			path = Cordinator;
 			sourceTree = "<group>";
 		};
+		86666A4322873FDD00963491 /* Resilience */ = {
+			isa = PBXGroup;
+			children = (
+				86C0680220F0175800A6B17A /* trainRail.json */,
+				86C0680420F01F7D00A6B17A /* mapStyle.json */,
+				86B830ED213896F30063AC75 /* stations.json */,
+				86593C29215020A100383445 /* prices.json */,
+				86666A4422873FDD00963491 /* Info.plist */,
+				86666A4C228740DB00963491 /* schedule.json */,
+			);
+			path = Resilience;
+			sourceTree = "<group>";
+		};
 		86695E1D20F6D3F900F74150 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -973,6 +1005,7 @@
 				868D007F20F00FFE00C9D8B1 /* suburbano */,
 				868D009420F00FFF00C9D8B1 /* suburbanoTests */,
 				868D009F20F00FFF00C9D8B1 /* suburbanoUITests */,
+				86666A4322873FDD00963491 /* Resilience */,
 				868D007E20F00FFE00C9D8B1 /* Products */,
 				861CA0AA2274C90600DAF641 /* NoCrathageFrameworks */,
 				868D00AF20F014F900C9D8B1 /* Frameworks */,
@@ -986,6 +1019,7 @@
 				868D009C20F00FFF00C9D8B1 /* suburbanoUITests.xctest */,
 				8621A2EB20F6FE0A00A2D8B1 /* suburbano-prod.app */,
 				861CA1A7227621F400DAF641 /* suburbano-dev.app */,
+				86666A4222873FDD00963491 /* Resilience.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1041,20 +1075,8 @@
 				86C0680620F0496300A6B17A /* Colors.xcassets */,
 				8611AF7521017A2D0002663B /* Fonts */,
 				868D008920F00FFF00C9D8B1 /* LaunchScreen.storyboard */,
-				868D00B320F0167C00C9D8B1 /* Map */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		868D00B320F0167C00C9D8B1 /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				86C0680220F0175800A6B17A /* trainRail.json */,
-				86C0680420F01F7D00A6B17A /* mapStyle.json */,
-				86B830ED213896F30063AC75 /* stations.json */,
-				86593C29215020A100383445 /* prices.json */,
-			);
-			path = Map;
 			sourceTree = "<group>";
 		};
 		868D2610214B35D800700DE7 /* RouteCalculator */ = {
@@ -1441,6 +1463,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				86666A4B2287401A00963491 /* PBXTargetDependency */,
 			);
 			name = "suburbano-dev";
 			productName = suburbano;
@@ -1462,11 +1485,27 @@
 			buildRules = (
 			);
 			dependencies = (
+				86666A492287401400963491 /* PBXTargetDependency */,
 			);
 			name = "suburbano-prod";
 			productName = suburbano;
 			productReference = 8621A2EB20F6FE0A00A2D8B1 /* suburbano-prod.app */;
 			productType = "com.apple.product-type.application";
+		};
+		86666A4122873FDD00963491 /* Resilience */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86666A4722873FDD00963491 /* Build configuration list for PBXNativeTarget "Resilience" */;
+			buildPhases = (
+				86666A4022873FDD00963491 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Resilience;
+			productName = Resilience;
+			productReference = 86666A4222873FDD00963491 /* Resilience.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 		868D009020F00FFF00C9D8B1 /* suburbanoTests */ = {
 			isa = PBXNativeTarget;
@@ -1524,6 +1563,10 @@
 							};
 						};
 					};
+					86666A4122873FDD00963491 = {
+						CreatedOnToolsVersion = 10.2;
+						ProvisioningStyle = Automatic;
+					};
 					868D009020F00FFF00C9D8B1 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -1553,6 +1596,7 @@
 				861CA108227621F400DAF641 /* suburbano-dev */,
 				868D009020F00FFF00C9D8B1 /* suburbanoTests */,
 				868D009B20F00FFF00C9D8B1 /* suburbanoUITests */,
+				86666A4122873FDD00963491 /* Resilience */,
 			);
 		};
 /* End PBXProject section */
@@ -1562,21 +1606,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				861CA18E227621F400DAF641 /* trainRail.json in Resources */,
 				861CA18F227621F400DAF641 /* LaunchScreen.storyboard in Resources */,
-				861CA190227621F400DAF641 /* table-loading.json in Resources */,
-				861CA191227621F400DAF641 /* loading.json in Resources */,
+				861CA19B227621F400DAF641 /* GoogleService-Info.plist in Resources */,
 				861CA192227621F400DAF641 /* Colors.xcassets in Resources */,
 				861CA193227621F400DAF641 /* Assets.xcassets in Resources */,
 				861CA194227621F400DAF641 /* AppIcon.xcassets in Resources */,
+				86BA6F3122874299002E7AD2 /* Resilience.bundle in Resources */,
 				861CA195227621F400DAF641 /* Montserrat-Bold.ttf in Resources */,
-				861CA197227621F400DAF641 /* stations.json in Resources */,
 				861CA19A227621F400DAF641 /* OpenSansCondensed-Bold.ttf in Resources */,
-				861CA19B227621F400DAF641 /* GoogleService-Info.plist in Resources */,
 				861CA19C227621F400DAF641 /* IconsCataloge.ttf in Resources */,
-				861CA19D227621F400DAF641 /* mapStyle.json in Resources */,
 				861CA19E227621F400DAF641 /* Montserrat-Medium.ttf in Resources */,
-				861CA19F227621F400DAF641 /* prices.json in Resources */,
+				86BA6F3022874278002E7AD2 /* loading.json in Resources */,
+				864232412283B226008C3A64 /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1584,21 +1625,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8621A2E120F6FE0A00A2D8B1 /* trainRail.json in Resources */,
 				8621A2E220F6FE0A00A2D8B1 /* LaunchScreen.storyboard in Resources */,
-				86B8313121460CC60063AC75 /* table-loading.json in Resources */,
-				869E40E121371CC900EB133F /* loading.json in Resources */,
+				861CA106227621B300DAF641 /* GoogleService-Info.plist in Resources */,
 				8621A2E320F6FE0A00A2D8B1 /* Colors.xcassets in Resources */,
 				8621A2E420F6FE0A00A2D8B1 /* Assets.xcassets in Resources */,
 				8621A2E520F6FE0A00A2D8B1 /* AppIcon.xcassets in Resources */,
+				86BA6F32228742B3002E7AD2 /* Resilience.bundle in Resources */,
 				869E2CCB2125347500B2FA9F /* Montserrat-Bold.ttf in Resources */,
-				86B830EE213896F30063AC75 /* stations.json in Resources */,
-				861CA106227621B300DAF641 /* GoogleService-Info.plist in Resources */,
 				867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */,
 				864C6FDD212CE7DE0072C26B /* IconsCataloge.ttf in Resources */,
-				8621A2E620F6FE0A00A2D8B1 /* mapStyle.json in Resources */,
 				8611AF83210186100002663B /* Montserrat-Medium.ttf in Resources */,
-				86593C2A215020A100383445 /* prices.json in Resources */,
+				86BA6F2F22874259002E7AD2 /* (null) in Resources */,
+				869E40E121371CC900EB133F /* loading.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86666A4022873FDD00963491 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8606B2432287483C00579258 /* trainRail.json in Resources */,
+				86BA6F362287462E002E7AD2 /* prices.json in Resources */,
+				8606B2442287483F00579258 /* mapStyle.json in Resources */,
+				86BA6F352287462B002E7AD2 /* stations.json in Resources */,
+				86666A4D228740DB00963491 /* schedule.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2020,6 +2070,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		86666A492287401400963491 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 86666A4122873FDD00963491 /* Resilience */;
+			targetProxy = 86666A482287401400963491 /* PBXContainerItemProxy */;
+		};
+		86666A4B2287401A00963491 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 86666A4122873FDD00963491 /* Resilience */;
+			targetProxy = 86666A4A2287401A00963491 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		868D008920F00FFF00C9D8B1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -2149,6 +2212,43 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		86666A4522873FDD00963491 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Resilience/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miguelo.suburbano.Resilience;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		86666A4622873FDD00963491 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Resilience/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miguelo.suburbano.Resilience;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -2354,6 +2454,15 @@
 			buildConfigurations = (
 				8621A2E920F6FE0A00A2D8B1 /* Debug */,
 				8621A2EA20F6FE0A00A2D8B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86666A4722873FDD00963491 /* Build configuration list for PBXNativeTarget "Resilience" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86666A4522873FDD00963491 /* Debug */,
+				86666A4622873FDD00963491 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

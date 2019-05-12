@@ -15,9 +15,19 @@ class Utils {
         case budleNotFound
     }
 
-    static func bundleUrl(forResource resource: AppResource) throws -> URL {
-        guard let url = Bundle.main.url(forResource: resource.fileName, withExtension: resource.extention) else {
+    static func getBundle(appBundle: AppBundle) throws -> Bundle {
+        guard appBundle != .main else { return Bundle.main }
+        guard let bundleURL = Bundle.main.url(forResource: appBundle.identifier, withExtension: appBundle.extention),
+        let bundle = Bundle(url: bundleURL) else {
             throw UtilsError.budleNotFound
+        }
+        return bundle
+    }
+
+    static func bundleUrl(forResource resource: AppResource) throws -> URL {
+        let bundle = try getBundle(appBundle: resource.bundle)
+        guard let url = bundle.url(forResource: resource.fileName, withExtension: resource.extention) else {
+            throw UtilsError.fileNotFound
         }
         return url
     }

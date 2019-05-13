@@ -47,10 +47,13 @@ class StationDetailUseCaseImpl: StationDetailUseCase {
             return
         }
 
-        stationsScheduleService.getSchedule(success: { [weak self] schelud in
+        stationsScheduleService.getSchedule(success: { [weak self] schedule in
             self?.stationsScheduleRepository.add(schedule: schelud)
-            complition(schelud)
-            }, failure: {_ in complition([]) })
+            complition(schedule)
+        }, failure: { [weak self] _ in
+            let recilenceSchedule = try? self?.stationsScheduleRepository.getScheduleFromResilienceFile()
+            complition(recilenceSchedule ?? [])
+        })
     }
 }
 

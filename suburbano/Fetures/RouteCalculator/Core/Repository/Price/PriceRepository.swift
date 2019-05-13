@@ -31,10 +31,10 @@ class TripPriceRepositoryRealmImpl: PriceRepository, DataBaseRepository, Resilie
     }
 
     func getPricesFromResilienceFile(complition: @escaping SuccessResponse<[Price]>) {
-        guard let reciliencePrices: [Price] = try? load(resource: AppResources.Prices) else {
+        guard let resiliencePrices: [Price] = try? load(resource: AppResources.Prices) else {
             complition([])
             return
         }
-        complition(reciliencePrices)
+        complition(resiliencePrices)
     }
 }

@@ -22,7 +22,7 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     let containerView = UIFactory.createContainerView()
-    let backButton = UIButton()
+    let backButton = UIButton(navigationStyle: .down)
 
     private let presenter: RouteCalculatorPresenter
     private let departurePicker = UIPickerView()
@@ -64,7 +64,6 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
         departurePicker.reloadAllComponents()
         arrivalPicker.reloadAllComponents()
 
-        backButton.set(image: #imageLiteral(resourceName: "down-arrow"), color: Theme.Pallete.darkGray)
         backButton.addTarget(self, action: #selector(StationDetailViewController.close), for: .touchUpInside)
         backView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(StationDetailViewController.close)))
     }
@@ -79,7 +78,6 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
 
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, topConstant: Theme.Offset.small)
         backButton.anchor(left: view.leftAnchor, leftConstant: Theme.Offset.large)
-        backButton.anchorSquare(size: Theme.Size.button)
 
         containerView.addSubViews([departurePicker, arrivalPicker, departureLabel, arrivalLabel, routeInfoView])
 

@@ -15,7 +15,7 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
     let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupTitle)
     let containerView = UIView()
 
-    private let backButton = UIFactory.createButton(withTheme: UIThemes.Button.SecondayButton)
+    private let backButton = UIButton(style: .secondary)
     private let disclaimerView = PromptView(labelTheme: UIThemes.Label.DirectionsDisclainer)
     private let bottonsContainer = UIStackView.with(axis: .vertical,
                                                     distribution: .fill,

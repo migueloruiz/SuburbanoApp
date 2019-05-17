@@ -23,13 +23,13 @@ enum AlertContext {
         }
     }
 
-    var primaryButton: String {
+    var primaryActionText: String {
         switch self {
         case .confirmDelete: return "Volver" // Localize
         }
     }
 
-    var secondaryButton: String? {
+    var secondaryActionText: String? {
         switch self {
         case .confirmDelete: return "Eliminar" // Localize
         }

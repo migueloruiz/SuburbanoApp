@@ -21,7 +21,7 @@ class StationDetailViewController: UIViewController, PresentableView {
     var outTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionOut() }
 
     let containerView = UIFactory.createContainerView()
-    let backButton = UIButton()
+    let backButton = UIButton(navigationStyle: .down)
     let detailsTableView = UITableView(frame: .zero, style: .grouped)
     private(set) lazy var detailTableHeader = DetailTableHeader(titleImageName: presenter.titleImageName, delegate: self)
 
@@ -40,7 +40,6 @@ class StationDetailViewController: UIViewController, PresentableView {
     }
 
     private func configureUI() {
-        backButton.set(image: #imageLiteral(resourceName: "down-arrow"), color: Theme.Pallete.darkGray)
         backButton.addTarget(self, action: #selector(StationDetailViewController.close), for: .touchUpInside)
         configureTable()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(StationDetailViewController.close)))
@@ -52,7 +51,6 @@ class StationDetailViewController: UIViewController, PresentableView {
         containerView.anchorSize(height: (UIDevice.screenHeight * Theme.ContainerPropotion.porcent70) + Theme.Offset.large)
 
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large)
-        backButton.anchorSquare(size: Theme.Size.button)
 
         containerView.addSubViews([detailTableHeader, detailsTableView])
 

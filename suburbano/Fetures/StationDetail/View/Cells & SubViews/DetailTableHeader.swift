@@ -20,7 +20,7 @@ class DetailTableHeader: UIView {
     }
 
     private lazy var stationLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
-    private lazy var locationButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "cursor"), tintColor: .white, backgroundColor: Theme.Pallete.blue)
+    private lazy var locationButton = UIButton(circularStyle: .secondary, image: #imageLiteral(resourceName: "cursor"))
     private let stationNameImage = UIImageView()
     private weak var delegate: DetailTableHeaderDelegate?
 

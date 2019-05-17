@@ -23,34 +23,6 @@ class UIFactory {
         return lable
     }
 
-    static func createButton(withTheme theme: ButtonStyle, title: String = "") -> UIButton {
-        let button = UIButton()
-        button.set(title: title)
-        button.backgroundColor = theme.backgroundColor
-        button.titleLabel?.backgroundColor = theme.backgroundColor
-        button.setTitleColor(theme.textColor, for: .normal)
-        button.titleLabel?.textColor = theme.textColor
-        button.titleLabel?.font = theme.font.getScaledFont()
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.adjustsFontForContentSizeCategory = true
-
-        guard let roundedTheme = theme.rounded else { return button }
-        button.roundCorners(withRadius: roundedTheme.radius)
-        button.anchorSize(height: roundedTheme.radius * 2)
-        button.clipsToBounds = true
-        return button
-    }
-
-    static func createCircularButton(image: UIImage?, tintColor: UIColor, backgroundColor: UIColor, addShadow: Bool = true) -> UIButton {
-        let button = UIButton()
-        button.set(image: image, color: tintColor)
-        button.backgroundColor = backgroundColor
-        button.anchorSquare(size: Theme.IconSize.normal)
-        button.roundCorners(withRadius: Theme.IconSize.normal / 2)
-        if addShadow { button.addDropShadow()}
-        return button
-    }
-
     static func createTextField(withTheme theme: FieldStyle) -> UITextField {
         let field = UITextField()
         field.textColor = theme.textColor

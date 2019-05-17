@@ -153,7 +153,6 @@
 		861CA169227621F400DAF641 /* StationDetailViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8310D213DADB70063AC75 /* StationDetailViewController+DataSource.swift */; };
 		861CA16A227621F400DAF641 /* CardBalanceCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7C21336C2E002EA9DF /* CardBalanceCordinator.swift */; };
 		861CA16B227621F400DAF641 /* DebugLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7457220D2257006311B3 /* DebugLogger.swift */; };
-		861CA16C227621F400DAF641 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCC2125380600B2FA9F /* UIButton.swift */; };
 		861CA16D227621F400DAF641 /* UIThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D32116422A0053DFB1 /* UIThemes.swift */; };
 		861CA16E227621F400DAF641 /* MapResurcesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47C2238153E003E4A14 /* MapResurcesUseCase.swift */; };
 		861CA16F227621F400DAF641 /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D0F2134BA04004BE0A9 /* CardRepository.swift */; };
@@ -276,7 +275,6 @@
 		869E2CC721250C9300B2FA9F /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CC621250C9300B2FA9F /* PopUpViewController.swift */; };
 		869E2CC9212524DB00B2FA9F /* PopUpTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CC8212524DB00B2FA9F /* PopUpTransition.swift */; };
 		869E2CCB2125347500B2FA9F /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 869E2CCA2125347500B2FA9F /* Montserrat-Bold.ttf */; };
-		869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCC2125380600B2FA9F /* UIButton.swift */; };
 		869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */; };
 		86A4939B21B84C7600490820 /* DetailChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939A21B84C7600490820 /* DetailChartCell.swift */; };
 		86A4939E21B850A100490820 /* WeekDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939D21B850A100490820 /* WeekDays.swift */; };
@@ -319,6 +317,14 @@
 		86CB75E8212B834200DBDB98 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* UIDevice.swift */; };
 		86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75EB212B9F8800DBDB98 /* IconInputView.swift */; };
 		86DF0C7322125E16008300FF /* ChartTimeBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF0C7222125E16008300FF /* ChartTimeBarCell.swift */; };
+		86E67D8F228E3F990075B9B8 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E67D8E228E3F990075B9B8 /* UIButton.swift */; };
+		86E67D90228E3F990075B9B8 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E67D8E228E3F990075B9B8 /* UIButton.swift */; };
+		86E67D93228E41600075B9B8 /* ActionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E67D92228E41600075B9B8 /* ActionButtonStyle.swift */; };
+		86E67D94228E41600075B9B8 /* ActionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E67D92228E41600075B9B8 /* ActionButtonStyle.swift */; };
+		86E67D96228E49D40075B9B8 /* CircularButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E67D95228E49D40075B9B8 /* CircularButtonStyle.swift */; };
+		86E67D97228E49D40075B9B8 /* CircularButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E67D95228E49D40075B9B8 /* CircularButtonStyle.swift */; };
+		86E67D9A228E4E8B0075B9B8 /* NavigationButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E67D99228E4E8B0075B9B8 /* NavigationButtonStyle.swift */; };
+		86E67D9B228E4E8B0075B9B8 /* NavigationButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E67D99228E4E8B0075B9B8 /* NavigationButtonStyle.swift */; };
 		86EBA6D72279D92700B04A21 /* ChartBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6D62279D92700B04A21 /* ChartBar.swift */; };
 		86EBA6D82279DD7400B04A21 /* ChartBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6D62279D92700B04A21 /* ChartBar.swift */; };
 		86EBA6DD227A753C00B04A21 /* ChartAnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6DC227A753C00B04A21 /* ChartAnotation.swift */; };
@@ -499,7 +505,6 @@
 		869E2CC621250C9300B2FA9F /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		869E2CC8212524DB00B2FA9F /* PopUpTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpTransition.swift; sourceTree = "<group>"; };
 		869E2CCA2125347500B2FA9F /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "Montserrat/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
-		869E2CCC2125380600B2FA9F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationMapAnnotation.swift; sourceTree = "<group>"; };
 		869E40E021371CC900EB133F /* train-loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "train-loader.json"; sourceTree = "<group>"; };
 		86A4939A21B84C7600490820 /* DetailChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailChartCell.swift; sourceTree = "<group>"; };
@@ -550,6 +555,10 @@
 		86CB75E7212B834200DBDB98 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		86CB75EB212B9F8800DBDB98 /* IconInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInputView.swift; sourceTree = "<group>"; };
 		86DF0C7222125E16008300FF /* ChartTimeBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTimeBarCell.swift; sourceTree = "<group>"; };
+		86E67D8E228E3F990075B9B8 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		86E67D92228E41600075B9B8 /* ActionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonStyle.swift; sourceTree = "<group>"; };
+		86E67D95228E49D40075B9B8 /* CircularButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButtonStyle.swift; sourceTree = "<group>"; };
+		86E67D99228E4E8B0075B9B8 /* NavigationButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtonStyle.swift; sourceTree = "<group>"; };
 		86EBA6D62279D92700B04A21 /* ChartBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBar.swift; sourceTree = "<group>"; };
 		86EBA6DC227A753C00B04A21 /* ChartAnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAnotation.swift; sourceTree = "<group>"; };
 		86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableHeader.swift; sourceTree = "<group>"; };
@@ -673,17 +682,6 @@
 				8611AF82210186100002663B /* Montserrat-Medium.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		8611AF7E21017D2A0002663B /* Theme */ = {
-			isa = PBXGroup;
-			children = (
-				8611AF7F21017D3F0002663B /* FontStyle.swift */,
-				8611AF7A21017AAD0002663B /* Theme.swift */,
-				864FE4D121163E170053DFB1 /* UIFactory.swift */,
-				864FE4D32116422A0053DFB1 /* UIThemes.swift */,
-			);
-			path = Theme;
 			sourceTree = "<group>";
 		};
 		8611C834214ED59B00FFBC23 /* Presenter */ = {
@@ -1079,10 +1077,11 @@
 		868D007F20F00FFE00C9D8B1 /* suburbano */ = {
 			isa = PBXGroup;
 			children = (
-				135366F4214C01110022B042 /* Configurations */,
 				86C0681220F4140E00A6B17A /* AppDelegates */,
 				868D00B220F0167400C9D8B1 /* Assets */,
+				135366F4214C01110022B042 /* Configurations */,
 				86C0681420F4150C00A6B17A /* Core */,
+				86E67D8C228E3E720075B9B8 /* CoreUI */,
 				868128432122743900A7A011 /* Fetures */,
 			);
 			path = suburbano;
@@ -1433,9 +1432,7 @@
 				86695E1D20F6D3F900F74150 /* Networking */,
 				86B830E6213857C90063AC75 /* Notifications */,
 				86593C3C2150454A00383445 /* Resilience */,
-				8611AF7E21017D2A0002663B /* Theme */,
 				869E2CC42124FADA00B2FA9F /* Type Extentions */,
-				86C0681D20F4162F00A6B17A /* UI Extension */,
 				86C0680D20F413A000A6B17A /* UseCases */,
 				86C0681B20F415B500A6B17A /* Utils */,
 			);
@@ -1465,8 +1462,16 @@
 		86C0681D20F4162F00A6B17A /* UI Extension */ = {
 			isa = PBXGroup;
 			children = (
+				86CB75E7212B834200DBDB98 /* UIDevice.swift */,
+				868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */,
+				86F14E5320F45D3600D1CF7D /* UIColor.swift */,
+				861FC580211010480024783A /* UIEdgeInsets.swift */,
+				861FC582211015460024783A /* UIStackView.swift */,
+				86F14E4A20F43FE300D1CF7D /* UITabBar.swift */,
+				8641325120FFF6ED0031F4F4 /* UIView.swift */,
+				86FC7459220D3217006311B3 /* UITableView.swift */,
+				86FC745D220D329F006311B3 /* UICollectionView.swift */,
 				86413256210000220031F4F4 /* Protocols */,
-				86FC745C220D322F006311B3 /* UIKit */,
 			);
 			path = "UI Extension";
 			sourceTree = "<group>";
@@ -1480,21 +1485,44 @@
 			path = AppLaunch;
 			sourceTree = "<group>";
 		};
-		86FC745C220D322F006311B3 /* UIKit */ = {
+		86E67D8C228E3E720075B9B8 /* CoreUI */ = {
 			isa = PBXGroup;
 			children = (
-				86CB75E7212B834200DBDB98 /* UIDevice.swift */,
-				868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */,
-				86F14E5320F45D3600D1CF7D /* UIColor.swift */,
-				861FC580211010480024783A /* UIEdgeInsets.swift */,
-				861FC582211015460024783A /* UIStackView.swift */,
-				86F14E4A20F43FE300D1CF7D /* UITabBar.swift */,
-				8641325120FFF6ED0031F4F4 /* UIView.swift */,
-				869E2CCC2125380600B2FA9F /* UIButton.swift */,
-				86FC7459220D3217006311B3 /* UITableView.swift */,
-				86FC745D220D329F006311B3 /* UICollectionView.swift */,
+				86C0681D20F4162F00A6B17A /* UI Extension */,
+				86E67D8D228E3F740075B9B8 /* Style Constructors */,
+				8611AF7F21017D3F0002663B /* FontStyle.swift */,
+				8611AF7A21017AAD0002663B /* Theme.swift */,
+				864FE4D121163E170053DFB1 /* UIFactory.swift */,
+				864FE4D32116422A0053DFB1 /* UIThemes.swift */,
 			);
-			path = UIKit;
+			path = CoreUI;
+			sourceTree = "<group>";
+		};
+		86E67D8D228E3F740075B9B8 /* Style Constructors */ = {
+			isa = PBXGroup;
+			children = (
+				86E67D91228E414D0075B9B8 /* Button */,
+			);
+			path = "Style Constructors";
+			sourceTree = "<group>";
+		};
+		86E67D91228E414D0075B9B8 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				86E67D98228E49DB0075B9B8 /* Styles */,
+				86E67D8E228E3F990075B9B8 /* UIButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		86E67D98228E49DB0075B9B8 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				86E67D92228E41600075B9B8 /* ActionButtonStyle.swift */,
+				86E67D95228E49D40075B9B8 /* CircularButtonStyle.swift */,
+				86E67D99228E4E8B0075B9B8 /* NavigationButtonStyle.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1836,9 +1864,11 @@
 				8607AD5D22764B040046513F /* Environment.swift in Sources */,
 				8607AD712276871B0046513F /* MainPresenter+Analytics.swift in Sources */,
 				861CA111227621F400DAF641 /* CardBalanceWebService.swift in Sources */,
+				86E67D9B228E4E8B0075B9B8 /* NavigationButtonStyle.swift in Sources */,
 				861CA112227621F400DAF641 /* AppConstants.swift in Sources */,
 				861CA113227621F400DAF641 /* WeekDays.swift in Sources */,
 				8607AD6B227683B80046513F /* RouteUseCaseImpl.swift in Sources */,
+				86E67D94228E41600075B9B8 /* ActionButtonStyle.swift in Sources */,
 				861CA114227621F400DAF641 /* UIEdgeInsets.swift in Sources */,
 				86EBA6DE227A753C00B04A21 /* ChartAnotation.swift in Sources */,
 				861CA115227621F400DAF641 /* DetailHeaderView.swift in Sources */,
@@ -1884,6 +1914,8 @@
 				861CA13B227621F400DAF641 /* RealmTrain.swift in Sources */,
 				861CA13C227621F400DAF641 /* PopUpTransition.swift in Sources */,
 				86182B0222867231007D6F9C /* StationDetailUseCaseImpl.swift in Sources */,
+				86E67D90228E3F990075B9B8 /* UIButton.swift in Sources */,
+				86E67D97228E49D40075B9B8 /* CircularButtonStyle.swift in Sources */,
 				861CA13D227621F400DAF641 /* FadingCollectionView.swift in Sources */,
 				8607AD6E227685B20046513F /* AnalyticsPresenter.swift in Sources */,
 				861CA13E227621F400DAF641 /* NSLayoutAnchor.swift in Sources */,
@@ -1939,7 +1971,6 @@
 				861CA169227621F400DAF641 /* StationDetailViewController+DataSource.swift in Sources */,
 				861CA16A227621F400DAF641 /* CardBalanceCordinator.swift in Sources */,
 				861CA16B227621F400DAF641 /* DebugLogger.swift in Sources */,
-				861CA16C227621F400DAF641 /* UIButton.swift in Sources */,
 				861CA16D227621F400DAF641 /* UIThemes.swift in Sources */,
 				861CA16E227621F400DAF641 /* MapResurcesUseCase.swift in Sources */,
 				861CA16F227621F400DAF641 /* CardRepository.swift in Sources */,
@@ -1981,9 +2012,11 @@
 				8607AD5C22764B040046513F /* Environment.swift in Sources */,
 				8607AD702276871B0046513F /* MainPresenter+Analytics.swift in Sources */,
 				86385C8421337437002EA9DF /* CardBalanceWebService.swift in Sources */,
+				86E67D9A228E4E8B0075B9B8 /* NavigationButtonStyle.swift in Sources */,
 				8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */,
 				86A4939E21B850A100490820 /* WeekDays.swift in Sources */,
 				8607AD6A227683B80046513F /* RouteUseCaseImpl.swift in Sources */,
+				86E67D93228E41600075B9B8 /* ActionButtonStyle.swift in Sources */,
 				861FC581211010480024783A /* UIEdgeInsets.swift in Sources */,
 				86EBA6DD227A753C00B04A21 /* ChartAnotation.swift in Sources */,
 				86B83114213DBF350063AC75 /* DetailHeaderView.swift in Sources */,
@@ -2029,6 +2062,8 @@
 				869E2CC9212524DB00B2FA9F /* PopUpTransition.swift in Sources */,
 				86B830E52138485A0063AC75 /* FadingCollectionView.swift in Sources */,
 				86182B0122867231007D6F9C /* StationDetailUseCaseImpl.swift in Sources */,
+				86E67D8F228E3F990075B9B8 /* UIButton.swift in Sources */,
+				86E67D96228E49D40075B9B8 /* CircularButtonStyle.swift in Sources */,
 				8607AD6D227685B20046513F /* AnalyticsPresenter.swift in Sources */,
 				868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */,
 				86B830E3213844440063AC75 /* FadingCollectionLayout.swift in Sources */,
@@ -2084,7 +2119,6 @@
 				86B8310E213DADB70063AC75 /* StationDetailViewController+DataSource.swift in Sources */,
 				86385C7D21336C2E002EA9DF /* CardBalanceCordinator.swift in Sources */,
 				86FC7458220D2257006311B3 /* DebugLogger.swift in Sources */,
-				869E2CCD2125380600B2FA9F /* UIButton.swift in Sources */,
 				864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */,
 				8614C47D2238153E003E4A14 /* MapResurcesUseCase.swift in Sources */,
 				869E1D102134BA04004BE0A9 /* CardRepository.swift in Sources */,

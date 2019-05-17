@@ -16,16 +16,12 @@ protocol CardBalanceViewDelegate: class {
 
 class CardBalanceViewController: UIViewController, PresentableView {
 
-    struct Constants {
-        static let excamationIconHeigth: CGFloat = Theme.IconSize.small
-    }
-
     private let presenter: CardBalancePresenter
     private var card: Card?
 
     private let loadingView = LoadingView()
-    private let primaryButton = UIFactory.createButton(withTheme: UIThemes.Button.PrimaryButton)
-    private let secondaryButton = UIFactory.createButton(withTheme: UIThemes.Button.SecondayButton)
+    private let primaryButton = UIButton(style: .primary)
+    private let secondaryButton = UIButton(style: .secondary)
 
     private(set) lazy var containerView = UIFactory.createContainerView()
     private lazy var formContinerView = UIView()

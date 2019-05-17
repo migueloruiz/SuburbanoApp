@@ -28,8 +28,8 @@ class MainViewController: UIViewController {
     fileprivate lazy var mapView = MapViewController(presenter: presenter, mapConfiguration: StationsMap())
     private(set) lazy var buttonsContiner = UIStackView.with(axis: .vertical, spacing: Theme.Offset.small)
     private lazy var cardBalanceView = CardBalancePicker(delegate: self)
-    private lazy var pricesButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "money"), tintColor: .white, backgroundColor: Theme.Pallete.softRed)
-    private lazy var centerMapButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "mapCenter"), tintColor: .white, backgroundColor: Theme.Pallete.blue)
+    private lazy var pricesButton = UIButton(circularStyle: .primary, image: #imageLiteral(resourceName: "money"))
+    private lazy var centerMapButton = UIButton(circularStyle: .secondary, image: #imageLiteral(resourceName: "mapCenter"))
     private let gradientView = UIView()
     private let gradientLayer = CAGradientLayer()
 

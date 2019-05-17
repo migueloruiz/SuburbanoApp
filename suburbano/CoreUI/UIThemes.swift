@@ -26,20 +26,6 @@ struct LabelTheme: LabelStyle {
     let font: FontStyle
 }
 
-protocol ButtonStyle {
-    var textColor: UIColor { get }
-    var backgroundColor: UIColor { get }
-    var font: FontStyle { get }
-    var rounded: RoundedStyle? { get }
-}
-
-struct ButtonTheme: ButtonStyle {
-    let textColor: UIColor
-    let backgroundColor: UIColor
-    let font: FontStyle
-    let rounded: RoundedStyle?
-}
-
 struct RoundedStyle {
     let radius: CGFloat
 }
@@ -185,25 +171,5 @@ struct UIThemes {
                                           textColor: Theme.Pallete.darkGray,
                                           backgroundColor: Theme.Pallete.ligthGray,
                                           font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
-    }
-
-    // MARK: - Button Themes
-    struct Button {
-        // MARK: - ActivityCard Button Themes
-        static let ActivityCard = ButtonTheme(textColor: Theme.Pallete.darkGray,
-                                              backgroundColor: .white,
-                                              font: FontStyle(size: .p, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
-                                              rounded: nil)
-
-        // MARK: - Popup Button Themes
-        static let PrimaryButton = ButtonTheme(textColor: .white,
-                                              backgroundColor: Theme.Pallete.primaryAction,
-                                              font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
-                                              rounded: RoundedStyle(radius: Theme.Rounded.button))
-
-        static let SecondayButton = ButtonTheme(textColor: .white,
-                                                backgroundColor: Theme.Pallete.softRed,
-                                                font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
-                                                rounded: RoundedStyle(radius: Theme.Rounded.button))
     }
 }

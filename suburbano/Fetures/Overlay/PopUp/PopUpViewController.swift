@@ -15,10 +15,10 @@ class PopUpViewController: UIViewController {
         static let secondaryTag = 2
     }
 
-    private let context: AlertContext
+    private let alertContext: AlertContext
     private var imageView = UIImageView()
-    private lazy var closeButton: UIButton = UIFactory.createButton(withTheme: UIThemes.Button.PrimaryButton)
-    private lazy var actionButton: UIButton = UIFactory.createButton(withTheme: UIThemes.Button.SecondayButton)
+    private lazy var closeButton = UIButton(style: .primary)
+    private lazy var actionButton = UIButton(style: .secondary)
     private lazy var titleLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupTitle)
     private lazy var descripcionLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupBody)
     private lazy var buttonsContainer: UIStackView = UIStackView.with(distribution: .fillEqually, spacing: Theme.Offset.small)
@@ -30,7 +30,7 @@ class PopUpViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     init(context: AlertContext) {
-        self.context = context
+        self.alertContext = context
         super.init(nibName: nil, bundle: nil)
         self.modalPresentationStyle = .overCurrentContext
         self.modalTransitionStyle = .crossDissolve
@@ -49,15 +49,15 @@ class PopUpViewController: UIViewController {
     private func configureUI() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PopUpViewController.close)))
 
-        titleLabel.text = context.title
-        descripcionLabel.text = context.disclaimer
-        imageView.image = context.image
+        titleLabel.text = alertContext.title
+        descripcionLabel.text = alertContext.disclaimer
+        imageView.image = alertContext.image
         imageView.contentMode = .scaleAspectFit
 
-        closeButton.set(title: context.primaryButton)
+        closeButton.set(title: alertContext.primaryActionText)
         closeButton.addTarget(self, action: #selector(PopUpViewController.close), for: .touchUpInside)
 
-        guard let secondaryTitle = context.secondaryButton else { return }
+        guard let secondaryTitle = alertContext.secondaryActionText else { return }
         actionButton.set(title: secondaryTitle)
         actionButton.tag = Constants.secondaryTag
         buttonsContainer.addArrangedSubview(actionButton)

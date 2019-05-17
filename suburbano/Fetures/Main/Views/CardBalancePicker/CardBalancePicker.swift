@@ -31,7 +31,8 @@ class CardBalancePicker: UIView {
     }
 
     private let containerView = UIView()
-    private let addButton = UIFactory.createCircularButton(image: #imageLiteral(resourceName: "plus"), tintColor: .white, backgroundColor: Theme.Pallete.softGray)
+    private let addButton = UIButton(circularStyle: .gray, image: #imageLiteral(resourceName: "plus"))
+
     private let cardsCollection = FadingCollectionView()
     private let emptyMessageView = BalanceEmptyMessageView()
 

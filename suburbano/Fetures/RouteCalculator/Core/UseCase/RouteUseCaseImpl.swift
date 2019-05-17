@@ -13,19 +13,13 @@ class RouteUseCaseImpl: RouteUseCase {
     private let pricesRepository: PriceRepository
     private let pricesService: PricesWebService
     private let trainsRepository: TrainRepository
-    private let stationWaitTimeRepository: StationWaitTimeRepository
-    private let stationWaitTimeService: StationWaitTimeWebService
 
     init(pricesRepository: PriceRepository,
          pricesService: PricesWebService,
-         trainsRepository: TrainRepository,
-         stationWaitTimeRepository: StationWaitTimeRepository,
-         stationWaitTimeService: StationWaitTimeWebService) {
+         trainsRepository: TrainRepository) {
         self.pricesRepository = pricesRepository
         self.pricesService = pricesService
         self.trainsRepository = trainsRepository
-        self.stationWaitTimeRepository = stationWaitTimeRepository
-        self.stationWaitTimeService = stationWaitTimeService
     }
 
     func getInformation(from departure: StationEntity, to arraival: StationEntity, complition: @escaping SuccessResponse<RouteInformation>) {
@@ -37,25 +31,10 @@ class RouteUseCaseImpl: RouteUseCase {
             complition(RouteInformation(time: time, distance: distance, price: tripPrice?.price ?? 0))
         }
     }
-
-    func getWaitTime(inStation station: String, complition: @escaping SuccessResponse<[StationWaitTimeEntity]>) {
-        let waitTime = stationWaitTimeRepository.get(inStation: station)
-        guard waitTime.isEmpty else {
-            complition(waitTime)
-            return
-        }
-
-        stationWaitTimeService.getWaitTimes(success: { [weak self] waitTimes in
-            guard let strongSelf = self else { return }
-            strongSelf.stationWaitTimeRepository.add(waitTimes: waitTimes)
-            let waitTimeReponse = strongSelf.stationWaitTimeRepository.get(inStation: station)
-            complition(waitTimeReponse)
-        }, failure: {_  in complition([])})
-    }
 }
 
 extension RouteUseCaseImpl {
-    func getPrices(complition: @escaping SuccessResponse<[Price]>) {
+    private func getPrices(complition: @escaping SuccessResponse<[Price]>) {
         guard let cachedPrices = pricesRepository.getPrices(), !cachedPrices.isEmpty else {
             getPricesFromService(complition: complition)
             return

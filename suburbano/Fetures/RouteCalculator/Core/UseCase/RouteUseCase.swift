@@ -18,8 +18,4 @@ protocol GetRouteInformationUseCase {
     func getInformation(from departure: StationEntity, to arraival: StationEntity, complition: @escaping SuccessResponse<RouteInformation>)
 }
 
-protocol GetRouteWaitTimeUseCase {
-    func getWaitTime(inStation station: String, complition: @escaping SuccessResponse<[StationWaitTimeEntity]>)
-}
-
-protocol RouteUseCase: GetRouteInformationUseCase, GetRouteWaitTimeUseCase { }
+protocol RouteUseCase: GetRouteInformationUseCase { }

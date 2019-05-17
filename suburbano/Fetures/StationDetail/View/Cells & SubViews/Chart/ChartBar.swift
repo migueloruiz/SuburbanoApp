@@ -61,9 +61,9 @@ class ChartBar: UIView {
         gradientLayer.colors = [topColor.cgColor, bottomColor.cgColor]
     }
 
-    func configure(withModel model: ChartTimeBarModel, topColor newTopColor: UIColor, bottomColor newBottomColor: UIColor) {
+    func configure(withModel model: ChartBarModel, maxValue: Int, topColor newTopColor: UIColor, bottomColor newBottomColor: UIColor) {
         self.value = model.value
-        self.maxValue = model.maxValue
+        self.maxValue = maxValue
         topColor =!= newTopColor
         bottomColor =!= newBottomColor
         layoutSubviews()

@@ -68,6 +68,7 @@ struct Theme {
     struct Size {
         static let button: CGFloat = 25
         static let separator: CGFloat = 5 / UIScreen.main.scale
+        static let chartLoader: CGFloat = 100
     }
 
     enum FontName: String {

@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct DetailScheduleCellModel {
+    let day: String
+    let openTime: String
+    let closeTime: String
+}
+
 class DetailScheduleCell: UITableViewCell, DetailCell, ReusableView {
 
     private let daysLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
@@ -41,9 +47,9 @@ class DetailScheduleCell: UITableViewCell, DetailCell, ReusableView {
 
     func configure(with item: DetailItem) {
         switch item {
-        case .schedule(let dia):
-            daysLabel.text = dia.selectionText
-            scheduleLabel.text = "\(dia.openTime) - \(dia.closeTime)"
+        case .schedule(let schedule):
+            daysLabel.text = schedule.day
+            scheduleLabel.text = "\(schedule.openTime) - \(schedule.closeTime)"
         default: break
         }
     }

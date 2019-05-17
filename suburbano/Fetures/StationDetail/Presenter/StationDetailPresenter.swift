@@ -12,61 +12,32 @@ enum DetailSection: Int {
     case location
     case schedule
     case conactions
-    case waitTime
+    case trainWaitTimeChart
+    case concurrenciChart
 
     var title: String {
         switch self {
         case .location: return "UBICACION" // Localize
         case .schedule: return "HORARIO" // Localize
         case .conactions: return "CONECCIONES" // Localize
-        case .waitTime: return "TIEMPO ENTRE TRENES" // Localize
+        case .trainWaitTimeChart: return "TIEMPO ENTRE TRENES" // Localize
+        case .concurrenciChart: return "CONCIRRENCIA" // Localize
         }
     }
 }
 
-typealias WeekChartModel = [WeekDays: [ChartTimeBarModel]]
-
 enum DetailItem {
     case location(address: String)
-    case schedule(dias: TripDay)
+    case schedule(dias: DetailScheduleCellModel)
     case conactions(images: [String])
-    case waitTime(waitTimes: WeekChartModel, maxValue: Int)
+    case chart(status: ChartStatus)
 
     var cellIdentifier: String {
         switch self {
         case .location: return DetailAddressCell.reuseIdentifier
         case .schedule: return DetailScheduleCell.reuseIdentifier
         case .conactions: return DeatilConectionsCell.reuseIdentifier
-        case .waitTime: return DetailChartCell.reuseIdentifier
-        }
-    }
-}
-
-enum TripDay: String, CaseIterable { // TODO
-    case normal = "Normal"
-    case saturday = "Saturday"
-    case sundayAndHolidays = "SundayAndHolidays"
-
-    var selectionText: String {
-        switch self {
-        case .sundayAndHolidays: return "Domingos y Festivos" // Localize
-        case .normal: return "Dia Laboral" // Localize
-        case .saturday: return "Sabados" // Localize
-        }
-    }
-
-    var openTime: String {
-        switch self {
-        case .sundayAndHolidays: return "7:00" // Localize
-        case .normal: return "5:00" // Localize
-        case .saturday: return "6:00" // Localize
-        }
-    }
-
-    var closeTime: String {
-        switch self {
-        case .sundayAndHolidays, .normal, .saturday:
-            return "00:30" // Localize
+        case .chart: return DetailChartCell.reuseIdentifier
         }
     }
 }
@@ -84,10 +55,11 @@ protocol StationDetailPresenter: class, Presenter {
 final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresenter {
 
     private struct Constants {
-        static let waitTimeMaxValue = 20
+        static let trainWaitTimeChartMaxValue = 20
+        static let concurrenciChartMaxValue = 10
     }
 
-    private let routeUseCase: RouteUseCase?
+    private let stationDetailUseCase: StationDetailUseCase?
     internal let analyticsUseCase: AnalyticsUseCase?
 
     let station: Station
@@ -95,16 +67,17 @@ final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresent
 
     weak var viewDelegate: StationDetailViewController?
 
-    init(station: Station, routeUseCase: RouteUseCase?, analyticsUseCase: AnalyticsUseCase?) {
+    init(station: Station, stationDetailUseCase: StationDetailUseCase?, analyticsUseCase: AnalyticsUseCase?) {
         self.station = station
-        self.routeUseCase = routeUseCase
+        self.stationDetailUseCase = stationDetailUseCase
         self.analyticsUseCase = analyticsUseCase
     }
 
     func load() {
         stationDetails = configureStationDetails(station: station)
         viewDelegate?.update()
-        getWaitTime(for: station)
+        getCharts(for: station)
+        getSchedule()
     }
 
     var titleImageName: String {
@@ -126,27 +99,6 @@ final class StationDetailPresenterImpl: StationDetailPresenter, AnalyticsPresent
     func item(atIndex index: IndexPath) -> DetailItem {
         return stationDetails[index.section][index.row]
     }
-
-    private func getWaitTime(for station: StationEntity) {
-        routeUseCase?.getWaitTime(inStation: station.name) { [weak self] waitTimes in
-            guard let strongSelf = self else { return }
-            var waitDaysDetals = WeekChartModel()
-            for item in waitTimes {
-                let display = item.displayTime.split(separator: ":").first ?? "•"
-                let model = ChartTimeBarModel(value: item.waitTime,
-                                              maxValue: 20,
-                                              displayTime: String(display))
-                guard let day = WeekDays.init(rawValue: item.day) else { continue }
-                if waitDaysDetals[day] == nil {
-                    waitDaysDetals[day] = [model]
-                } else {
-                    waitDaysDetals[day]?.append(model)
-                }
-            }
-            strongSelf.stationDetails[DetailSection.waitTime.rawValue] = [.waitTime(waitTimes: waitDaysDetals, maxValue: Constants.waitTimeMaxValue)]
-            strongSelf.viewDelegate?.update()
-        }
-    }
 }
 
 extension StationDetailPresenterImpl {
@@ -154,14 +106,41 @@ extension StationDetailPresenterImpl {
         var details: [[DetailItem]] = []
 
         details.append([.location(address: station.address)])
-        details.append([
-            .schedule(dias: .normal),
-            .schedule(dias: .saturday),
-            .schedule(dias: .sundayAndHolidays)
-        ])
+        details.append([])
         details.append([.conactions(images: station.conections.components(separatedBy: ","))])
-        details.append([.waitTime(waitTimes: [:], maxValue: Constants.waitTimeMaxValue)])
+        details.append([.chart(status: .loading)])
+        details.append([.chart(status: .loading)])
 
         return details
+    }
+
+    private func getCharts(for station: StationEntity) {
+        stationDetailUseCase?.getChartData(forStation: station.name) { [weak self] chartData in
+            var trainWaitTimeChartStatus: ChartStatus = .empty
+            if let trainWaitTime = chartData.trainWaitTime {
+                trainWaitTimeChartStatus = .content(chartData: trainWaitTime)
+            }
+            self?.stationDetails[DetailSection.trainWaitTimeChart.rawValue] = [.chart(status: trainWaitTimeChartStatus)]
+
+            var concurrenceChartStatus: ChartStatus = .empty
+            if let concurrence = chartData.concurrence {
+                concurrenceChartStatus = .content(chartData: concurrence)
+            }
+            self?.stationDetails[DetailSection.concurrenciChart.rawValue] = [.chart(status: concurrenceChartStatus)]
+
+            self?.viewDelegate?.update()
+        }
+    }
+
+    private func getSchedule() {
+        stationDetailUseCase?.getSchedule(complition: { [weak self] schedule in
+            for item in schedule {
+                let model = DetailScheduleCellModel(day: item.id, // Localize
+                                                    openTime: item.openTime,
+                                                    closeTime: item.openTime)
+                self?.stationDetails[DetailSection.schedule.rawValue].append(.schedule(dias: model))
+            }
+            self?.viewDelegate?.update()
+        })
     }
 }

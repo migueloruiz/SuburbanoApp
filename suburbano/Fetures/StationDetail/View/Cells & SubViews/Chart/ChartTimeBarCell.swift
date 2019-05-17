@@ -8,10 +8,9 @@
 
 import UIKit
 
-struct ChartTimeBarModel {
+struct ChartBarModel {
     let value: Int
-    let maxValue: Int
-    let displayTime: String
+    let label: String
 }
 
 class ChartTimeBarCell: UICollectionViewCell, ReusableView {
@@ -37,9 +36,9 @@ class ChartTimeBarCell: UICollectionViewCell, ReusableView {
         timeLabel.anchorSize(height: 15)
     }
 
-    func configure(withModel model: ChartTimeBarModel, shouldDisplaytime: Bool, topColor: UIColor, bottomColor: UIColor) {
-        timeLabel.text =  shouldDisplaytime ? model.displayTime : "•"
-        barView.configure(withModel: model, topColor: topColor, bottomColor: bottomColor)
+    func configure(withModel model: ChartBarModel, maxValue: Int, shouldDisplaytime: Bool, topColor: UIColor, bottomColor: UIColor) {
+        timeLabel.text =  shouldDisplaytime ? model.label : "•"
+        barView.configure(withModel: model, maxValue: maxValue, topColor: topColor, bottomColor: bottomColor)
         setNeedsLayout()
     }
 }

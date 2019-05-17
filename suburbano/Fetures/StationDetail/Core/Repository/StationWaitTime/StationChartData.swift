@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol StationWaitTimeEntity {
+protocol StationChartDataEntity {
     var station: String { get }
     var day: Int { get }
     var concurrence: Int { get }
@@ -17,7 +17,7 @@ protocol StationWaitTimeEntity {
     var waitTime: Int { get }
 }
 
-struct StationWaitTime: StationWaitTimeEntity, Codable {
+struct StationChartData: StationChartDataEntity, Codable {
 
     let station: String
     let day: Int
@@ -35,7 +35,7 @@ struct StationWaitTime: StationWaitTimeEntity, Codable {
         case waitTime = "wait_time"
     }
 
-    init(entity: StationWaitTimeEntity) {
+    init(entity: StationChartDataEntity) {
         self.station = entity.station
         self.day = entity.day
         self.concurrence = entity.concurrence

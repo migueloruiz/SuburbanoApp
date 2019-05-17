@@ -21,7 +21,7 @@ class LoadingView: UIView {
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
-    init(animation: String = AppConstants.Animations.loading) {
+    init(animation: String = AppConstants.Animations.trainLoader) {
         self.animation = AnimationView(name: animation)
         super.init(frame: .zero)
     }
@@ -29,13 +29,13 @@ class LoadingView: UIView {
     func configure() {
         alpha = 0
         animation.contentMode = .scaleAspectFit
-        addSubview(animation)
         addSubViews([blurredEffectView, animation])
         blurredEffectView.fill()
         animation.fill()
     }
 
     func show(hiddingView: UIView? = nil) {
+        guard !animation.isAnimationPlaying else { return }
         dispatchGroup.enter()
         animation.loopMode = .loop
         superview?.endEditing(true)
@@ -55,7 +55,7 @@ class LoadingView: UIView {
         animation.loopMode = .playOnce
         dispatchGroup.notify(queue: .main, execute: { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.animation.stop()
+            strongSelf.animation.pause()
             strongSelf.superview?.sendSubviewToBack(strongSelf)
             if let hiddingView = hiddingView {
                 strongSelf.superview?.bringSubviewToFront(hiddingView)
@@ -66,6 +66,7 @@ class LoadingView: UIView {
                 strongSelf.alpha = 0
                 hiddingView?.alpha = 1
                 }, completion: { _ in
+                    strongSelf.animation.stop()
                     completion?()
             })
         })

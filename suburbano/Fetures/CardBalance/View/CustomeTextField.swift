@@ -15,7 +15,7 @@ class CustomeTextField: UIView {
         static let lineDesableColor = Theme.Pallete.softGray
     }
 
-    private let textInput = UIFactory.createTextField(withTheme: UIThemes.Field.CardNumberField)
+    private let textInput = TextField(style: .text)
     private let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
     private let disclaimerLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
     private let bottomLine = UIView()

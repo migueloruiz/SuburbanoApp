@@ -23,17 +23,6 @@ class UIFactory {
         return lable
     }
 
-    static func createTextField(withTheme theme: FieldStyle) -> UITextField {
-        let field = UITextField()
-        field.textColor = theme.textColor
-        field.tintColor = theme.tintColor
-        field.backgroundColor = theme.backgroundColor
-        field.font = theme.font.getScaledFont()
-        field.keyboardType = theme.keyboardType
-        field.autocorrectionType = theme.autocorrectionType
-        return field
-    }
-
     static func createCardView() -> UIView {
         let view = UIView()
         view.backgroundColor = .white

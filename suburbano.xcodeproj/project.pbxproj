@@ -316,6 +316,10 @@
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* UIDevice.swift */; };
 		86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75EB212B9F8800DBDB98 /* IconInputView.swift */; };
+		86CB7E812294701E00FDB562 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB7E802294701E00FDB562 /* UITextField.swift */; };
+		86CB7E822294701E00FDB562 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB7E802294701E00FDB562 /* UITextField.swift */; };
+		86CB7E85229470DC00FDB562 /* FieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB7E84229470DC00FDB562 /* FieldStyle.swift */; };
+		86CB7E86229470DC00FDB562 /* FieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB7E84229470DC00FDB562 /* FieldStyle.swift */; };
 		86DF0C7322125E16008300FF /* ChartTimeBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF0C7222125E16008300FF /* ChartTimeBarCell.swift */; };
 		86E67D8F228E3F990075B9B8 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E67D8E228E3F990075B9B8 /* UIButton.swift */; };
 		86E67D90228E3F990075B9B8 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E67D8E228E3F990075B9B8 /* UIButton.swift */; };
@@ -554,6 +558,8 @@
 		86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeTextField.swift; sourceTree = "<group>"; };
 		86CB75E7212B834200DBDB98 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		86CB75EB212B9F8800DBDB98 /* IconInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInputView.swift; sourceTree = "<group>"; };
+		86CB7E802294701E00FDB562 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		86CB7E84229470DC00FDB562 /* FieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldStyle.swift; sourceTree = "<group>"; };
 		86DF0C7222125E16008300FF /* ChartTimeBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTimeBarCell.swift; sourceTree = "<group>"; };
 		86E67D8E228E3F990075B9B8 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		86E67D92228E41600075B9B8 /* ActionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonStyle.swift; sourceTree = "<group>"; };
@@ -1485,6 +1491,23 @@
 			path = AppLaunch;
 			sourceTree = "<group>";
 		};
+		86CB7E7F2294700A00FDB562 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				86CB7E832294702400FDB562 /* Styles */,
+				86CB7E802294701E00FDB562 /* UITextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		86CB7E832294702400FDB562 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				86CB7E84229470DC00FDB562 /* FieldStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		86E67D8C228E3E720075B9B8 /* CoreUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1501,6 +1524,7 @@
 		86E67D8D228E3F740075B9B8 /* Style Constructors */ = {
 			isa = PBXGroup;
 			children = (
+				86CB7E7F2294700A00FDB562 /* TextField */,
 				86E67D91228E414D0075B9B8 /* Button */,
 			);
 			path = "Style Constructors";
@@ -1937,6 +1961,7 @@
 				861CA14A227621F400DAF641 /* PopUpViewController.swift in Sources */,
 				861CA14B227621F400DAF641 /* RouteCalculatorCordinator.swift in Sources */,
 				861CA14C227621F400DAF641 /* UIStackView.swift in Sources */,
+				86CB7E822294701E00FDB562 /* UITextField.swift in Sources */,
 				861CA14D227621F400DAF641 /* WebResources.swift in Sources */,
 				861CA14E227621F400DAF641 /* RequestFactory.swift in Sources */,
 				861CA14F227621F400DAF641 /* PresentableView.swift in Sources */,
@@ -1974,6 +1999,7 @@
 				861CA16D227621F400DAF641 /* UIThemes.swift in Sources */,
 				861CA16E227621F400DAF641 /* MapResurcesUseCase.swift in Sources */,
 				861CA16F227621F400DAF641 /* CardRepository.swift in Sources */,
+				86CB7E86229470DC00FDB562 /* FieldStyle.swift in Sources */,
 				861CA170227621F400DAF641 /* RealmAppDelegate.swift in Sources */,
 				861CA171227621F400DAF641 /* DirectionsDetailPresenter.swift in Sources */,
 				861CA172227621F400DAF641 /* ApplicationCoordinatorAppDelegate.swift in Sources */,
@@ -2085,6 +2111,7 @@
 				868D2614214B361900700DE7 /* RouteCalculatorCordinator.swift in Sources */,
 				861FC583211015460024783A /* UIStackView.swift in Sources */,
 				8621A2D320F6FE0A00A2D8B1 /* WebResources.swift in Sources */,
+				86CB7E812294701E00FDB562 /* UITextField.swift in Sources */,
 				8621A2D420F6FE0A00A2D8B1 /* RequestFactory.swift in Sources */,
 				86B831062138C95A0063AC75 /* PresentableView.swift in Sources */,
 				86593C3321502A5900383445 /* Price.swift in Sources */,
@@ -2122,6 +2149,7 @@
 				864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */,
 				8614C47D2238153E003E4A14 /* MapResurcesUseCase.swift in Sources */,
 				869E1D102134BA04004BE0A9 /* CardRepository.swift in Sources */,
+				86CB7E85229470DC00FDB562 /* FieldStyle.swift in Sources */,
 				869E1D122134C9D0004BE0A9 /* RealmAppDelegate.swift in Sources */,
 				86B831282140BB5B0063AC75 /* DirectionsDetailPresenter.swift in Sources */,
 				8621A2DB20F6FE0A00A2D8B1 /* ApplicationCoordinatorAppDelegate.swift in Sources */,

@@ -31,7 +31,7 @@ class IconPickerView: UIView {
         static let defaultIcon = "\u{e91b}"
     }
 
-    private let field = UIFactory.createTextField(withTheme: UIThemes.Field.IconPickerField)
+    private let field = TextField(style: .icon)
 
     var icon: CardBalanceIcon {
         guard backgroundColor != Theme.Pallete.softGray && field.text != Constants.defaultIcon else { return .initial }
@@ -52,6 +52,7 @@ class IconPickerView: UIView {
         field.inputView = inputView
         field.inputView?.autoresizingMask = .flexibleHeight
         field.textAlignment = .center
+        field.allowedActions = []
         field.addTarget(self, action: #selector(IconPickerView.editingDidBegin), for: .editingDidBegin)
         field.addTarget(self, action: #selector(IconPickerView.endEditingChanged), for: .editingDidEnd)
         clipsToBounds = true
@@ -69,7 +70,7 @@ class IconPickerView: UIView {
     func set(icon: CardBalanceIcon) {
         switch icon {
         case .initial:
-            backgroundColor = Theme.Pallete.softGray
+            backgroundColor = Theme.Pallete.ligthGray
             field.placeholder = Constants.defaultIcon
         case .custome(let iconCode, let color):
             field.text = iconCode

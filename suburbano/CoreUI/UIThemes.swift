@@ -30,43 +30,7 @@ struct RoundedStyle {
     let radius: CGFloat
 }
 
-protocol FieldStyle {
-    var textColor: UIColor { get }
-    var tintColor: UIColor { get }
-    var backgroundColor: UIColor { get }
-    var font: FontStyle { get }
-    var autocorrectionType: UITextAutocorrectionType { get }
-    var keyboardType: UIKeyboardType { get }
-}
-
-struct FieldTheme: FieldStyle {
-    let textColor: UIColor
-    let tintColor: UIColor
-    let backgroundColor: UIColor
-    let font: FontStyle
-    let autocorrectionType: UITextAutocorrectionType
-    let keyboardType: UIKeyboardType
-}
-
 struct UIThemes {
-
-    // MARK: - Field Themes
-    struct Field {
-        static let CardNumberField = FieldTheme(textColor: Theme.Pallete.darkGray,
-                                             tintColor: Theme.Pallete.softRed,
-                                             backgroundColor: .white,
-                                             font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium),
-                                             autocorrectionType: .no,
-                                             keyboardType: .numberPad)
-
-        // MARK: - Icon Picker Label Themes
-        static let IconPickerField = FieldTheme(textColor: .white,
-                                                  tintColor: .clear,
-                                                  backgroundColor: .clear,
-                                                  font: FontStyle(size: .smallIcon, largeFactor: Theme.FontFactor.large, name: .icons, style: .none),
-                                                  autocorrectionType: .no,
-                                                  keyboardType: .numberPad)
-    }
 
     // MARK: - Label Themes
     struct Label {

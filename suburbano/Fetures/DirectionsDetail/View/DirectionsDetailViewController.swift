@@ -53,7 +53,6 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
         titleLabel.backgroundColor = .clear
         titleLabel.font = titleLabel.font.withSize(28)
         titleLabel.text = "¿Como llego a la estacion \(presenter.stationName.firstUppercased)?" // Localize
-        titleLabel.addDropShadow()
 
         for app in presenter.availableApps {
             let itemView = DirectionActionView(app: app, clousure: { [weak self] app in

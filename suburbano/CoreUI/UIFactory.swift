@@ -22,18 +22,4 @@ class UIFactory {
         if !text.isEmpty { lable.text = text }
         return lable
     }
-
-    static func createSquare(image: UIImage?, size: CGFloat, color: UIColor = Theme.Pallete.darkGray) -> UIImageView {
-        let view = UIImageView(image: image)
-        view.tintColor = color
-        view.anchorSquare(size: size)
-        return view
-    }
-
-    static func createImageView(image: UIImage?, color: UIColor) -> UIImageView {
-        let imageView = UIImageView()
-        imageView.image = image?.withRenderingMode(.alwaysTemplate)
-        imageView.tintColor = color
-        return imageView
-    }
 }

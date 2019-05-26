@@ -276,6 +276,8 @@
 		8699891C229B1E6800029BF6 /* Shakable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699891A229B1E6800029BF6 /* Shakable.swift */; };
 		8699891F229B21B700029BF6 /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699891E229B21B700029BF6 /* ViewStyle.swift */; };
 		86998920229B21B700029BF6 /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699891E229B21B700029BF6 /* ViewStyle.swift */; };
+		86998923229B270800029BF6 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998922229B270800029BF6 /* UIImageView.swift */; };
+		86998924229B270800029BF6 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998922229B270800029BF6 /* UIImageView.swift */; };
 		869E1D102134BA04004BE0A9 /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D0F2134BA04004BE0A9 /* CardRepository.swift */; };
 		869E1D122134C9D0004BE0A9 /* RealmAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */; };
 		869E2CC721250C9300B2FA9F /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CC621250C9300B2FA9F /* PopUpViewController.swift */; };
@@ -512,6 +514,7 @@
 		86998917229B1E0700029BF6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8699891A229B1E6800029BF6 /* Shakable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shakable.swift; sourceTree = "<group>"; };
 		8699891E229B21B700029BF6 /* ViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
+		86998922229B270800029BF6 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		869E1D0F2134BA04004BE0A9 /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
 		869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAppDelegate.swift; sourceTree = "<group>"; };
 		869E1D132134CEA0004BE0A9 /* suburbano.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = suburbano.entitlements; sourceTree = "<group>"; };
@@ -1192,6 +1195,14 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
+		86998921229B26EA00029BF6 /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				86998922229B270800029BF6 /* UIImageView.swift */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
 		869E2CBB2124F95200B2FA9F /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1551,6 +1562,7 @@
 		86E67D8D228E3F740075B9B8 /* Style Constructors */ = {
 			isa = PBXGroup;
 			children = (
+				86998921229B26EA00029BF6 /* UIImageView */,
 				86998916229B1DB300029BF6 /* View */,
 				86CB7E7F2294700A00FDB562 /* TextField */,
 				86E67D91228E414D0075B9B8 /* Button */,
@@ -2050,6 +2062,7 @@
 				861CA17E227621F400DAF641 /* StationChartData.swift in Sources */,
 				861CA17F227621F400DAF641 /* ChartTimeBarCell.swift in Sources */,
 				861CA180227621F400DAF641 /* UICollectionView.swift in Sources */,
+				86998924229B270800029BF6 /* UIImageView.swift in Sources */,
 				861CA181227621F400DAF641 /* MapResurcesUseCaseImpl.swift in Sources */,
 				861CA182227621F400DAF641 /* CardUseCaseImpl.swift in Sources */,
 			);
@@ -2203,6 +2216,7 @@
 				86BD98572159C7170022DC6F /* StationChartData.swift in Sources */,
 				86DF0C7322125E16008300FF /* ChartTimeBarCell.swift in Sources */,
 				86FC745E220D329F006311B3 /* UICollectionView.swift in Sources */,
+				86998923229B270800029BF6 /* UIImageView.swift in Sources */,
 				8614C47F2238177D003E4A14 /* MapResurcesUseCaseImpl.swift in Sources */,
 				86385C8C2133840E002EA9DF /* CardUseCaseImpl.swift in Sources */,
 			);

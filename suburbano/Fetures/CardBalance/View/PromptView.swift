@@ -15,7 +15,7 @@ class PromptView: UIView {
     }
 
     private let labelTheme: LabelTheme
-    private lazy var icon = UIFactory.createImageView(image: nil, color: Theme.Pallete.softGray)
+    private lazy var icon = UIImageView(image: nil, color: Theme.Pallete.softGray)
     private lazy var disclaimerLabel = UIFactory.createLable(withTheme: labelTheme)
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }

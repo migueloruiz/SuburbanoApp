@@ -113,7 +113,7 @@
 		861CA141227621F400DAF641 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D121163E170053DFB1 /* UIFactory.swift */; };
 		861CA142227621F400DAF641 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864132572100017A0031F4F4 /* ReusableView.swift */; };
 		861CA143227621F400DAF641 /* DirectionsAppsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8312E21459FD70063AC75 /* DirectionsAppsFactory.swift */; };
-		861CA144227621F400DAF641 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641325120FFF6ED0031F4F4 /* UIView.swift */; };
+		861CA144227621F400DAF641 /* UIView+Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641325120FFF6ED0031F4F4 /* UIView+Anchors.swift */; };
 		861CA145227621F400DAF641 /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831032138C1AE0063AC75 /* StationDetailViewController.swift */; };
 		861CA146227621F400DAF641 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7621335ED3002EA9DF /* IconCell.swift */; };
 		861CA147227621F400DAF641 /* StationMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */; };
@@ -232,7 +232,7 @@
 		86385C8821337558002EA9DF /* RealmCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8721337558002EA9DF /* RealmCard.swift */; };
 		86385C8A21338392002EA9DF /* CardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8921338392002EA9DF /* CardUseCase.swift */; };
 		86385C8C2133840E002EA9DF /* CardUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8B2133840E002EA9DF /* CardUseCaseImpl.swift */; };
-		8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641325120FFF6ED0031F4F4 /* UIView.swift */; };
+		8641325220FFF6ED0031F4F4 /* UIView+Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641325120FFF6ED0031F4F4 /* UIView+Anchors.swift */; };
 		864132582100017A0031F4F4 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864132572100017A0031F4F4 /* ReusableView.swift */; };
 		8642323D2283ADC4008C3A64 /* SafeAsignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8642323C2283ADC4008C3A64 /* SafeAsignable.swift */; };
 		8642323E2283ADC4008C3A64 /* SafeAsignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8642323C2283ADC4008C3A64 /* SafeAsignable.swift */; };
@@ -270,6 +270,10 @@
 		868D2614214B361900700DE7 /* RouteCalculatorCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2613214B361900700DE7 /* RouteCalculatorCordinator.swift */; };
 		868D2616214B362500700DE7 /* RouteCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2615214B362500700DE7 /* RouteCalculatorViewController.swift */; };
 		868D2618214B3AD000700DE7 /* RouteCalculatorTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2617214B3AD000700DE7 /* RouteCalculatorTransition.swift */; };
+		86998918229B1E0700029BF6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998917229B1E0700029BF6 /* UIView.swift */; };
+		86998919229B1E0700029BF6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998917229B1E0700029BF6 /* UIView.swift */; };
+		8699891B229B1E6800029BF6 /* Shakable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699891A229B1E6800029BF6 /* Shakable.swift */; };
+		8699891C229B1E6800029BF6 /* Shakable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699891A229B1E6800029BF6 /* Shakable.swift */; };
 		869E1D102134BA04004BE0A9 /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D0F2134BA04004BE0A9 /* CardRepository.swift */; };
 		869E1D122134C9D0004BE0A9 /* RealmAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */; };
 		869E2CC721250C9300B2FA9F /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CC621250C9300B2FA9F /* PopUpViewController.swift */; };
@@ -448,7 +452,7 @@
 		86385C8721337558002EA9DF /* RealmCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCard.swift; sourceTree = "<group>"; };
 		86385C8921338392002EA9DF /* CardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardUseCase.swift; sourceTree = "<group>"; };
 		86385C8B2133840E002EA9DF /* CardUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardUseCaseImpl.swift; sourceTree = "<group>"; };
-		8641325120FFF6ED0031F4F4 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		8641325120FFF6ED0031F4F4 /* UIView+Anchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchors.swift"; sourceTree = "<group>"; };
 		864132572100017A0031F4F4 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		8642323C2283ADC4008C3A64 /* SafeAsignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAsignable.swift; sourceTree = "<group>"; };
 		8642323F2283B226008C3A64 /* generic_loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = generic_loader.json; sourceTree = "<group>"; };
@@ -503,6 +507,8 @@
 		868D2613214B361900700DE7 /* RouteCalculatorCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCalculatorCordinator.swift; sourceTree = "<group>"; };
 		868D2615214B362500700DE7 /* RouteCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCalculatorViewController.swift; sourceTree = "<group>"; };
 		868D2617214B3AD000700DE7 /* RouteCalculatorTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCalculatorTransition.swift; sourceTree = "<group>"; };
+		86998917229B1E0700029BF6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		8699891A229B1E6800029BF6 /* Shakable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shakable.swift; sourceTree = "<group>"; };
 		869E1D0F2134BA04004BE0A9 /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
 		869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAppDelegate.swift; sourceTree = "<group>"; };
 		869E1D132134CEA0004BE0A9 /* suburbano.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = suburbano.entitlements; sourceTree = "<group>"; };
@@ -899,6 +905,7 @@
 			children = (
 				864132572100017A0031F4F4 /* ReusableView.swift */,
 				86B831052138C95A0063AC75 /* PresentableView.swift */,
+				8699891A229B1E6800029BF6 /* Shakable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1163,6 +1170,14 @@
 				86593C3F21505CB500383445 /* RouteInfoView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		86998916229B1DB300029BF6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86998917229B1E0700029BF6 /* UIView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		869E2CBB2124F95200B2FA9F /* Views */ = {
@@ -1474,7 +1489,7 @@
 				861FC580211010480024783A /* UIEdgeInsets.swift */,
 				861FC582211015460024783A /* UIStackView.swift */,
 				86F14E4A20F43FE300D1CF7D /* UITabBar.swift */,
-				8641325120FFF6ED0031F4F4 /* UIView.swift */,
+				8641325120FFF6ED0031F4F4 /* UIView+Anchors.swift */,
 				86FC7459220D3217006311B3 /* UITableView.swift */,
 				86FC745D220D329F006311B3 /* UICollectionView.swift */,
 				86413256210000220031F4F4 /* Protocols */,
@@ -1524,6 +1539,7 @@
 		86E67D8D228E3F740075B9B8 /* Style Constructors */ = {
 			isa = PBXGroup;
 			children = (
+				86998916229B1DB300029BF6 /* View */,
 				86CB7E7F2294700A00FDB562 /* TextField */,
 				86E67D91228E414D0075B9B8 /* Button */,
 			);
@@ -1894,6 +1910,7 @@
 				8607AD6B227683B80046513F /* RouteUseCaseImpl.swift in Sources */,
 				86E67D94228E41600075B9B8 /* ActionButtonStyle.swift in Sources */,
 				861CA114227621F400DAF641 /* UIEdgeInsets.swift in Sources */,
+				86998919229B1E0700029BF6 /* UIView.swift in Sources */,
 				86EBA6DE227A753C00B04A21 /* ChartAnotation.swift in Sources */,
 				861CA115227621F400DAF641 /* DetailHeaderView.swift in Sources */,
 				86EBA6D82279DD7400B04A21 /* ChartBar.swift in Sources */,
@@ -1948,10 +1965,11 @@
 				86182AF8228669E5007D6F9C /* StatiosScheduleRepository.swift in Sources */,
 				861CA141227621F400DAF641 /* UIFactory.swift in Sources */,
 				861CA142227621F400DAF641 /* ReusableView.swift in Sources */,
+				8699891C229B1E6800029BF6 /* Shakable.swift in Sources */,
 				86182AF5228669D7007D6F9C /* RealmStatiosSchedule.swift in Sources */,
 				86182AEE2286698B007D6F9C /* StationsScheduleService.swift in Sources */,
 				861CA143227621F400DAF641 /* DirectionsAppsFactory.swift in Sources */,
-				861CA144227621F400DAF641 /* UIView.swift in Sources */,
+				861CA144227621F400DAF641 /* UIView+Anchors.swift in Sources */,
 				861CA145227621F400DAF641 /* StationDetailViewController.swift in Sources */,
 				86182AFF228671E5007D6F9C /* StationDetailUseCase.swift in Sources */,
 				861CA146227621F400DAF641 /* IconCell.swift in Sources */,
@@ -2044,6 +2062,7 @@
 				8607AD6A227683B80046513F /* RouteUseCaseImpl.swift in Sources */,
 				86E67D93228E41600075B9B8 /* ActionButtonStyle.swift in Sources */,
 				861FC581211010480024783A /* UIEdgeInsets.swift in Sources */,
+				86998918229B1E0700029BF6 /* UIView.swift in Sources */,
 				86EBA6DD227A753C00B04A21 /* ChartAnotation.swift in Sources */,
 				86B83114213DBF350063AC75 /* DetailHeaderView.swift in Sources */,
 				86B830EA21385FBB0063AC75 /* PromptView.swift in Sources */,
@@ -2098,9 +2117,10 @@
 				86182AF7228669E5007D6F9C /* StatiosScheduleRepository.swift in Sources */,
 				864132582100017A0031F4F4 /* ReusableView.swift in Sources */,
 				86B8312F21459FD70063AC75 /* DirectionsAppsFactory.swift in Sources */,
+				8699891B229B1E6800029BF6 /* Shakable.swift in Sources */,
 				86182AF4228669D7007D6F9C /* RealmStatiosSchedule.swift in Sources */,
 				86182AED2286698B007D6F9C /* StationsScheduleService.swift in Sources */,
-				8641325220FFF6ED0031F4F4 /* UIView.swift in Sources */,
+				8641325220FFF6ED0031F4F4 /* UIView+Anchors.swift in Sources */,
 				86B831042138C1AE0063AC75 /* StationDetailViewController.swift in Sources */,
 				86385C7721335ED3002EA9DF /* IconCell.swift in Sources */,
 				86182AFE228671E5007D6F9C /* StationDetailUseCase.swift in Sources */,

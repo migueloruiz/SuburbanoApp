@@ -24,7 +24,7 @@ enum CardBalanceIcon {
     }
 }
 
-class IconPickerView: UIView {
+class IconPickerView: UIView, Shakable {
 
     struct Constants {
         static let iconDiameter: CGFloat = Theme.IconSize.large

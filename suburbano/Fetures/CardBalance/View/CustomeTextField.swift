@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomeTextField: UIView {
+class CustomeTextField: UIView, Shakable {
 
     struct Contants {
         static let lineHeigth: CGFloat = Theme.Size.separator

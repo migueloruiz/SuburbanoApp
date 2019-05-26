@@ -30,7 +30,7 @@ class TextField: UITextField {
     }
 }
 
-enum ResponderActions: Selector {
+enum ResponderActions {
     case cut, copy, paste, select, selectAll, delete
     case makeTextWritingDirectionLeftToRight, makeTextWritingDirectionRightToLeft
     case toggleBoldface, toggleItalics, toggleUnderline

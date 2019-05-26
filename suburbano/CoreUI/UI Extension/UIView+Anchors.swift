@@ -1,5 +1,5 @@
 //
-//  UIView.swift
+//  UIView+Anchors.swift
 //  suburbano
 //
 //  Created by Miguel Ruiz on 18/07/18.
@@ -9,37 +9,6 @@
 import UIKit
 
 extension UIView {
-    // MARK: Drop Shadow
-
-    func addDropShadow(color: UIColor = Theme.Pallete.darkGray,
-                       opacity: Float = 0.7,
-                       offSet: CGSize = CGSize(width: 0, height: 1),
-                       radius: CGFloat = 4) {
-        layer.shadowColor = color.cgColor
-        layer.shadowOpacity = opacity
-        layer.shadowOffset = offSet
-        layer.shadowRadius = radius
-    }
-
-    func roundCorners(withRadius radius: CGFloat = 8) {
-        layer.cornerRadius = radius
-    }
-
-    func roundCorners(withDiameter diameter: CGFloat) {
-        layer.cornerRadius = diameter / 2
-    }
-
-    func shake() {
-        let notificationFeedback = UINotificationFeedbackGenerator()
-        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        animation.duration = 0.4
-        animation.values = [-20.0, 15.0, -10.0, 5.0, 0.0]
-        layer.add(animation, forKey: "shake")
-        notificationFeedback.notificationOccurred(.error)
-    }
-
-    // MARK: Anchor Methos
 
     func addSubViews(_ views: [UIView]) {
         views.forEach { addSubview($0) }

@@ -22,7 +22,7 @@ class PopUpViewController: UIViewController {
     private lazy var titleLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupTitle)
     private lazy var descripcionLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupBody)
     private lazy var buttonsContainer: UIStackView = UIStackView.with(distribution: .fillEqually, spacing: Theme.Offset.small)
-    private(set) lazy var messageContiner: UIView = UIFactory.createCardView()
+    private(set) lazy var messageContiner = UIView(style: .card)
 
     var didTapClose: (() -> Void)?
     var didTapAction: (() -> Void)?

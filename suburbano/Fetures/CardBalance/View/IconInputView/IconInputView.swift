@@ -53,7 +53,7 @@ class IconInputView: UIInputView {
         collection.backgroundColor = .white
         collection.showsHorizontalScrollIndicator = false
         collection.isPagingEnabled = true
-        collection.roundCorners()
+        collection.roundCorners(withRadius: Theme.Rounded.card)
         return collection
     }()
 

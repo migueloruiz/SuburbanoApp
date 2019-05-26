@@ -20,7 +20,7 @@ class StationDetailViewController: UIViewController, PresentableView {
     var inTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionIn() }
     var outTransition: UIViewControllerAnimatedTransitioning? { return StationDetailTransitionOut() }
 
-    let containerView = UIFactory.createContainerView()
+    let containerView = UIView(style: .container)
     let backButton = UIButton(navigationStyle: .down)
     let detailsTableView = UITableView(frame: .zero, style: .grouped)
     private(set) lazy var detailTableHeader = DetailTableHeader(titleImageName: presenter.titleImageName, delegate: self)

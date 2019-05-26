@@ -9,8 +9,8 @@
 import UIKit
 
 extension UIView {
-    // MARK: Drop Shadow
 
+    // MARK: Helpers
     func addDropShadow(color: UIColor = Theme.Pallete.darkGray,
                        opacity: Float = 0.7,
                        offSet: CGSize = CGSize(width: 0, height: 1),
@@ -21,11 +21,29 @@ extension UIView {
         layer.shadowRadius = radius
     }
 
-    func roundCorners(withRadius radius: CGFloat = 8) {
+    func roundCorners(withRadius radius: CGFloat) {
         layer.cornerRadius = radius
     }
 
     func roundCorners(withDiameter diameter: CGFloat) {
         layer.cornerRadius = diameter / 2
+    }
+
+    // MARK: Styles
+
+    convenience init(style styleType: ViewStyles) {
+        self.init()
+        let style = styleType.style
+        backgroundColor = style.backgroundColor
+        roundCorners(withRadius: style.radius)
+        if style.hasShadow { addDropShadow() }
+    }
+
+    static func createSeparator() -> UIView {
+        let separator = UIView()
+        separator.backgroundColor = Theme.Pallete.ligthGray
+        separator.anchorSize(height: Theme.Size.separator)
+        separator.roundCorners(withDiameter: Theme.Size.separator)
+        return separator
     }
 }

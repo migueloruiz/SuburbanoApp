@@ -14,7 +14,7 @@ class CardCell: UICollectionViewCell, ReusableView {
         static let heigth: CGFloat = Theme.IconSize.normal
     }
 
-    private let containerView = UIFactory.createCardView()
+    private let containerView = UIView(style: .card)
     private let iconView = UIFactory.createLable(withTheme: UIThemes.Label.CardPickerIcon)
     private let balanceLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardPickerTitle)
 

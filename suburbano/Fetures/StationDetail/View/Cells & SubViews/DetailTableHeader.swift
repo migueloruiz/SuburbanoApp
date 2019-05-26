@@ -43,7 +43,7 @@ class DetailTableHeader: UIView {
     }
 
     private func confiureLayout() {
-        let separator = UIFactory.createSeparatorView()
+        let separator = UIView.createSeparator()
         addSubViews([stationLabel, stationNameImage, locationButton, separator])
 
         stationLabel.anchor(top: topAnchor, topConstant: Theme.Offset.large)

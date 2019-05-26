@@ -23,7 +23,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
     private let primaryButton = UIButton(style: .primary)
     private let secondaryButton = UIButton(style: .secondary)
 
-    private(set) lazy var containerView = UIFactory.createContainerView()
+    private(set) lazy var containerView = UIView(style: .container)
     private lazy var formContinerView = UIView()
     private lazy var titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardBalanceNavTitle)
     private lazy var cardBalanceIconView = IconPickerView()

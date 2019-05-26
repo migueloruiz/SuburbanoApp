@@ -274,6 +274,8 @@
 		86998919229B1E0700029BF6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998917229B1E0700029BF6 /* UIView.swift */; };
 		8699891B229B1E6800029BF6 /* Shakable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699891A229B1E6800029BF6 /* Shakable.swift */; };
 		8699891C229B1E6800029BF6 /* Shakable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699891A229B1E6800029BF6 /* Shakable.swift */; };
+		8699891F229B21B700029BF6 /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699891E229B21B700029BF6 /* ViewStyle.swift */; };
+		86998920229B21B700029BF6 /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699891E229B21B700029BF6 /* ViewStyle.swift */; };
 		869E1D102134BA04004BE0A9 /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D0F2134BA04004BE0A9 /* CardRepository.swift */; };
 		869E1D122134C9D0004BE0A9 /* RealmAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */; };
 		869E2CC721250C9300B2FA9F /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CC621250C9300B2FA9F /* PopUpViewController.swift */; };
@@ -509,6 +511,7 @@
 		868D2617214B3AD000700DE7 /* RouteCalculatorTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCalculatorTransition.swift; sourceTree = "<group>"; };
 		86998917229B1E0700029BF6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8699891A229B1E6800029BF6 /* Shakable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shakable.swift; sourceTree = "<group>"; };
+		8699891E229B21B700029BF6 /* ViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
 		869E1D0F2134BA04004BE0A9 /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
 		869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAppDelegate.swift; sourceTree = "<group>"; };
 		869E1D132134CEA0004BE0A9 /* suburbano.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = suburbano.entitlements; sourceTree = "<group>"; };
@@ -1175,9 +1178,18 @@
 		86998916229B1DB300029BF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8699891D229B21A200029BF6 /* Styles */,
 				86998917229B1E0700029BF6 /* UIView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8699891D229B21A200029BF6 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				8699891E229B21B700029BF6 /* ViewStyle.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		869E2CBB2124F95200B2FA9F /* Views */ = {
@@ -1932,6 +1944,7 @@
 				861CA125227621F400DAF641 /* TrainRepository.swift in Sources */,
 				861CA126227621F400DAF641 /* MapViewController.swift in Sources */,
 				861CA127227621F400DAF641 /* RealmHandler.swift in Sources */,
+				86998920229B21B700029BF6 /* ViewStyle.swift in Sources */,
 				861CA128227621F400DAF641 /* RealmStationChartData.swift in Sources */,
 				861CA129227621F400DAF641 /* DetailAddressCell.swift in Sources */,
 				86EBA6EC227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */,
@@ -2084,6 +2097,7 @@
 				860AFE53221BBB0E004972B0 /* MapViewController.swift in Sources */,
 				862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */,
 				86587CCC226FD7D50025A764 /* RealmStationChartData.swift in Sources */,
+				8699891F229B21B700029BF6 /* ViewStyle.swift in Sources */,
 				86B83118213DC5140063AC75 /* DetailAddressCell.swift in Sources */,
 				86B830E8213857EA0063AC75 /* Notifications.swift in Sources */,
 				86EBA6EB227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */,

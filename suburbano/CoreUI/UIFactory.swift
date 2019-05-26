@@ -23,30 +23,6 @@ class UIFactory {
         return lable
     }
 
-    static func createCardView() -> UIView {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.roundCorners()
-        view.addDropShadow()
-        return view
-    }
-
-    static func createContainerView() -> UIView {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.roundCorners(withRadius: Theme.Rounded.controller)
-        view.addDropShadow()
-        return view
-    }
-
-    static func createSeparatorView() -> UIView {
-        let separator = UIView()
-        separator.backgroundColor = Theme.Pallete.ligthGray
-        separator.anchorSize(height: Theme.Size.separator)
-        separator.roundCorners(withDiameter: Theme.Size.separator)
-        return separator
-    }
-
     static func createSquare(image: UIImage?, size: CGFloat, color: UIColor = Theme.Pallete.darkGray) -> UIImageView {
         let view = UIImageView(image: image)
         view.tintColor = color

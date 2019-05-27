@@ -278,6 +278,16 @@
 		86998920229B21B700029BF6 /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699891E229B21B700029BF6 /* ViewStyle.swift */; };
 		86998923229B270800029BF6 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998922229B270800029BF6 /* UIImageView.swift */; };
 		86998924229B270800029BF6 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998922229B270800029BF6 /* UIImageView.swift */; };
+		86998927229B2A6B00029BF6 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998926229B2A6B00029BF6 /* UILabel.swift */; };
+		86998928229B2A6B00029BF6 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998926229B2A6B00029BF6 /* UILabel.swift */; };
+		8699892B229B2B3F00029BF6 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699892A229B2B3F00029BF6 /* LabelStyle.swift */; };
+		8699892C229B2B3F00029BF6 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699892A229B2B3F00029BF6 /* LabelStyle.swift */; };
+		8699892F229B316500029BF6 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699892E229B316500029BF6 /* Font.swift */; };
+		86998930229B316500029BF6 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699892E229B316500029BF6 /* Font.swift */; };
+		86998932229CA86F00029BF6 /* Custom Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998931229CA86F00029BF6 /* Custom Fonts.swift */; };
+		86998933229CA86F00029BF6 /* Custom Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998931229CA86F00029BF6 /* Custom Fonts.swift */; };
+		86998935229CAB9B00029BF6 /* UIFont+TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998934229CAB9B00029BF6 /* UIFont+TextStyle.swift */; };
+		86998936229CAB9B00029BF6 /* UIFont+TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86998934229CAB9B00029BF6 /* UIFont+TextStyle.swift */; };
 		869E1D102134BA04004BE0A9 /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D0F2134BA04004BE0A9 /* CardRepository.swift */; };
 		869E1D122134C9D0004BE0A9 /* RealmAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */; };
 		869E2CC721250C9300B2FA9F /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CC621250C9300B2FA9F /* PopUpViewController.swift */; };
@@ -515,6 +525,11 @@
 		8699891A229B1E6800029BF6 /* Shakable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shakable.swift; sourceTree = "<group>"; };
 		8699891E229B21B700029BF6 /* ViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
 		86998922229B270800029BF6 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		86998926229B2A6B00029BF6 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		8699892A229B2B3F00029BF6 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
+		8699892E229B316500029BF6 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		86998931229CA86F00029BF6 /* Custom Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Fonts.swift"; sourceTree = "<group>"; };
+		86998934229CAB9B00029BF6 /* UIFont+TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+TextStyle.swift"; sourceTree = "<group>"; };
 		869E1D0F2134BA04004BE0A9 /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
 		869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAppDelegate.swift; sourceTree = "<group>"; };
 		869E1D132134CEA0004BE0A9 /* suburbano.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = suburbano.entitlements; sourceTree = "<group>"; };
@@ -1195,12 +1210,39 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
-		86998921229B26EA00029BF6 /* UIImageView */ = {
+		86998921229B26EA00029BF6 /* ImageView */ = {
 			isa = PBXGroup;
 			children = (
 				86998922229B270800029BF6 /* UIImageView.swift */,
 			);
-			path = UIImageView;
+			path = ImageView;
+			sourceTree = "<group>";
+		};
+		86998925229B2A5B00029BF6 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				86998929229B2B2E00029BF6 /* Style */,
+				86998926229B2A6B00029BF6 /* UILabel.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		86998929229B2B2E00029BF6 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				8699892A229B2B3F00029BF6 /* LabelStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		8699892D229B315000029BF6 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				8699892E229B316500029BF6 /* Font.swift */,
+				86998931229CA86F00029BF6 /* Custom Fonts.swift */,
+				86998934229CAB9B00029BF6 /* UIFont+TextStyle.swift */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		869E2CBB2124F95200B2FA9F /* Views */ = {
@@ -1549,6 +1591,7 @@
 		86E67D8C228E3E720075B9B8 /* CoreUI */ = {
 			isa = PBXGroup;
 			children = (
+				8699892D229B315000029BF6 /* Font */,
 				86C0681D20F4162F00A6B17A /* UI Extension */,
 				86E67D8D228E3F740075B9B8 /* Style Constructors */,
 				8611AF7F21017D3F0002663B /* FontStyle.swift */,
@@ -1562,7 +1605,8 @@
 		86E67D8D228E3F740075B9B8 /* Style Constructors */ = {
 			isa = PBXGroup;
 			children = (
-				86998921229B26EA00029BF6 /* UIImageView */,
+				86998925229B2A5B00029BF6 /* Label */,
+				86998921229B26EA00029BF6 /* ImageView */,
 				86998916229B1DB300029BF6 /* View */,
 				86CB7E7F2294700A00FDB562 /* TextField */,
 				86E67D91228E414D0075B9B8 /* Button */,
@@ -1949,7 +1993,9 @@
 				861CA11F227621F400DAF641 /* DirectionActionView.swift in Sources */,
 				861CA120227621F400DAF641 /* UITableView.swift in Sources */,
 				8642323E2283ADC4008C3A64 /* SafeAsignable.swift in Sources */,
+				86998936229CAB9B00029BF6 /* UIFont+TextStyle.swift in Sources */,
 				861CA121227621F400DAF641 /* MapResurcesRepository.swift in Sources */,
+				86998930229B316500029BF6 /* Font.swift in Sources */,
 				861CA122227621F400DAF641 /* DetailScheduleCell.swift in Sources */,
 				861CA123227621F400DAF641 /* RouteUseCase.swift in Sources */,
 				861CA124227621F400DAF641 /* CustomeTextField.swift in Sources */,
@@ -1974,6 +2020,7 @@
 				861CA135227621F400DAF641 /* RealmTrainStop.swift in Sources */,
 				861CA136227621F400DAF641 /* StationChartDataRepository.swift in Sources */,
 				861CA137227621F400DAF641 /* FontStyle.swift in Sources */,
+				8699892C229B2B3F00029BF6 /* LabelStyle.swift in Sources */,
 				861CA138227621F400DAF641 /* RealmCard.swift in Sources */,
 				861CA139227621F400DAF641 /* CardUseCase.swift in Sources */,
 				861CA13A227621F400DAF641 /* StationDetailTransition.swift in Sources */,
@@ -2004,6 +2051,7 @@
 				861CA14A227621F400DAF641 /* PopUpViewController.swift in Sources */,
 				861CA14B227621F400DAF641 /* RouteCalculatorCordinator.swift in Sources */,
 				861CA14C227621F400DAF641 /* UIStackView.swift in Sources */,
+				86998928229B2A6B00029BF6 /* UILabel.swift in Sources */,
 				86CB7E822294701E00FDB562 /* UITextField.swift in Sources */,
 				861CA14D227621F400DAF641 /* WebResources.swift in Sources */,
 				861CA14E227621F400DAF641 /* RequestFactory.swift in Sources */,
@@ -2033,6 +2081,7 @@
 				861CA164227621F400DAF641 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				861CA165227621F400DAF641 /* Theme.swift in Sources */,
 				861CA166227621F400DAF641 /* PricesWebService.swift in Sources */,
+				86998933229CA86F00029BF6 /* Custom Fonts.swift in Sources */,
 				861CA167227621F400DAF641 /* DeatilConectionsCell.swift in Sources */,
 				86182AF2228669B6007D6F9C /* StatiosSchedule.swift in Sources */,
 				861CA168227621F400DAF641 /* CardBalanceTransition.swift in Sources */,
@@ -2103,7 +2152,9 @@
 				86FC745A220D3217006311B3 /* UITableView.swift in Sources */,
 				86587CD0226FDD620025A764 /* MapResurcesRepository.swift in Sources */,
 				8642323D2283ADC4008C3A64 /* SafeAsignable.swift in Sources */,
+				86998935229CAB9B00029BF6 /* UIFont+TextStyle.swift in Sources */,
 				86B8311A213DC6230063AC75 /* DetailScheduleCell.swift in Sources */,
+				8699892F229B316500029BF6 /* Font.swift in Sources */,
 				86593C2D2150261F00383445 /* RouteUseCase.swift in Sources */,
 				86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */,
 				8614724C2151DE660042BBB8 /* TrainRepository.swift in Sources */,
@@ -2128,6 +2179,7 @@
 				86BD98592159CD680022DC6F /* StationChartDataRepository.swift in Sources */,
 				8611AF8021017D3F0002663B /* FontStyle.swift in Sources */,
 				86385C8821337558002EA9DF /* RealmCard.swift in Sources */,
+				8699892B229B2B3F00029BF6 /* LabelStyle.swift in Sources */,
 				86385C8A21338392002EA9DF /* CardUseCase.swift in Sources */,
 				86B831082138CC6F0063AC75 /* StationDetailTransition.swift in Sources */,
 				86587C9C226EB23B0025A764 /* RealmTrain.swift in Sources */,
@@ -2158,6 +2210,7 @@
 				868D2614214B361900700DE7 /* RouteCalculatorCordinator.swift in Sources */,
 				861FC583211015460024783A /* UIStackView.swift in Sources */,
 				8621A2D320F6FE0A00A2D8B1 /* WebResources.swift in Sources */,
+				86998927229B2A6B00029BF6 /* UILabel.swift in Sources */,
 				86CB7E812294701E00FDB562 /* UITextField.swift in Sources */,
 				8621A2D420F6FE0A00A2D8B1 /* RequestFactory.swift in Sources */,
 				86B831062138C95A0063AC75 /* PresentableView.swift in Sources */,
@@ -2187,6 +2240,7 @@
 				8621A2DA20F6FE0A00A2D8B1 /* ResourceSynchronizerAppDelegate.swift in Sources */,
 				8611AF7B21017AAD0002663B /* Theme.swift in Sources */,
 				86593C3A2150443E00383445 /* PricesWebService.swift in Sources */,
+				86998932229CA86F00029BF6 /* Custom Fonts.swift in Sources */,
 				86B8311C213DF3AA0063AC75 /* DeatilConectionsCell.swift in Sources */,
 				86182AF1228669B6007D6F9C /* StatiosSchedule.swift in Sources */,
 				8652A363212B2D3500ED1910 /* CardBalanceTransition.swift in Sources */,

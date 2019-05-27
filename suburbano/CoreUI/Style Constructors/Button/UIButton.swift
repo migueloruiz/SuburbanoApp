@@ -36,9 +36,10 @@ extension UIButton {
         titleLabel?.backgroundColor = style.backgroundColor
         setTitleColor(style.textColor, for: .normal)
         titleLabel?.textColor = style.textColor
-        titleLabel?.font = style.font.getScaledFont()
+        titleLabel?.font = style.font
         titleLabel?.adjustsFontSizeToFitWidth = true
         titleLabel?.adjustsFontForContentSizeCategory = true
+        isOpaque = true
 
         guard let radius = style.radius else { return }
         roundCorners(withRadius: radius)

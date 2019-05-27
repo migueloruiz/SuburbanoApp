@@ -11,7 +11,7 @@ import UIKit
 protocol ActionButtonStyle {
     var textColor: UIColor { get }
     var backgroundColor: UIColor { get }
-    var font: FontStyle { get }
+    var font: UIFont { get }
     var radius: CGFloat? { get }
 }
 
@@ -30,13 +30,13 @@ enum ActionButtonStyles {
 private struct PrimaryButtonStyle: ActionButtonStyle {
     let textColor = Theme.Pallete.white
     let backgroundColor = Theme.Pallete.primaryAction
-    let font = FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium)
+    let font = Montserrat.medium.of(textStyle: .body, largeFactor: Theme.FontFactor.large)
     let radius: CGFloat? = Theme.Rounded.button
 }
 
 private struct SecondaryButtonStyle: ActionButtonStyle {
     let textColor = Theme.Pallete.white
     let backgroundColor = Theme.Pallete.softRed
-    let font = FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium)
+    let font = Montserrat.medium.of(textStyle: .body, largeFactor: Theme.FontFactor.large)
     let radius: CGFloat? = Theme.Rounded.button
 }

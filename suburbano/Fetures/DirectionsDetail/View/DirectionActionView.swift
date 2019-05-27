@@ -12,6 +12,10 @@ typealias DirectionsClousure = ((DirectionsApp) -> Void)
 
 class DirectionActionView: UIView {
 
+    struct Constants {
+        static let heigth = Theme.IconSize.normal + (Theme.Offset.small * 2)
+    }
+
     private let app: DirectionsApp
     private let clousure: DirectionsClousure
     private let icon = UIImageView()
@@ -28,13 +32,12 @@ class DirectionActionView: UIView {
     }
 
     private func configureUI() {
-        roundCorners(withRadius: (Theme.IconSize.normal + (Theme.Offset.small * 2)) / 2)
+        roundCorners(withRadius: Constants.heigth / 2)
         addDropShadow()
         icon.image = UIImage(named: app.icon)
         icon.contentMode = .scaleAspectFit
         icon.isUserInteractionEnabled = true
         titleLabel.text = app.title
-        titleLabel.backgroundColor = .clear
         titleLabel.isUserInteractionEnabled = true
         backgroundColor = .white
         self.isUserInteractionEnabled = true
@@ -47,7 +50,7 @@ class DirectionActionView: UIView {
 
         icon.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.small, bottomConstant: Theme.Offset.small)
         icon.anchorSquare(size: Theme.IconSize.normal)
-        titleLabel.anchor(top: topAnchor, left: icon.rightAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.small, rightConstant: Theme.Offset.small)
+        titleLabel.anchor(top: topAnchor, left: icon.rightAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: Theme.Offset.small, leftConstant: Theme.Offset.large, bottomConstant: Theme.Offset.small, rightConstant: Constants.heigth / 2)
     }
 
     @objc func selected() {

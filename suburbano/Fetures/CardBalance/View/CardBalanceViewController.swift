@@ -25,7 +25,7 @@ class CardBalanceViewController: UIViewController, PresentableView {
 
     private(set) lazy var containerView = UIView(style: .container)
     private lazy var formContinerView = UIView()
-    private lazy var titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardBalanceNavTitle)
+    private lazy var titleLabel = UILabel(style: .title)
     private lazy var cardBalanceIconView = IconPickerView()
     private lazy var useDisclaimerView = PromptView()
     private lazy var cardNumberInput = CustomeTextField()

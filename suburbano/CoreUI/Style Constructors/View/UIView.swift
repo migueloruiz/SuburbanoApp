@@ -36,6 +36,7 @@ extension UIView {
         let style = styleType.style
         backgroundColor = style.backgroundColor
         roundCorners(withRadius: style.radius)
+        isOpaque = true
         if style.hasShadow { addDropShadow() }
     }
 
@@ -44,6 +45,7 @@ extension UIView {
         separator.backgroundColor = Theme.Pallete.ligthGray
         separator.anchorSize(height: Theme.Size.separator)
         separator.roundCorners(withDiameter: Theme.Size.separator)
+        separator.isOpaque = true
         return separator
     }
 }

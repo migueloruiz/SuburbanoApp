@@ -12,7 +12,7 @@ protocol FieldStyle {
     var textColor: UIColor { get }
     var tintColor: UIColor { get }
     var backgroundColor: UIColor { get }
-    var font: FontStyle { get }
+    var font: UIFont { get }
     var autocorrectionType: UITextAutocorrectionType { get }
     var keyboardType: UIKeyboardType { get }
 }
@@ -33,7 +33,7 @@ private struct TextFieldStyle: FieldStyle {
     let textColor = Theme.Pallete.darkGray
     let tintColor = Theme.Pallete.softRed
     let backgroundColor = Theme.Pallete.white
-    let font = FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium)
+    let font: UIFont = Montserrat.medium.of(textStyle: .body, largeFactor: Theme.FontFactor.large)
     let autocorrectionType: UITextAutocorrectionType = .no
     let keyboardType: UIKeyboardType = .numberPad
 }
@@ -42,7 +42,7 @@ private struct IconFieldStyle: FieldStyle {
     let textColor = Theme.Pallete.white
     let tintColor: UIColor = .clear
     let backgroundColor: UIColor = .clear
-    let font = FontStyle(size: .smallIcon, largeFactor: Theme.FontFactor.large, name: .icons, style: .none)
+    let font: UIFont = IconsCataloge.regular.of(textStyle: .title1)
     let autocorrectionType: UITextAutocorrectionType = .no
     let keyboardType: UIKeyboardType = .numberPad
 }

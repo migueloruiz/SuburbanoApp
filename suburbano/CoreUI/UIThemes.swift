@@ -10,14 +10,6 @@ import UIKit
 
 // TODO: Refactor
 
-protocol LabelStyle {
-    var numberOfLines: Int { get }
-    var textAlignment: NSTextAlignment { get }
-    var textColor: UIColor { get }
-    var backgroundColor: UIColor { get }
-    var font: FontStyle { get }
-}
-
 struct LabelTheme: LabelStyle {
     let numberOfLines: Int
     let textAlignment: NSTextAlignment
@@ -34,18 +26,6 @@ struct UIThemes {
 
     // MARK: - Label Themes
     struct Label {
-        // MARK: - General Label Themes
-        static let ActivityBoardNavTitle = LabelTheme(numberOfLines: 1,
-                                         textAlignment: .center,
-                                         textColor: .white,
-                                         backgroundColor: Theme.Pallete.softRed,
-                                         font: FontStyle(size: .h1, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
-
-        static let CardBalanceNavTitle = LabelTheme(numberOfLines: 1,
-                                                      textAlignment: .center,
-                                                      textColor: Theme.Pallete.darkGray,
-                                                      backgroundColor: .white,
-                                                      font: FontStyle(size: .h1, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
 
         // MARK: - ActivityCard Label Themes
         static let ActivityCardTitle = LabelTheme(numberOfLines: 0,
@@ -53,6 +33,7 @@ struct UIThemes {
                                                   textColor: Theme.Pallete.darkGray,
                                                   backgroundColor: .white,
                                                   font: FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium))
+
         static let ActivityCardDetails = LabelTheme(numberOfLines: 0,
                                                     textAlignment: .left,
                                                     textColor: Theme.Pallete.darkGray,

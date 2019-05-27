@@ -16,7 +16,7 @@ class TextField: UITextField {
         textColor = style.textColor
         tintColor = style.tintColor
         backgroundColor = style.backgroundColor
-        font = style.font.getScaledFont()
+        font = style.font
         keyboardType = style.keyboardType
         autocorrectionType = style.autocorrectionType
         allowedActions = ResponderActions.defaultActions

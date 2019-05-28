@@ -51,7 +51,7 @@ class LoadingView: UIView {
         })
     }
 
-    func dismiss(hiddingView: UIView? = nil, completion: (() -> Void)? = nil ) {
+    func dismiss(hiddingView: UIView? = nil, completion: (() -> Void)? = nil) {
         animation.loopMode = .playOnce
         dispatchGroup.notify(queue: .main, execute: { [weak self] in
             guard let strongSelf = self else { return }

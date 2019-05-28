@@ -15,8 +15,8 @@ class CardCell: UICollectionViewCell, ReusableView {
     }
 
     private let containerView = UIView(style: .card)
-    private let iconView = UIFactory.createLable(withTheme: UIThemes.Label.CardPickerIcon)
-    private let balanceLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardPickerTitle)
+    private let iconView = UILabel(iconSize: Theme.IconSize.normal)
+    private let balanceLabel = UILabel(fontStyle: .primary, alignment: .right, line: .multiline, color: .darkClear)
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 

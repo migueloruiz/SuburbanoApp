@@ -30,13 +30,13 @@ enum ActionButtonStyles {
 private struct PrimaryButtonStyle: ActionButtonStyle {
     let textColor = Theme.Pallete.white
     let backgroundColor = Theme.Pallete.primaryAction
-    let font = Montserrat.medium.of(textStyle: .body, largeFactor: Theme.FontFactor.large)
+    let font = Montserrat.medium.font(textStyle: .body, largeFactor: Theme.FontFactor.large)
     let radius: CGFloat? = Theme.Rounded.button
 }
 
 private struct SecondaryButtonStyle: ActionButtonStyle {
     let textColor = Theme.Pallete.white
     let backgroundColor = Theme.Pallete.softRed
-    let font = Montserrat.medium.of(textStyle: .body, largeFactor: Theme.FontFactor.large)
+    let font = Montserrat.medium.font(textStyle: .body, largeFactor: Theme.FontFactor.large)
     let radius: CGFloat? = Theme.Rounded.button
 }

@@ -15,7 +15,7 @@ class BalanceEmptyMessageView: UIView {
     }
 
     private let addIconView = UIImageView(image: #imageLiteral(resourceName: "plus"))
-    private let messageLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
+    private let messageLabel = UILabel(fontStyle: .primary, alignment: .center, line: .multiline, color: .clear)
     private let blurredEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -37,11 +37,7 @@ class BalanceEmptyMessageView: UIView {
         addIconView.anchorSquare(size: Constants.addButtonDiameter)
         addIconView.roundCorners(withRadius: Constants.addButtonDiameter / 2)
 
-        messageLabel.textAlignment = .center
         messageLabel.text = "Agrega una tarjeta para consultar tu saldo" // Localize
-        messageLabel.backgroundColor = .clear
-        messageLabel.textColor = Theme.Pallete.white
-        messageLabel.font = FontStyle(size: .general, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium).getScaledFont()
     }
 
     private func configureLayout() {

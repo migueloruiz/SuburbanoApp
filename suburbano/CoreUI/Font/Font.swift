@@ -8,22 +8,26 @@
 
 import UIKit
 
-public protocol Font: RawRepresentable where Self.RawValue == String {
-    func of(size: CGFloat) -> UIFont
+enum FontError: Error {
+    case fontNotFound
 }
 
-public extension Font {
-    func of(size: CGFloat) -> UIFont {
+public protocol Font: RawRepresentable where Self.RawValue == String {
+    func font(forSize size: CGFloat) -> UIFont
+}
+
+extension Font {
+    func font(forSize size: CGFloat) -> UIFont {
         guard let font = UIFont(name: rawValue, size: size) else {
-            assertionFailure("Font not found: \(rawValue)")
+            DebugLogger.record(error: FontError.fontNotFound, additionalInfo: ["font": rawValue])
             return UIFont.systemFont(ofSize: size)
         }
         return font
     }
 
-    func of(textStyle: UIFont.TextStyle, largeFactor: CGFloat = 0) -> UIFont {
-        let font = of(size: textStyle.size)
+    func font(textStyle: UIFont.TextStyle, largeFactor: CGFloat = 0) -> UIFont {
+        let fontFamily = font(forSize: textStyle.size)
         let fontMetrics = UIFontMetrics(forTextStyle: textStyle)
-        return fontMetrics.scaledFont(for: font, maximumPointSize: textStyle.size + largeFactor)
+        return fontMetrics.scaledFont(for: fontFamily, maximumPointSize: textStyle.size + largeFactor)
     }
 }

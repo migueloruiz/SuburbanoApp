@@ -16,8 +16,8 @@ struct DetailScheduleCellModel {
 
 class DetailScheduleCell: UITableViewCell, DetailCell, ReusableView {
 
-    private let daysLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
-    private let scheduleLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
+    private let daysLabel = UILabel(fontStyle: .detail, alignment: .left, line: .multiline, color: .primary)
+    private let scheduleLabel = UILabel(fontStyle: .detail, alignment: .left, line: .multiline, color: .primary)
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 

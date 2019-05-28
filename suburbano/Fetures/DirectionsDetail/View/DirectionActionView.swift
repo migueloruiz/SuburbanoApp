@@ -19,7 +19,7 @@ class DirectionActionView: UIView {
     private let app: DirectionsApp
     private let clousure: DirectionsClousure
     private let icon = UIImageView()
-    private let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardTitle)
+    private let titleLabel = UILabel(fontStyle: .secondary, alignment: .center, line: .oneLinne, color: .primary)
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 

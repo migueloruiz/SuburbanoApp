@@ -8,28 +8,57 @@
 
 import UIKit
 
-protocol LabelStyle {
+protocol ColorLabelStyle {
     var backgroundColor: UIColor { get }
     var textColor: UIColor { get }
-    var font: FontStyle { get }
-    var numberOfLines: Int { get }
-    var textAlignment: NSTextAlignment { get }
 }
 
-enum LabelStyles {
-    case title
+enum ColorLabelStyles {
+    case primary
+    case secondary
+    case detail
+    case clear
+    case darkClear
+    case redClear
 
-    var style: LabelStyle {
+    var style: ColorLabelStyle {
         switch self {
-        case .title: return  TitleLabelStyle()
+        case .primary: return PrimaryLabelStyle()
+        case .secondary: return SecondaryLabelStyle()
+        case .detail: return DetailLabelStyle()
+        case .clear: return ClearLabelStyle()
+        case .darkClear: return DarkClearLabelStyle()
+        case .redClear: return RedClearLabelStyle()
         }
     }
 }
 
-private struct TitleLabelStyle: LabelStyle {
+private struct PrimaryLabelStyle: ColorLabelStyle {
     let backgroundColor = Theme.Pallete.white
     let textColor = Theme.Pallete.darkGray
-    let font = FontStyle(size: .h1, largeFactor: Theme.FontFactor.large, name: .montserrat, style: .medium)
-    let numberOfLines = 1
-    let textAlignment: NSTextAlignment = .center
+}
+
+private struct SecondaryLabelStyle: ColorLabelStyle {
+    let backgroundColor = Theme.Pallete.white
+    let textColor = Theme.Pallete.softRed
+}
+
+private struct DetailLabelStyle: ColorLabelStyle {
+    let backgroundColor = Theme.Pallete.white
+    let textColor = Theme.Pallete.softGray
+}
+
+private struct ClearLabelStyle: ColorLabelStyle {
+    let backgroundColor = UIColor.clear
+    let textColor = Theme.Pallete.white
+}
+
+private struct DarkClearLabelStyle: ColorLabelStyle {
+    let backgroundColor = UIColor.clear
+    let textColor = Theme.Pallete.darkGray
+}
+
+private struct RedClearLabelStyle: ColorLabelStyle {
+    let backgroundColor = UIColor.clear
+    let textColor = Theme.Pallete.softRed
 }

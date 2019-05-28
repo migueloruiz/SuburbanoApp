@@ -14,7 +14,7 @@ class IconCell: UICollectionViewCell, ReusableView {
         static let expectedCellsInRow: CGFloat = 5
     }
 
-    private let iconView = UIFactory.createLable(withTheme: UIThemes.Label.IconPicker)
+    private let iconView = UILabel(iconSize: Theme.IconSize.normal)
 
     override var isSelected: Bool {
         didSet { iconView.textColor = isSelected ? Theme.Pallete.darkGray : Theme.Pallete.softGray }

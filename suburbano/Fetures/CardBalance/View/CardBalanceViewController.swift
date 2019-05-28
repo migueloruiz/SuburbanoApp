@@ -25,12 +25,12 @@ class CardBalanceViewController: UIViewController, PresentableView {
 
     private(set) lazy var containerView = UIView(style: .container)
     private lazy var formContinerView = UIView()
-    private lazy var titleLabel = UILabel(style: .title)
+    private lazy var titleLabel = UILabel(fontStyle: .title, alignment: .center, line: .oneLinne, color: .primary)
     private lazy var cardBalanceIconView = IconPickerView()
     private lazy var useDisclaimerView = PromptView()
     private lazy var cardNumberInput = CustomeTextField()
-    private lazy var balanceLabel = UIFactory.createLable(withTheme: UIThemes.Label.CardPickerTitle)
-    private lazy var dateLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
+    private lazy var balanceLabel = UILabel(fontStyle: .primary, alignment: .right, line: .multiline, color: .darkClear)
+    private lazy var dateLabel = UILabel(fontStyle: .detail, alignment: .left, line: .multiline, color: .primary)
     private var bottomButtonsConstraint: NSLayoutConstraint?
 
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }

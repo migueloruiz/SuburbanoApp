@@ -33,7 +33,7 @@ private struct TextFieldStyle: FieldStyle {
     let textColor = Theme.Pallete.darkGray
     let tintColor = Theme.Pallete.softRed
     let backgroundColor = Theme.Pallete.white
-    let font: UIFont = Montserrat.medium.of(textStyle: .body, largeFactor: Theme.FontFactor.large)
+    let font: UIFont = Montserrat.medium.font(textStyle: .body, largeFactor: Theme.FontFactor.large)
     let autocorrectionType: UITextAutocorrectionType = .no
     let keyboardType: UIKeyboardType = .numberPad
 }
@@ -42,7 +42,7 @@ private struct IconFieldStyle: FieldStyle {
     let textColor = Theme.Pallete.white
     let tintColor: UIColor = .clear
     let backgroundColor: UIColor = .clear
-    let font: UIFont = IconsCataloge.regular.of(textStyle: .title1)
+    let font: UIFont = IconsCataloge.regular.font(textStyle: .title1)
     let autocorrectionType: UITextAutocorrectionType = .no
     let keyboardType: UIKeyboardType = .numberPad
 }

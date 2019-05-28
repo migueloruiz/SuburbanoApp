@@ -10,7 +10,7 @@ import UIKit
 
 class DetailAddressCell: UITableViewCell, DetailCell, ReusableView {
 
-    private let addressLable = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
+    private let addressLable = UILabel(fontStyle: .detail, alignment: .left, line: .multiline, color: .primary)
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 

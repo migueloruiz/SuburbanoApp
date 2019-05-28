@@ -16,7 +16,7 @@ struct ChartAnotationModel {
 class ChartAnotation: UIView {
 
     private let colorView = UIView()
-    private let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.WaitTime)
+    private let titleLabel = UILabel(fontStyle: .detail, alignment: .center, line: .oneLinne, color: .primary)
 
     init(model: ChartAnotationModel) {
         super.init(frame: .zero)

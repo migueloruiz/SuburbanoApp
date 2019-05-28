@@ -10,7 +10,7 @@ import UIKit
 
 class ChartHeader: UIView {
 
-    private let label = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardTitle)
+    private let titleLabel = UILabel(fontStyle: .primary, alignment: .center, line: .oneLinne, color: .primary)
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
@@ -21,12 +21,12 @@ class ChartHeader: UIView {
     }
 
     private func configureLayout() {
-        addSubViews([label])
-        label.textAlignment = .center
-        label.fill()
+        addSubViews([titleLabel])
+        titleLabel.textAlignment = .center
+        titleLabel.fill()
     }
 
     func configure(title: String) {
-        label.text = title
+        titleLabel.text = title
     }
 }

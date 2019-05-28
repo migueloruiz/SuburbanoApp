@@ -9,17 +9,35 @@
 import UIKit
 
 extension UILabel {
-    convenience init(style styleType: LabelStyles, text: String = "") {
+
+    enum LineStyle: Int {
+        case multiline = 0
+        case oneLinne = 1
+    }
+
+    convenience init(fontStyle: FontStyle, alignment: NSTextAlignment, line: LineStyle, color: ColorLabelStyles) {
         self.init()
-        let style = styleType.style
-        textColor = style.textColor
-        numberOfLines = style.numberOfLines
-        textAlignment = style.textAlignment
-        backgroundColor = style.backgroundColor
-        font = style.font.getScaledFont()
+        font = fontStyle.font
         adjustsFontSizeToFitWidth = true
         adjustsFontForContentSizeCategory = true
         minimumScaleFactor = 0.6
-        if !text.isEmpty { self.text = text }
+
+        let colorStyle = color.style
+        textColor = colorStyle.textColor
+        backgroundColor = colorStyle.backgroundColor
+
+        textAlignment = alignment
+        numberOfLines = line.rawValue
+    }
+
+    convenience init(iconSize: CGFloat) {
+        self.init()
+        font = IconsCataloge.regular.font(forSize: iconSize)
+        adjustsFontSizeToFitWidth = true
+        adjustsFontForContentSizeCategory = true
+        minimumScaleFactor = 0.6
+        textColor = Theme.Pallete.softGray
+        textAlignment = .center
+        numberOfLines = LineStyle.oneLinne.rawValue
     }
 }

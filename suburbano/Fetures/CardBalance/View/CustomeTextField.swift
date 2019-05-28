@@ -16,8 +16,8 @@ class CustomeTextField: UIView, Shakable {
     }
 
     private let textInput = TextField(style: .text)
-    private let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
-    private let disclaimerLabel = UIFactory.createLable(withTheme: UIThemes.Label.ActivityCardBody)
+    private let titleLabel = UILabel(fontStyle: .detail, alignment: .left, line: .multiline, color: .primary)
+    private let disclaimerLabel = UILabel(fontStyle: .detail, alignment: .left, line: .multiline, color: .primary)
     private let bottomLine = UIView()
 
     var title: String {

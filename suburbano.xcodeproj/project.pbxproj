@@ -25,7 +25,6 @@
 		860AFE53221BBB0E004972B0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AFE52221BBB0E004972B0 /* MapViewController.swift */; };
 		860AFE55221BC6DF004972B0 /* MGLMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AFE54221BC6DF004972B0 /* MGLMapView.swift */; };
 		8611AF7B21017AAD0002663B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7A21017AAD0002663B /* Theme.swift */; };
-		8611AF8021017D3F0002663B /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7F21017D3F0002663B /* FontStyle.swift */; };
 		8611AF83210186100002663B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8611AF82210186100002663B /* Montserrat-Medium.ttf */; };
 		8611C836214ED5B400FFBC23 /* RouteCalculatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C835214ED5B400FFBC23 /* RouteCalculatorPresenter.swift */; };
 		861472422151C0850042BBB8 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861472412151C0850042BBB8 /* Train.swift */; };
@@ -100,7 +99,6 @@
 		861CA134227621F400DAF641 /* PluggableApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0681F20F4176D00A6B17A /* PluggableApplicationDelegate.swift */; };
 		861CA135227621F400DAF641 /* RealmTrainStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86587C9E226EBE0A0025A764 /* RealmTrainStop.swift */; };
 		861CA136227621F400DAF641 /* StationChartDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98582159CD680022DC6F /* StationChartDataRepository.swift */; };
-		861CA137227621F400DAF641 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611AF7F21017D3F0002663B /* FontStyle.swift */; };
 		861CA138227621F400DAF641 /* RealmCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8721337558002EA9DF /* RealmCard.swift */; };
 		861CA139227621F400DAF641 /* CardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C8921338392002EA9DF /* CardUseCase.swift */; };
 		861CA13A227621F400DAF641 /* StationDetailTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B831072138CC6F0063AC75 /* StationDetailTransition.swift */; };
@@ -418,7 +416,6 @@
 		860AFE52221BBB0E004972B0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		860AFE54221BC6DF004972B0 /* MGLMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLMapView.swift; sourceTree = "<group>"; };
 		8611AF7A21017AAD0002663B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		8611AF7F21017D3F0002663B /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		8611AF82210186100002663B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "suburbano/Assets/Fonts/Montserrat-Medium.ttf"; sourceTree = SOURCE_ROOT; };
 		8611C835214ED5B400FFBC23 /* RouteCalculatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCalculatorPresenter.swift; sourceTree = "<group>"; };
 		861472412151C0850042BBB8 /* Train.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
@@ -1594,7 +1591,6 @@
 				8699892D229B315000029BF6 /* Font */,
 				86C0681D20F4162F00A6B17A /* UI Extension */,
 				86E67D8D228E3F740075B9B8 /* Style Constructors */,
-				8611AF7F21017D3F0002663B /* FontStyle.swift */,
 				8611AF7A21017AAD0002663B /* Theme.swift */,
 				864FE4D121163E170053DFB1 /* UIFactory.swift */,
 				864FE4D32116422A0053DFB1 /* UIThemes.swift */,
@@ -2019,7 +2015,6 @@
 				861CA134227621F400DAF641 /* PluggableApplicationDelegate.swift in Sources */,
 				861CA135227621F400DAF641 /* RealmTrainStop.swift in Sources */,
 				861CA136227621F400DAF641 /* StationChartDataRepository.swift in Sources */,
-				861CA137227621F400DAF641 /* FontStyle.swift in Sources */,
 				8699892C229B2B3F00029BF6 /* LabelStyle.swift in Sources */,
 				861CA138227621F400DAF641 /* RealmCard.swift in Sources */,
 				861CA139227621F400DAF641 /* CardUseCase.swift in Sources */,
@@ -2177,7 +2172,6 @@
 				8621A2D220F6FE0A00A2D8B1 /* PluggableApplicationDelegate.swift in Sources */,
 				86587C9F226EBE0A0025A764 /* RealmTrainStop.swift in Sources */,
 				86BD98592159CD680022DC6F /* StationChartDataRepository.swift in Sources */,
-				8611AF8021017D3F0002663B /* FontStyle.swift in Sources */,
 				86385C8821337558002EA9DF /* RealmCard.swift in Sources */,
 				8699892B229B2B3F00029BF6 /* LabelStyle.swift in Sources */,
 				86385C8A21338392002EA9DF /* CardUseCase.swift in Sources */,

@@ -34,7 +34,7 @@ class DetailChartCell: UITableViewCell, DetailCell, ReusableView {
     private let chartHeader = ChartHeader()
     private let pageControl = UIPageControl()
     private let loader = LoadingView(animation: AppConstants.Animations.genericLoader)
-    private let emptyStateLabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupBody)
+    private let emptyStateLabel = UILabel(fontStyle: .primary, alignment: .center, line: .multiline, color: .primary)
 
     private let anotationsStackView = UIStackView.with(
         axis: .horizontal,

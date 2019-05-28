@@ -12,7 +12,7 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
 
     private let presenter: DirectionsDetailPresenter
 
-    let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupTitle)
+    let titleLabel = UILabel(fontStyle: .largeTitle, alignment: .center, line: .multiline, color: .clear)
     let containerView = UIView()
 
     private let backButton = UIButton(style: .secondary)
@@ -48,10 +48,6 @@ class DirectionsDetailViewController: UIViewController, PresentableView {
         backButton.addTarget(self, action: #selector(DirectionsDetailViewController.close), for: .touchUpInside)
         backButton.isUserInteractionEnabled = true
 
-        titleLabel.textColor = .white
-        titleLabel.textAlignment = .center
-        titleLabel.backgroundColor = .clear
-        titleLabel.font = titleLabel.font.withSize(28)
         titleLabel.text = "¿Como llego a la estacion \(presenter.stationName.firstUppercased)?" // Localize
 
         for app in presenter.availableApps {

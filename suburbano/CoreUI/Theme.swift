@@ -72,28 +72,6 @@ struct Theme {
         static let chartLoader: CGFloat = 100
     }
 
-    enum FontName: String {
-        case montserrat = "Montserrat"
-        case openSansCondensed = "OpenSansCondensed"
-        case icons = "IconsCataloge"
-    }
-
-    enum FontStyle: String {
-        case none = ""
-        case medium = "Medium"
-        case bold = "Bold"
-    }
-
-    enum FontSize: CGFloat {
-        case icon = 40
-        case smallIcon = 30
-        case h1 = 20
-        case h2 = 18
-        case h3 = 16
-        case general = 14
-        case p = 12
-    }
-
     struct FontFactor {
         static let large: CGFloat = 2
     }

@@ -15,8 +15,9 @@ struct DisplayRouteInformation {
 }
 
 class RouteInfoItem: UIView {
-    private let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoTitle)
-    private let amountLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoAmount)
+
+    private let titleLabel = UILabel(fontStyle: .primary, alignment: .center, line: .multiline, color: .redClear)
+    private let amountLabel = UILabel(fontStyle: .primary, alignment: .center, line: .multiline, color: .darkClear)
 
     var title: String {
         get { return titleLabel.text ?? "" }

@@ -26,10 +26,10 @@ class RouteCalculatorViewController: UIViewController, PresentableView {
 
     private let presenter: RouteCalculatorPresenter
     private let departurePicker = UIPickerView()
-    private let departureLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoTitle)
+    private let departureLabel = UILabel(fontStyle: .primary, alignment: .center, line: .multiline, color: .redClear)
     private let arrivalPicker = UIPickerView()
     private let backView = UIView()
-    private let arrivalLabel = UIFactory.createLable(withTheme: UIThemes.Label.InfoTitle)
+    private let arrivalLabel = UILabel(fontStyle: .primary, alignment: .center, line: .multiline, color: .redClear)
     private let routeInfoView = RouteInfoView()
 
     weak var routeCameraDelegate: RouteCameraDelegate?

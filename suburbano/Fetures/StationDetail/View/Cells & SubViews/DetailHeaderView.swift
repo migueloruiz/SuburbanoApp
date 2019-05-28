@@ -14,7 +14,7 @@ class DetailHeaderView: UITableViewHeaderFooterView, ReusableView {
         static let addressHeigth: CGFloat = 20
     }
 
-    private let titleLabel = UIFactory.createLable(withTheme: UIThemes.Label.StaionDetailStation)
+    private let titleLabel = UILabel(fontStyle: .primary, alignment: .left, line: .oneLinne, color: .detail)
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 

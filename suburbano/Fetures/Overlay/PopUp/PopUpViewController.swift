@@ -19,8 +19,8 @@ class PopUpViewController: UIViewController {
     private var imageView = UIImageView()
     private lazy var closeButton = UIButton(style: .primary)
     private lazy var actionButton = UIButton(style: .secondary)
-    private lazy var titleLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupTitle)
-    private lazy var descripcionLabel: UILabel = UIFactory.createLable(withTheme: UIThemes.Label.PopupBody)
+    private lazy var titleLabel = UILabel(fontStyle: .primary, alignment: .center, line: .oneLinne, color: .secondary)
+    private lazy var descripcionLabel = UILabel(fontStyle: .primary, alignment: .center, line: .multiline, color: .primary)
     private lazy var buttonsContainer: UIStackView = UIStackView.with(distribution: .fillEqually, spacing: Theme.Offset.small)
     private(set) lazy var messageContiner = UIView(style: .card)
 

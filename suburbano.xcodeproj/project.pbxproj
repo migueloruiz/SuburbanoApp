@@ -271,6 +271,10 @@
 		868D2614214B361900700DE7 /* RouteCalculatorCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2613214B361900700DE7 /* RouteCalculatorCordinator.swift */; };
 		868D2616214B362500700DE7 /* RouteCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2615214B362500700DE7 /* RouteCalculatorViewController.swift */; };
 		868D2618214B3AD000700DE7 /* RouteCalculatorTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2617214B3AD000700DE7 /* RouteCalculatorTransition.swift */; };
+		86998937229CD50000029BF6 /* generic_loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 8642323F2283B226008C3A64 /* generic_loader.json */; };
+		86998938229CD50100029BF6 /* generic_loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 8642323F2283B226008C3A64 /* generic_loader.json */; };
+		86998939229CD50400029BF6 /* train-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 869E40E021371CC900EB133F /* train-loader.json */; };
+		8699893A229CD50400029BF6 /* train-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 869E40E021371CC900EB133F /* train-loader.json */; };
 		869E1D102134BA04004BE0A9 /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D0F2134BA04004BE0A9 /* CardRepository.swift */; };
 		869E1D122134C9D0004BE0A9 /* RealmAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */; };
 		869E2CC721250C9300B2FA9F /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CC621250C9300B2FA9F /* PopUpViewController.swift */; };
@@ -1661,7 +1665,9 @@
 				861CA18F227621F400DAF641 /* LaunchScreen.storyboard in Resources */,
 				861CA19B227621F400DAF641 /* GoogleService-Info.plist in Resources */,
 				861CA192227621F400DAF641 /* Colors.xcassets in Resources */,
+				8699893A229CD50400029BF6 /* train-loader.json in Resources */,
 				861CA193227621F400DAF641 /* Assets.xcassets in Resources */,
+				86998938229CD50100029BF6 /* generic_loader.json in Resources */,
 				861CA194227621F400DAF641 /* AppIcon.xcassets in Resources */,
 				86BA6F3122874299002E7AD2 /* Resilience.bundle in Resources */,
 				861CA195227621F400DAF641 /* Montserrat-Bold.ttf in Resources */,
@@ -1678,7 +1684,9 @@
 				8621A2E220F6FE0A00A2D8B1 /* LaunchScreen.storyboard in Resources */,
 				861CA106227621B300DAF641 /* GoogleService-Info.plist in Resources */,
 				8621A2E320F6FE0A00A2D8B1 /* Colors.xcassets in Resources */,
+				86998939229CD50400029BF6 /* train-loader.json in Resources */,
 				8621A2E420F6FE0A00A2D8B1 /* Assets.xcassets in Resources */,
+				86998937229CD50000029BF6 /* generic_loader.json in Resources */,
 				8621A2E520F6FE0A00A2D8B1 /* AppIcon.xcassets in Resources */,
 				86BA6F32228742B3002E7AD2 /* Resilience.bundle in Resources */,
 				869E2CCB2125347500B2FA9F /* Montserrat-Bold.ttf in Resources */,

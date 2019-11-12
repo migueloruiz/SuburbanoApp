@@ -33,6 +33,8 @@
 		8614724C2151DE660042BBB8 /* TrainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614724B2151DE660042BBB8 /* TrainRepository.swift */; };
 		8614C47D2238153E003E4A14 /* MapResurcesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47C2238153E003E4A14 /* MapResurcesUseCase.swift */; };
 		8614C47F2238177D003E4A14 /* MapResurcesUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8614C47E2238177D003E4A14 /* MapResurcesUseCaseImpl.swift */; };
+		8615230E234FFC1F003FB3B9 /* 10-Oct-2019-2053.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8615230D234FFC1E003FB3B9 /* 10-Oct-2019-2053.gpx */; };
+		86165CF6231987C7009834B2 /* 30-Aug-2019-1227.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86165CF5231987C7009834B2 /* 30-Aug-2019-1227.gpx */; };
 		86182AED2286698B007D6F9C /* StationsScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AEC2286698B007D6F9C /* StationsScheduleService.swift */; };
 		86182AEE2286698B007D6F9C /* StationsScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AEC2286698B007D6F9C /* StationsScheduleService.swift */; };
 		86182AF1228669B6007D6F9C /* StatiosSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86182AF0228669B6007D6F9C /* StatiosSchedule.swift */; };
@@ -219,11 +221,21 @@
 		8621A2E520F6FE0A00A2D8B1 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0680A20F0532A00A6B17A /* AppIcon.xcassets */; };
 		8621A2EF20F7046200A2D8B1 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A2ED20F7026400A2D8B1 /* AppConstants.swift */; };
 		8621A30720F70C2E00A2D8B1 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621A30620F70C2E00A2D8B1 /* BaseService.swift */; };
+		86230BB92310833D002378B3 /* 23-Aug-2019-1624.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86230BB82310833D002378B3 /* 23-Aug-2019-1624.gpx */; };
 		862517CC20F84D2F002F2048 /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517CB20F84D2F002F2048 /* RealmHandler.swift */; };
 		862517D120FD6ED0002F2048 /* UseCaseLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517D020FD6ED0002F2048 /* UseCaseLocator.swift */; };
 		862517E220FD7A32002F2048 /* DataBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862517E120FD7A32002F2048 /* DataBaseRepository.swift */; };
 		8631987922887ED2004F2751 /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B830ED213896F30063AC75 /* stations.json */; };
 		8631987A22887ED7004F2751 /* prices.json in Resources */ = {isa = PBXBuildFile; fileRef = 86593C29215020A100383445 /* prices.json */; };
+		86350FD5236114070095E974 /* alameda centro.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86350FD4236114070095E974 /* alameda centro.gpx */; };
+		86350FD72361158C0095E974 /* alamenda norte.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86350FD62361158C0095E974 /* alamenda norte.gpx */; };
+		86350FD9236117490095E974 /* hidalgo.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86350FD8236117480095E974 /* hidalgo.gpx */; };
+		86350FDB236119480095E974 /* hidalgo-centro.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86350FDA236119480095E974 /* hidalgo-centro.gpx */; };
+		86350FDD23611B250095E974 /* juarez.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86350FDC23611B250095E974 /* juarez.gpx */; };
+		86350FDF23611D520095E974 /* bellasa artes.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86350FDE23611D520095E974 /* bellasa artes.gpx */; };
+		86350FE123611FD40095E974 /* centro1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86350FE023611FD40095E974 /* centro1.gpx */; };
+		86350FE3236120B30095E974 /* centro2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86350FE2236120B30095E974 /* centro2.gpx */; };
+		86350FE5236125F80095E974 /* circuito alameda.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86350FE4236125F80095E974 /* circuito alameda.gpx */; };
 		86385C7521335D91002EA9DF /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7421335D91002EA9DF /* ColorCell.swift */; };
 		86385C7721335ED3002EA9DF /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C7621335ED3002EA9DF /* IconCell.swift */; };
 		86385C7A213362DC002EA9DF /* CardBalancePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385C79213362DC002EA9DF /* CardBalancePresenter.swift */; };
@@ -243,6 +255,7 @@
 		8646BE7C22762ACD00F2BAB0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8646BE7822762ACD00F2BAB0 /* Fabric.framework */; };
 		864A38C22102A343006AD3A0 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868D00B020F014F900C9D8B1 /* Mapbox.framework */; };
 		864C6FDD212CE7DE0072C26B /* IconsCataloge.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 864C6FDC212CE7DE0072C26B /* IconsCataloge.ttf */; };
+		864F4006235FBD8300AA566F /* MILITAR.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 864F4005235FBD8300AA566F /* MILITAR.gpx */; };
 		864FE4D221163E170053DFB1 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D121163E170053DFB1 /* UIFactory.swift */; };
 		864FE4D42116422A0053DFB1 /* UIThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FE4D32116422A0053DFB1 /* UIThemes.swift */; };
 		8652A35B2129074700ED1910 /* CardBalancePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652A35A2129074700ED1910 /* CardBalancePicker.swift */; };
@@ -262,15 +275,33 @@
 		86593C3E2150456400383445 /* ResilienceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3D2150456400383445 /* ResilienceHandler.swift */; };
 		86593C4021505CB500383445 /* RouteInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86593C3F21505CB500383445 /* RouteInfoView.swift */; };
 		86666A4D228740DB00963491 /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 86666A4C228740DB00963491 /* schedule.json */; };
+		8669D9D6231A9F2E00263A17 /* gym_licuadora.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8669D9D5231A9F2E00263A17 /* gym_licuadora.gpx */; };
 		867468E221018BAD00E4809D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867468E121018BAD00E4809D /* String.swift */; };
 		867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */; };
+		86751FAD236CBF9D0088D54B /* gym metro 2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86751FAC236CBF9D0088D54B /* gym metro 2.gpx */; };
+		86751FAF236DB3370088D54B /* 3parque2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86751FAE236DB3370088D54B /* 3parque2.gpx */; };
+		86751FB1236DB3890088D54B /* 3parque3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86751FB0236DB3890088D54B /* 3parque3.gpx */; };
+		86751FB3236DB3C70088D54B /* 3parqueP.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86751FB2236DB3C70088D54B /* 3parqueP.gpx */; };
+		86751FB5236DC49C0088D54B /* Municipal.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86751FB4236DC49C0088D54B /* Municipal.gpx */; };
+		86751FB7236DC52D0088D54B /* Municipal2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86751FB6236DC52D0088D54B /* Municipal2.gpx */; };
+		86751FB9236DC94C0088D54B /* 02-Nov-2019-1125.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86751FB8236DC94C0088D54B /* 02-Nov-2019-1125.gpx */; };
+		86751FBB236DC9CE0088D54B /* 02-Nov-2019-1127.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86751FBA236DC9CE0088D54B /* 02-Nov-2019-1127.gpx */; };
+		86751FBD236DCB210088D54B /* 02-Nov-2019-1132.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86751FBC236DCB200088D54B /* 02-Nov-2019-1132.gpx */; };
+		86751FBF236DE08E0088D54B /* municipallejos.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86751FBE236DE08D0088D54B /* municipallejos.gpx */; };
 		868128512123BAFA00A7A011 /* MoreBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128502123BAFA00A7A011 /* MoreBoardViewController.swift */; };
 		868128532123CA1B00A7A011 /* NSLayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */; };
+		8684280A230959DD002A116B /* gym_iglesia.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86842809230959DD002A116B /* gym_iglesia.gpx */; };
+		8684280C23095BAA002A116B /* 18-Aug-2019-0610.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8684280B23095BAA002A116B /* 18-Aug-2019-0610.gpx */; };
 		868D009620F00FFF00C9D8B1 /* suburbanoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D009520F00FFF00C9D8B1 /* suburbanoTests.swift */; };
 		868D00A120F00FFF00C9D8B1 /* suburbanoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D00A020F00FFF00C9D8B1 /* suburbanoUITests.swift */; };
 		868D2614214B361900700DE7 /* RouteCalculatorCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2613214B361900700DE7 /* RouteCalculatorCordinator.swift */; };
 		868D2616214B362500700DE7 /* RouteCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2615214B362500700DE7 /* RouteCalculatorViewController.swift */; };
 		868D2618214B3AD000700DE7 /* RouteCalculatorTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868D2617214B3AD000700DE7 /* RouteCalculatorTransition.swift */; };
+		8691A72C22FE4E3100DD7C52 /* ruta_parque.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8691A72B22FE4E3000DD7C52 /* ruta_parque.gpx */; };
+		8691A73122FEF31500DD7C52 /* ruta-quadra.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8691A73022FEF31500DD7C52 /* ruta-quadra.gpx */; };
+		8691A73222FEF31500DD7C52 /* ruta-quadra.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8691A73022FEF31500DD7C52 /* ruta-quadra.gpx */; };
+		8691A73422FFA02D00DD7C52 /* gym_metro.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8691A73322FFA02D00DD7C52 /* gym_metro.gpx */; };
+		8691A73522FFA02D00DD7C52 /* gym_metro.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8691A73322FFA02D00DD7C52 /* gym_metro.gpx */; };
 		86998937229CD50000029BF6 /* generic_loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 8642323F2283B226008C3A64 /* generic_loader.json */; };
 		86998938229CD50100029BF6 /* generic_loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 8642323F2283B226008C3A64 /* generic_loader.json */; };
 		86998939229CD50400029BF6 /* train-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 869E40E021371CC900EB133F /* train-loader.json */; };
@@ -284,7 +315,14 @@
 		869E2CCF21277D1600B2FA9F /* StationMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E2CCE21277D1600B2FA9F /* StationMapAnnotation.swift */; };
 		86A4939B21B84C7600490820 /* DetailChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939A21B84C7600490820 /* DetailChartCell.swift */; };
 		86A4939E21B850A100490820 /* WeekDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4939D21B850A100490820 /* WeekDays.swift */; };
+		86A5EC872326D0C6001A075D /* 09-Sep-2019-1525.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86A5EC862326D0C6001A075D /* 09-Sep-2019-1525.gpx */; };
+		86A5EC89232A9052001A075D /* 12-Sep-2019-1139.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86A5EC88232A9051001A075D /* 12-Sep-2019-1139.gpx */; };
+		86A5EC8B232A915B001A075D /* 12-Sep-2019-1144.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86A5EC8A232A9158001A075D /* 12-Sep-2019-1144.gpx */; };
+		86A5EC8D232A91D3001A075D /* 12-Sep-2019-1146.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86A5EC8C232A91D3001A075D /* 12-Sep-2019-1146.gpx */; };
 		86B1F49121094F7E00BFD6A9 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */; };
+		86B7E09F22FFBCD900C580B6 /* gym-casa.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86B7E09E22FFBCD900C580B6 /* gym-casa.gpx */; };
+		86B7E0A12300C48200C580B6 /* ruta-completa.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86B7E0A02300C48200C580B6 /* ruta-completa.gpx */; };
+		86B81D8B23039B760038B47A /* gym-casa2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86B81D8A23039B760038B47A /* gym-casa2.gpx */; };
 		86B830DC2137422A0063AC75 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DB2137422A0063AC75 /* LoadingView.swift */; };
 		86B830DE213765A80063AC75 /* AlertContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830DD213765A80063AC75 /* AlertContext.swift */; };
 		86B830E1213843FB0063AC75 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B830E0213843FB0063AC75 /* CardCell.swift */; };
@@ -318,11 +356,15 @@
 		86BD98592159CD680022DC6F /* StationChartDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD98582159CD680022DC6F /* StationChartDataRepository.swift */; };
 		86BD985D2159CFF20022DC6F /* StationChartsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985C2159CFF20022DC6F /* StationChartsService.swift */; };
 		86BD985F2159D7660022DC6F /* ChartHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD985E2159D7660022DC6F /* ChartHeader.swift */; };
+		86C2DC0B233C0DC90090E422 /* costanera.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86C2DC0A233C0DC90090E422 /* costanera.gpx */; };
+		86C2DC0D233C0FD60090E422 /* costanera2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86C2DC0C233C0FD60090E422 /* costanera2.gpx */; };
 		86CB75E4212B607200DBDB98 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E3212B607200DBDB98 /* IconPickerView.swift */; };
 		86CB75E6212B6BCD00DBDB98 /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */; };
 		86CB75E8212B834200DBDB98 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75E7212B834200DBDB98 /* UIDevice.swift */; };
 		86CB75EC212B9F8800DBDB98 /* IconInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB75EB212B9F8800DBDB98 /* IconInputView.swift */; };
 		86DF0C7322125E16008300FF /* ChartTimeBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF0C7222125E16008300FF /* ChartTimeBarCell.swift */; };
+		86DF2779232595E400176EB4 /* 3parque.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86DF2778232595E400176EB4 /* 3parque.gpx */; };
+		86DF277B2325B0CF00176EB4 /* 08-Sep-2019-1857.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86DF277A2325B0CF00176EB4 /* 08-Sep-2019-1857.gpx */; };
 		86EBA6D72279D92700B04A21 /* ChartBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6D62279D92700B04A21 /* ChartBar.swift */; };
 		86EBA6D82279DD7400B04A21 /* ChartBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6D62279D92700B04A21 /* ChartBar.swift */; };
 		86EBA6DD227A753C00B04A21 /* ChartAnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6DC227A753C00B04A21 /* ChartAnotation.swift */; };
@@ -333,6 +375,8 @@
 		86EBA6EC227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6EA227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift */; };
 		86EBA6EE227C664E00B04A21 /* CardBalancePresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6ED227C664E00B04A21 /* CardBalancePresenter+Analytics.swift */; };
 		86EBA6EF227C664E00B04A21 /* CardBalancePresenter+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBA6ED227C664E00B04A21 /* CardBalancePresenter+Analytics.swift */; };
+		86EFF02F2339866300AE076B /* 23-Sep-2019-1936.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86EFF02E2339866200AE076B /* 23-Sep-2019-1936.gpx */; };
+		86EFF03123398D3100AE076B /* 23-Sep-2019-2030.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86EFF03023398D3100AE076B /* 23-Sep-2019-2030.gpx */; };
 		86FC7454220D024D006311B3 /* ResponseAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7453220D024D006311B3 /* ResponseAlias.swift */; };
 		86FC7456220D1DE8006311B3 /* AppLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7455220D1DE8006311B3 /* AppLaunchArguments.swift */; };
 		86FC7458220D2257006311B3 /* DebugLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FC7457220D2257006311B3 /* DebugLogger.swift */; };
@@ -402,6 +446,8 @@
 		8614724B2151DE660042BBB8 /* TrainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainRepository.swift; sourceTree = "<group>"; };
 		8614C47C2238153E003E4A14 /* MapResurcesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResurcesUseCase.swift; sourceTree = "<group>"; };
 		8614C47E2238177D003E4A14 /* MapResurcesUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResurcesUseCaseImpl.swift; sourceTree = "<group>"; };
+		8615230D234FFC1E003FB3B9 /* 10-Oct-2019-2053.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "10-Oct-2019-2053.gpx"; sourceTree = "<group>"; };
+		86165CF5231987C7009834B2 /* 30-Aug-2019-1227.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "30-Aug-2019-1227.gpx"; path = "../../../../Downloads/30-Aug-2019-1227.gpx"; sourceTree = "<group>"; };
 		86182AEC2286698B007D6F9C /* StationsScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsScheduleService.swift; sourceTree = "<group>"; };
 		86182AF0228669B6007D6F9C /* StatiosSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatiosSchedule.swift; sourceTree = "<group>"; };
 		86182AF3228669D7007D6F9C /* RealmStatiosSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStatiosSchedule.swift; sourceTree = "<group>"; };
@@ -430,9 +476,19 @@
 		8621A2EB20F6FE0A00A2D8B1 /* suburbano-prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "suburbano-prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8621A2ED20F7026400A2D8B1 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		8621A30620F70C2E00A2D8B1 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		86230BB82310833D002378B3 /* 23-Aug-2019-1624.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "23-Aug-2019-1624.gpx"; path = "../../../../Downloads/23-Aug-2019-1624.gpx"; sourceTree = "<group>"; };
 		862517CB20F84D2F002F2048 /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
 		862517D020FD6ED0002F2048 /* UseCaseLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseLocator.swift; sourceTree = "<group>"; };
 		862517E120FD7A32002F2048 /* DataBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseRepository.swift; sourceTree = "<group>"; };
+		86350FD4236114070095E974 /* alameda centro.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "alameda centro.gpx"; sourceTree = "<group>"; };
+		86350FD62361158C0095E974 /* alamenda norte.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "alamenda norte.gpx"; sourceTree = "<group>"; };
+		86350FD8236117480095E974 /* hidalgo.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = hidalgo.gpx; sourceTree = "<group>"; };
+		86350FDA236119480095E974 /* hidalgo-centro.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "hidalgo-centro.gpx"; sourceTree = "<group>"; };
+		86350FDC23611B250095E974 /* juarez.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = juarez.gpx; sourceTree = "<group>"; };
+		86350FDE23611D520095E974 /* bellasa artes.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "bellasa artes.gpx"; sourceTree = "<group>"; };
+		86350FE023611FD40095E974 /* centro1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = centro1.gpx; sourceTree = "<group>"; };
+		86350FE2236120B30095E974 /* centro2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = centro2.gpx; sourceTree = "<group>"; };
+		86350FE4236125F80095E974 /* circuito alameda.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "circuito alameda.gpx"; sourceTree = "<group>"; };
 		86385C7421335D91002EA9DF /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		86385C7621335ED3002EA9DF /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		86385C79213362DC002EA9DF /* CardBalancePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalancePresenter.swift; sourceTree = "<group>"; };
@@ -453,6 +509,7 @@
 		864A38BE2102A2A4006AD3A0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		864A38BF2102A2A4006AD3A0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		864C6FDC212CE7DE0072C26B /* IconsCataloge.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IconsCataloge.ttf; sourceTree = "<group>"; };
+		864F4005235FBD8300AA566F /* MILITAR.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MILITAR.gpx; sourceTree = "<group>"; };
 		864FE4D121163E170053DFB1 /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
 		864FE4D32116422A0053DFB1 /* UIThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIThemes.swift; sourceTree = "<group>"; };
 		8652A35A2129074700ED1910 /* CardBalancePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalancePicker.swift; sourceTree = "<group>"; };
@@ -479,10 +536,23 @@
 		86695E1E20F6D50600F74150 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		86695E2020F6E65900F74150 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		86695E2220F6E67C00F74150 /* WebResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebResources.swift; sourceTree = "<group>"; };
+		8669D9D5231A9F2E00263A17 /* gym_licuadora.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gym_licuadora.gpx; sourceTree = "<group>"; };
 		867468E121018BAD00E4809D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		867468E3210194A700E4809D /* OpenSansCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSansCondensed-Bold.ttf"; path = "Open_Sans_Condensed/OpenSansCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		86751FAC236CBF9D0088D54B /* gym metro 2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "gym metro 2.gpx"; sourceTree = "<group>"; };
+		86751FAE236DB3370088D54B /* 3parque2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 3parque2.gpx; sourceTree = "<group>"; };
+		86751FB0236DB3890088D54B /* 3parque3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 3parque3.gpx; sourceTree = "<group>"; };
+		86751FB2236DB3C70088D54B /* 3parqueP.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 3parqueP.gpx; sourceTree = "<group>"; };
+		86751FB4236DC49C0088D54B /* Municipal.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Municipal.gpx; sourceTree = "<group>"; };
+		86751FB6236DC52D0088D54B /* Municipal2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Municipal2.gpx; sourceTree = "<group>"; };
+		86751FB8236DC94C0088D54B /* 02-Nov-2019-1125.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "02-Nov-2019-1125.gpx"; sourceTree = "<group>"; };
+		86751FBA236DC9CE0088D54B /* 02-Nov-2019-1127.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "02-Nov-2019-1127.gpx"; sourceTree = "<group>"; };
+		86751FBC236DCB200088D54B /* 02-Nov-2019-1132.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "02-Nov-2019-1132.gpx"; sourceTree = "<group>"; };
+		86751FBE236DE08D0088D54B /* municipallejos.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = municipallejos.gpx; sourceTree = "<group>"; };
 		868128502123BAFA00A7A011 /* MoreBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBoardViewController.swift; sourceTree = "<group>"; };
 		868128522123CA1B00A7A011 /* NSLayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutAnchor.swift; sourceTree = "<group>"; };
+		86842809230959DD002A116B /* gym_iglesia.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gym_iglesia.gpx; sourceTree = "<group>"; };
+		8684280B23095BAA002A116B /* 18-Aug-2019-0610.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "18-Aug-2019-0610.gpx"; sourceTree = "<group>"; };
 		868D008020F00FFE00C9D8B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		868D008220F00FFE00C9D8B1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		868D008A20F00FFF00C9D8B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -497,6 +567,9 @@
 		868D2613214B361900700DE7 /* RouteCalculatorCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCalculatorCordinator.swift; sourceTree = "<group>"; };
 		868D2615214B362500700DE7 /* RouteCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCalculatorViewController.swift; sourceTree = "<group>"; };
 		868D2617214B3AD000700DE7 /* RouteCalculatorTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCalculatorTransition.swift; sourceTree = "<group>"; };
+		8691A72B22FE4E3000DD7C52 /* ruta_parque.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ruta_parque.gpx; sourceTree = "<group>"; };
+		8691A73022FEF31500DD7C52 /* ruta-quadra.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "ruta-quadra.gpx"; sourceTree = "<group>"; };
+		8691A73322FFA02D00DD7C52 /* gym_metro.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gym_metro.gpx; sourceTree = "<group>"; };
 		869E1D0F2134BA04004BE0A9 /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
 		869E1D112134C9D0004BE0A9 /* RealmAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAppDelegate.swift; sourceTree = "<group>"; };
 		869E1D132134CEA0004BE0A9 /* suburbano.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = suburbano.entitlements; sourceTree = "<group>"; };
@@ -508,7 +581,14 @@
 		869E40E021371CC900EB133F /* train-loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "train-loader.json"; sourceTree = "<group>"; };
 		86A4939A21B84C7600490820 /* DetailChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailChartCell.swift; sourceTree = "<group>"; };
 		86A4939D21B850A100490820 /* WeekDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDays.swift; sourceTree = "<group>"; };
+		86A5EC862326D0C6001A075D /* 09-Sep-2019-1525.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "09-Sep-2019-1525.gpx"; sourceTree = "<group>"; };
+		86A5EC88232A9051001A075D /* 12-Sep-2019-1139.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "12-Sep-2019-1139.gpx"; sourceTree = "<group>"; };
+		86A5EC8A232A9158001A075D /* 12-Sep-2019-1144.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "12-Sep-2019-1144.gpx"; sourceTree = "<group>"; };
+		86A5EC8C232A91D3001A075D /* 12-Sep-2019-1146.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "12-Sep-2019-1146.gpx"; sourceTree = "<group>"; };
 		86B1F49021094F7E00BFD6A9 /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
+		86B7E09E22FFBCD900C580B6 /* gym-casa.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "gym-casa.gpx"; sourceTree = "<group>"; };
+		86B7E0A02300C48200C580B6 /* ruta-completa.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "ruta-completa.gpx"; sourceTree = "<group>"; };
+		86B81D8A23039B760038B47A /* gym-casa2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "gym-casa2.gpx"; sourceTree = "<group>"; };
 		86B830DB2137422A0063AC75 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		86B830DD213765A80063AC75 /* AlertContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContext.swift; sourceTree = "<group>"; };
 		86B830E0213843FB0063AC75 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
@@ -549,16 +629,22 @@
 		86C0682120F41FF400A6B17A /* ApplicationCoordinatorAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorAppDelegate.swift; sourceTree = "<group>"; };
 		86C0682320F4222D00A6B17A /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		86C0682720F4227900A6B17A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		86C2DC0A233C0DC90090E422 /* costanera.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = costanera.gpx; sourceTree = "<group>"; };
+		86C2DC0C233C0FD60090E422 /* costanera2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = costanera2.gpx; sourceTree = "<group>"; };
 		86CB75E3212B607200DBDB98 /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		86CB75E5212B6BCD00DBDB98 /* CustomeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeTextField.swift; sourceTree = "<group>"; };
 		86CB75E7212B834200DBDB98 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		86CB75EB212B9F8800DBDB98 /* IconInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInputView.swift; sourceTree = "<group>"; };
 		86DF0C7222125E16008300FF /* ChartTimeBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTimeBarCell.swift; sourceTree = "<group>"; };
+		86DF2778232595E400176EB4 /* 3parque.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 3parque.gpx; sourceTree = "<group>"; };
+		86DF277A2325B0CF00176EB4 /* 08-Sep-2019-1857.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "08-Sep-2019-1857.gpx"; sourceTree = "<group>"; };
 		86EBA6D62279D92700B04A21 /* ChartBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBar.swift; sourceTree = "<group>"; };
 		86EBA6DC227A753C00B04A21 /* ChartAnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAnotation.swift; sourceTree = "<group>"; };
 		86EBA6E3227A904800B04A21 /* DetailTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableHeader.swift; sourceTree = "<group>"; };
 		86EBA6EA227C62E400B04A21 /* DirectionsDetailPresenter+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DirectionsDetailPresenter+Analytics.swift"; sourceTree = "<group>"; };
 		86EBA6ED227C664E00B04A21 /* CardBalancePresenter+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardBalancePresenter+Analytics.swift"; sourceTree = "<group>"; };
+		86EFF02E2339866200AE076B /* 23-Sep-2019-1936.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "23-Sep-2019-1936.gpx"; sourceTree = "<group>"; };
+		86EFF03023398D3100AE076B /* 23-Sep-2019-2030.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "23-Sep-2019-2030.gpx"; sourceTree = "<group>"; };
 		86F14E4820F43F6D00D1CF7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86F14E4A20F43FE300D1CF7D /* UITabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBar.swift; sourceTree = "<group>"; };
 		86F14E4C20F4500E00D1CF7D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -1083,6 +1169,48 @@
 		868D007F20F00FFE00C9D8B1 /* suburbano */ = {
 			isa = PBXGroup;
 			children = (
+				86751FBE236DE08D0088D54B /* municipallejos.gpx */,
+				86751FBC236DCB200088D54B /* 02-Nov-2019-1132.gpx */,
+				86751FBA236DC9CE0088D54B /* 02-Nov-2019-1127.gpx */,
+				86751FB8236DC94C0088D54B /* 02-Nov-2019-1125.gpx */,
+				86751FB6236DC52D0088D54B /* Municipal2.gpx */,
+				86751FB4236DC49C0088D54B /* Municipal.gpx */,
+				86751FB2236DB3C70088D54B /* 3parqueP.gpx */,
+				86751FB0236DB3890088D54B /* 3parque3.gpx */,
+				86751FAE236DB3370088D54B /* 3parque2.gpx */,
+				86751FAC236CBF9D0088D54B /* gym metro 2.gpx */,
+				86350FE4236125F80095E974 /* circuito alameda.gpx */,
+				86350FE2236120B30095E974 /* centro2.gpx */,
+				86350FE023611FD40095E974 /* centro1.gpx */,
+				86350FDE23611D520095E974 /* bellasa artes.gpx */,
+				86350FDC23611B250095E974 /* juarez.gpx */,
+				86350FDA236119480095E974 /* hidalgo-centro.gpx */,
+				86350FD8236117480095E974 /* hidalgo.gpx */,
+				86350FD62361158C0095E974 /* alamenda norte.gpx */,
+				86350FD4236114070095E974 /* alameda centro.gpx */,
+				864F4005235FBD8300AA566F /* MILITAR.gpx */,
+				8615230D234FFC1E003FB3B9 /* 10-Oct-2019-2053.gpx */,
+				86C2DC0C233C0FD60090E422 /* costanera2.gpx */,
+				86C2DC0A233C0DC90090E422 /* costanera.gpx */,
+				86EFF03023398D3100AE076B /* 23-Sep-2019-2030.gpx */,
+				86EFF02E2339866200AE076B /* 23-Sep-2019-1936.gpx */,
+				86A5EC8C232A91D3001A075D /* 12-Sep-2019-1146.gpx */,
+				86A5EC8A232A9158001A075D /* 12-Sep-2019-1144.gpx */,
+				86A5EC88232A9051001A075D /* 12-Sep-2019-1139.gpx */,
+				86A5EC862326D0C6001A075D /* 09-Sep-2019-1525.gpx */,
+				86DF277A2325B0CF00176EB4 /* 08-Sep-2019-1857.gpx */,
+				86DF2778232595E400176EB4 /* 3parque.gpx */,
+				8669D9D5231A9F2E00263A17 /* gym_licuadora.gpx */,
+				86165CF5231987C7009834B2 /* 30-Aug-2019-1227.gpx */,
+				86230BB82310833D002378B3 /* 23-Aug-2019-1624.gpx */,
+				8684280B23095BAA002A116B /* 18-Aug-2019-0610.gpx */,
+				86842809230959DD002A116B /* gym_iglesia.gpx */,
+				86B7E0A02300C48200C580B6 /* ruta-completa.gpx */,
+				86B81D8A23039B760038B47A /* gym-casa2.gpx */,
+				86B7E09E22FFBCD900C580B6 /* gym-casa.gpx */,
+				8691A73322FFA02D00DD7C52 /* gym_metro.gpx */,
+				8691A72B22FE4E3000DD7C52 /* ruta_parque.gpx */,
+				8691A73022FEF31500DD7C52 /* ruta-quadra.gpx */,
 				135366F4214C01110022B042 /* Configurations */,
 				86C0681220F4140E00A6B17A /* AppDelegates */,
 				868D00B220F0167400C9D8B1 /* Assets */,
@@ -1665,6 +1793,7 @@
 				861CA18F227621F400DAF641 /* LaunchScreen.storyboard in Resources */,
 				861CA19B227621F400DAF641 /* GoogleService-Info.plist in Resources */,
 				861CA192227621F400DAF641 /* Colors.xcassets in Resources */,
+				8691A73222FEF31500DD7C52 /* ruta-quadra.gpx in Resources */,
 				8699893A229CD50400029BF6 /* train-loader.json in Resources */,
 				861CA193227621F400DAF641 /* Assets.xcassets in Resources */,
 				86998938229CD50100029BF6 /* generic_loader.json in Resources */,
@@ -1674,6 +1803,7 @@
 				861CA19A227621F400DAF641 /* OpenSansCondensed-Bold.ttf in Resources */,
 				861CA19C227621F400DAF641 /* IconsCataloge.ttf in Resources */,
 				861CA19E227621F400DAF641 /* Montserrat-Medium.ttf in Resources */,
+				8691A73522FFA02D00DD7C52 /* gym_metro.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1681,18 +1811,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A5EC8D232A91D3001A075D /* 12-Sep-2019-1146.gpx in Resources */,
 				8621A2E220F6FE0A00A2D8B1 /* LaunchScreen.storyboard in Resources */,
+				86350FD9236117490095E974 /* hidalgo.gpx in Resources */,
 				861CA106227621B300DAF641 /* GoogleService-Info.plist in Resources */,
+				86751FBB236DC9CE0088D54B /* 02-Nov-2019-1127.gpx in Resources */,
+				86165CF6231987C7009834B2 /* 30-Aug-2019-1227.gpx in Resources */,
 				8621A2E320F6FE0A00A2D8B1 /* Colors.xcassets in Resources */,
 				86998939229CD50400029BF6 /* train-loader.json in Resources */,
+				86B81D8B23039B760038B47A /* gym-casa2.gpx in Resources */,
+				86751FB7236DC52D0088D54B /* Municipal2.gpx in Resources */,
+				8669D9D6231A9F2E00263A17 /* gym_licuadora.gpx in Resources */,
+				86751FAD236CBF9D0088D54B /* gym metro 2.gpx in Resources */,
+				8684280C23095BAA002A116B /* 18-Aug-2019-0610.gpx in Resources */,
+				86751FBD236DCB210088D54B /* 02-Nov-2019-1132.gpx in Resources */,
+				86751FB1236DB3890088D54B /* 3parque3.gpx in Resources */,
+				86A5EC872326D0C6001A075D /* 09-Sep-2019-1525.gpx in Resources */,
+				86C2DC0B233C0DC90090E422 /* costanera.gpx in Resources */,
+				86A5EC8B232A915B001A075D /* 12-Sep-2019-1144.gpx in Resources */,
+				8691A73422FFA02D00DD7C52 /* gym_metro.gpx in Resources */,
+				86EFF02F2339866300AE076B /* 23-Sep-2019-1936.gpx in Resources */,
+				86350FDB236119480095E974 /* hidalgo-centro.gpx in Resources */,
+				86EFF03123398D3100AE076B /* 23-Sep-2019-2030.gpx in Resources */,
+				86B7E0A12300C48200C580B6 /* ruta-completa.gpx in Resources */,
+				8684280A230959DD002A116B /* gym_iglesia.gpx in Resources */,
 				8621A2E420F6FE0A00A2D8B1 /* Assets.xcassets in Resources */,
+				86DF277B2325B0CF00176EB4 /* 08-Sep-2019-1857.gpx in Resources */,
+				86C2DC0D233C0FD60090E422 /* costanera2.gpx in Resources */,
+				86751FB5236DC49C0088D54B /* Municipal.gpx in Resources */,
+				86A5EC89232A9052001A075D /* 12-Sep-2019-1139.gpx in Resources */,
+				8615230E234FFC1F003FB3B9 /* 10-Oct-2019-2053.gpx in Resources */,
+				86751FB3236DB3C70088D54B /* 3parqueP.gpx in Resources */,
 				86998937229CD50000029BF6 /* generic_loader.json in Resources */,
+				86350FD5236114070095E974 /* alameda centro.gpx in Resources */,
+				864F4006235FBD8300AA566F /* MILITAR.gpx in Resources */,
 				8621A2E520F6FE0A00A2D8B1 /* AppIcon.xcassets in Resources */,
+				86DF2779232595E400176EB4 /* 3parque.gpx in Resources */,
 				86BA6F32228742B3002E7AD2 /* Resilience.bundle in Resources */,
+				86751FB9236DC94C0088D54B /* 02-Nov-2019-1125.gpx in Resources */,
+				86350FE3236120B30095E974 /* centro2.gpx in Resources */,
+				86230BB92310833D002378B3 /* 23-Aug-2019-1624.gpx in Resources */,
+				86350FDF23611D520095E974 /* bellasa artes.gpx in Resources */,
 				869E2CCB2125347500B2FA9F /* Montserrat-Bold.ttf in Resources */,
+				86751FBF236DE08E0088D54B /* municipallejos.gpx in Resources */,
+				8691A72C22FE4E3100DD7C52 /* ruta_parque.gpx in Resources */,
+				86B7E09F22FFBCD900C580B6 /* gym-casa.gpx in Resources */,
 				867468E4210194A700E4809D /* OpenSansCondensed-Bold.ttf in Resources */,
+				8691A73122FEF31500DD7C52 /* ruta-quadra.gpx in Resources */,
+				86350FD72361158C0095E974 /* alamenda norte.gpx in Resources */,
 				864C6FDD212CE7DE0072C26B /* IconsCataloge.ttf in Resources */,
+				86751FAF236DB3370088D54B /* 3parque2.gpx in Resources */,
+				86350FE5236125F80095E974 /* circuito alameda.gpx in Resources */,
 				8611AF83210186100002663B /* Montserrat-Medium.ttf in Resources */,
+				86350FE123611FD40095E974 /* centro1.gpx in Resources */,
+				86350FDD23611B250095E974 /* juarez.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

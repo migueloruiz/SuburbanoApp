@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="Open GPX Tracker for iOS">
+	<wpt lat="-33.418850" lon="-70.582059">
+		<time>2019-08-14T01:27:03Z</time>
+		<name>21:27:03</name>
+		<desc>13 Aug 2019 21:27:03</desc>
+	</wpt>
+	<wpt lat="-33.418764" lon="-70.582099">
+		<time>2019-08-14T01:27:05Z</time>
+		<name>21:27:05</name>
+		<desc>13 Aug 2019 21:27:05</desc>
+	</wpt>
+	<wpt lat="-33.418825" lon="-70.581989">
+		<time>2019-08-14T01:27:07Z</time>
+		<name>21:27:07</name>
+		<desc>13 Aug 2019 21:27:07</desc>
+	</wpt>
+	<wpt lat="-33.418809" lon="-70.582125">
+		<time>2019-08-14T01:27:09Z</time>
+		<name>21:27:09</name>
+		<desc>13 Aug 2019 21:27:09</desc>
+	</wpt>
+	<wpt lat="-33.418699" lon="-70.582022">
+		<time>2019-08-14T01:27:10Z</time>
+		<name>21:27:10</name>
+		<desc>13 Aug 2019 21:27:10</desc>
+	</wpt>
+	<wpt lat="-33.418728" lon="-70.582154">
+		<time>2019-08-14T01:27:19Z</time>
+		<name>21:27:19</name>
+		<desc>13 Aug 2019 21:27:19</desc>
+	</wpt>
+	<wpt lat="-33.418864" lon="-70.582100">
+		<time>2019-08-14T01:27:20Z</time>
+		<name>21:27:20</name>
+		<desc>13 Aug 2019 21:27:20</desc>
+	</wpt>
+	<trk>
+	</trk>
+	<trk>
+	</trk>
+</gpx>

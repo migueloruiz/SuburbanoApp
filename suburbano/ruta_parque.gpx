@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="Open GPX Tracker for iOS">
+	<wpt lat="-33.417939" lon="-70.581383">
+		<time>2019-08-10T00:55:39Z</time>
+		<name>20:55:39</name>
+		<desc>9 Aug 2019 20:55:39</desc>
+	</wpt>
+	<wpt lat="-33.418064" lon="-70.581312">
+		<time>2019-08-10T00:55:50Z</time>
+		<name>20:55:50</name>
+		<desc>9 Aug 2019 20:55:50</desc>
+	</wpt>
+	<wpt lat="-33.417867" lon="-70.581228">
+		<time>2019-08-10T00:55:58Z</time>
+		<name>20:55:58</name>
+		<desc>9 Aug 2019 20:55:58</desc>
+	</wpt>
+	<wpt lat="-33.417984" lon="-70.581160">
+		<time>2019-08-10T00:56:06Z</time>
+		<name>20:56:06</name>
+		<desc>9 Aug 2019 20:56:06</desc>
+	</wpt>
+	<wpt lat="-33.418153" lon="-70.581018">
+		<time>2019-08-10T00:56:10Z</time>
+		<name>20:56:10</name>
+		<desc>9 Aug 2019 20:56:10</desc>
+	</wpt>
+	<wpt lat="-33.417930" lon="-70.581267">
+		<time>2019-08-10T00:56:14Z</time>
+		<name>20:56:14</name>
+		<desc>9 Aug 2019 20:56:14</desc>
+	</wpt>
+	<wpt lat="-33.417766" lon="-70.581380">
+		<time>2019-08-10T00:56:18Z</time>
+		<name>20:56:18</name>
+		<desc>9 Aug 2019 20:56:18</desc>
+	</wpt>
+	<wpt lat="-33.417988" lon="-70.581226">
+		<time>2019-08-10T00:56:21Z</time>
+		<name>20:56:21</name>
+		<desc>9 Aug 2019 20:56:21</desc>
+	</wpt>
+	<wpt lat="-33.417884" lon="-70.581154">
+		<time>2019-08-10T00:56:23Z</time>
+		<name>20:56:23</name>
+		<desc>9 Aug 2019 20:56:23</desc>
+	</wpt>
+	<wpt lat="-33.418048" lon="-70.581229">
+		<time>2019-08-10T00:56:25Z</time>
+		<name>20:56:25</name>
+		<desc>9 Aug 2019 20:56:25</desc>
+	</wpt>
+	<wpt lat="-33.417997" lon="-70.581379">
+		<time>2019-08-10T00:56:30Z</time>
+		<name>20:56:30</name>
+		<desc>9 Aug 2019 20:56:30</desc>
+	</wpt>
+	<wpt lat="-33.417848" lon="-70.581324">
+		<time>2019-08-10T00:56:33Z</time>
+		<name>20:56:33</name>
+		<desc>9 Aug 2019 20:56:33</desc>
+	</wpt>
+	<trk>
+	</trk>
+</gpx>
